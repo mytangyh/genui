@@ -1,24 +1,25 @@
 import { generateUiFlow } from "../generate";
 import { startSessionFlow } from "../session";
 import { v4 as uuidv4 } from "uuid";
-import { sessionCache } from "../cache";
+import { FakeCacheService } from "./fake-cache-service";
 
 jest.mock("uuid", () => ({
   v4: jest.fn(),
 }));
 
 describe("generateUiFlow", () => {
-  beforeEach(() => {
-    sessionCache.clear();
-  });
-
   it("should throw an error for an invalid session ID", async () => {
+    const fakeCache = new FakeCacheService();
+
     await expect(async () => {
-      const stream = generateUiFlow.stream({
-        sessionId: "invalid-session-id",
-        conversation: [],
-      });
-      for await (const chunk of await stream.output) {
+      const result = await generateUiFlow.stream(
+        {
+          sessionId: "invalid-session-id",
+          conversation: [],
+        },
+        { context: { cache: fakeCache } }
+      );
+      for await (const _chunk of result.stream) {
         // This should not be reached.
       }
     }).rejects.toThrow("Invalid session ID");
@@ -45,10 +46,15 @@ describe("generateUiFlow", () => {
         ],
       },
     };
-    await startSessionFlow.run({
-      protocolVersion: "0.1.0",
-      catalog,
-    });
+
+    const fakeCache = new FakeCacheService();
+    await startSessionFlow.run(
+      {
+        protocolVersion: "0.1.0",
+        catalog,
+      },
+      { context: { cache: fakeCache } }
+    );
 
     const conversation = [
       {
@@ -56,10 +62,13 @@ describe("generateUiFlow", () => {
         content: [{ text: "Hello" }],
       },
     ];
-    const result = await generateUiFlow.run({
-      sessionId: mockSessionId,
-      conversation,
-    });
+    const result = await generateUiFlow.run(
+      {
+        sessionId: mockSessionId,
+        conversation,
+      },
+      { context: { cache: fakeCache } }
+    );
 
     expect(result).toBeDefined();
   });

@@ -2,36 +2,60 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import { getFirestore } from '@genkit-ai/google-cloud';
-import { logger } from './logger';
-
-const db = getFirestore();
-const sessionCollection = db.collection('sessions');
+import { getFirestore } from "firebase-admin/firestore";
+import { logger } from "./logger";
 
 /**
- * Stores the catalog for a given session ID in Firestore.
- * @param sessionId The unique identifier for the session.
- * @param catalog The widget catalog to store.
+ * Defines the interface for a cache service.
  */
-export async function setSessionCache(
-  sessionId: string,
-  catalog: any
-): Promise<void> {
-  logger.debug(`Storing catalog in Firestore for session ID: ${sessionId}`);
-  await sessionCollection.doc(sessionId).set({ catalog });
+export interface ICacheService {
+  setSessionCache(
+    sessionId: string,
+    catalog: Record<string, unknown>
+  ): Promise<void>;
+  getSessionCache(sessionId: string): Promise<Record<string, unknown> | null>;
 }
 
 /**
- * Retrieves the catalog for a given session ID from Firestore.
- * @param sessionId The unique identifier for the session.
- * @returns The catalog, or null if the session is not found.
+ * Defines the shape of the context object for flows.
  */
-export async function getSessionCache(sessionId: string): Promise<any | null> {
-  logger.debug(`Retrieving catalog from Firestore for session ID: ${sessionId}`);
-  const doc = await sessionCollection.doc(sessionId).get();
-  if (!doc.exists) {
-    logger.warn(`No session document found for ID: ${sessionId}`);
-    return null;
+export interface CacheFlowContext {
+  cache?: ICacheService;
+}
+
+/**
+ * A cache service that uses Firestore for storage.
+ */
+class FirestoreCacheService implements ICacheService {
+  private db = getFirestore();
+  private sessionCollection = this.db.collection("sessions");
+
+  constructor() {
+    this.db.settings({ ignoreUndefinedProperties: true });
   }
-  return doc.data()?.catalog;
+
+  async setSessionCache(
+    sessionId: string,
+    catalog: Record<string, unknown>
+  ): Promise<void> {
+    logger.debug(`Storing catalog in Firestore for session ID: ${sessionId}`);
+    await this.sessionCollection.doc(sessionId).set({ catalog });
+  }
+
+  async getSessionCache(
+    sessionId: string
+  ): Promise<Record<string, unknown> | null> {
+    logger.debug(
+      `Retrieving catalog from Firestore for session ID: ${sessionId}`
+    );
+    const doc = await this.sessionCollection.doc(sessionId).get();
+    if (!doc.exists) {
+      logger.warn(`No session document found for ID: ${sessionId}`);
+      return null;
+    }
+    return doc.data()?.catalog as Record<string, unknown> | null;
+  }
 }
+
+// Export a singleton instance for the main application to use.
+export const cacheService: ICacheService = new FirestoreCacheService();

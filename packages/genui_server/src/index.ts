@@ -2,5 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-export { generateUiFlow } from './generate';
-export { startSessionFlow } from './session';
+import { startFlowServer } from "@genkit-ai/express";
+import { generateUiFlow } from "./generate";
+import { startSessionFlow } from "./session";
+
+startFlowServer({
+  flows: [generateUiFlow, startSessionFlow],
+});
