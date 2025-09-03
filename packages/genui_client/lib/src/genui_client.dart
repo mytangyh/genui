@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+import 'package:dart_schema_builder/dart_schema_builder.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
@@ -13,29 +14,53 @@ class GenUIClient {
   final String _baseUrl;
   final http.Client _client;
 
-  GenUIClient({String baseUrl = 'http://localhost:3405'})
+  GenUIClient({String baseUrl = 'http://localhost:3400'})
     : _baseUrl = baseUrl,
       _client = http.Client();
 
   @visibleForTesting
   GenUIClient.withClient(
     http.Client client, {
-    String baseUrl = 'http://localhost:3405',
+    String baseUrl = 'http://localhost:3400',
   }) : _baseUrl = baseUrl,
        _client = client;
 
   Future<String> startSession(Catalog catalog) async {
+    final catalogSchema = catalog.schema;
+    genUiLogger.info('Starting session with catalog schema: $catalogSchema');
+
+    Object? toEncodable(Object? object) {
+      if (object is Schema) {
+        return object.toJson();
+      }
+      return object;
+    }
+
+    final requestBody = jsonEncode({
+      'protocolVersion': '0.1.0',
+      'catalog': catalogSchema,
+    }, toEncodable: toEncodable);
+    genUiLogger.info('Request body: $requestBody');
     final response = await _client.post(
       Uri.parse('$_baseUrl/startSession'),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'protocolVersion': '0.1.0', 'catalog': catalog.schema}),
+      body: requestBody,
     );
 
+    genUiLogger.info('Response status code: ${response.statusCode}');
     if (response.statusCode == 200) {
       return (jsonDecode(response.body) as Map<String, Object?>)['result']
           as String;
     } else {
-      throw Exception('Failed to start session: ${response.body}');
+      var prettyJson = '';
+      try {
+        prettyJson = const JsonEncoder.withIndent(
+          '  ',
+        ).convert(jsonDecode(response.body));
+      } on FormatException {
+        prettyJson = response.body;
+      }
+      throw Exception('Failed to start session: $prettyJson');
     }
   }
 

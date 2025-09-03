@@ -15,7 +15,7 @@ export 'src/model/catalog_item.dart' show CatalogItem, WidgetValueStore;
 export 'src/model/chat_box.dart';
 export 'src/model/chat_message.dart';
 export 'src/model/ui_models.dart' show UiDefinition;
+export 'src/primitives/logging.dart';
 export 'src/ui_agent.dart';
 export 'src/widgets/chat_widget.dart' show GenUiChat;
 export 'src/widgets/conversation_widget.dart';
-export 'src/primitives/logging.dart';

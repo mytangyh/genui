@@ -31,25 +31,26 @@ class WidgetValueStore {
 }
 
 /// A callback that builds a widget for a catalog item.
-typedef CatalogWidgetBuilder = Widget Function({
-  /// The actual deserialized JSON data for this widget. The format of this
-  /// data will exactly match [CatalogItem.dataSchema].
-  required Object data,
+typedef CatalogWidgetBuilder =
+    Widget Function({
+      /// The actual deserialized JSON data for this widget. The format of this
+      /// data will exactly match [CatalogItem.dataSchema].
+      required Object data,
 
-  /// The ID of this widget.
-  required String id,
+      /// The ID of this widget.
+      required String id,
 
-  /// A function used to build a child based on the given ID.
-  required ChildBuilderCallback buildChild,
+      /// A function used to build a child based on the given ID.
+      required ChildBuilderCallback buildChild,
 
-  /// A function used to dispatch an event.
-  required DispatchEventCallback dispatchEvent,
+      /// A function used to dispatch an event.
+      required DispatchEventCallback dispatchEvent,
 
-  required BuildContext context,
+      required BuildContext context,
 
-  /// The current values of all widgets on the surface.
-  required JsonMap values,
-});
+      /// The current values of all widgets on the surface.
+      required JsonMap values,
+    });
 
 /// Defines a UI component, its schema, and how to build its widget.
 ///

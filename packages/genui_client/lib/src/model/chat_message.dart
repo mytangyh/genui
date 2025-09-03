@@ -118,9 +118,9 @@ final class UserMessage extends ChatMessage {
 
   @override
   JsonMap toJson() => {
-        'role': 'user',
-        'parts': parts.map((p) => p.toJson()).toList(),
-      };
+    'role': 'user',
+    'parts': parts.map((p) => p.toJson()).toList(),
+  };
 }
 
 /// A message representing a text response from the AI.
@@ -135,18 +135,19 @@ final class AiTextMessage extends ChatMessage {
   final List<MessagePart> parts;
   @override
   JsonMap toJson() => {
-        'role': 'model',
-        'parts': parts.map((p) => p.toJson()).toList(),
-      };
+    'role': 'model',
+    'parts': parts.map((p) => p.toJson()).toList(),
+  };
 }
 
 /// A message representing a UI response from the AI.
 final class AiUiMessage extends ChatMessage {
   /// Creates an [AiUiMessage] with the given UI [definition].
   AiUiMessage({required this.definition, String? surfaceId})
-      : uiKey = UniqueKey(),
-        surfaceId = surfaceId ??
-            ValueKey(DateTime.now().toIso8601String()).hashCode.toString();
+    : uiKey = UniqueKey(),
+      surfaceId =
+          surfaceId ??
+          ValueKey(DateTime.now().toIso8601String()).hashCode.toString();
 
   /// The UI definition for this message.
   final JsonMap definition;
@@ -158,11 +159,11 @@ final class AiUiMessage extends ChatMessage {
   final String surfaceId;
   @override
   JsonMap toJson() => {
-        'role': 'model',
-        'parts': [
-          {'type': 'ui', 'definition': definition},
-        ],
-      };
+    'role': 'model',
+    'parts': [
+      {'type': 'ui', 'definition': definition},
+    ],
+  };
 }
 
 // The following classes are not intended to be serialized.

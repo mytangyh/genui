@@ -4,4 +4,3 @@
 
 /// A type definition for a map that can be serialized to JSON.
 typedef JsonMap = Map<String, Object?>;
-

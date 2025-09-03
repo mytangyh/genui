@@ -223,6 +223,9 @@ extension type Schema.fromMap(Map<String, Object?> _value) {
   /// The underlying map representation of the schema.
   Map<String, Object?> get value => _value;
 
+  /// A convenience method to convert the schema to a JSON-encodable map.
+  Map<String, Object?> toJson() => _value;
+
   /// Gets the value of a keyword from the schema map.
   Object? operator [](String key) => _value[key];
 

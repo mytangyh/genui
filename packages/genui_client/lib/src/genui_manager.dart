@@ -61,12 +61,15 @@ class SurfaceRemoved extends GenUiUpdate {
 abstract interface class SurfaceBuilder {
   /// A stream of updates to the UI.
   Stream<GenUiUpdate> get updates;
+
   /// Returns a [ValueNotifier] for the given [surfaceId].
   ///
   /// The notifier will be updated when the surface definition changes.
   ValueNotifier<UiDefinition?> surface(String surfaceId);
+
   /// The catalog of widgets that can be used to build the UI.
   Catalog get catalog;
+
   /// The store for widget values.
   WidgetValueStore get valueStore;
 }

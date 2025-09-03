@@ -34,6 +34,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   late final UiAgent _uiAgent;
+  bool _isInitialized = false;
 
   @override
   void initState() {
@@ -44,6 +45,11 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Future<void> _init() async {
     await _uiAgent.startSession();
+    if (mounted) {
+      setState(() {
+        _isInitialized = true;
+      });
+    }
   }
 
   @override
@@ -53,12 +59,14 @@ class _ChatScreenState extends State<ChatScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: GenUiChat(
-            agent: _uiAgent,
-            onEvent: (event) {
-              // Handle UI events here.
-            },
-          ),
+          child: _isInitialized
+              ? GenUiChat(
+                  agent: _uiAgent,
+                  onEvent: (event) {
+                    // Handle UI events here.
+                  },
+                )
+              : const Center(child: CircularProgressIndicator()),
         ),
       ),
     );

@@ -10,8 +10,8 @@ import '../ui_agent.dart';
 import 'chat_primitives.dart';
 
 /// A builder for a user prompt widget.
-typedef UserPromptBuilder = Widget Function(
-    BuildContext context, UserMessage message);
+typedef UserPromptBuilder =
+    Widget Function(BuildContext context, UserMessage message);
 
 /// A widget that displays a conversation from a [UiAgent].
 class ConversationWidget extends StatelessWidget {
@@ -86,7 +86,8 @@ class ConversationWidget extends StatelessWidget {
                 return InternalMessageWidget(content: message.text);
               case ToolResponseMessage():
                 return InternalMessageWidget(
-                    content: message.results.toString());
+                  content: message.results.toString(),
+                );
             }
           },
         );

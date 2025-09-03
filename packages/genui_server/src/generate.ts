@@ -18,10 +18,10 @@ const addOrUpdateSurfaceTool = ai.defineTool(
     }),
     outputSchema: z.object({ status: z.string() }),
   },
-  // For added robustness, we could re-fetch the catalog here using the
-  // session ID and validate the `definition` against its schema before
-  // proceeding. This requires passing the session ID as part of the input.
-  async () => ({ status: "updated" })
+  async (args: object) => {
+    logger.debug(`Received tool call with arguments:\n${JSON.stringify(args)}`);
+    return { status: "updated" };
+  }
 );
 
 const deleteSurfaceTool = ai.defineTool(
