@@ -54,7 +54,7 @@ sequenceDiagram
         Server-->>Client: (more chunks are sent)
 
         AI Model-->>-Server: Final response
-        Server-->>Client: streams finished chunk: { "finished": ... }
+        Server-->>Client: streams final chunk: { "message": ... }
     end
     deactivate Server
 
@@ -73,8 +73,6 @@ This is the sole endpoint for all communication.
 - **Query Parameters**:
   - `stream=true`: (Required) Indicates that the client expects a streaming response.
 - **Content-Type**: `application/json`
-
----
 
 ## Request Body Format
 
@@ -174,6 +172,9 @@ The body of the `POST` request is a JSON object containing the client's UI capab
                 "description": "The data type of the property.",
                 "type": "string",
                 "enum": ["string", "number", "boolean", "eventHandler", "widgetId", "listOfWidgetId"]
+            },
+            "defaultValue": {
+                "description": "An optional default value for the property."
             }
         },
         "required": ["name", "description", "isRequired", "type"]
@@ -244,7 +245,27 @@ The body of the `POST` request is a JSON object containing the client's UI capab
         "eventType": { "type": "string" },
         "eventId": { "type": "string" },
         "isAction": { "type": "boolean" },
-        "value": {},
+        "value": {
+            "description": "The value from an input widget, if any.",
+            "anyOf": [
+                { "type": "string" },
+                { "type": "number" },
+                { "type": "boolean" },
+                { "type": "array", "items": { "type": "string" } }
+            ]
+        },
+        "values": {
+            "description": "A map of all input widget values on the surface, sent with an action event.",
+            "type": "object",
+            "additionalProperties": {
+                "anyOf": [
+                    { "type": "string" },
+                    { "type": "number" },
+                    { "type": "boolean" },
+                    { "type": "array", "items": { "type": "string" } }
+                ]
+            }
+        },
         "timestamp": { "type": "string", "format": "date-time" }
       },
       "required": ["surfaceId", "widgetId", "eventType", "isAction", "timestamp"]
@@ -297,6 +318,13 @@ The body of the `POST` request is a JSON object containing the client's UI capab
             "description": "The event fired when the user taps the 'View Profile' button.",
             "isRequired": true,
             "type": "eventHandler"
+          },
+          {
+            "name": "showStatus",
+            "description": "Whether to show the user's online status.",
+            "isRequired": false,
+            "type": "boolean",
+            "defaultValue": true
           }
         ]
       }
@@ -364,66 +392,50 @@ If the client requests a `baseCatalog` name or version that the server does not 
 
 ## Event Handling
 
-An `eventHandler` property allows the AI model to create widgets that can trigger actions on the client. The name of the property becomes the `eventType` (e.g., a property named `onTap` generates `onTap` events).
+Events are categorized by the `isAction` boolean in the `UiEvent` object.
 
-The flow is as follows:
+- **Value Events (`isAction: false`):** These events, like typing in a text field, represent a change in a widget's state. Clients **MUST NOT** send these events to the server. Instead, they must handle them locally, updating the widget's state in the client-side UI.
 
-1.  **Catalog Definition**: The client defines a widget with a property of type `eventHandler`.
-2.  **UI Definition**: The server sends a UI definition that includes the event handler property and provides a unique `eventId` for that specific action.
-3.  **UI Event**: When the user interacts with the widget, the client sends a `UiEvent` back to the server, including the `eventType` and the `eventId`.
+- **Action Events (`isAction: true`):** These events, like a button tap, signify a user's intent to perform an action. Clients **MUST** send these events to the server. When sending an action event, the client **MUST** also include the `values` map, which contains the current state of all input widgets on the same surface.
 
-### Augmentations Example
+### Example Flow
 
-**1. Client Defines a Button in its Catalog Augmentations:**
+**1. Server Sends a Form:**
 
-```json
-"augmentations": [
-  {
-    "name": "SimpleButton",
-    "description": "A standard button that the user can tap.",
-    "properties": [
-      {
-        "name": "child",
-        "description": "The ID of the widget to display inside the button.",
-        "isRequired": true,
-        "type": "widgetId"
-      },
-      {
-        "name": "onTap",
-        "description": "The event fired when the user taps the button.",
-        "isRequired": true,
-        "type": "eventHandler"
-      }
-    ]
-  }
-]
-```
-
-**2. Server Sends a UI Definition Using the Button:**
-
-The server provides a unique `eventId` that the AI can use to track this specific action.
+The server defines a `TextField` with an `onChanged` handler and a `Button` with an `onTap` handler.
 
 ```json
 {
   "addOrUpdateSurface": {
-    "surfaceId": "form_1",
+    "surfaceId": "login_form",
     "definition": {
-      "root": "submit_button",
+      "root": "login_column",
       "widgets": [
         {
-          "id": "submit_button",
+          "id": "login_column",
+          "widget": { "Column": { "children": ["username_field", "login_button"] } }
+        },
+        {
+          "id": "username_field",
           "widget": {
-            "SimpleButton": {
-              "child": "submit_button_text",
-              "onTap": {
-                "eventId": "user_pressed_submit_form_1"
-              }
+            "TextField": {
+              "label": "Username",
+              "onChanged": { "eventId": "username_changed" }
             }
           }
         },
         {
-          "id": "submit_button_text",
-          "widget": { "Text": { "text": "Submit" } }
+          "id": "login_button",
+          "widget": {
+            "Button": {
+              "child": "login_button_text",
+              "onTap": { "eventId": "login_tapped" }
+            }
+          }
+        },
+        {
+          "id": "login_button_text",
+          "widget": { "Text": { "text": "Log In" } }
         }
       ]
     }
@@ -431,9 +443,13 @@ The server provides a unique `eventId` that the AI can use to track this specifi
 }
 ```
 
-**3. Client Sends a `UiEvent` on User Interaction:**
+**2. User Types in the Text Field:**
 
-When the user taps the button, the client reports the event back with the `eventType` ("onTap") and the specific `eventId`.
+The user types "alex". The client's `TextField` widget fires its `onChanged` event handler. Because this is a **Value Event**, the client **does not** send a `UiEvent` to the server. It simply updates its local state for the `username_field` to hold the value "alex".
+
+**3. User Taps the Button:**
+
+The user taps the "Log In" button. This is an **Action Event**. The client now constructs and sends a single `UiEvent` to the server. It includes the `onTap` event information and the `values` map containing the current state of the `username_field`.
 
 ```json
 {
@@ -442,17 +458,22 @@ When the user taps the button, the client reports the event back with the `event
     {
       "type": "uiEvent",
       "event": {
-        "surfaceId": "form_1",
-        "widgetId": "submit_button",
+        "surfaceId": "login_form",
+        "widgetId": "login_button",
         "eventType": "onTap",
-        "eventId": "user_pressed_submit_form_1",
+        "eventId": "login_tapped",
         "isAction": true,
-        "timestamp": "2025-09-05T14:30:00Z"
+        "values": {
+          "username_field": "alex"
+        },
+        "timestamp": "2025-09-05T14:35:00Z"
       }
     }
   ]
 }
 ```
+
+The server now has both the action (login) and the state (username is "alex") needed to proceed.
 
 ## Response Body Format
 
@@ -462,12 +483,12 @@ The stream can contain several types of objects, identified by their top-level k
 
 ## Client-side History
 
-To maintain a stateless server, the client is responsible for recording the conversation history. When the stream is complete (signaled by the `finished` chunk), the client **must** construct a `GenuiClientMessage` object to save in its history.
+To maintain a stateless server, the client is responsible for recording the conversation history. When the stream is complete (signaled by the final `message` chunk), the client **must** construct a `GenuiClientMessage` object to save in its history.
 
 This historical message is created by combining two pieces of information:
 
 1.  The final UI state, which the client has built by applying the `addOrUpdateSurface` and `deleteSurface` chunks. This becomes the `UiPart` of the message.
-2.  The final response from the server, which is the content of the `finished` chunk with an optional `message`. This becomes the `TextPart` of the message.
+2.  The final text response from the server, which is the content of the final `message` chunk. This becomes the `TextPart` of the message.
 
 This combined message is then included in the `conversation` array of the next request, providing the full context to the AI model.
 
@@ -477,7 +498,7 @@ A given chunk will be one of the following:
 
 1.  **UI Update (`addOrUpdateSurface`):** Adds or replaces a UI surface. This stream of updates is the **canonical source of truth** for the UI state.
 2.  **UI Deletion (`deleteSurface`):** Removes a UI surface.
-3.  **Final Message (`finished`):** A final message optionally containing the complete text response. This signals the end of the response stream for this turn.
+3.  **Final Message (`message`):** A final message containing the complete text response. This signals the end of the response stream for this turn.
 
 ### `addOrUpdateSurface` Chunk
 
@@ -596,9 +617,9 @@ Deletes a UI surface.
 }
 ```
 
-### Final `finished` Chunk
+### Final `message` Chunk
 
-The final message object for the model's turn, containing an optional final text response. This indicates that the server has finished sending all user interface updates for the current request.
+The final message object for the model's turn, containing the complete and final text response. This indicates that the server has finished sending all user interface updates for the current request.
 
 **Schema:**
 
@@ -607,26 +628,26 @@ The final message object for the model's turn, containing an optional final text
   "$schema": "https://json-schema.org/draft/2020-12/schema#",
   "type": "object",
   "properties": {
-    "finished": {
-      "type": "object",
-      "properties": {
-        "message": {
-          "type": "string",
-          "description": "An optional final message from the LLM."
-        }
-      },
+    "message": {
+        "$ref": "#/definitions/GenuiClientMessage"
     }
   },
-  "required": ["finished"]
+  "required": ["message"]
 }
 ```
 
-#### Example `finished` chunk
+#### Example `message` chunk
 
 ```json
 {
-  "finished": {
-    "message": "Okay, I created your UI."
+  "message": {
+    "role": "model",
+    "parts": [
+        {
+            "type": "text",
+            "text": "Okay, I created your UI."
+        }
+    ]
   }
 }
 ```
