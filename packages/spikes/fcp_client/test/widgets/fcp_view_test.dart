@@ -389,15 +389,17 @@ void main() {
 
       // Act
       controller.patchState(
-        StateUpdate.fromMap(<String, Object?>{
-          'patches': <Map<String, String>>[
-            <String, String>{
-              'op': 'replace',
-              'path': '/message',
-              'value': 'Updated',
-            },
+        StateUpdate(
+          operations: [
+            PatchOperation(
+              patch: PatchObject(
+                op: 'replace',
+                path: '/message',
+                value: 'Updated',
+              ),
+            ),
           ],
-        }),
+        ),
       );
       await tester.pump();
 
