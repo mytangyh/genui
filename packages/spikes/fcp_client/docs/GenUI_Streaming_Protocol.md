@@ -84,7 +84,7 @@ The `WidgetCatalog` is a JSON document that serves as a strict contract of the c
 
 The catalog explicitly declares the client's capabilities, enabling:
 
-- **Server-Side Validation:** The server can validate any `UiDefinitionPacket` against the client's catalog before sending it.
+- **Server-Side Validation:** The server can validate any UI definitions it receives from the AI against the client's catalog before sending it.
 - **Versioning and Coexistence:** The server can support a set of known catalog versions, allowing it to generate compatible UI for different client versions without requiring the client to send its full capabilities on every request.
 - **Guided LLM Generation:** The catalog provides a structured schema that can be used to constrain the output of a Large Language Model, ensuring it only generates valid, renderable UI definitions.
 - **Formalized Data Structures:** It allows for defining complex data types, ensuring that `state` objects are well-formed and type-safe.
@@ -219,7 +219,7 @@ A special widget type, e.g., `ListViewBuilder`, can be defined in the catalog. I
   "type": "ListViewBuilder",
   "properties": {
     "scrollDirection": "vertical",
-    "children": { "$bind": "/todoItems" }
+    "items": { "$bind": "/todoItems" }
   },
   "itemTemplate": {
     "id": "todo_item_template",
