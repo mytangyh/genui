@@ -4,25 +4,19 @@
 
 import 'package:genui/genui.dart';
 
-import 'information_card.dart';
-import 'risk_assessment_card.dart';
-import 'trade_recommendation.dart';
+import 'stock_quote.dart';
 import 'trailhead.dart';
 
 /// Financial catalog for the hexin demo application.
 ///
-/// Note: Limited to core components to avoid Gemini API schema complexity
-/// limits. Add more components as needed, but be aware of the total schema
-/// size constraint.
+/// IMPORTANT: Keep this list minimal (2 components) to avoid Gemini API
+/// schema complexity limits.
 class FinancialCatalog {
-  /// Returns a catalog with core financial components.
+  /// Returns a minimal catalog showing both display and interaction.
   static Catalog getCatalog() {
     return Catalog([
-      // Core financial components (simplified set)
-      informationCard,
-      riskAssessmentCard,
-      tradeRecommendation,
-      trailhead,
+      stockQuote, // 显示组件：股票报价
+      trailhead, // 交互组件：点击后触发AI生成新UI
     ]);
   }
 }
