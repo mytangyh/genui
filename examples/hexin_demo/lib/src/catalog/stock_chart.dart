@@ -14,7 +14,10 @@ final stockChartSchema = S.object(
     'stockName': S.string(description: '股票名称'),
     'currentPrice': S.number(description: '当前价格'),
     'changePercent': S.number(description: '涨跌幅百分比'),
-    'priceHistoryJson': S.string(description: 'JSON格式的价格历史数据'),
+    'priceHistory': S.list(
+      items: S.object(properties: {'price': S.number()}),
+      description: '价格历史数据',
+    ),
   },
   required: ['stockCode', 'stockName', 'currentPrice'],
 );
@@ -23,6 +26,30 @@ final stockChartSchema = S.object(
 final stockChart = CatalogItem(
   name: 'StockChart',
   dataSchema: stockChartSchema,
+  exampleData: [
+    () => '''
+      [
+        {
+          "id": "root",
+          "component": {
+            "StockChart": {
+              "stockCode": "600519",
+              "stockName": "贵州茅台",
+              "currentPrice": 1688.50,
+              "changePercent": 2.35,
+              "priceHistory": [
+                {"price": 1650.00},
+                {"price": 1665.80},
+                {"price": 1672.30},
+                {"price": 1680.00},
+                {"price": 1688.50}
+              ]
+            }
+          }
+        }
+      ]
+    ''',
+  ],
   widgetBuilder: (context) {
     final data = context.data as Map<String, Object?>;
     final String stockCode = data['stockCode'] as String? ?? '';
@@ -109,7 +136,7 @@ final stockChart = CatalogItem(
 class _PriceChart extends StatelessWidget {
   const _PriceChart({required this.priceHistory});
 
-  final List priceHistory;
+  final List<dynamic> priceHistory;
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +160,10 @@ class _PriceChart extends StatelessWidget {
       return const Center(child: Text('无数据'));
     }
 
+    // Ensure valid interval for grid
+    double interval = (maxPrice - minPrice) / 4;
+    if (interval <= 0) interval = 1.0;
+
     final bool isRising = spots.last.y >= spots.first.y;
     final MaterialColor lineColor = isRising ? Colors.red : Colors.green;
 
@@ -141,7 +172,7 @@ class _PriceChart extends StatelessWidget {
         gridData: FlGridData(
           show: true,
           drawVerticalLine: false,
-          horizontalInterval: (maxPrice - minPrice) / 4,
+          horizontalInterval: interval,
           getDrawingHorizontalLine: (value) {
             return FlLine(color: Colors.grey.shade200, strokeWidth: 1);
           },
@@ -179,7 +210,7 @@ class _PriceChart extends StatelessWidget {
             dotData: const FlDotData(show: false),
             belowBarData: BarAreaData(
               show: true,
-              color: lineColor.withOpacity(0.1),
+              color: lineColor.withAlpha((0.1 * 255).round()),
             ),
           ),
         ],

@@ -2,11 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
-//UNCOMMENT_FOR_FIREBASE
-// import 'package:genui_firebase_ai/genui_firebase_ai.dart';
-
 import 'package:genui_google_generative_ai/genui_google_generative_ai.dart';
 
 import '../catalog/catalog.dart';
@@ -16,6 +15,7 @@ import '../tools/analyze_risk_tool.dart';
 import '../tools/get_portfolio_tool.dart';
 import '../tools/get_recommendations_tool.dart';
 import '../tools/get_stock_data_tool.dart';
+import '../widgets/conversation.dart';
 
 /// Main advisor page for hexin_demo.
 class AdvisorPage extends StatefulWidget {
@@ -25,14 +25,14 @@ class AdvisorPage extends StatefulWidget {
   State<AdvisorPage> createState() => _AdvisorPageState();
 }
 
-class _AdvisorPageState extends State<AdvisorPage> {
-  late final A2uiMessageProcessor _a2uiMessageProcessor;
-  late final GenUiConversation _genUiConversation;
+class _AdvisorPageState extends State<AdvisorPage>
+    with AutomaticKeepAliveClientMixin {
+  late final GenUiConversation _uiConversation;
+  late final StreamSubscription<ChatMessage> _userMessageSubscription;
   late final MockDataService _dataService;
 
   final _textController = TextEditingController();
-  final _surfaceIds = <String>[];
-  bool _isInitialized = false;
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -50,24 +50,31 @@ class _AdvisorPageState extends State<AdvisorPage> {
       ...FinancialCatalog.getCatalog().items,
     ]);
 
-    // Create A2uiMessageProcessor
-    _a2uiMessageProcessor = A2uiMessageProcessor(catalogs: [catalog]);
+    // Create GenUiManager with catalog
+    final genUiManager = GenUiManager(
+      catalog: catalog,
+      configuration: const GenUiConfiguration(
+        actions: ActionsConfig(
+          allowCreate: true,
+          allowUpdate: true,
+          allowDelete: true,
+        ),
+      ),
+    );
+
+    _userMessageSubscription = genUiManager.onSubmit.listen(
+      _handleUserMessageFromUi,
+    );
 
     // Create ContentGenerator based on configuration
     final ContentGenerator contentGenerator;
 
     switch (aiBackend) {
       case AiBackend.firebase:
-        //UNCOMMENT_FOR_FIREBASE
-        // contentGenerator = FirebaseAiContentGenerator(
-        //   catalog: catalog,
-        //   systemInstruction: _getSystemPrompt(),
-        //   tools: tools,
-        // );
+        // Firebase backend not implemented in this demo
         throw UnimplementedError(
           'Firebase AI backend is not configured. '
-          'Please uncomment the Firebase code in advisor_page.dart '
-          'and ensure Firebase is properly set up.',
+          'Please use googleGenerativeAi backend.',
         );
 
       case AiBackend.googleGenerativeAi:
@@ -92,18 +99,24 @@ class _AdvisorPageState extends State<AdvisorPage> {
         );
     }
 
-    // Create GenUiConversation
-    _genUiConversation = GenUiConversation(
-      a2uiMessageProcessor: _a2uiMessageProcessor,
+    // Create GenUiConversation with proper genUiManager parameter
+    _uiConversation = GenUiConversation(
+      genUiManager: genUiManager,
       contentGenerator: contentGenerator,
-      onSurfaceAdded: _onSurfaceAdded,
-      onSurfaceDeleted: _onSurfaceDeleted,
+      onSurfaceUpdated: (update) {
+        _scrollToBottom();
+      },
+      onSurfaceAdded: (update) {
+        _scrollToBottom();
+      },
+      onTextResponse: (text) {
+        if (!mounted) return;
+        if (text.isNotEmpty) {
+          _scrollToBottom();
+        }
+      },
       onError: _onError,
     );
-
-    setState(() {
-      _isInitialized = true;
-    });
   }
 
   String _getSystemPrompt() {
@@ -173,16 +186,24 @@ class _AdvisorPageState extends State<AdvisorPage> {
 ''';
   }
 
-  void _onSurfaceAdded(SurfaceAdded update) {
-    setState(() {
-      _surfaceIds.add(update.surfaceId);
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     });
   }
 
-  void _onSurfaceDeleted(SurfaceRemoved update) {
-    setState(() {
-      _surfaceIds.remove(update.surfaceId);
-    });
+  Future<void> _triggerInference(ChatMessage message) async {
+    await _uiConversation.sendRequest(message);
+  }
+
+  void _handleUserMessageFromUi(ChatMessage message) {
+    _scrollToBottom();
   }
 
   void _onError(ContentGeneratorError error) {
@@ -197,121 +218,156 @@ class _AdvisorPageState extends State<AdvisorPage> {
   }
 
   void _sendMessage(String text) {
-    if (text.trim().isEmpty) return;
-
-    _genUiConversation.sendRequest(UserMessage.text(text));
+    if (_uiConversation.isProcessing.value || text.trim().isEmpty) return;
+    _scrollToBottom();
     _textController.clear();
+    _triggerInference(UserMessage.text(text));
   }
 
   @override
   void dispose() {
+    _userMessageSubscription.cancel();
+    _uiConversation.dispose();
     _textController.dispose();
-    _genUiConversation.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!_isInitialized) {
-      return const Center(child: CircularProgressIndicator());
-    }
-
-    return Column(
-      children: [
-        // Welcome banner (shown only when no surfaces)
-        if (_surfaceIds.isEmpty)
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(20),
-            margin: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.blue.shade400, Colors.blue.shade600],
+    super.build(context);
+    return SafeArea(
+      child: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 1000),
+                child: ValueListenableBuilder<List<ChatMessage>>(
+                  valueListenable: _uiConversation.conversation,
+                  builder: (context, messages, child) {
+                    if (messages.isEmpty) {
+                      return _buildWelcomeBanner();
+                    }
+                    return Conversation(
+                      messages: messages,
+                      manager: _uiConversation.genUiManager,
+                      scrollController: _scrollController,
+                    );
+                  },
+                ),
               ),
-              borderRadius: BorderRadius.circular(16),
             ),
-            child: const Column(
-              children: [
-                Icon(Icons.waving_hand, color: Colors.white, size: 48),
-                SizedBox(height: 12),
-                Text(
-                  '您好！我是您的智能投资顾问',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  '我可以帮您分析投资组合、评估风险、提供投资建议',
-                  style: TextStyle(color: Colors.white, fontSize: 14),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 16),
-                Text(
-                  '试试问我：\n• "我的投资组合情况如何？"\n• "帮我评估一下风险"\n• "给我一些投资建议"',
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-
-        // Surfaces list
-        Expanded(
-          child: ListView.builder(
-            padding: const EdgeInsets.only(bottom: 16),
-            itemCount: _surfaceIds.length,
-            itemBuilder: (context, index) {
-              final String id = _surfaceIds[index];
-              return GenUiSurface(host: _genUiConversation.host, surfaceId: id);
-            },
-          ),
-        ),
-
-        // Input field
-        SafeArea(
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 4,
-                  offset: const Offset(0, -2),
-                ),
-              ],
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ValueListenableBuilder<bool>(
+                valueListenable: _uiConversation.isProcessing,
+                builder: (context, isThinking, child) {
+                  return _ChatInput(
                     controller: _textController,
-                    decoration: InputDecoration(
-                      hintText: '输入您的问题...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
-                      ),
-                    ),
-                    onSubmitted: _sendMessage,
-                  ),
-                ),
-                const SizedBox(width: 12),
-                FloatingActionButton(
-                  onPressed: () => _sendMessage(_textController.text),
-                  child: const Icon(Icons.send),
-                ),
-              ],
+                    isThinking: isThinking,
+                    onSend: _sendMessage,
+                  );
+                },
+              ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
+    );
+  }
+
+  Widget _buildWelcomeBanner() {
+    return Center(
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue.shade400, Colors.blue.shade600],
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: const Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.waving_hand, color: Colors.white, size: 48),
+            SizedBox(height: 12),
+            Text(
+              '您好！我是您的智能投资顾问',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              '我可以帮您分析投资组合、评估风险、提供投资建议',
+              style: TextStyle(color: Colors.white, fontSize: 14),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16),
+            Text(
+              '试试问我：\n• "我的投资组合情况如何？"\n• "帮我评估一下风险"\n• "给我一些投资建议"',
+              style: TextStyle(color: Colors.white70, fontSize: 12),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+}
+
+class _ChatInput extends StatelessWidget {
+  const _ChatInput({
+    required this.controller,
+    required this.isThinking,
+    required this.onSend,
+  });
+
+  final TextEditingController controller;
+  final bool isThinking;
+  final void Function(String) onSend;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 2.0,
+      borderRadius: BorderRadius.circular(25.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: controller,
+                enabled: !isThinking,
+                decoration: const InputDecoration.collapsed(
+                  hintText: '输入您的问题...',
+                ),
+                onSubmitted: isThinking ? null : onSend,
+              ),
+            ),
+            if (isThinking)
+              const SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(strokeWidth: 2.0),
+              )
+            else
+              IconButton(
+                icon: const Icon(Icons.send),
+                onPressed: () => onSend(controller.text),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
