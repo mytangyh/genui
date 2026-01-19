@@ -5,6 +5,7 @@
 import 'package:genui/genui.dart';
 
 import 'ai_message.dart';
+import 'dsl_webview.dart';
 import 'info_summary_card.dart';
 import 'news_flash_list.dart';
 import 'stock_quote.dart';
@@ -27,6 +28,7 @@ class FinancialCatalog {
       aiMessage, // AI 消息气泡
       infoSummaryCard, // 信息摘要卡片
       newsFlashList, // 快讯列表
+      dslWebView, // WebView 组件
       // 通用组件
       stockQuote, // 股票报价
       trailhead, // 交互按钮

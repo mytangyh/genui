@@ -43,6 +43,17 @@ class _DslDemoPageState extends State<DslDemoPage> {
 }
 ```
 
+## 实时行情 (WebView)
+
+```web
+{
+  "url": "https://m.10jqka.com.cn",
+  "height": 250,
+  "enableJS": true,
+  "loadingText": "加载行情中..."
+}
+```
+
 ## 早间要闻
 
 ```dsl
@@ -175,6 +186,28 @@ class _DslDemoPageState extends State<DslDemoPage> {
       "target": "aiapp://stocks/600519"
     }
   }
+}
+```
+
+## K线图 (WebView)
+
+```web
+{
+  "url": "https://quote.eastmoney.com/center/gridlist.html#hs_a_board",
+  "height": 300,
+  "enableJS": true,
+  "loadingText": "加载K线图..."
+}
+```
+
+## 财经新闻 (WebView)
+
+```web
+{
+  "url": "https://m.eastmoney.com",
+  "height": 350,
+  "enableJS": true,
+  "loadingText": "加载财经资讯..."
 }
 ```
 
@@ -399,6 +432,39 @@ class _DslDemoPageState extends State<DslDemoPage> {
 }
 ```
 
+## 全球市场 (WebView)
+
+```web
+{
+  "url": "https://www.cls.cn",
+  "height": 280,
+  "enableJS": true,
+  "loadingText": "加载财联社资讯..."
+}
+```
+
+## 加密货币 (WebView)
+
+```web
+{
+  "url": "https://www.jinse.cn",
+  "height": 320,
+  "enableJS": true,
+  "loadingText": "加载区块链资讯..."
+}
+```
+
+## 外汇行情 (WebView)
+
+```web
+{
+  "url": "https://www.fx678.com",
+  "height": 260,
+  "enableJS": true,
+  "loadingText": "加载外汇数据..."
+}
+```
+
 以上是今日的市场要点，祝您投资顺利！
 ''';
 
@@ -412,11 +478,26 @@ class _DslDemoPageState extends State<DslDemoPage> {
     // Simulate network delay
     await Future<void>.delayed(const Duration(milliseconds: 500));
 
-    // Parse the DSL blocks from markdown
-    final blocks = DslParser.extractBlocks(_mockMarkdownResponse);
+    // Parse DSL and Web blocks from markdown
+    final dslBlocks = DslParser.extractBlocks(
+      _mockMarkdownResponse,
+      language: 'dsl',
+    );
+    final webBlocks = DslParser.extractBlocks(
+      _mockMarkdownResponse,
+      language: 'web',
+    );
+
+    // Convert web blocks to DSL format with type: webview
+    final convertedWebBlocks = webBlocks.map((block) {
+      return <String, dynamic>{'type': 'webview', 'props': block};
+    }).toList();
+
+    // Combine all blocks (in real app, you'd maintain order from markdown)
+    final allBlocks = [...dslBlocks, ...convertedWebBlocks];
 
     // Double the blocks for performance testing
-    final doubledBlocks = [...blocks, ...blocks];
+    final doubledBlocks = [...allBlocks, ...allBlocks];
 
     if (mounted) {
       setState(() {
