@@ -7,6 +7,7 @@ import 'package:genui/genui.dart';
 
 import 'src/catalog/catalog.dart';
 import 'src/pages/advisor_page.dart';
+import 'src/pages/dsl_demo_page.dart';
 
 void main() {
   runApp(const HexinDemoApp());
@@ -29,14 +30,14 @@ class HexinDemoApp extends StatelessWidget {
   }
 }
 
-/// Main tab view with advisor and catalog gallery.
+/// Main tab view with advisor, catalog gallery, and DSL demo.
 class MainTabView extends StatelessWidget {
   const MainTabView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('核心投顾 - 智能投资助手'),
@@ -45,10 +46,13 @@ class MainTabView extends StatelessWidget {
             tabs: [
               Tab(icon: Icon(Icons.chat), text: '投资顾问'),
               Tab(icon: Icon(Icons.dashboard), text: '组件画廊'),
+              Tab(icon: Icon(Icons.code), text: 'DSL Demo'),
             ],
           ),
         ),
-        body: const TabBarView(children: [AdvisorPage(), CatalogTab()]),
+        body: const TabBarView(
+          children: [AdvisorPage(), CatalogTab(), DslDemoPage()],
+        ),
       ),
     );
   }
