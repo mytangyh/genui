@@ -22,154 +22,180 @@ class _DslDemoPageState extends State<DslDemoPage> {
   late List<Map<String, dynamic>> _dslBlocks;
   bool _isLoading = true;
 
-  // Simulated markdown response from backend - extended for performance testing
+  // Simulated markdown response from backend - organized by page sections
   static const String _mockMarkdownResponse = '''
-# 今日市场资讯
-
-欢迎使用智能投顾助手，以下是今日市场要点：
+# 智能投顾首页
 
 ```dsl
 {
-  "version": "1",
-  "children": [
-    {
-      "type": "ai_message",
-      "props": {
-        "info": "为您提炼了截至09:28的股市重点",
-        "name": "aimi"
-      }
-    }
-  ]
+  "type": "targetHeader",
+  "props": {
+    "timestamp": "08:16",
+    "title": "盘前",
+    "targetName": "上证指数",
+    "targetValue": "3990.49",
+    "trend": "up"
+  }
 }
 ```
 
-## 实时行情 (WebView)
-
-```web
+```dsl
 {
-  "url": "https://m.10jqka.com.cn",
-  "height": 250,
-  "enableJS": true,
-  "loadingText": "加载行情中..."
+  "type": "ai_message",
+  "props": {
+    "info": "为您提炼了截止09:28的股市重点",
+    "name": "aimi"
+  }
 }
 ```
-
-## 早间要闻
 
 ```dsl
 {
   "type": "infoSummaryCard",
   "props": {
     "title": "早间必读",
-    "summary": "美国国会众议院以222票支持209票反对通过参议院已通过的联邦政府临时拨款法案。",
+    "summary": "早间必读：美国国会众议院以222票支持209票反对通过参议院已通过的联邦政府临时对时拨款法案。",
     "action": {
       "text": "查看详情",
-      "target": "aiapp://news/detail?id=123"
+      "target": "aiapp://news/morning"
     }
   }
 }
 ```
-
-## 市场快讯
 
 ```dsl
 {
   "type": "newsFlashList",
   "props": {
     "title": "市场快讯",
-    "subtitle": "更新于08:08",
+    "subtitle": "更新于08:08，更新了3条内容",
     "items": [
-      {
-        "content": "国产汽车芯片认证审查技术体系实现突破",
-        "tag": "热",
-        "tagColor": "#FF4444"
-      },
-      {
-        "content": "红旗涨停潮！AI应用方向集体走高半导体板块",
-        "tag": "新",
-        "tagColor": "#FF8800"
-      },
-      {
-        "content": "沪指低位震荡半日跌0.56%AI应用方向全面爆发",
-        "tag": "",
-        "tagColor": ""
-      },
-      {
-        "content": "瑞银：预计明年中国股市将迎来又一丰收年",
-        "tag": "",
-        "tagColor": ""
-      }
+      {"text": "国产汽车芯片认证审查技术体系实现突破", "route": "client://news/1"},
+      {"text": "狂飙涨停潮！AI应用方向集体走高半导体板块…", "route": "client://news/2"},
+      {"text": "沪指低位震荡半日跌0.56%｜AI应用方向全面爆…", "route": "client://news/3"},
+      {"text": "瑞银：预计明年中国股市将迎来又一个丰…", "route": "client://news/4"}
     ]
   }
 }
 ```
 
-## 盘前分析
+```dsl
+{
+  "type": "ai_buttonList",
+  "props": {
+    "buttons": [
+      {"text": "今天炒什么", "icon": "whatshot", "route": "client://ai/today"},
+      {"text": "昨日涨停表现", "icon": "trending_up", "route": "client://ai/yesterday"}
+    ]
+  }
+}
+```
+
+```dsl
+{
+  "type": "targetHeader",
+  "props": {
+    "timestamp": "09:18",
+    "title": "盘前",
+    "targetName": "上证指数",
+    "targetValue": "3990.49 -1.04%",
+    "trend": "down"
+  }
+}
+```
+
+```dsl
+{
+  "type": "ai_message",
+  "props": {
+    "info": "为您提炼了截止09:28的股市重点",
+    "detail": "对盘前解读的资讯内容进行AI汇总解读，并完整展示在这里。点击查看详情链接跳转到资讯二级页。",
+    "name": "aimi",
+    "expandable": true
+  }
+}
+```
+
+```dsl
+{
+  "type": "sectionHeader",
+  "props": {
+    "title": "盘前必读",
+    "action": {
+      "type": "image",
+      "text": "AI 深度解读",
+      "route": "client://ai/premarket"
+    }
+  }
+}
+```
 
 ```dsl
 {
   "type": "infoSummaryCard",
   "props": {
-    "title": "盘前必读",
+    "title": "市场概览",
     "summary": "对盘前解读的资讯内容进行AI汇总解读，并完整展示在这里。点击查看详情跳转到资讯二级页。",
     "action": {
       "text": "查看详情",
-      "target": "aiapp://news/premarket"
+      "target": "aiapp://market/overview"
     }
   }
 }
 ```
 
-## 热门板块
-
 ```dsl
 {
-  "type": "ai_message",
+  "type": "sectionHeader",
   "props": {
-    "info": "为您分析今日热门板块走势",
-    "name": "aimi"
+    "title": "竞价异动",
+    "action": {
+      "type": "text",
+      "text": "查看更多",
+      "route": "client://market/auction"
+    }
   }
 }
 ```
 
 ```dsl
 {
-  "type": "newsFlashList",
+  "type": "marketBreadthBar",
   "props": {
-    "title": "板块异动",
-    "subtitle": "实时更新",
+    "up": 2272,
+    "down": 1499,
+    "flat": 13,
+    "limitUp": 62,
+    "limitDown": 13
+  }
+}
+```
+
+```dsl
+{
+  "type": "banner_carousel",
+  "props": {
     "items": [
-      {
-        "content": "半导体板块集体拉升，多只个股涨停",
-        "tag": "涨",
-        "tagColor": "#FF4444"
-      },
-      {
-        "content": "新能源汽车板块持续走强",
-        "tag": "热",
-        "tagColor": "#FF8800"
-      },
-      {
-        "content": "医药板块震荡整理，龙头股小幅回调",
-        "tag": "",
-        "tagColor": ""
-      }
-    ]
+      {"route": "client://banner/1", "image_url": "https://via.placeholder.com/400x120/FF8C00/FFFFFF?text=AI+智能选股"},
+      {"route": "client://banner/2", "image_url": "https://via.placeholder.com/400x120/6B8EFF/FFFFFF?text=新手理财课堂"},
+      {"route": "client://banner/3", "image_url": "https://via.placeholder.com/400x120/B06BFF/FFFFFF?text=热门板块分析"}
+    ],
+    "height": 120,
+    "autoPlay": true,
+    "duration": 4000
   }
 }
 ```
 
-## 个股推荐
-
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "sectionHeader",
   "props": {
-    "title": "今日推荐",
-    "summary": "基于AI智能分析，为您推荐以下潜力股票。请注意投资风险，理性投资。",
+    "title": "大盘统计",
     "action": {
-      "text": "查看推荐",
-      "target": "aiapp://stocks/recommend"
+      "type": "image",
+      "text": "AI 深度解读",
+      "route": "client://ai/market"
     }
   }
 }
@@ -177,48 +203,22 @@ class _DslDemoPageState extends State<DslDemoPage> {
 
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "markdownRender",
   "props": {
-    "title": "龙头股分析",
-    "summary": "贵州茅台(600519)近期走势强劲，机构持续看好。技术面显示上升趋势明显。",
-    "action": {
-      "text": "查看详情",
-      "target": "aiapp://stocks/600519"
-    }
+    "content": "截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**，预测全天场增+391亿。大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。"
   }
 }
 ```
 
-## K线图 (WebView)
-
-```web
-{
-  "url": "https://quote.eastmoney.com/center/gridlist.html#hs_a_board",
-  "height": 300,
-  "enableJS": true,
-  "loadingText": "加载K线图..."
-}
-```
-
-## 财经新闻 (WebView)
-
-```web
-{
-  "url": "https://m.eastmoney.com",
-  "height": 350,
-  "enableJS": true,
-  "loadingText": "加载财经资讯..."
-}
-```
-
-## 午后快讯
-
 ```dsl
 {
-  "type": "ai_message",
+  "type": "marketBreadthBar",
   "props": {
-    "info": "午后市场动态更新",
-    "name": "aimi"
+    "up": 2272,
+    "down": 1499,
+    "flat": 13,
+    "limitUp": 62,
+    "limitDown": 13
   }
 }
 ```
@@ -230,43 +230,24 @@ class _DslDemoPageState extends State<DslDemoPage> {
     "title": "午后快讯",
     "subtitle": "更新于13:30",
     "items": [
-      {
-        "content": "A股三大指数午后震荡上行",
-        "tag": "新",
-        "tagColor": "#44BB44"
-      },
-      {
-        "content": "北向资金午后加速流入",
-        "tag": "热",
-        "tagColor": "#FF4444"
-      },
-      {
-        "content": "科创板个股普涨，芯片股领涨",
-        "tag": "",
-        "tagColor": ""
-      },
-      {
-        "content": "港股恒生科技指数涨超2%",
-        "tag": "",
-        "tagColor": ""
-      }
+      {"text": "A股三大指数午后震荡上行", "route": "client://news/5"},
+      {"text": "北向资金午后加速流入", "route": "client://news/6"},
+      {"text": "科创板个股普涨，芯片股领涨", "route": "client://news/7"},
+      {"text": "港股恒生科技指数涨超2%", "route": "client://news/8"}
     ]
   }
 }
 ```
 
-## 行业研报
-
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "ai_buttonList",
   "props": {
-    "title": "新能源行业研报",
-    "summary": "2025年新能源行业展望：锂电池需求持续增长，光伏产业链有望迎来拐点。",
-    "action": {
-      "text": "阅读研报",
-      "target": "aiapp://research/energy"
-    }
+    "buttons": [
+      {"text": "热门板块", "icon": "analytics", "route": "client://ai/sectors"},
+      {"text": "龙头股分析", "icon": "insights", "route": "client://ai/leaders"},
+      {"text": "风险提示", "icon": "recommend", "route": "client://ai/risk"}
+    ]
   }
 }
 ```
@@ -274,91 +255,12 @@ class _DslDemoPageState extends State<DslDemoPage> {
 ```dsl
 {
   "type": "infoSummaryCard",
-  "props": {
-    "title": "人工智能行业研报",
-    "summary": "AI大模型商业化加速，算力需求持续增长。建议关注算力基础设施和应用层龙头。",
-    "action": {
-      "text": "阅读研报",
-      "target": "aiapp://research/ai"
-    }
-  }
-}
-```
-
-```dsl
-{
-  "type": "infoSummaryCard",
-  "props": {
-    "title": "消费电子研报",
-    "summary": "MR设备出货量预期上调，产业链相关公司值得重点关注。",
-    "action": {
-      "text": "阅读研报",
-      "target": "aiapp://research/consumer"
-    }
-  }
-}
-```
-
-## 晚间复盘
-
-```dsl
-{
-  "type": "ai_message",
-  "props": {
-    "info": "今日大盘收盘复盘分析",
-    "name": "aimi"
-  }
-}
-```
-
-```dsl
-{
-  "type": "newsFlashList",
   "props": {
     "title": "收盘总结",
-    "subtitle": "15:00 收盘",
-    "items": [
-      {
-        "content": "沪指收涨0.85%，重回3000点上方",
-        "tag": "涨",
-        "tagColor": "#FF4444"
-      },
-      {
-        "content": "创业板指涨1.23%，连续三日上涨",
-        "tag": "涨",
-        "tagColor": "#FF4444"
-      },
-      {
-        "content": "两市成交额突破万亿，较昨日放量",
-        "tag": "热",
-        "tagColor": "#FF8800"
-      },
-      {
-        "content": "北向资金全天净买入超80亿",
-        "tag": "新",
-        "tagColor": "#44BB44"
-      },
-      {
-        "content": "超3000只个股上涨，赚钱效应明显",
-        "tag": "",
-        "tagColor": ""
-      }
-    ]
-  }
-}
-```
-
-## 明日策略
-
-```dsl
-{
-  "type": "infoSummaryCard",
-  "props": {
-    "title": "明日操作策略",
-    "summary": "今日市场情绪回暖，建议明日可适当加仓科技成长板块，关注半导体、AI应用等方向。",
+    "summary": "今日A股三大指数涨跌互现，沪指微涨0.12%，深成指跌0.35%，创业板指跌0.56%。两市成交额突破万亿。",
     "action": {
-      "text": "查看策略",
-      "target": "aiapp://strategy/tomorrow"
+      "text": "查看完整报告",
+      "target": "aiapp://report/daily"
     }
   }
 }
@@ -366,39 +268,13 @@ class _DslDemoPageState extends State<DslDemoPage> {
 
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "sectionHeader",
   "props": {
-    "title": "风险提示",
-    "summary": "注意新高股的获利回吐风险，建议设置止盈止损位，控制仓位风险。",
+    "title": "MarkdownRender 组合演示",
     "action": {
-      "text": "风险评估",
-      "target": "aiapp://risk/assessment"
-    }
-  }
-}
-```
-
-## 更多资讯
-
-```dsl
-{
-  "type": "ai_message",
-  "props": {
-    "info": "以下是更多您可能感兴趣的内容",
-    "name": "aimi"
-  }
-}
-```
-
-```dsl
-{
-  "type": "infoSummaryCard",
-  "props": {
-    "title": "财经日历",
-    "summary": "查看本周重要经济数据发布时间和市场事件。",
-    "action": {
-      "text": "查看日历",
-      "target": "aiapp://calendar"
+      "type": "text",
+      "text": "智能容器",
+      "route": "client://demo/markdown"
     }
   }
 }
@@ -406,66 +282,76 @@ class _DslDemoPageState extends State<DslDemoPage> {
 
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "markdownRender",
   "props": {
-    "title": "投资课堂",
-    "summary": "学习基础投资知识，提升投资技能，成为更专业的投资者。",
-    "action": {
-      "text": "开始学习",
-      "target": "aiapp://learn"
-    }
+    "content": "## 大盘统计\n\n截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**。\n\n大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。",
+    "backgroundColor": "#1A1F2E"
   }
 }
 ```
 
 ```dsl
 {
-  "type": "infoSummaryCard",
+  "type": "sectionHeader",
   "props": {
-    "title": "模拟炒股",
-    "summary": "零风险模拟交易，练习投资技巧，积累实战经验。",
+    "title": "WebView 嵌入演示",
     "action": {
-      "text": "开始模拟",
-      "target": "aiapp://simulate"
+      "type": "text",
+      "text": "原生性能",
+      "route": "client://demo/webview"
     }
   }
 }
 ```
-
-## 全球市场 (WebView)
 
 ```web
 {
-  "url": "https://www.cls.cn",
-  "height": 280,
+  "url": "https://m.10jqka.com.cn",
+  "height": 300,
   "enableJS": true,
-  "loadingText": "加载财联社资讯..."
+  "loadingText": "加载同花顺行情..."
 }
 ```
-
-## 加密货币 (WebView)
 
 ```web
 {
-  "url": "https://www.jinse.cn",
-  "height": 320,
+  "url": "https://m.eastmoney.com",
+  "height": 300,
   "enableJS": true,
-  "loadingText": "加载区块链资讯..."
+  "loadingText": "加载东方财富..."
 }
 ```
 
-## 外汇行情 (WebView)
-
-```web
+```dsl
 {
-  "url": "https://www.fx678.com",
-  "height": 260,
-  "enableJS": true,
-  "loadingText": "加载外汇数据..."
+  "type": "sectionHeader",
+  "props": {
+    "title": "实时数据演示",
+    "action": {
+      "type": "text",
+      "text": "Polling 2s",
+      "route": "client://demo/realtime"
+    }
+  }
 }
 ```
 
-以上是今日的市场要点，祝您投资顺利！
+```dsl
+{
+  "type": "marketBreadthBar",
+  "props": {
+    "up": 2272,
+    "down": 1499,
+    "flat": 13,
+    "limitUp": 62,
+    "limitDown": 13,
+    "dataSource": {
+      "type": "polling",
+      "interval": 2000
+    }
+  }
+}
+```
 ''';
 
   @override
@@ -493,15 +379,12 @@ class _DslDemoPageState extends State<DslDemoPage> {
       return <String, dynamic>{'type': 'webview', 'props': block};
     }).toList();
 
-    // Combine all blocks (in real app, you'd maintain order from markdown)
+    // Combine all blocks
     final allBlocks = [...dslBlocks, ...convertedWebBlocks];
-
-    // Double the blocks for performance testing
-    final doubledBlocks = [...allBlocks, ...allBlocks];
 
     if (mounted) {
       setState(() {
-        _dslBlocks = doubledBlocks;
+        _dslBlocks = allBlocks;
         _isLoading = false;
       });
     }
@@ -509,21 +392,15 @@ class _DslDemoPageState extends State<DslDemoPage> {
 
   void _handleAction(String actionName, Map<String, dynamic> context) {
     final target = context['target'] as String?;
+    final route = context['route'] as String?;
 
     ScaffoldMessenger.of(this.context).showSnackBar(
       SnackBar(
-        content: Text('Action: $actionName\nTarget: $target'),
+        content: Text('Action: $actionName\nTarget: ${target ?? route}'),
         duration: const Duration(seconds: 2),
         behavior: SnackBarBehavior.floating,
       ),
     );
-
-    // In a real app, you would handle the navigation here
-    // For example:
-    // if (target != null && target.startsWith('aiapp://')) {
-    //   final uri = Uri.parse(target);
-    //   Navigator.pushNamed(context, uri.path, arguments: uri.queryParameters);
-    // }
   }
 
   @override
