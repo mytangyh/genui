@@ -75,31 +75,92 @@ class DslParser {
     return results;
   }
 
-  /// Extracts all code blocks with different languages from markdown.
+  /// Extracts code blocks with different languages in document order.
   ///
-  /// Returns a map where keys are language identifiers and values are
-  /// lists of parsed content.
+  /// [markdown] - The markdown text containing code blocks.
+  /// [languages] - List of language identifiers to extract.
+  /// [transformer] - Optional function to transform specific language blocks.
   ///
-  /// Example:
-  /// ```dart
-  /// final blocks = DslParser.extractAllBlocks(markdown);
-  /// // Returns: {'dsl': [...], 'chart': [...]}
-  /// ```
-  static Map<String, List<Map<String, dynamic>>> extractAllBlocks(
+  /// Returns a list of parsed JSON objects (or transformed objects) in the order
+  /// they appear in the markdown.
+  static List<Map<String, dynamic>> extractMixedBlocks(
     String markdown, {
-    List<String> languages = const ['dsl'],
+    required List<String> languages,
+    Map<String, dynamic> Function(Map<String, dynamic> data, String language)?
+    transformer,
   }) {
-    final Map<String, List<Map<String, dynamic>>> results = {};
+    if (languages.isEmpty) return [];
 
-    for (final language in languages) {
-      final blocks = extractBlocks(markdown, language: language);
-      if (blocks.isNotEmpty) {
-        results[language] = blocks;
+    final languagePattern = languages.join('|');
+    // Match code blocks with any of the specified languages
+    final pattern = RegExp(
+      '(?:```|~~~)(?:$languagePattern)\\s*\\n([\\s\\S]*?)(?:```|~~~)',
+      multiLine: true,
+    );
+
+    final matches = pattern.allMatches(markdown);
+    final List<Map<String, dynamic>> results = [];
+
+    for (final match in matches) {
+      // We need to re-parse the match to find out WHICH language verified it
+      // Or we can just use a slightly different regex to capture the language
+      final fullMatch = match.group(0)!;
+      final headerMatch = RegExp(
+        '(?:```|~~~)(?:($languagePattern))\\s*\\n',
+      ).firstMatch(fullMatch);
+      final language = headerMatch?.group(1);
+
+      if (language == null) continue;
+
+      final jsonString = match.group(1)?.trim();
+      if (jsonString == null || jsonString.isEmpty) {
+        continue;
+      }
+
+      try {
+        final decoded = json.decode(jsonString);
+        dynamic data;
+
+        if (decoded is Map<String, dynamic>) {
+          data = decoded;
+        } else if (decoded is List) {
+          // If the block contains a list, treat the whole list as one unit if transformer expects it?
+          // The original behavior flattened lists. Let's stick to map extraction for the primary use case.
+          // But wait, DslDemoPage expects a list of maps.
+          // If a single block has a list, should we expand it?
+          // If we expand it, we lose the "language" context for the individual items if we are just returning a flat list.
+          // However, the mixed extraction implies we want to maintain block integrity usually.
+          // BUT, existing extractBlocks flattens lists. Let's do the same for consistency,
+          // applying the transformer to each item.
+          data = decoded;
+        }
+
+        if (data is Map<String, dynamic>) {
+          if (transformer != null) {
+            results.add(transformer(data, language));
+          } else {
+            results.add(data);
+          }
+        } else if (data is List) {
+          for (final item in data) {
+            if (item is Map<String, dynamic>) {
+              if (transformer != null) {
+                results.add(transformer(item, language));
+              } else {
+                results.add(item);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        print('DslParser: Failed to parse $language block: $e');
       }
     }
 
     return results;
   }
+
+  /// Extracts all code blocks with different languages from markdown.
 
   /// Splits markdown into segments of text and DSL blocks.
   ///

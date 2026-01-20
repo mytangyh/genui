@@ -284,7 +284,7 @@ class _DslDemoPageState extends State<DslDemoPage> {
 {
   "type": "markdownRender",
   "props": {
-    "content": "## 大盘统计\n\n截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**。\n\n大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。",
+    "content": "## 大盘统计\n\n截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**。\n\n大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。\n\n```dsl\n{\"type\": \"infoSummaryCard\", \"props\": {\"title\": \"嵌套组件测试\", \"summary\": \"这是一个嵌套在 Markdown 中的 DSL 组件，测试 \\\"引号\\\" 解析是否正常。\", \"action\": {\"text\": \"查看详情\", \"target\": \"aiapp://test\"}}}\n```",
     "backgroundColor": "#1A1F2E"
   }
 }
@@ -364,23 +364,17 @@ class _DslDemoPageState extends State<DslDemoPage> {
     // Simulate network delay
     await Future<void>.delayed(const Duration(milliseconds: 500));
 
-    // Parse DSL and Web blocks from markdown
-    final dslBlocks = DslParser.extractBlocks(
+    // Parse DSL and Web blocks from markdown in order
+    final allBlocks = DslParser.extractMixedBlocks(
       _mockMarkdownResponse,
-      language: 'dsl',
+      languages: ['dsl', 'web'],
+      transformer: (data, language) {
+        if (language == 'web') {
+          return {'type': 'webview', 'props': data};
+        }
+        return data;
+      },
     );
-    final webBlocks = DslParser.extractBlocks(
-      _mockMarkdownResponse,
-      language: 'web',
-    );
-
-    // Convert web blocks to DSL format with type: webview
-    final convertedWebBlocks = webBlocks.map((block) {
-      return <String, dynamic>{'type': 'webview', 'props': block};
-    }).toList();
-
-    // Combine all blocks
-    final allBlocks = [...dslBlocks, ...convertedWebBlocks];
 
     if (mounted) {
       setState(() {
