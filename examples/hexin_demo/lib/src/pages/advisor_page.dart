@@ -10,6 +10,7 @@ import 'package:genui_google_generative_ai/genui_google_generative_ai.dart';
 
 import '../catalog/catalog.dart';
 import '../config/configuration.dart';
+import '../services/custom_content_generator.dart';
 import '../services/mock_data_service.dart';
 import '../tools/analyze_risk_tool.dart';
 import '../tools/get_portfolio_tool.dart';
@@ -96,6 +97,16 @@ class _AdvisorPageState extends State<AdvisorPage>
             AnalyzeRiskTool(_dataService),
             GetRecommendationsTool(_dataService),
           ],
+        );
+
+      case AiBackend.custom:
+        contentGenerator = CustomContentGenerator(
+          baseUrl: 'https://integrate.api.nvidia.com/v1/chat/completions',
+          apiKey:
+              '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',
+          model: 'z-ai/glm4.7',
+          systemInstruction: _getSystemPrompt(),
+          catalog: catalog,
         );
     }
 
