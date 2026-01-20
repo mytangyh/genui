@@ -36,7 +36,8 @@ final markdownRender = CatalogItem(
           "id": "root",
           "component": {
             "markdownRender": {
-              "content": "## 大盘统计\\n\\n成交额总计**13214亿**，增+3921亿"
+              "content": "# Markdown 标准演示\\n\\n## 文本样式\\n普通文本包含**粗体**、*斜体*以及`行内代码`。\\n\\n## 列表展示\\n无序列表：\\n- Flutter\\n- GenUI\\n- Markdown\\n\\n有序列表：\\n1. 第一步：编写 DSL\\n2. 第二步：解析渲染\\n3. 第三步：展示结果\\n\\n## 引用与代码\\n> 这是一个引用块，用于强调重要信息。\\n\\n代码块演示：\\n```dart\\nvoid main() {\\n  print(\\"Hello GenUI\\");\\n}\\n```\\n\\n## 分割线\\n---\\n底部说明文本\\n\\n## DSL 组件组合演示\\n\\n```dsl\\n{\\"type\\": \\"infoSummaryCard\\", \\"props\\": {\\"title\\": \\"组合测试\\", \\"summary\\": \\"这是第一个组件\\", \\"action\\": {\\"text\\": \\"操作\\", \\"target\\": \\"route\\"}}}\\n```\\n\\n```dsl\\n{\\"type\\": \\"targetHeader\\", \\"props\\": {\\"timestamp\\": \\"08:16\\", \\"title\\": \\"盘前\\", \\"targetName\\": \\"上证指数\\", \\"targetValue\\": \\"3990.49\\", \\"trend\\": \\"up\\"}}\\n```",
+              "backgroundColor": "#1A1F2E"
             }
           }
         }
@@ -103,7 +104,7 @@ class _MarkdownRender extends StatelessWidget {
     final bgColor = _parseColor(backgroundColor);
 
     // Parse content into segments
-    final segments = _parseContentSegments(unescapedContent);
+    final segments = parseContentSegments(unescapedContent);
 
     Widget child;
     if (segments.length == 1 && segments.first.isText) {
@@ -114,9 +115,16 @@ class _MarkdownRender extends StatelessWidget {
         children: segments.map((segment) {
           if (segment.isText) {
             return _buildTextWidget(segment.text!);
-          } else {
+          } else if (segment.isDsl) {
             return _buildDslWidget(segment.dsl!, segment.language!);
+          } else if (segment.isCode) {
+            // Render generic code block using standard Markdown
+            return MarkdownBody(
+              data: '```${segment.language}\n${segment.codeContent}\n```',
+              styleSheet: _buildStyleSheet(),
+            );
           }
+          return const SizedBox.shrink();
         }).toList(),
       );
     }
@@ -404,64 +412,83 @@ class _MarkdownRender extends StatelessWidget {
       ),
     );
   }
-
-  List<_ContentSegment> _parseContentSegments(String content) {
-    final List<_ContentSegment> segments = [];
-
-    final pattern = RegExp(r'```(dsl|web)\s*\n([\s\S]*?)```', multiLine: true);
-
-    int lastEnd = 0;
-
-    for (final match in pattern.allMatches(content)) {
-      if (match.start > lastEnd) {
-        final textBefore = content.substring(lastEnd, match.start);
-        if (textBefore.trim().isNotEmpty) {
-          segments.add(_ContentSegment.text(textBefore));
-        }
-      }
-
-      final language = match.group(1)!;
-      final jsonString = match.group(2)?.trim();
-
-      if (jsonString != null && jsonString.isNotEmpty) {
-        try {
-          final decoded = json.decode(jsonString) as Map<String, dynamic>;
-          segments.add(_ContentSegment.dsl(decoded, language));
-        } catch (e) {
-          segments.add(_ContentSegment.text('> ⚠️ 解析错误: $e'));
-        }
-      }
-
-      lastEnd = match.end;
-    }
-
-    if (lastEnd < content.length) {
-      final textAfter = content.substring(lastEnd);
-      if (textAfter.trim().isNotEmpty) {
-        segments.add(_ContentSegment.text(textAfter));
-      }
-    }
-
-    if (segments.isEmpty) {
-      segments.add(_ContentSegment.text(content));
-    }
-
-    return segments;
-  }
 }
 
-class _ContentSegment {
-  const _ContentSegment._({this.text, this.dsl, this.language});
+@visibleForTesting
+List<ContentSegment> parseContentSegments(String content) {
+  final List<ContentSegment> segments = [];
 
-  factory _ContentSegment.text(String text) => _ContentSegment._(text: text);
+  // Capture generic code blocks: ```lang ... ```
+  final pattern = RegExp(r'```(\w+)?\s*\n([\s\S]*?)```', multiLine: true);
 
-  factory _ContentSegment.dsl(Map<String, dynamic> dsl, String language) =>
-      _ContentSegment._(dsl: dsl, language: language);
+  int lastEnd = 0;
+
+  for (final match in pattern.allMatches(content)) {
+    if (match.start > lastEnd) {
+      final textBefore = content.substring(lastEnd, match.start);
+      if (textBefore.trim().isNotEmpty) {
+        segments.add(ContentSegment.text(textBefore));
+      }
+    }
+
+    final language = match.group(1) ?? '';
+    final codeContent = match.group(2)?.trim() ?? '';
+
+    // Try to parse as DSL if language matches
+    if (language == 'dsl' || language == 'web') {
+      try {
+        // If valid JSON, render as DSL component
+        final decoded = json.decode(codeContent) as Map<String, dynamic>;
+        segments.add(ContentSegment.dsl(decoded, language));
+      } catch (_) {
+        // Fallback: JSON parse error, render as generic code block
+        segments.add(ContentSegment.code(codeContent, language));
+      }
+    } else {
+      // Unknown language, render as generic code block
+      segments.add(ContentSegment.code(codeContent, language));
+    }
+
+    lastEnd = match.end;
+  }
+
+  if (lastEnd < content.length) {
+    final textAfter = content.substring(lastEnd);
+    if (textAfter.trim().isNotEmpty) {
+      segments.add(ContentSegment.text(textAfter));
+    }
+  }
+
+  if (segments.isEmpty) {
+    segments.add(ContentSegment.text(content));
+  }
+
+  return segments;
+}
+
+@visibleForTesting
+class ContentSegment {
+  const ContentSegment._({
+    this.text,
+    this.dsl,
+    this.language,
+    this.codeContent,
+  });
+
+  factory ContentSegment.text(String text) => ContentSegment._(text: text);
+
+  factory ContentSegment.dsl(Map<String, dynamic> dsl, String language) =>
+      ContentSegment._(dsl: dsl, language: language);
+
+  factory ContentSegment.code(String content, String language) =>
+      ContentSegment._(codeContent: content, language: language);
 
   final String? text;
   final Map<String, dynamic>? dsl;
   final String? language;
+  final String? codeContent;
 
   bool get isText => text != null;
   bool get isDsl => dsl != null;
+  bool get isCode => codeContent != null;
 }
