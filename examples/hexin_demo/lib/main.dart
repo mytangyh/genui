@@ -48,8 +48,8 @@ class MainTabView extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.chat), text: '投资顾问'),
               Tab(icon: Icon(Icons.apps), text: 'AI App'),
+              Tab(icon: Icon(Icons.chat), text: '投资顾问'),
               Tab(icon: Icon(Icons.dashboard), text: '组件画廊'),
               Tab(icon: Icon(Icons.code), text: 'DSL Demo'),
             ],
@@ -57,8 +57,8 @@ class MainTabView extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            AdvisorPage(),
             AiAppEntryPage(),
+            AdvisorPage(),
             CatalogTab(),
             DslDemoPage(),
           ],

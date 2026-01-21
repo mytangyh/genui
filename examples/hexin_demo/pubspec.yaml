@@ -12,7 +12,7 @@ environment:
   flutter: ">=3.22.0 <4.0.0"
 
 dependencies:
-  collection: ^1.19.1
+  collection: ^1.18.0
   fl_chart: ^0.69.0
   flutter:
     sdk: flutter
@@ -41,9 +41,13 @@ dependency_overrides:
     path: ../../packages/genui
   json_schema_builder:
     path: ../../packages/json_schema_builder
+  # Pin flutter_markdown_plus to version compatible with Flutter 3.22
+  flutter_markdown_plus: 1.0.0+1
+  # Pin webview_flutter to version compatible with Dart 3.4
+  webview_flutter: 4.8.0
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
 
