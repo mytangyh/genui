@@ -3,135 +3,132 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:genui/genui.dart';
+import 'package:hexin_ai_ui/hexin_ai_ui.dart';
+import 'package:hexin_dsl/hexin_dsl.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
-/// The main AI App page with 4 tabs and custom top bar.
-class AiAppPage extends StatelessWidget {
-  const AiAppPage({super.key});
+/// Default DSL configuration for the AI App bar.
+///
+/// This can be replaced with API-fetched config in the future.
+/// Format follows DslSurface expectations: {type: 'Component', props: {...}}
+const _defaultAppBarDsl = <String, dynamic>{
+  'type': 'AiAppBar',
+  'props': {
+    'showMenu': true,
+    'tabs': [
+      {'id': 'highlights', 'label': '看点'},
+      {'id': 'watchlist', 'label': '盯盘'},
+      {'id': 'stock_picker', 'label': '选股'},
+      {'id': 'portfolio', 'label': '组合'},
+    ],
+    'actionButtons': [
+      {'label': '今日盈亏', 'subLabel': '0.00'},
+      {
+        'label': '消息',
+        'badge': '99+',
+        'action': {'name': 'open_messages'}
+      },
+    ],
+  },
+};
+
+/// Catalog containing AI App specific components.
+Catalog _getAiAppCatalog() {
+  return Catalog([
+    ...CoreCatalogItems.asCatalog().items,
+    aiAppBar,
+    pillButton,
+  ]);
+}
+
+/// The main AI App page with DSL-driven configurable top bar.
+///
+/// The app bar is rendered from DSL configuration, enabling future
+/// remote configuration via API.
+class AiAppPage extends StatefulWidget {
+  /// Optional custom DSL config for the app bar.
+  final Map<String, dynamic>? appBarConfig;
+
+  const AiAppPage({super.key, this.appBarConfig});
+
+  @override
+  State<AiAppPage> createState() => _AiAppPageState();
+}
+
+class _AiAppPageState extends State<AiAppPage>
+    with SingleTickerProviderStateMixin {
+  late final Map<String, dynamic> _appBarConfig;
+  late final TabController _tabController;
+  late final Catalog _catalog;
+
+  @override
+  void initState() {
+    super.initState();
+    _appBarConfig = widget.appBarConfig ?? _defaultAppBarDsl;
+    _catalog = _getAiAppCatalog();
+
+    // Extract tabs from props
+    final props = _appBarConfig['props'] as Map<String, dynamic>? ?? {};
+    final tabs = props['tabs'] as List? ?? [];
+    _tabController = TabController(length: tabs.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  void _handleAction(String actionName, Map<String, dynamic> actionContext) {
+    if (actionName == 'tab_select') {
+      final tabIndex = actionContext['tabIndex'] as int?;
+      if (tabIndex != null && tabIndex < _tabController.length) {
+        _tabController.animateTo(tabIndex);
+      }
+      return;
+    }
+
+    final snackBar = SnackBar(
+      content: Text('Action: $actionName, Context: $actionContext'),
+      behavior: SnackBarBehavior.floating,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        backgroundColor: const Color(0xFF191919),
-        drawer: const Drawer(), // Empty sidebar as requested
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF191919),
-          foregroundColor: Colors.white,
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                icon: const Icon(Icons.menu),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            },
-          ),
-          title: const TabBar(
-            isScrollable: true,
-            tabAlignment: TabAlignment.start,
-            dividerColor: Colors.transparent,
-            indicatorColor: Colors
-                .transparent, // Hide indicator if strictly following image, or keep specific style
-            labelColor: Colors.white,
-            labelStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            unselectedLabelColor: Colors.grey,
-            unselectedLabelStyle: TextStyle(fontSize: 16),
-            padding: EdgeInsets.zero,
-            labelPadding: EdgeInsets.symmetric(horizontal: 12),
-            tabs: [
-              Tab(text: '看点'),
-              Tab(text: '盯盘'),
-              Tab(text: '选股'),
-              Tab(text: '组合'),
-            ],
-          ),
-          actions: [
-            _buildPillButton(
-              context,
-              label:
-                  '今日盈亏\n0.00', // Multiline or styled? Image looks like two lines or label/value. Let's try Row/Column inside.
-              isMessage: false,
-            ),
-            const SizedBox(width: 8),
-            _buildPillButton(
-              context,
-              label: '消息',
-              isMessage: true,
-              badgeCount: '99+',
-            ),
-            const SizedBox(width: 16),
-          ],
+    final props = _appBarConfig['props'] as Map<String, dynamic>? ?? {};
+    final tabs = props['tabs'] as List<dynamic>? ?? [];
+
+    return Scaffold(
+      backgroundColor: const Color(0xFF191919),
+      drawer: const Drawer(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: DslSurface(
+          dsl: _appBarConfig,
+          catalog: _catalog,
+          onAction: _handleAction,
         ),
-        body: const TabBarView(
-          children: [
-            HighlightsPage(),
-            _PlaceholderTab(title: '盯盘'),
-            _PlaceholderTab(title: '选股'),
-            _PlaceholderTab(title: '组合'),
-          ],
-        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: tabs.map((tab) {
+          final tabId = (tab as Map<String, dynamic>)['id'] as String;
+          return _buildTabContent(tabId);
+        }).toList(),
       ),
     );
   }
 
-  Widget _buildPillButton(
-    BuildContext context, {
-    required String label,
-    required bool isMessage,
-    String? badgeCount,
-  }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(
-        color: const Color(0xFF2A2A35), // Dark blue-ish grey background
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (!isMessage && label.contains('\n'))
-            // Special case for Profit: "今日盈亏" small top, "0.00" big bottom? Or just side by side.
-            // Image shows: "今日盈亏" small on top of "0.00" ??? No, looking closely at image:
-            // It looks like "今日盈亏 0.00" (single line? or stacked?)
-            // Let's assume single line or simple text for now based on "今日盈亏 0.00"
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('今日盈亏',
-                    style: TextStyle(fontSize: 10, color: Colors.grey)),
-                const Text('0.00',
-                    style: TextStyle(fontSize: 12, color: Colors.white)),
-              ],
-            )
-          else
-            Text(
-              label,
-              style: const TextStyle(color: Colors.white, fontSize: 13),
-            ),
-          if (badgeCount != null) ...[
-            const SizedBox(width: 4),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                badgeCount,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ],
-      ),
-    );
+  Widget _buildTabContent(String tabId) {
+    switch (tabId) {
+      case 'highlights':
+        return const HighlightsPage();
+      default:
+        return _PlaceholderTab(title: tabId);
+    }
   }
 }
 

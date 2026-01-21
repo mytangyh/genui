@@ -7,7 +7,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:genui/genui.dart';
+import 'package:hexin_dsl/hexin_dsl.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
+
+import '../ai_ui_catalog.dart';
 
 // Note: For DSL rendering, this component uses a callback approach
 // to avoid circular dependencies with hexin_dsl package.
@@ -36,7 +39,7 @@ final markdownRender = CatalogItem(
           "id": "root",
           "component": {
             "markdownRender": {
-              "content": "# Markdown 标准演示\\n\\n## 文本样式\\n普通文本包含**粗体**、*斜体*以及`行内代码`。\\n\\n## 列表展示\\n无序列表：\\n- Flutter\\n- GenUI\\n- Markdown\\n\\n有序列表：\\n1. 第一步：编写 DSL\\n2. 第二步：解析渲染\\n3. 第三步：展示结果\\n\\n## 引用与代码\\n> 这是一个引用块，用于强调重要信息。\\n\\n代码块演示：\\n```dart\\nvoid main() {\\n  print(\\"Hello GenUI\\");\\n}\\n```\\n\\n## 分割线\\n---\\n底部说明文本\\n\\n## DSL 组件组合演示\\n\\n```dsl\\n{\\"type\\": \\"infoSummaryCard\\", \\"props\\": {\\"title\\": \\"组合测试\\", \\"summary\\": \\"这是第一个组件\\", \\"action\\": {\\"text\\": \\"操作\\", \\"target\\": \\"route\\"}}}\\n```\\n\\n```dsl\\n{\\"type\\": \\"targetHeader\\", \\"props\\": {\\"timestamp\\": \\"08:16\\", \\"title\\": \\"盘前\\", \\"targetName\\": \\"上证指数\\", \\"targetValue\\": \\"3990.49\\", \\"trend\\": \\"up\\"}}\\n```",
+              "content": "# Markdown 标准演示\\n\\n## 文本样式\\n普通文本包含**粗体**、*斜体*以及`行内代码`。\\n\\n## 列表展示\\n无序列表：\\n- Flutter\\n- GenUI\\n- Markdown\\n\\n有序列表：\\n1. 第一步：编写 DSL\\n2. 第二步：解析渲染\\n3. 第三步：展示结果\\n\\n## 引用与代码\\n> 这是一个引用块，用于强调重要信息。\\n\\n代码块演示：\\n```dart\\nvoid main() {\\n  print(\\"Hello GenUI\\");\\n}\\n```\\n\\n## 分割线\\n---\\n底部说明文本\\n\\n## DSL 组件组合演示\\n\\n```dsl\\n{\\"type\\": \\"infoSummaryCard\\", \\"props\\": {\\"title\\": \\"组合测试\\", \\"summary\\": \\"这是第一个组件\\", \\"action\\": {\\"text\\": \\"操作\\", \\"target\\": \\"route\\"}}}\\n```\\n\\n```dsl\\n{\\"type\\": \\"targetHeader\\", \\"props\\": {\\"timestamp\\": \\"08:16\\", \\"title\\": \\"盘前\\", \\"targetName\\": \\"上证指数\\", \\"targetValue\\": \\"3990.49\\", \\"trend\\": \\"up\\"}}\\n```\\n\\n## WebView 演示\\n\\n```web\\n{\\"url\\": \\"https://m.10jqka.com.cn\\", \\"height\\": 300}\\n```",
               "backgroundColor": "#1A1F2E"
             }
           }
@@ -61,6 +64,7 @@ final markdownRender = CatalogItem(
       enableColoredNumbers: enableColoredNumbers,
       dispatchEvent: context.dispatchEvent,
       componentId: context.id,
+      catalogItemContext: context,
     );
   },
 );
@@ -74,6 +78,7 @@ class _MarkdownRender extends StatelessWidget {
     this.enableColoredNumbers = true,
     required this.dispatchEvent,
     required this.componentId,
+    required this.catalogItemContext,
   });
 
   final String content;
@@ -83,6 +88,7 @@ class _MarkdownRender extends StatelessWidget {
   final bool enableColoredNumbers;
   final void Function(UiEvent event) dispatchEvent;
   final String componentId;
+  final CatalogItemContext catalogItemContext;
 
   Color? _parseColor(String? hex) {
     if (hex == null || hex.isEmpty) return null;
@@ -387,39 +393,29 @@ class _MarkdownRender extends StatelessWidget {
   }
 
   Widget _buildDslWidget(Map<String, dynamic> dsl, String language) {
-    // Render DSL blocks as a styled container showing the DSL type
-    // For full DSL rendering, this component should be used with hexin_dsl
-    final String? type = dsl['type'] as String?;
-    final String displayText =
-        type != null ? 'DSL Component: $type' : 'DSL Block (${language})';
+    Map<String, dynamic> surfaceDsl;
 
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: const Color(0xFF2B7EFF).withOpacity(0.1),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: const Color(0xFF2B7EFF).withOpacity(0.3)),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            Icons.widgets_outlined,
-            color: Colors.white.withOpacity(0.7),
-            size: 16,
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              displayText,
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.7),
-                fontSize: 12,
-                fontStyle: FontStyle.italic,
-              ),
+    if (language == 'web') {
+      surfaceDsl = {'type': 'webview', 'props': dsl};
+    } else {
+      surfaceDsl = dsl;
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: DslSurface(
+        dsl: surfaceDsl,
+        // Use the comprehensive AI UI catalog to support nesting
+        catalog: AiUiCatalog.getCatalog(),
+        onAction: (String actionName, Map<String, dynamic> context) {
+          dispatchEvent(
+            UserActionEvent(
+              name: actionName,
+              sourceComponentId: componentId,
+              context: context,
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

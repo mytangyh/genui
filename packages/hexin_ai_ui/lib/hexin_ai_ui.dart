@@ -24,3 +24,10 @@ export 'src/components/market_breadth_bar.dart';
 export 'src/components/section_header.dart';
 export 'src/components/stock_quote.dart';
 export 'src/components/trailhead.dart';
+
+// AI App Bar components
+export 'src/components/pill_button.dart';
+export 'src/components/ai_app_bar.dart';
+
+// Catalog provider
+export 'src/ai_ui_catalog.dart';
