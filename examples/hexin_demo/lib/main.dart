@@ -5,10 +5,13 @@
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 
+// import 'package:hexin_highlights/hexin_highlights.dart';
+
 import 'src/catalog/catalog.dart';
 import 'src/pages/advisor_page.dart';
+import 'src/pages/ai_app_entry_page.dart';
 import 'src/pages/dsl_demo_page.dart';
-import 'src/pages/highlights_page.dart';
+// import 'src/pages/highlights_page.dart';
 
 void main() {
   runApp(const HexinDemoApp());
@@ -46,7 +49,7 @@ class MainTabView extends StatelessWidget {
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.chat), text: '投资顾问'),
-              Tab(icon: Icon(Icons.lightbulb_outline), text: '看点'),
+              Tab(icon: Icon(Icons.apps), text: 'AI App'),
               Tab(icon: Icon(Icons.dashboard), text: '组件画廊'),
               Tab(icon: Icon(Icons.code), text: 'DSL Demo'),
             ],
@@ -55,7 +58,7 @@ class MainTabView extends StatelessWidget {
         body: const TabBarView(
           children: [
             AdvisorPage(),
-            HighlightsPage(),
+            AiAppEntryPage(),
             CatalogTab(),
             DslDemoPage(),
           ],

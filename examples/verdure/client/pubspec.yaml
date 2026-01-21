@@ -8,9 +8,7 @@ publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: ^3.9.2
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   device_info_plus: ^12.2.0
@@ -50,3 +48,5 @@ flutter:
         - asset: assets/fonts/SpaceGrotesk-SemiBold.ttf
         - asset: assets/fonts/SpaceGrotesk-Bold.ttf
         - asset: assets/fonts/SpaceGrotesk-VariableFont_wght.ttf
+
+

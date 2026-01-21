@@ -12,10 +12,8 @@ import '../primitives/simple_items.dart';
 @immutable
 class DataPath {
   factory DataPath(String path) {
-    final List<String> segments = path
-        .split('/')
-        .where((s) => s.isNotEmpty)
-        .toList();
+    final List<String> segments =
+        path.split('/').where((s) => s.isNotEmpty).toList();
     return DataPath._(segments, path.startsWith(_separator));
   }
 

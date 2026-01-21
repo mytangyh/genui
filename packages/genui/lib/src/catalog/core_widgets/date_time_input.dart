@@ -29,12 +29,13 @@ extension type _DateTimeInputData.fromMap(JsonMap _json) {
     bool? enableDate,
     bool? enableTime,
     String? outputFormat,
-  }) => _DateTimeInputData.fromMap({
-    'value': value,
-    'enableDate': enableDate,
-    'enableTime': enableTime,
-    'outputFormat': outputFormat,
-  });
+  }) =>
+      _DateTimeInputData.fromMap({
+        'value': value,
+        'enableDate': enableDate,
+        'enableTime': enableTime,
+        'outputFormat': outputFormat,
+      });
 
   JsonMap get value => _json['value'] as JsonMap;
   bool get enableDate => (_json['enableDate'] as bool?) ?? true;
@@ -63,8 +64,8 @@ final dateTimeInput = CatalogItem(
     final dateTimeInputData = _DateTimeInputData.fromMap(
       itemContext.data as JsonMap,
     );
-    final ValueNotifier<String?> valueNotifier = itemContext.dataContext
-        .subscribeToString(dateTimeInputData.value);
+    final ValueNotifier<String?> valueNotifier =
+        itemContext.dataContext.subscribeToString(dateTimeInputData.value);
 
     return ValueListenableBuilder<String?>(
       valueListenable: valueNotifier,

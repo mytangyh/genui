@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 
 import 'package:genui/genui.dart';
 
-typedef UserPromptBuilder =
-    Widget Function(BuildContext context, UserMessage message);
+typedef UserPromptBuilder = Widget Function(
+    BuildContext context, UserMessage message);
 
-typedef UserUiInteractionBuilder =
-    Widget Function(BuildContext context, UserUiInteractionMessage message);
+typedef UserUiInteractionBuilder = Widget Function(
+    BuildContext context, UserUiInteractionMessage message);
 
 /// A widget that renders a list of chat messages in the conversation.
 ///

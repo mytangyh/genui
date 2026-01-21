@@ -4,32 +4,10 @@
 
 import 'package:genui/genui.dart';
 
-import 'ai_button_list.dart';
-import 'ai_event_overview.dart';
-import 'ai_message.dart';
-import 'auction_anomaly.dart';
-import 'banner_carousel.dart';
-import 'dsl_webview.dart';
-import 'info_summary_card.dart';
-import 'market_breadth_bar.dart';
-import 'markdown_render.dart';
-import 'news_flash_list.dart';
-import 'placeholder.dart';
-import 'section_header.dart';
-import 'stock_quote.dart';
-import 'target_header.dart';
-import 'trailhead.dart';
+import 'package:hexin_ai_ui/hexin_ai_ui.dart';
 
 /// Financial catalog for the hexin demo application.
 class FinancialCatalog {
-  /// Returns a minimal catalog for Gemini AI (limited components).
-  static Catalog getMinimalCatalog() {
-    return Catalog([
-      stockQuote, // 显示组件：股票报价
-      trailhead, // 交互组件：点击后触发AI生成新UI
-    ]);
-  }
-
   /// Returns the full catalog for DSL parsing (all components).
   static Catalog getDslCatalog() {
     return Catalog([
@@ -48,9 +26,6 @@ class FinancialCatalog {
       markdownRender, // Markdown 智能渲染容器
       sectionHeader, // 区块头部
       marketBreadthBar, // 涨跌平统计条
-      // 通用组件
-      stockQuote, // 股票报价
-      trailhead, // 交互按钮
     ]);
   }
 

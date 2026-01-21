@@ -1,0 +1,120 @@
+Analyzing hexin_demo...                                         
+
+   info - The line length exceeds the 80-character limit - lib\src\catalog\stock_chart.dart:108:81 - lines_longer_than_80_chars
+   info - The imported package 'genui_google_generative_ai' isn't a dependency of the importing package - lib\src\pages\advisor_page.dart:9:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:genui_google_generative_ai/genui_google_generative_ai.dart' - lib\src\pages\advisor_page.dart:9:8 - uri_does_not_exist
+   info - The line length exceeds the 80-character limit - lib\src\pages\advisor_page.dart:86:81 - lines_longer_than_80_chars
+  error - The method 'GoogleGenerativeAiContentGenerator' isn't defined for the type '_AdvisorPageState' - lib\src\pages\advisor_page.dart:90:28 - undefined_method
+   info - The line length exceeds the 80-character limit - lib\src\pages\advisor_page.dart:106:81 - lines_longer_than_80_chars
+   info - Place 'package:' imports before relative imports - lib\src\pages\dsl_demo_page.dart:8:1 - directives_ordering
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:180 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:186 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:190 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:207 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:211 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:218 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:223 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:230 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:234 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:242 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:246 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:255 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:259 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:293 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:299 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:309 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:313 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:321 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:326 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:332 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:336 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:342 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:346 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:354 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:358 - unnecessary_string_escapes
+   info - Unnecessary escape in string literal - lib\src\pages\dsl_demo_page.dart:287:372 - unnecessary_string_escapes
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\dsl_demo_page.dart:368:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\dsl_demo_page.dart:448:5 - specify_nonobvious_local_variable_types
+   info - Use 'const' with the constructor to improve performance - lib\src\pages\dsl_demo_page.dart:466:20 - prefer_const_constructors
+   info - The import of 'package:hexin_dsl/hexin_dsl.dart' is unnecessary because all of the used elements are also provided by the import of 'package:hexin_highlights/hexin_highlights.dart' - lib\src\pages\highlights_page.dart:7:8 - unnecessary_import
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\highlights_page.dart:44:7 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\pages\highlights_page.dart:96:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\pages\highlights_page.dart:102:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\pages\highlights_page.dart:121:61 - deprecated_member_use
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\highlights_page.dart:128:27 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\highlights_page.dart:131:27 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\pages\highlights_page.dart:134:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - lib\src\pages\highlights_page.dart:155:81 - lines_longer_than_80_chars
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\pages\highlights_page.dart:162:57 - deprecated_member_use
+   info - The line length exceeds the 80-character limit - lib\src\pages\highlights_page.dart:175:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\pages\highlights_page.dart:177:39 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\pages\highlights_page.dart:197:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - lib\src\pages\highlights_page.dart:199:81 - lines_longer_than_80_chars
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\services\custom_content_generator.dart:67:7 - omit_obvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\services\custom_content_generator.dart:79:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:82:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:92:14 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:107:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:118:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:139:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:149:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:152:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:153:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:153:24 - avoid_dynamic_calls
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:153:24 - avoid_dynamic_calls
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:154:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:154:29 - avoid_dynamic_calls
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:157:13 - avoid_dynamic_calls
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:158:13 - avoid_dynamic_calls
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:159:27 - avoid_dynamic_calls
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:166:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:166:30 - avoid_dynamic_calls
+   info - The line length exceeds the 80-character limit - lib\src\services\custom_content_generator.dart:172:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:196:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:202:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:208:13 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\services\custom_content_generator.dart:221:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:235:13 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:236:18 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:256:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:271:10 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:272:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:273:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:286:5 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\services\custom_content_generator.dart:288:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:289:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:290:7 - specify_nonobvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\services\custom_content_generator.dart:297:9 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:303:14 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:304:11 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:308:13 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:356:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:364:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:387:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:397:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:400:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:401:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:401:24 - avoid_dynamic_calls
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:401:24 - avoid_dynamic_calls
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:402:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:402:29 - avoid_dynamic_calls
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:404:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:404:25 - avoid_dynamic_calls
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:409:9 - specify_nonobvious_local_variable_types
+   info - Method invocation or property access on a 'dynamic' target - lib\src\services\custom_content_generator.dart:409:30 - avoid_dynamic_calls
+   info - The line length exceeds the 80-character limit - lib\src\services\custom_content_generator.dart:415:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\custom_content_generator.dart:428:7 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\utils.dart:9:81 - lines_longer_than_80_chars
+   info - Dependencies not sorted alphabetically - pubspec.yaml:25:3 - sort_pub_dependencies
+   info - The local variable '_unescapeContent' starts with an underscore - test\bug_repro_test.dart:6:12 - no_leading_underscores_for_local_identifiers
+   info - The line length exceeds the 80-character limit - test\bug_repro_test.dart:13:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - test\bug_repro_test.dart:16:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - test\bug_repro_test.dart:17:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - test\bug_repro_test.dart:26:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - test\bug_repro_test.dart:58:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - test\fallback_test.dart:13:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - test\fallback_test.dart:25:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - test\fallback_test.dart:39:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - test\fallback_test.dart:40:5 - specify_nonobvious_local_variable_types
+warning - Unused import: 'package:flutter/material.dart' - test\widget_test.dart:8:8 - unused_import
+

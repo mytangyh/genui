@@ -86,8 +86,8 @@ CatalogItem _imageCatalogItem({
     ],
     widgetBuilder: (itemContext) {
       final imageData = _ImageData.fromMap(itemContext.data as JsonMap);
-      final ValueNotifier<String?> notifier = itemContext.dataContext
-          .subscribeToString(imageData.url);
+      final ValueNotifier<String?> notifier =
+          itemContext.dataContext.subscribeToString(imageData.url);
 
       return ValueListenableBuilder<String?>(
         valueListenable: notifier,

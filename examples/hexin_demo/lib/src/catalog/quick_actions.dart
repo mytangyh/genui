@@ -161,7 +161,7 @@ class _QuickActions extends StatelessWidget {
                         final name = actionDef['name'] as String;
                         final List<Object?> contextDef =
                             (actionDef['context'] as List<Object?>?) ??
-                            <Object?>[];
+                                <Object?>[];
                         final JsonMap resolvedContext = resolveContext(
                           dataContext,
                           contextDef,

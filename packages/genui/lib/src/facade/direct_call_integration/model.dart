@@ -41,10 +41,10 @@ class ToolCall extends Part {
 
   @override
   Map<String, Object?> toJson() => {
-    'type': 'ToolCall',
-    'args': args,
-    'name': name,
-  };
+        'type': 'ToolCall',
+        'args': args,
+        'name': name,
+      };
 }
 
 /// Declaration to be provided to the LLM about a function/tool.
@@ -75,10 +75,10 @@ class GenUiFunctionDeclaration {
 
   /// Converts this object to a JSON representation.
   Map<String, Object?> toJson() => {
-    'description': description,
-    'name': name,
-    'parameters': parameters,
-  };
+        'description': description,
+        'name': name,
+        'parameters': parameters,
+      };
 }
 
 /// A parsed tool call.

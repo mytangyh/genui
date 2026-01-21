@@ -59,22 +59,23 @@ extension type ObjectSchema.fromMap(Map<String, Object?> _value)
 
     /// The maximum number of properties that the object can have.
     int? maxProperties,
-  }) => ObjectSchema.fromMap({
-    'type': JsonType.object.typeName,
-    if (title != null) 'title': title,
-    if (description != null) 'description': description,
-    if (properties != null) 'properties': properties,
-    if (patternProperties != null) 'patternProperties': patternProperties,
-    if (required != null) 'required': required,
-    if (dependentRequired != null) 'dependentRequired': dependentRequired,
-    if (additionalProperties != null)
-      'additionalProperties': additionalProperties,
-    if (unevaluatedProperties != null)
-      'unevaluatedProperties': unevaluatedProperties,
-    if (propertyNames != null) 'propertyNames': propertyNames,
-    if (minProperties != null) 'minProperties': minProperties,
-    if (maxProperties != null) 'maxProperties': maxProperties,
-  });
+  }) =>
+      ObjectSchema.fromMap({
+        'type': JsonType.object.typeName,
+        if (title != null) 'title': title,
+        if (description != null) 'description': description,
+        if (properties != null) 'properties': properties,
+        if (patternProperties != null) 'patternProperties': patternProperties,
+        if (required != null) 'required': required,
+        if (dependentRequired != null) 'dependentRequired': dependentRequired,
+        if (additionalProperties != null)
+          'additionalProperties': additionalProperties,
+        if (unevaluatedProperties != null)
+          'unevaluatedProperties': unevaluatedProperties,
+        if (propertyNames != null) 'propertyNames': propertyNames,
+        if (minProperties != null) 'minProperties': minProperties,
+        if (maxProperties != null) 'maxProperties': maxProperties,
+      });
 
   /// A map of property names to schemas.
   Map<String, Schema>? get properties => mapToSchemaOrBool(kProperties);

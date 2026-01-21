@@ -16,11 +16,13 @@ class AnnotationSet {
 
   /// Creates a new annotation set.
   AnnotationSet({Set<String>? evaluatedKeys, Set<int>? evaluatedItems})
-    : evaluatedKeys = evaluatedKeys ?? {},
-      evaluatedItems = evaluatedItems ?? {};
+      : evaluatedKeys = evaluatedKeys ?? {},
+        evaluatedItems = evaluatedItems ?? {};
 
   /// Creates an empty annotation set.
-  AnnotationSet.empty() : evaluatedKeys = {}, evaluatedItems = {};
+  AnnotationSet.empty()
+      : evaluatedKeys = {},
+        evaluatedItems = {};
 
   /// Merges this annotation set with another one.
   AnnotationSet merge(AnnotationSet other) {
@@ -42,8 +44,7 @@ class AnnotationSet {
   }
 
   @override
-  String toString() =>
-      'Annotations(keys: ${evaluatedKeys.length}, '
+  String toString() => 'Annotations(keys: ${evaluatedKeys.length}, '
       'items: ${evaluatedItems.length})';
 }
 
@@ -55,23 +56,23 @@ class ValidationResult {
 
   /// Creates a new validation result.
   ValidationResult(this.isValid, List<ValidationError> errors, this.annotations)
-    : errors = UnmodifiableListView(errors);
+      : errors = UnmodifiableListView(errors);
 
   /// Creates a successful validation result with the given [annotations].
   ValidationResult.success(this.annotations)
-    : isValid = true,
-      errors = const [];
+      : isValid = true,
+        errors = const [];
 
   /// Creates a failed validation result with the given [errors] and
   /// [annotations].
   ValidationResult.failure(List<ValidationError> errors, this.annotations)
-    : isValid = false,
-      errors = UnmodifiableListView(errors);
+      : isValid = false,
+        errors = UnmodifiableListView(errors);
 
   /// Creates a validation result from a list of [errors].
   ///
   /// The result is considered valid if the list of errors is empty.
   ValidationResult.fromErrors(List<ValidationError> errors, this.annotations)
-    : isValid = errors.isEmpty,
-      errors = UnmodifiableListView(errors);
+      : isValid = errors.isEmpty,
+        errors = UnmodifiableListView(errors);
 }

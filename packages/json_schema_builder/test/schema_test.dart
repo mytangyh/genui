@@ -21,14 +21,12 @@ void main() {
       data,
       strictFormat: strictFormat,
     );
-    final Set<ValidationErrorType> actualErrorTypes = actualErrors
-        .map((e) => e.error)
-        .toSet();
+    final Set<ValidationErrorType> actualErrorTypes =
+        actualErrors.map((e) => e.error).toSet();
     expect(
       actualErrorTypes,
       equals(expectedErrorTypes.toSet()),
-      reason:
-          reason ??
+      reason: reason ??
           'Data: $data. Expected (types): $expectedErrorTypes. Actual (types): $actualErrorTypes',
     );
   }
@@ -45,18 +43,15 @@ void main() {
       data,
       strictFormat: strictFormat,
     );
-    final Set<String> actualErrorStrings = actualErrors
-        .map((e) => e.toErrorString())
-        .toSet();
-    final Set<String> expectedErrorStrings = expectedErrorsWithPaths
-        .map((e) => e.toErrorString())
-        .toSet();
+    final Set<String> actualErrorStrings =
+        actualErrors.map((e) => e.toErrorString()).toSet();
+    final Set<String> expectedErrorStrings =
+        expectedErrorsWithPaths.map((e) => e.toErrorString()).toSet();
 
     expect(
       actualErrorStrings,
       equals(expectedErrorStrings),
-      reason:
-          reason ??
+      reason: reason ??
           'Data: $data. Expected (exact): $expectedErrorStrings. Actual (exact): $actualErrorStrings',
     );
   }
@@ -173,28 +168,44 @@ void main() {
         [],
         strictFormat: true,
       );
-      expectFailuresMatch(schema, 'not-a-date', [
-        ValidationErrorType.formatInvalid,
-      ], strictFormat: true);
+      expectFailuresMatch(
+          schema,
+          'not-a-date',
+          [
+            ValidationErrorType.formatInvalid,
+          ],
+          strictFormat: true);
     });
 
     test('format: email', () {
       final schema = StringSchema(format: 'email');
       expectFailuresMatch(schema, 'test@example.com', [], strictFormat: true);
-      expectFailuresMatch(schema, 'not-an-email', [
-        ValidationErrorType.formatInvalid,
-      ], strictFormat: true);
+      expectFailuresMatch(
+          schema,
+          'not-an-email',
+          [
+            ValidationErrorType.formatInvalid,
+          ],
+          strictFormat: true);
     });
 
     test('format: ipv4', () {
       final schema = StringSchema(format: 'ipv4');
       expectFailuresMatch(schema, '192.168.1.1', [], strictFormat: true);
-      expectFailuresMatch(schema, '256.0.0.1', [
-        ValidationErrorType.formatInvalid,
-      ], strictFormat: true);
-      expectFailuresMatch(schema, '1.2.3.4.5', [
-        ValidationErrorType.formatInvalid,
-      ], strictFormat: true);
+      expectFailuresMatch(
+          schema,
+          '256.0.0.1',
+          [
+            ValidationErrorType.formatInvalid,
+          ],
+          strictFormat: true);
+      expectFailuresMatch(
+          schema,
+          '1.2.3.4.5',
+          [
+            ValidationErrorType.formatInvalid,
+          ],
+          strictFormat: true);
     });
   });
 

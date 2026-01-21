@@ -29,7 +29,8 @@ void main() {
       manager.dispose();
     });
 
-    test('handleMessage adds a new surface and fires SurfaceAdded with '
+    test(
+        'handleMessage adds a new surface and fires SurfaceAdded with '
         'definition', () async {
       const surfaceId = 's1';
       final components = [

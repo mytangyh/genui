@@ -19,9 +19,9 @@ class SchemaCache {
   final SchemaCacheFileLoader _fileLoader = SchemaCacheFileLoader();
 
   SchemaCache({http.Client? httpClient, LoggingContext? loggingContext})
-    : _internalHttpClient = null,
-      _loggingContext = loggingContext,
-      _externalHttpClient = httpClient;
+      : _internalHttpClient = null,
+        _loggingContext = loggingContext,
+        _externalHttpClient = httpClient;
 
   http.Client get _httpClient =>
       _externalHttpClient ?? (_internalHttpClient ??= http.Client());

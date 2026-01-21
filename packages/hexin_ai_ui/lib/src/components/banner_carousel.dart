@@ -265,7 +265,7 @@ class _BannerCarouselState extends State<_BannerCarousel> {
           child: CircularProgressIndicator(
             value: loadingProgress.expectedTotalBytes != null
                 ? loadingProgress.cumulativeBytesLoaded /
-                      loadingProgress.expectedTotalBytes!
+                    loadingProgress.expectedTotalBytes!
                 : null,
             strokeWidth: 2,
             color: Colors.white.withOpacity(0.5),

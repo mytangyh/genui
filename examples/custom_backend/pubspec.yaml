@@ -7,10 +7,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.9.2 <4.0.0"
-  flutter: ">=3.35.7 <4.0.0"
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -30,3 +28,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/data/
+
+

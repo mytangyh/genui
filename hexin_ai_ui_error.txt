@@ -1,0 +1,4 @@
+Resolving dependencies...
+Because hexin_ai_ui depends on json_schema_builder from path which depends on intl ^0.20.2, intl ^0.20.2 is required.
+So, because hexin_ai_ui depends on intl ^0.19.0, version solving failed.
+Failed to update packages.

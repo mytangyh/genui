@@ -10,8 +10,8 @@ import '../model/tools.dart';
 import '../primitives/simple_items.dart';
 
 /// A callback that is called when events are sent.
-typedef SendEventsCallback =
-    void Function(String surfaceId, List<UiEvent> events);
+typedef SendEventsCallback = void Function(
+    String surfaceId, List<UiEvent> events);
 
 /// A callback that is called when an event is dispatched.
 typedef DispatchEventCallback = void Function(UiEvent event);
@@ -61,13 +61,13 @@ extension type UserActionEvent.fromMap(JsonMap _json) implements UiEvent {
     DateTime? timestamp,
     JsonMap? context,
   }) : _json = {
-         if (surfaceId != null) surfaceIdKey: surfaceId,
-         'name': name,
-         'sourceComponentId': sourceComponentId,
-         'timestamp': (timestamp ?? DateTime.now()).toIso8601String(),
-         'isAction': true,
-         'context': context ?? {},
-       };
+          if (surfaceId != null) surfaceIdKey: surfaceId,
+          'name': name,
+          'sourceComponentId': sourceComponentId,
+          'timestamp': (timestamp ?? DateTime.now()).toIso8601String(),
+          'isAction': true,
+          'context': context ?? {},
+        };
 
   String get name => _json['name'] as String;
   String get sourceComponentId => _json['sourceComponentId'] as String;
@@ -185,8 +185,8 @@ final class Component {
 
   @override
   int get hashCode => Object.hash(
-    id,
-    weight,
-    const DeepCollectionEquality().hash(componentProperties),
-  );
+        id,
+        weight,
+        const DeepCollectionEquality().hash(componentProperties),
+      );
 }

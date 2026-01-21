@@ -8,9 +8,7 @@ version: 0.1.0
 publish_to: none
 
 environment:
-  sdk: ">=3.9.2 <4.0.0"
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
 
 # Add regular dependencies here.
 dependencies:
@@ -22,3 +20,5 @@ dependencies:
 
 dev_dependencies:
   test: ^1.26.2
+
+

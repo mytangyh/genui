@@ -38,9 +38,8 @@ void validateCatalogExamples(
             );
           }
 
-          final List<Component> components = exampleData
-              .map((e) => Component.fromJson(e as JsonMap))
-              .toList();
+          final List<Component> components =
+              exampleData.map((e) => Component.fromJson(e as JsonMap)).toList();
 
           expect(
             components.any((c) => c.id == 'root'),

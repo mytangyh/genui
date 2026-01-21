@@ -63,21 +63,23 @@ extension type ValidationError.fromMap(Map<String, Object?> _value) {
     ValidationErrorType error, {
     required List<String> path,
     String? details,
-  }) => ValidationError.fromMap({
-    'error': error.name,
-    'path': path.toList(),
-    if (details != null) 'details': details,
-  });
+  }) =>
+      ValidationError.fromMap({
+        'error': error.name,
+        'path': path.toList(),
+        if (details != null) 'details': details,
+      });
 
   factory ValidationError.typeMismatch({
     required List<String> path,
     required Object expectedType, // Can be String or List<String>
     required Object? actualValue,
-  }) => ValidationError(
-    ValidationErrorType.typeMismatch,
-    path: path,
-    details: 'Value `$actualValue` is not of type `$expectedType`',
-  );
+  }) =>
+      ValidationError(
+        ValidationErrorType.typeMismatch,
+        path: path,
+        details: 'Value `$actualValue` is not of type `$expectedType`',
+      );
 
   /// The type of validation error that occurred.
   ValidationErrorType get error =>

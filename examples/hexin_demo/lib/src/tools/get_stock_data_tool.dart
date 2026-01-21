@@ -11,20 +11,20 @@ import '../services/mock_data_service.dart';
 /// Tool for getting stock data with historical prices.
 class GetStockDataTool extends AiTool<Map<String, Object?>> {
   GetStockDataTool(this._dataService)
-    : super(
-        name: 'get_stock_data',
-        description: '获取指定股票的实时数据和历史走势，包括价格、涨跌幅、成交量等',
-        parameters: S.object(
-          properties: {
-            'stockCode': S.string(description: '股票代码，如 600519'),
-            'timeRange': S.string(
-              description: '时间范围: 1d(1天), 5d(5天), 1m(1月), 3m(3月), 1y(1年)',
-              enumValues: ['1d', '5d', '1m', '3m', '1y'],
-            ),
-          },
-          required: ['stockCode'],
-        ),
-      );
+      : super(
+          name: 'get_stock_data',
+          description: '获取指定股票的实时数据和历史走势，包括价格、涨跌幅、成交量等',
+          parameters: S.object(
+            properties: {
+              'stockCode': S.string(description: '股票代码，如 600519'),
+              'timeRange': S.string(
+                description: '时间范围: 1d(1天), 5d(5天), 1m(1月), 3m(3月), 1y(1年)',
+                enumValues: ['1d', '5d', '1m', '3m', '1y'],
+              ),
+            },
+            required: ['stockCode'],
+          ),
+        );
 
   final MockDataService _dataService;
 

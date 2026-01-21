@@ -10,10 +10,8 @@ license: BSD-3-Clause
 issue_tracker: https://github.com/flutter/genui/issues
 
 environment:
-  sdk: ">=3.9.2 <4.0.0"
-  flutter: ">=3.35.7 <4.0.0"
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
 
 dependencies:
   a2a: ^3.1.0
@@ -29,3 +27,5 @@ dev_dependencies:
     sdk: flutter
 flutter:
   uses-material-design: true
+
+

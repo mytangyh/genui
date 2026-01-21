@@ -125,9 +125,8 @@ void main() {
     expect(find.text('Second'), findsOneWidget);
     expect(find.text('Third'), findsOneWidget);
 
-    final List<Flexible> flexibleWidgets = tester
-        .widgetList<Flexible>(find.byType(Flexible))
-        .toList();
+    final List<Flexible> flexibleWidgets =
+        tester.widgetList<Flexible>(find.byType(Flexible)).toList();
     expect(flexibleWidgets.length, 2);
 
     // Check flex values

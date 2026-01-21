@@ -11,11 +11,11 @@ import '../services/mock_data_service.dart';
 /// Tool for getting user's investment portfolio.
 class GetPortfolioTool extends AiTool<Map<String, Object?>> {
   GetPortfolioTool(this._dataService)
-    : super(
-        name: 'get_portfolio',
-        description: '获取用户的投资组合信息，包括持仓股票、总资产、盈亏等数据',
-        parameters: S.object(properties: {}),
-      );
+      : super(
+          name: 'get_portfolio',
+          description: '获取用户的投资组合信息，包括持仓股票、总资产、盈亏等数据',
+          parameters: S.object(properties: {}),
+        );
 
   final MockDataService _dataService;
 

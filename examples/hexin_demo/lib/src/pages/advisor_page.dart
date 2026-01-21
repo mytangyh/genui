@@ -6,16 +6,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
-import 'package:genui_google_generative_ai/genui_google_generative_ai.dart';
+// import 'package:genui_google_generative_ai/genui_google_generative_ai.dart';
 
 import '../catalog/catalog.dart';
 import '../config/configuration.dart';
+import '../config/secrets.dart';
 import '../services/custom_content_generator.dart';
-import '../services/mock_data_service.dart';
-import '../tools/analyze_risk_tool.dart';
-import '../tools/get_portfolio_tool.dart';
-import '../tools/get_recommendations_tool.dart';
-import '../tools/get_stock_data_tool.dart';
+// import '../services/mock_data_service.dart';
+// import '../tools/analyze_risk_tool.dart';
+// import '../tools/get_portfolio_tool.dart';
+// import '../tools/get_recommendations_tool.dart';
+// import '../tools/get_stock_data_tool.dart';
 import '../widgets/conversation.dart';
 
 /// Main advisor page for hexin_demo.
@@ -30,7 +31,7 @@ class _AdvisorPageState extends State<AdvisorPage>
     with AutomaticKeepAliveClientMixin {
   late final GenUiConversation _uiConversation;
   late final StreamSubscription<ChatMessage> _userMessageSubscription;
-  late final MockDataService _dataService;
+  // late final MockDataService _dataService;
 
   final _textController = TextEditingController();
   final _scrollController = ScrollController();
@@ -43,7 +44,7 @@ class _AdvisorPageState extends State<AdvisorPage>
 
   void _initializeConversation() {
     // Initialize data service
-    _dataService = MockDataService();
+    // _dataService = MockDataService();
 
     // Create catalog combining core and financial components
     final catalog = Catalog([
@@ -79,31 +80,33 @@ class _AdvisorPageState extends State<AdvisorPage>
         );
 
       case AiBackend.googleGenerativeAi:
-        const apiKey = String.fromEnvironment('GEMINI_API_KEY');
-        if (apiKey.isEmpty) {
-          throw Exception(
-            'GEMINI_API_KEY not found. '
-            'Please run with: flutter run --dart-define=GEMINI_API_KEY=your_key',
-          );
-        }
-
-        contentGenerator = GoogleGenerativeAiContentGenerator(
-          catalog: catalog,
-          apiKey: apiKey,
-          systemInstruction: _getSystemPrompt(),
-          additionalTools: [
-            GetPortfolioTool(_dataService),
-            GetStockDataTool(_dataService),
-            AnalyzeRiskTool(_dataService),
-            GetRecommendationsTool(_dataService),
-          ],
+        throw UnimplementedError(
+          'Google AI backend is temporarily removed for SDK compatibility.',
         );
+      // const apiKey = String.fromEnvironment('GEMINI_API_KEY');
+      // if (apiKey.isEmpty) {
+      //   throw Exception(
+      //     'GEMINI_API_KEY not found. '
+      //     'Please run with: flutter run --dart-define=GEMINI_API_KEY=your_key',
+      //   );
+      // }
+
+      // contentGenerator = GoogleGenerativeAiContentGenerator(
+      //   catalog: catalog,
+      //   apiKey: apiKey,
+      //   systemInstruction: _getSystemPrompt(),
+      //   additionalTools: [
+      //     GetPortfolioTool(_dataService),
+      //     GetStockDataTool(_dataService),
+      //     AnalyzeRiskTool(_dataService),
+      //     GetRecommendationsTool(_dataService),
+      //   ],
+      // );
 
       case AiBackend.custom:
         contentGenerator = CustomContentGenerator(
           baseUrl: 'https://integrate.api.nvidia.com/v1/chat/completions',
-          apiKey:
-              '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',
+          apiKey: nvidiaApiKey,
           model: 'z-ai/glm4.7',
           systemInstruction: _getSystemPrompt(),
           catalog: catalog,

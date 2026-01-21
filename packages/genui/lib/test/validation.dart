@@ -63,9 +63,8 @@ Future<List<ExampleValidationError>> validateCatalogItemExamples(
       continue;
     }
 
-    final List<Component> components = exampleData
-        .map((e) => Component.fromJson(e as JsonMap))
-        .toList();
+    final List<Component> components =
+        exampleData.map((e) => Component.fromJson(e as JsonMap)).toList();
 
     if (components.every((c) => c.id != 'root')) {
       errors.add(

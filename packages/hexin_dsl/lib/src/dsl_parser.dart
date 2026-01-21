@@ -87,7 +87,7 @@ class DslParser {
     String markdown, {
     required List<String> languages,
     Map<String, dynamic> Function(Map<String, dynamic> data, String language)?
-    transformer,
+        transformer,
   }) {
     if (languages.isEmpty) return [];
 

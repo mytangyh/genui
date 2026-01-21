@@ -33,11 +33,12 @@ extension type _MultipleChoiceData.fromMap(JsonMap _json) {
     required JsonMap selections,
     required List<JsonMap> options,
     int? maxAllowedSelections,
-  }) => _MultipleChoiceData.fromMap({
-    'selections': selections,
-    'options': options,
-    'maxAllowedSelections': maxAllowedSelections,
-  });
+  }) =>
+      _MultipleChoiceData.fromMap({
+        'selections': selections,
+        'options': options,
+        'maxAllowedSelections': maxAllowedSelections,
+      });
 
   JsonMap get selections => _json['selections'] as JsonMap;
   List<JsonMap> get options => (_json['options'] as List).cast<JsonMap>();
@@ -80,9 +81,8 @@ final multipleChoice = CatalogItem(
               valueListenable: labelNotifier,
               builder: (context, label, child) {
                 if (multipleChoiceData.maxAllowedSelections == 1) {
-                  final Object? groupValue = selections?.isNotEmpty == true
-                      ? selections!.first
-                      : null;
+                  final Object? groupValue =
+                      selections?.isNotEmpty == true ? selections!.first : null;
                   return RadioListTile<String>(
                     controlAffinity: ListTileControlAffinity.leading,
                     dense: true,
@@ -119,7 +119,7 @@ final multipleChoice = CatalogItem(
                       }
                       final List<String> newSelections =
                           selections?.map((e) => e.toString()).toList() ??
-                          <String>[];
+                              <String>[];
                       if (newValue ?? false) {
                         if (multipleChoiceData.maxAllowedSelections == null ||
                             newSelections.length <

@@ -102,16 +102,14 @@ class _GenUiSurfaceState extends State<GenUiSurface> {
 
   void _dispatchEvent(UiEvent event) {
     if (event is UserActionEvent && event.name == 'showModal') {
-      final UiDefinition? definition = widget.host
-          .getSurfaceNotifier(widget.surfaceId)
-          .value;
+      final UiDefinition? definition =
+          widget.host.getSurfaceNotifier(widget.surfaceId).value;
       if (definition == null) return;
       final modalId = event.context['modalId'] as String;
       final Component? modalComponent = definition.components[modalId];
       if (modalComponent == null) return;
-      final contentChildId =
-          (modalComponent.componentProperties['Modal'] as Map)['contentChild']
-              as String;
+      final contentChildId = (modalComponent.componentProperties['Modal']
+          as Map)['contentChild'] as String;
       showModalBottomSheet<void>(
         context: context,
         builder: (context) => _buildWidget(

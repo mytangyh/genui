@@ -1,0 +1,24 @@
+# Copyright 2025 The Flutter Authors.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+name: hexin_dsl
+description: DSL parsing and rendering library for Hexin applications.
+version: 0.1.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  genui:
+    path: ../genui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+

@@ -27,10 +27,11 @@ extension type _ModalData.fromMap(JsonMap _json) {
   factory _ModalData({
     required String entryPointChild,
     required String contentChild,
-  }) => _ModalData.fromMap({
-    'entryPointChild': entryPointChild,
-    'contentChild': contentChild,
-  });
+  }) =>
+      _ModalData.fromMap({
+        'entryPointChild': entryPointChild,
+        'contentChild': contentChild,
+      });
 
   String get entryPointChild => _json['entryPointChild'] as String;
   String get contentChild => _json['contentChild'] as String;

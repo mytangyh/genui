@@ -24,14 +24,14 @@ class StockHolding {
   double get profitPercent => totalCost == 0 ? 0 : (profit / totalCost) * 100;
 
   Map<String, dynamic> toJson() => {
-    'stockCode': stockCode,
-    'stockName': stockName,
-    'shares': shares,
-    'costPrice': costPrice,
-    'currentPrice': currentPrice,
-    'profit': profit,
-    'profitPercent': profitPercent,
-  };
+        'stockCode': stockCode,
+        'stockName': stockName,
+        'shares': shares,
+        'costPrice': costPrice,
+        'currentPrice': currentPrice,
+        'profit': profit,
+        'profitPercent': profitPercent,
+      };
 }
 
 /// Represents a user's investment portfolio.
@@ -51,10 +51,10 @@ class Portfolio {
       totalCost == 0 ? 0 : (totalProfit / totalCost) * 100;
 
   Map<String, dynamic> toJson() => {
-    'totalValue': totalValue,
-    'totalProfit': totalProfit,
-    'profitPercent': profitPercent,
-    'cashBalance': cashBalance,
-    'holdings': holdings.map((h) => h.toJson()).toList(),
-  };
+        'totalValue': totalValue,
+        'totalProfit': totalProfit,
+        'profitPercent': profitPercent,
+        'cashBalance': cashBalance,
+        'holdings': holdings.map((h) => h.toJson()).toList(),
+      };
 }

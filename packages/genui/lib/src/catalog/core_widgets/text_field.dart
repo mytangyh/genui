@@ -33,13 +33,14 @@ extension type _TextFieldData.fromMap(JsonMap _json) {
     String? textFieldType,
     String? validationRegexp,
     JsonMap? onSubmittedAction,
-  }) => _TextFieldData.fromMap({
-    'text': text,
-    'label': label,
-    'textFieldType': textFieldType,
-    'validationRegexp': validationRegexp,
-    'onSubmittedAction': onSubmittedAction,
-  });
+  }) =>
+      _TextFieldData.fromMap({
+        'text': text,
+        'label': label,
+        'textFieldType': textFieldType,
+        'validationRegexp': validationRegexp,
+        'onSubmittedAction': onSubmittedAction,
+      });
 
   JsonMap? get text => _json['text'] as JsonMap?;
   JsonMap? get label => _json['label'] as JsonMap?;
@@ -169,10 +170,10 @@ final textField = CatalogItem(
     final textFieldData = _TextFieldData.fromMap(itemContext.data as JsonMap);
     final JsonMap? valueRef = textFieldData.text;
     final path = valueRef?['path'] as String?;
-    final ValueNotifier<String?> notifier = itemContext.dataContext
-        .subscribeToString(valueRef);
-    final ValueNotifier<String?> labelNotifier = itemContext.dataContext
-        .subscribeToString(textFieldData.label);
+    final ValueNotifier<String?> notifier =
+        itemContext.dataContext.subscribeToString(valueRef);
+    final ValueNotifier<String?> labelNotifier =
+        itemContext.dataContext.subscribeToString(textFieldData.label);
 
     return ValueListenableBuilder<String?>(
       valueListenable: notifier,

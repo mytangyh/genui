@@ -14,26 +14,24 @@ import '../../primitives/simple_items.dart';
 ///
 /// This is used by [ComponentChildrenBuilder] when children are defined by a
 /// `template` which includes a `dataBinding` to a list in the [DataContext].
-typedef TemplateListWidgetBuilder =
-    Widget Function(
-      BuildContext context,
-      Map<String, Object?> data,
-      String componentId,
-      String dataBinding,
-    );
+typedef TemplateListWidgetBuilder = Widget Function(
+  BuildContext context,
+  Map<String, Object?> data,
+  String componentId,
+  String dataBinding,
+);
 
 /// Builder function for creating a parent widget given a list of pre-built
 /// [childIds].
 ///
 /// This is used by [ComponentChildrenBuilder] when children are defined as an
 /// explicit list of component IDs.
-typedef ExplicitListWidgetBuilder =
-    Widget Function(
-      List<String> childIds,
-      ChildBuilderCallback buildChild,
-      GetComponentCallback getComponent,
-      DataContext dataContext,
-    );
+typedef ExplicitListWidgetBuilder = Widget Function(
+  List<String> childIds,
+  ChildBuilderCallback buildChild,
+  GetComponentCallback getComponent,
+  DataContext dataContext,
+);
 
 /// A helper widget to build widgets from component data that contains a list
 /// of children.
@@ -81,7 +79,7 @@ class ComponentChildrenBuilder extends StatelessWidget {
     final List<String>? explicitList = (childrenData is List)
         ? (childrenData as List).cast<String>()
         : ((childrenData as JsonMap?)?['explicitList'] as List?)
-              ?.cast<String>();
+            ?.cast<String>();
 
     if (explicitList != null) {
       return explicitListBuilder(
@@ -101,8 +99,8 @@ class ComponentChildrenBuilder extends StatelessWidget {
         genUiLogger.finest(
           'Widget $componentId subscribing to ${dataContext.path}',
         );
-        final ValueNotifier<Map<String, Object?>?> dataNotifier = dataContext
-            .subscribe<Map<String, Object?>>(DataPath(dataBinding));
+        final ValueNotifier<Map<String, Object?>?> dataNotifier =
+            dataContext.subscribe<Map<String, Object?>>(DataPath(dataBinding));
         return ValueListenableBuilder<Map<String, Object?>?>(
           valueListenable: dataNotifier,
           builder: (context, data, child) {

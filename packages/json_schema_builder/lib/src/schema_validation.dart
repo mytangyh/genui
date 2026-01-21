@@ -242,14 +242,14 @@ extension SchemaValidation on Schema {
         siblingSchemaMap.remove(kDynamicRef);
         if (siblingSchemaMap.isNotEmpty) {
           final siblingSchema = Schema.fromMap(siblingSchemaMap);
-          final ValidationResult siblingResult = await siblingSchema
-              .validateSchema(
-                data,
-                currentPath,
-                currentContext,
-                newDynamicScope,
-                initialAnnotations: allAnnotations,
-              );
+          final ValidationResult siblingResult =
+              await siblingSchema.validateSchema(
+            data,
+            currentPath,
+            currentContext,
+            newDynamicScope,
+            initialAnnotations: allAnnotations,
+          );
           errors.addAll(siblingResult.errors);
           allAnnotations = allAnnotations.merge(siblingResult.annotations);
         }
@@ -287,14 +287,14 @@ extension SchemaValidation on Schema {
         siblingSchemaMap.remove(kRef);
         if (siblingSchemaMap.isNotEmpty) {
           final siblingSchema = Schema.fromMap(siblingSchemaMap);
-          final ValidationResult siblingResult = await siblingSchema
-              .validateSchema(
-                data,
-                currentPath,
-                currentContext,
-                newDynamicScope,
-                initialAnnotations: allAnnotations,
-              );
+          final ValidationResult siblingResult =
+              await siblingSchema.validateSchema(
+            data,
+            currentPath,
+            currentContext,
+            newDynamicScope,
+            initialAnnotations: allAnnotations,
+          );
           errors.addAll(siblingResult.errors);
           allAnnotations = allAnnotations.merge(siblingResult.annotations);
         }
@@ -418,8 +418,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.oneOfNotMet,
             path: currentPath,
-            details:
-                'Expected to match exactly one schema, but matched '
+            details: 'Expected to match exactly one schema, but matched '
                 '$passedCount',
           ),
         );
@@ -552,12 +551,11 @@ extension SchemaValidation on Schema {
     if (typeValue != null) {
       final List<JsonType> types = switch (typeValue) {
         String() => [
-          JsonType.values.firstWhere((t) => t.typeName == typeValue),
-        ],
-        List() =>
-          typeValue
-              .map((t) => JsonType.values.firstWhere((e) => e.typeName == t))
-              .toList(),
+            JsonType.values.firstWhere((t) => t.typeName == typeValue),
+          ],
+        List() => typeValue
+            .map((t) => JsonType.values.firstWhere((e) => e.typeName == t))
+            .toList(),
         _ => <JsonType>[],
       };
 
@@ -597,8 +595,8 @@ extension SchemaValidation on Schema {
         );
       case JsonType.string:
         {
-          if (context
-                  .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+          if (context.vocabularies[
+                  'https://json-schema.org/draft/2020-12/vocab/validation'] ==
               true) {
             final stringSchema = this as StringSchema;
             if (stringSchema.maxLength case final max?
@@ -607,8 +605,7 @@ extension SchemaValidation on Schema {
                 ValidationError(
                   ValidationErrorType.maxLengthExceeded,
                   path: currentPath,
-                  details:
-                      'String length ${data.characters.length} exceeds '
+                  details: 'String length ${data.characters.length} exceeds '
                       'maximum length of $max',
                 ),
               );
@@ -619,8 +616,7 @@ extension SchemaValidation on Schema {
                 ValidationError(
                   ValidationErrorType.minLengthNotMet,
                   path: currentPath,
-                  details:
-                      'String length ${data.characters.length} is less '
+                  details: 'String length ${data.characters.length} is less '
                       'than minimum of $min',
                 ),
               );
@@ -654,8 +650,8 @@ extension SchemaValidation on Schema {
       case JsonType.num:
       case JsonType.int:
         {
-          if (context
-                  .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+          if (context.vocabularies[
+                  'https://json-schema.org/draft/2020-12/vocab/validation'] ==
               true) {
             final numSchema = this as NumberSchema;
             final numData = data as num;
@@ -732,8 +728,8 @@ extension SchemaValidation on Schema {
     final errors = <ValidationError>[];
     var annotations = AnnotationSet.empty();
 
-    if (context
-            .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+    if (context.vocabularies[
+            'https://json-schema.org/draft/2020-12/vocab/validation'] ==
         true) {
       if (objectSchema.minProperties case final min?
           when data.keys.length < min) {
@@ -741,8 +737,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.minPropertiesNotMet,
             path: currentPath,
-            details:
-                'There should be at least $min properties. '
+            details: 'There should be at least $min properties. '
                 'Only ${data.keys.length} were found',
           ),
         );
@@ -754,8 +749,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.maxPropertiesExceeded,
             path: currentPath,
-            details:
-                'Exceeded maxProperties limit of $max '
+            details: 'Exceeded maxProperties limit of $max '
                 '(${data.keys.length})',
           ),
         );
@@ -782,8 +776,7 @@ extension SchemaValidation on Schema {
                   ValidationError(
                     ValidationErrorType.dependentRequiredMissing,
                     path: currentPath,
-                    details:
-                        'Property "$requiredProp" is required because '
+                    details: 'Property "$requiredProp" is required because '
                         'property "${entry.key}" is present.',
                   ),
                 );
@@ -903,16 +896,15 @@ extension SchemaValidation on Schema {
     final errors = <ValidationError>[];
     final evaluatedItems = <int>{};
     final listSchema = this as ListSchema;
-    if (context
-            .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+    if (context.vocabularies[
+            'https://json-schema.org/draft/2020-12/vocab/validation'] ==
         true) {
       if (listSchema.minItems case final min? when data.length < min) {
         errors.add(
           ValidationError(
             ValidationErrorType.minItemsNotMet,
             path: currentPath,
-            details:
-                'List has ${data.length} items, but must have at '
+            details: 'List has ${data.length} items, but must have at '
                 'least $min',
           ),
         );
@@ -923,8 +915,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.maxItemsExceeded,
             path: currentPath,
-            details:
-                'List has ${data.length} items, but must have less '
+            details: 'List has ${data.length} items, but must have less '
                 'than $max',
           ),
         );
@@ -969,8 +960,8 @@ extension SchemaValidation on Schema {
         evaluatedItems.add(index);
       }
 
-      if (context
-              .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+      if (context.vocabularies[
+              'https://json-schema.org/draft/2020-12/vocab/validation'] ==
           true) {
         final int matchCount = matches.length;
         if (listSchema.minContains == 0 && data.isEmpty) {
@@ -1001,8 +992,7 @@ extension SchemaValidation on Schema {
             ValidationError(
               ValidationErrorType.maxContainsExceeded,
               path: currentPath,
-              details:
-                  'Array must contain at most $max valid items, but found '
+              details: 'Array must contain at most $max valid items, but found '
                   '$matchCount',
             ),
           );

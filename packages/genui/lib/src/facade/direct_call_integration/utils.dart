@@ -13,7 +13,7 @@ import 'model.dart';
 String genUiTechPrompt(List<String> toolNames) {
   final toolDescription = toolNames.length > 1
       ? 'the following UI generation tools: '
-            '${toolNames.map((name) => '"$name"').join(', ')}'
+          '${toolNames.map((name) => '"$name"').join(', ')}'
       : 'the UI generation tool "${toolNames.first}"';
 
   return '''

@@ -10,9 +10,7 @@ license: BSD-3-Clause
 issue_tracker: https://github.com/flutter/genui/issues
 
 environment:
-  sdk: ">=3.9.2 <4.0.0"
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
 
 dependencies:
   args: ^2.7.0
@@ -21,10 +19,12 @@ dependencies:
   decimal: ^3.2.4
   email_validator: ^3.0.0
   http: ^1.6.0
-  intl: ^0.20.2
+  intl: ^0.19.0
   meta: ^1.16.0
 
 dev_dependencies:
   lints: ^6.0.0
   mockito: ^5.5.0
   test: ^1.26.2
+
+

@@ -16,7 +16,7 @@ class ActionsConfig {
 
   /// Creates a new [ActionsConfig] that only allows creating new surfaces.
   const ActionsConfig.createOnly()
-    : this(allowUpdate: false, allowDelete: false);
+      : this(allowUpdate: false, allowDelete: false);
 
   /// Whether to allow creating new surfaces.
   final bool allowCreate;

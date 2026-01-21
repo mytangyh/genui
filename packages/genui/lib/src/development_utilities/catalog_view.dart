@@ -69,9 +69,8 @@ class _DebugCatalogViewState extends State<DebugCatalogView> {
         final String exampleJsonString = exampleBuilder();
         final exampleData = jsonDecode(exampleJsonString) as List<Object?>;
 
-        final List<Component> components = exampleData
-            .map((e) => Component.fromJson(e as JsonMap))
-            .toList();
+        final List<Component> components =
+            exampleData.map((e) => Component.fromJson(e as JsonMap)).toList();
 
         Component? rootComponent;
         rootComponent = components.firstWhereOrNull((c) => c.id == 'root');

@@ -40,11 +40,12 @@ extension type _RowData.fromMap(JsonMap _json) {
     Object? children,
     String? distribution,
     String? alignment,
-  }) => _RowData.fromMap({
-    'children': children,
-    'distribution': distribution,
-    'alignment': alignment,
-  });
+  }) =>
+      _RowData.fromMap({
+        'children': children,
+        'distribution': distribution,
+        'alignment': alignment,
+      });
 
   Object? get children => _json['children'];
   String? get distribution => _json['distribution'] as String?;

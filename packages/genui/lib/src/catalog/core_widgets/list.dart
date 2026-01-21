@@ -25,11 +25,12 @@ extension type _ListData.fromMap(JsonMap _json) {
     required Object? children,
     String? direction,
     String? alignment,
-  }) => _ListData.fromMap({
-    'children': children,
-    'direction': direction,
-    'alignment': alignment,
-  });
+  }) =>
+      _ListData.fromMap({
+        'children': children,
+        'direction': direction,
+        'alignment': alignment,
+      });
 
   Object? get children => _json['children'];
   String? get direction => _json['direction'] as String?;
@@ -53,9 +54,8 @@ final list = CatalogItem(
   dataSchema: _schema,
   widgetBuilder: (itemContext) {
     final listData = _ListData.fromMap(itemContext.data as JsonMap);
-    final Axis direction = listData.direction == 'horizontal'
-        ? Axis.horizontal
-        : Axis.vertical;
+    final Axis direction =
+        listData.direction == 'horizontal' ? Axis.horizontal : Axis.vertical;
     return ComponentChildrenBuilder(
       childrenData: listData.children,
       dataContext: itemContext.dataContext,
@@ -70,19 +70,19 @@ final list = CatalogItem(
       },
       templateListWidgetBuilder:
           (context, Map<String, Object?> data, componentId, dataBinding) {
-            final List<Object?> values = data.values.toList();
-            final List<String> keys = data.keys.toList();
-            return ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: direction,
-              itemCount: values.length,
-              itemBuilder: (context, index) {
-                final DataContext itemDataContext = itemContext.dataContext
-                    .nested(DataPath('$dataBinding/${keys[index]}'));
-                return itemContext.buildChild(componentId, itemDataContext);
-              },
-            );
+        final List<Object?> values = data.values.toList();
+        final List<String> keys = data.keys.toList();
+        return ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: direction,
+          itemCount: values.length,
+          itemBuilder: (context, index) {
+            final DataContext itemDataContext = itemContext.dataContext
+                .nested(DataPath('$dataBinding/${keys[index]}'));
+            return itemContext.buildChild(componentId, itemDataContext);
           },
+        );
+      },
     );
   },
   exampleData: [

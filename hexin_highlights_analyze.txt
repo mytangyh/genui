@@ -1,0 +1,46 @@
+Analyzing hexin_highlights...                                   
+
+   info - Sort directive sections alphabetically - lib\hexin_highlights.dart:24:1 - directives_ordering
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\models\highlights_response.dart:43:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\highlights_service.dart:47:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\services\highlights_service.dart:53:7 - specify_nonobvious_local_variable_types
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:84:5 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:85:5 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:85:12 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:86:5 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:87:7 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:89:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:101:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:101:25 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:104:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:116:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:116:25 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:119:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:131:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:131:25 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:134:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:146:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:146:25 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:149:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:161:11 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:161:25 - prefer_single_quotes
+   info - Unnecessary use of double quotes - lib\src\services\highlights_service.dart:164:7 - prefer_single_quotes
+   info - The import of 'package:hexin_dsl/hexin_dsl.dart' is unnecessary because all of the used elements are also provided by the import of '../../hexin_highlights.dart' - lib\src\ui\highlights_page.dart:7:8 - unnecessary_import
+   info - The import of '../catalog/highlights_catalog.dart' is unnecessary because all of the used elements are also provided by the import of '../../hexin_highlights.dart' - lib\src\ui\highlights_page.dart:10:8 - unnecessary_import
+   info - The import of '../models/highlights_response.dart' is unnecessary because all of the used elements are also provided by the import of '../../hexin_highlights.dart' - lib\src\ui\highlights_page.dart:11:8 - unnecessary_import
+   info - The import of '../services/highlights_service.dart' is unnecessary because all of the used elements are also provided by the import of '../../hexin_highlights.dart' - lib\src\ui\highlights_page.dart:12:8 - unnecessary_import
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\ui\highlights_page.dart:46:7 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\ui\highlights_page.dart:98:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\ui\highlights_page.dart:104:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\ui\highlights_page.dart:123:61 - deprecated_member_use
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\ui\highlights_page.dart:130:27 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\ui\highlights_page.dart:133:27 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\ui\highlights_page.dart:136:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - lib\src\ui\highlights_page.dart:157:81 - lines_longer_than_80_chars
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\ui\highlights_page.dart:164:57 - deprecated_member_use
+   info - The line length exceeds the 80-character limit - lib\src\ui\highlights_page.dart:177:81 - lines_longer_than_80_chars
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\ui\highlights_page.dart:179:39 - specify_nonobvious_local_variable_types
+   info - The line length exceeds the 80-character limit - lib\src\ui\highlights_page.dart:198:81 - lines_longer_than_80_chars
+   info - The line length exceeds the 80-character limit - lib\src\ui\highlights_page.dart:200:81 - lines_longer_than_80_chars
+   info - Dependencies not sorted alphabetically - pubspec.yaml:21:3 - sort_pub_dependencies
+

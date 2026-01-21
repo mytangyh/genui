@@ -70,12 +70,12 @@ final class ImagePart implements MessagePart {
 // Private implementation classes for ImagePart factories
 final class _ImagePartFromBytes extends ImagePart {
   const _ImagePartFromBytes(Uint8List bytes, {required String mimeType})
-    : super._(bytes: bytes, mimeType: mimeType);
+      : super._(bytes: bytes, mimeType: mimeType);
 }
 
 final class _ImagePartFromBase64 extends ImagePart {
   const _ImagePartFromBase64(String base64, {required String mimeType})
-    : super._(base64: base64, mimeType: mimeType);
+      : super._(base64: base64, mimeType: mimeType);
 }
 
 final class _ImagePartFromUrl extends ImagePart {
@@ -152,10 +152,8 @@ final class UserMessage extends ChatMessage {
   final List<MessagePart> parts;
 
   /// The text content of the user's message.
-  late final String text = parts
-      .whereType<TextPart>()
-      .map((p) => p.text)
-      .join('\n');
+  late final String text =
+      parts.whereType<TextPart>().map((p) => p.text).join('\n');
 }
 
 /// A message representing a user's interaction with the UI.
@@ -174,10 +172,8 @@ final class UserUiInteractionMessage extends ChatMessage {
   final List<MessagePart> parts;
 
   /// The text content of the UI interaction.
-  late final String text = parts
-      .whereType<TextPart>()
-      .map((p) => p.text)
-      .join('\n');
+  late final String text =
+      parts.whereType<TextPart>().map((p) => p.text).join('\n');
 }
 
 /// A message representing a text response from the AI.
@@ -192,10 +188,8 @@ final class AiTextMessage extends ChatMessage {
   final List<MessagePart> parts;
 
   /// The text content of the AI's message.
-  late final String text = parts
-      .whereType<TextPart>()
-      .map((p) => p.text)
-      .join('\n');
+  late final String text =
+      parts.whereType<TextPart>().map((p) => p.text).join('\n');
 }
 
 /// A message representing a response from a tool.
@@ -216,13 +210,10 @@ final class AiUiMessage extends ChatMessage {
   /// Creates a [AiUiMessage] with the given UI [definition].
 
   AiUiMessage({required this.definition, String? surfaceId})
-    : uiKey = UniqueKey(),
-
-      parts = [TextPart(definition.asContextDescriptionText())],
-
-      surfaceId =
-          surfaceId ??
-          ValueKey(DateTime.now().toIso8601String()).hashCode.toString();
+      : uiKey = UniqueKey(),
+        parts = [TextPart(definition.asContextDescriptionText())],
+        surfaceId = surfaceId ??
+            ValueKey(DateTime.now().toIso8601String()).hashCode.toString();
 
   /// The JSON definition of the UI.
 

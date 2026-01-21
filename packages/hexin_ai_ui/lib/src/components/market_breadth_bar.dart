@@ -423,9 +423,8 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
     bool alignRight = false,
   }) {
     return Column(
-      crossAxisAlignment: alignRight
-          ? CrossAxisAlignment.end
-          : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignRight ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisSize: MainAxisSize.min,

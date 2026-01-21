@@ -30,9 +30,8 @@ void main() {
       .cast<File>();
 
   final Set<String> testFilePaths = testFiles.map((f) => f.path).toSet();
-  final Set<String> optionalTestFilePaths = optionalTestFiles
-      .map((f) => f.path)
-      .toSet();
+  final Set<String> optionalTestFilePaths =
+      optionalTestFiles.map((f) => f.path).toSet();
 
   // Exclude optional tests from the main suite.
   testFilePaths.removeAll(optionalTestFilePaths);
@@ -91,16 +90,14 @@ void main() {
               expect(
                 errors,
                 isEmpty,
-                reason:
-                    'Expected data to be valid, but got errors: '
+                reason: 'Expected data to be valid, but got errors: '
                     '$errorString\nLog:\n${loggingContext.buffer}',
               );
             } else {
               expect(
                 errors,
                 isNotEmpty,
-                reason:
-                    'Expected data to be invalid, but it was valid.\n'
+                reason: 'Expected data to be invalid, but it was valid.\n'
                     'Log:\n${loggingContext.buffer}',
               );
             }

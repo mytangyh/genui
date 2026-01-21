@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 import '../catalog/catalog.dart';
-import '../dsl/dsl.dart';
+import 'package:hexin_dsl/hexin_dsl.dart';
 
 /// A demo page that shows how DslParser and DslSurface work together.
 ///
@@ -479,9 +479,8 @@ More text here.
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: segment.isText
-                    ? Colors.blue.shade50
-                    : Colors.green.shade50,
+                color:
+                    segment.isText ? Colors.blue.shade50 : Colors.green.shade50,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: segment.isText

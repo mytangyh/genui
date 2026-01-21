@@ -9,8 +9,8 @@ import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:genui/genui.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
 
-import '../dsl/dsl.dart';
-import 'catalog.dart';
+// Note: For DSL rendering, this component uses a callback approach
+// to avoid circular dependencies with hexin_dsl package.
 
 /// Schema for markdown render component.
 final _markdownRenderSchema = S.object(
@@ -387,28 +387,39 @@ class _MarkdownRender extends StatelessWidget {
   }
 
   Widget _buildDslWidget(Map<String, dynamic> dsl, String language) {
-    Map<String, dynamic> surfaceDsl;
+    // Render DSL blocks as a styled container showing the DSL type
+    // For full DSL rendering, this component should be used with hexin_dsl
+    final String? type = dsl['type'] as String?;
+    final String displayText =
+        type != null ? 'DSL Component: $type' : 'DSL Block (${language})';
 
-    if (language == 'web') {
-      surfaceDsl = {'type': 'webview', 'props': dsl};
-    } else {
-      surfaceDsl = dsl;
-    }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: DslSurface(
-        dsl: surfaceDsl,
-        catalog: FinancialCatalog.getDslCatalog(),
-        onAction: (actionName, actionContext) {
-          dispatchEvent(
-            UserActionEvent(
-              name: actionName,
-              sourceComponentId: componentId,
-              context: actionContext,
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFF2B7EFF).withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFF2B7EFF).withOpacity(0.3)),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.widgets_outlined,
+            color: Colors.white.withOpacity(0.7),
+            size: 16,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              displayText,
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.7),
+                fontSize: 12,
+                fontStyle: FontStyle.italic,
+              ),
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }

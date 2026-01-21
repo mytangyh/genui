@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hexin_demo/src/dsl/dsl.dart';
+import 'package:hexin_dsl/hexin_dsl.dart';
 
 void main() {
   test('repro _unescapeContent bug', () {

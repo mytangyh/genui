@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hexin_demo/src/catalog/markdown_render.dart';
+import 'package:hexin_ai_ui/hexin_ai_ui.dart';
 
 void main() {
   test('MarkdownRender logic: code block fallback on bad json', () {

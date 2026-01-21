@@ -34,11 +34,12 @@ extension type _ButtonData.fromMap(JsonMap _json) {
     required String child,
     required JsonMap action,
     bool primary = false,
-  }) => _ButtonData.fromMap({
-    'child': child,
-    'action': action,
-    'primary': primary,
-  });
+  }) =>
+      _ButtonData.fromMap({
+        'child': child,
+        'action': action,
+        'primary': primary,
+      });
 
   String get child => _json['child'] as String;
   JsonMap get action => _json['action'] as JsonMap;
@@ -74,19 +75,16 @@ final button = CatalogItem(
     ).colorScheme;
     final bool primary = buttonData.primary;
 
-    final TextStyle? textStyle = Theme.of(itemContext.buildContext)
-        .textTheme
-        .bodyLarge
-        ?.copyWith(
-          color: primary ? colorScheme.onPrimary : colorScheme.onSurface,
-        );
+    final TextStyle? textStyle =
+        Theme.of(itemContext.buildContext).textTheme.bodyLarge?.copyWith(
+              color: primary ? colorScheme.onPrimary : colorScheme.onSurface,
+            );
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: primary ? colorScheme.primary : colorScheme.surface,
-        foregroundColor: primary
-            ? colorScheme.onPrimary
-            : colorScheme.onSurface,
+        foregroundColor:
+            primary ? colorScheme.onPrimary : colorScheme.onSurface,
       ).copyWith(textStyle: WidgetStatePropertyAll(textStyle)),
       onPressed: () {
         final JsonMap resolvedContext = resolveContext(

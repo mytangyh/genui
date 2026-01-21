@@ -25,7 +25,8 @@ extension type _TrailheadData.fromMap(Map<String, Object?> _json) {
   factory _TrailheadData({
     required List<JsonMap> topics,
     required JsonMap action,
-  }) => _TrailheadData.fromMap({'topics': topics, 'action': action});
+  }) =>
+      _TrailheadData.fromMap({'topics': topics, 'action': action});
 
   List<JsonMap> get topics => (_json['topics'] as List).cast<JsonMap>();
   JsonMap get action => _json['action'] as JsonMap;

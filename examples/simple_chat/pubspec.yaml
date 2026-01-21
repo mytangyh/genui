@@ -7,10 +7,8 @@ publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: ">=3.9.2 <4.0.0"
-  flutter: ">=3.35.7 <4.0.0"
-
-resolution: workspace
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
 
 dependencies:
   firebase_core: ^4.2.1
@@ -27,3 +25,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+

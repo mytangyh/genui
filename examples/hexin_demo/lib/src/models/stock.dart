@@ -27,15 +27,15 @@ class Stock {
   bool get isRising => changePercent > 0;
 
   Map<String, dynamic> toJson() => {
-    'stockCode': stockCode,
-    'stockName': stockName,
-    'currentPrice': currentPrice,
-    'changePercent': changePercent,
-    if (volume != null) 'volume': volume,
-    if (high != null) 'high': high,
-    if (low != null) 'low': low,
-    if (open != null) 'open': open,
-  };
+        'stockCode': stockCode,
+        'stockName': stockName,
+        'currentPrice': currentPrice,
+        'changePercent': changePercent,
+        if (volume != null) 'volume': volume,
+        if (high != null) 'high': high,
+        if (low != null) 'low': low,
+        if (open != null) 'open': open,
+      };
 }
 
 /// Represents historical price data point.
@@ -47,10 +47,10 @@ class PricePoint {
   final int? volume;
 
   Map<String, dynamic> toJson() => {
-    'timestamp': timestamp.toIso8601String(),
-    'price': price,
-    if (volume != null) 'volume': volume,
-  };
+        'timestamp': timestamp.toIso8601String(),
+        'price': price,
+        if (volume != null) 'volume': volume,
+      };
 }
 
 /// Represents stock data with historical prices.
@@ -61,7 +61,7 @@ class StockData {
   final List<PricePoint> priceHistory;
 
   Map<String, dynamic> toJson() => {
-    'stock': stock.toJson(),
-    'priceHistory': priceHistory.map((p) => p.toJson()).toList(),
-  };
+        'stock': stock.toJson(),
+        'priceHistory': priceHistory.map((p) => p.toJson()).toList(),
+      };
 }

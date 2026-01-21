@@ -23,7 +23,8 @@ class SchemaRegistry {
   ///
   /// An optional [schemaCache] can be provided for fetching remote schemas.
   SchemaRegistry({SchemaCache? schemaCache, LoggingContext? loggingContext})
-    : _schemaCache = schemaCache ?? SchemaCache(loggingContext: loggingContext);
+      : _schemaCache =
+            schemaCache ?? SchemaCache(loggingContext: loggingContext);
 
   /// Adds a schema to the registry with a given [uri].
   ///

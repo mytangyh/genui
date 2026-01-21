@@ -1,0 +1,4 @@
+Resolving dependencies...
+Because hexin_ai_ui depends on genui from path which depends on json_schema_builder ^0.1.3, json_schema_builder from hosted is required.
+So, because hexin_ai_ui depends on json_schema_builder from path, version solving failed.
+Failed to update packages.

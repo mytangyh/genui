@@ -11,8 +11,7 @@ import '../utils.dart';
 final _schema = S.object(
   properties: {
     'imageChildId': S.string(
-      description:
-          'The ID of the Image widget to display at the top of the '
+      description: 'The ID of the Image widget to display at the top of the '
           'card. The Image fit should typically be "cover". Be sure to create '
           'an Image widget with a matching ID.',
     ),
@@ -33,12 +32,13 @@ extension type _InformationCardData.fromMap(Map<String, Object?> _json) {
     required JsonMap title,
     JsonMap? subtitle,
     required JsonMap body,
-  }) => _InformationCardData.fromMap({
-    if (imageChildId != null) 'imageChildId': imageChildId,
-    'title': title,
-    if (subtitle != null) 'subtitle': subtitle,
-    'body': body,
-  });
+  }) =>
+      _InformationCardData.fromMap({
+        if (imageChildId != null) 'imageChildId': imageChildId,
+        'title': title,
+        if (subtitle != null) 'subtitle': subtitle,
+        'body': body,
+      });
 
   String? get imageChildId => _json['imageChildId'] as String?;
   JsonMap get title => _json['title'] as JsonMap;
@@ -90,12 +90,12 @@ final informationCard = CatalogItem(
         ? context.buildChild(cardData.imageChildId!)
         : null;
 
-    final ValueNotifier<String?> titleNotifier = context.dataContext
-        .subscribeToString(cardData.title);
-    final ValueNotifier<String?> subtitleNotifier = context.dataContext
-        .subscribeToString(cardData.subtitle);
-    final ValueNotifier<String?> bodyNotifier = context.dataContext
-        .subscribeToString(cardData.body);
+    final ValueNotifier<String?> titleNotifier =
+        context.dataContext.subscribeToString(cardData.title);
+    final ValueNotifier<String?> subtitleNotifier =
+        context.dataContext.subscribeToString(cardData.subtitle);
+    final ValueNotifier<String?> bodyNotifier =
+        context.dataContext.subscribeToString(cardData.body);
 
     return _InformationCard(
       imageChild: imageChild,

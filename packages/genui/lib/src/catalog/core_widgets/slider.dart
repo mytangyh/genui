@@ -25,11 +25,12 @@ extension type _SliderData.fromMap(JsonMap _json) {
     required JsonMap value,
     double? minValue,
     double? maxValue,
-  }) => _SliderData.fromMap({
-    'value': value,
-    'minValue': minValue,
-    'maxValue': maxValue,
-  });
+  }) =>
+      _SliderData.fromMap({
+        'value': value,
+        'minValue': minValue,
+        'maxValue': maxValue,
+      });
 
   JsonMap get value => _json['value'] as JsonMap;
   double get minValue => (_json['minValue'] as num?)?.toDouble() ?? 0.0;
@@ -68,8 +69,8 @@ final slider = CatalogItem(
                   value: (value ?? sliderData.minValue).toDouble(),
                   min: sliderData.minValue,
                   max: sliderData.maxValue,
-                  divisions: (sliderData.maxValue - sliderData.minValue)
-                      .toInt(),
+                  divisions:
+                      (sliderData.maxValue - sliderData.minValue).toInt(),
                   onChanged: (newValue) {
                     final path = sliderData.value['path'] as String?;
                     if (path != null) {

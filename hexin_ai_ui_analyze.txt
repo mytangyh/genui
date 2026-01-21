@@ -1,0 +1,94 @@
+Analyzing hexin_ai_ui...                                        
+
+   info - Sort directive sections alphabetically - lib\hexin_ai_ui.dart:13:1 - directives_ordering
+   info - Sort directive sections alphabetically - lib\hexin_ai_ui.dart:21:1 - directives_ordering
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\ai_button_list.dart:73:15 - omit_obvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\ai_event_overview.dart:59:33 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\ai_message.dart:77:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\ai_message.dart:78:11 - omit_obvious_local_variable_types
+warning - The declaration '_buildSimpleMessage' isn't referenced - lib\src\components\ai_message.dart:162:10 - unused_element
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\ai_message.dart:168:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\ai_message.dart:209:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\ai_message.dart:261:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\ai_message.dart:287:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\auction_anomaly.dart:71:33 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\banner_carousel.dart:81:15 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\banner_carousel.dart:157:9 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\banner_carousel.dart:208:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\banner_carousel.dart:234:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\banner_carousel.dart:271:33 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\src\components\banner_carousel.dart:289:19 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\src\components\banner_carousel.dart:290:19 - prefer_const_constructors
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\banner_carousel.dart:314:32 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\dsl_webview.dart:61:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\dsl_webview.dart:63:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\dsl_webview.dart:64:11 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\dsl_webview.dart:155:5 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\dsl_webview.dart:172:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\dsl_webview.dart:199:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\dsl_webview.dart:228:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\dsl_webview.dart:245:46 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\info_summary_card.dart:89:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\info_summary_card.dart:91:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\markdown_render.dart:50:11 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:89:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:103:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:104:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:107:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:189:5 - specify_nonobvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\markdown_render.dart:279:11 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:283:10 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:298:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:299:9 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\markdown_render.dart:318:62 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\markdown_render.dart:392:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\markdown_render.dart:393:11 - omit_obvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\markdown_render.dart:401:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\markdown_render.dart:403:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\markdown_render.dart:409:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\markdown_render.dart:417:37 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\markdown_render.dart:436:3 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:438:8 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:440:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:446:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:447:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\markdown_render.dart:468:5 - specify_nonobvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\market_breadth_bar.dart:101:11 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:213:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:223:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:236:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:237:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:240:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:241:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:242:5 - specify_nonobvious_local_variable_types
+   info - Unnecessary use of parentheses - lib\src\components\market_breadth_bar.dart:242:24 - unnecessary_parenthesis
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:244:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:245:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:246:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:249:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:250:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:270:9 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:302:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:305:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:306:5 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\market_breadth_bar.dart:307:5 - specify_nonobvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\market_breadth_bar.dart:328:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\market_breadth_bar.dart:339:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\market_breadth_bar.dart:457:45 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\news_flash_list.dart:76:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\news_flash_list.dart:84:15 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\news_flash_list.dart:193:11 - omit_obvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\placeholder.dart:66:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\placeholder.dart:73:37 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\section_header.dart:69:11 - omit_obvious_local_variable_types
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\src\components\section_header.dart:163:39 - deprecated_member_use
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\target_header.dart:76:11 - omit_obvious_local_variable_types
+   info - Omit the type annotation on a local variable when the type is obvious - lib\src\components\target_header.dart:77:11 - omit_obvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\target_header.dart:125:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\target_header.dart:131:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\target_header.dart:134:7 - specify_nonobvious_local_variable_types
+   info - Specify the type of a local variable when the type is non-obvious - lib\src\components\target_header.dart:136:7 - specify_nonobvious_local_variable_types
+   info - Use 'const' with the constructor to improve performance - lib\src\components\target_header.dart:200:11 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\src\components\target_header.dart:202:20 - prefer_const_constructors
+   info - Dependencies not sorted alphabetically - pubspec.yaml:21:3 - sort_pub_dependencies
+

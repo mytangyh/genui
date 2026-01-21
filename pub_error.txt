@@ -1,0 +1,19 @@
+Error on line 14, column 3 of pubspec.yaml: `workspace` and `resolution` requires at least language version 3.5
+   ╷
+14 │ ┌   - packages/genui
+15 │ │   - packages/json_schema_builder
+16 │ │   - packages/hexin_ai_ui
+17 │ │   - packages/hexin_dsl
+18 │ │   - packages/hexin_highlights
+19 │ │   - examples/hexin_demo
+20 │ │   - tool/fix_copyright
+21 │ │   - tool/test_and_fix
+22 │ │   - tool/release
+23 │ └ 
+   ╵
+
+Consider updating the SDK constraint to:
+
+environment:
+  sdk: '^3.10.1'
+Failed to update packages.

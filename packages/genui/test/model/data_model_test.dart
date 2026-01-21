@@ -148,8 +148,8 @@ void main() {
       });
 
       test('notifies on child updates', () {
-        final ValueNotifier<Map<dynamic, dynamic>?> notifier = dataModel
-            .subscribe<Map>(DataPath('/a'));
+        final ValueNotifier<Map<dynamic, dynamic>?> notifier =
+            dataModel.subscribe<Map>(DataPath('/a'));
         Map? value;
         notifier.addListener(() => value = notifier.value);
         dataModel.update(DataPath('/a/b'), 1);
@@ -180,8 +180,8 @@ void main() {
       });
 
       test('does not notify on child updates', () {
-        final ValueNotifier<Map<dynamic, dynamic>?> notifier = dataModel
-            .subscribeToValue<Map>(DataPath('/a'));
+        final ValueNotifier<Map<dynamic, dynamic>?> notifier =
+            dataModel.subscribeToValue<Map>(DataPath('/a'));
         var callCount = 0;
         notifier.addListener(() => callCount++);
         dataModel.update(DataPath('/a/b'), 1);

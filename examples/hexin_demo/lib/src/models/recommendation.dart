@@ -28,13 +28,13 @@ class Recommendation {
   final String? timeHorizon;
 
   Map<String, dynamic> toJson() => {
-    'action': action.name,
-    'stockCode': stockCode,
-    'stockName': stockName,
-    'reason': reason,
-    if (targetPrice != null) 'targetPrice': targetPrice,
-    if (currentPrice != null) 'currentPrice': currentPrice,
-    if (confidence != null) 'confidence': confidence,
-    if (timeHorizon != null) 'timeHorizon': timeHorizon,
-  };
+        'action': action.name,
+        'stockCode': stockCode,
+        'stockName': stockName,
+        'reason': reason,
+        if (targetPrice != null) 'targetPrice': targetPrice,
+        if (currentPrice != null) 'currentPrice': currentPrice,
+        if (confidence != null) 'confidence': confidence,
+        if (timeHorizon != null) 'timeHorizon': timeHorizon,
+      };
 }
