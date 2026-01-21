@@ -145,11 +145,17 @@ class _AiButtonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Wrap(
-        spacing: spacing,
-        runSpacing: 8,
-        children: buttons.map((button) => _buildButton(button)).toList(),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        children: [
+          // First button (always present if buttons.isNotEmpty)
+          if (buttons.isNotEmpty) Expanded(child: _buildButton(buttons[0])),
+          // Second button (if available)
+          if (buttons.length > 1) ...[
+            const SizedBox(width: 8),
+            Expanded(child: _buildButton(buttons[1])),
+          ],
+        ],
       ),
     );
   }
@@ -158,37 +164,30 @@ class _AiButtonList extends StatelessWidget {
     return GestureDetector(
       onTap: () => onButtonTap?.call(button.route),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color: const Color(0xFF1E2A3D),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+          color: const Color(0x2984B4FF), // #84b4ff29
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Icon placeholder (left side)
-            Container(
-              width: 24,
-              height: 24,
-              decoration: BoxDecoration(
-                color: const Color(0xFFFF8C00).withOpacity(0.2),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                _getIcon(button.icon),
-                size: 14,
-                color: const Color(0xFFFF8C00),
-              ),
-            ),
-            const SizedBox(width: 8),
+            // Icon (24dp × 24dp)
+            Icon(_getIcon(button.icon), size: 24, color: Colors.white),
+            const SizedBox(width: 6),
             // Button text
-            Text(
-              button.text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
+            Flexible(
+              child: Text(
+                button.text,
+                style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Color(0xFFFFFFFF),
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],

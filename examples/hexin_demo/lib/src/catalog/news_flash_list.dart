@@ -129,25 +129,49 @@ class _NewsFlashList extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1F2E),
+        gradient: const LinearGradient(
+          colors: [Color(0xFF25487C), Color(0xFF232232)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: [
+            0.0,
+            0.7,
+          ], // Smooth transition: 70% of gradient is towards bottom
+        ),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header with gradient title
+          // Header
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
             child: Row(
               children: [
-                _buildGradientTitle(),
+                // Title
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontFamily: 'PingFangSC',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+                // Subtitle
                 if (subtitle != null) ...[
                   const SizedBox(width: 12),
-                  Text(
-                    subtitle!,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.4),
-                      fontSize: 12,
+                  Expanded(
+                    child: Text(
+                      subtitle!,
+                      style: const TextStyle(
+                        fontFamily: 'PingFangSC',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Color(0xFFA7A7A7),
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],
@@ -164,60 +188,13 @@ class _NewsFlashList extends StatelessWidget {
     );
   }
 
-  Widget _buildGradientTitle() {
-    // Split title to apply gradient to second part
-    // e.g., "市场快讯" -> "市场" normal, "快讯" gradient
-    if (title.length >= 2) {
-      final firstPart = title.substring(0, 2);
-      final secondPart = title.substring(2);
-
-      return Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            firstPart,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          ShaderMask(
-            shaderCallback: (bounds) => const LinearGradient(
-              colors: [Color(0xFF6B8EFF), Color(0xFFB06BFF)],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ).createShader(bounds),
-            child: Text(
-              secondPart,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      );
-    }
-
-    return Text(
-      title,
-      style: const TextStyle(
-        color: Colors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
   Widget _buildNewsItem(int index, _NewsFlashItem item) {
-    // Gradient colors for numbers
+    // Number colors: red, orange, yellow, gray
     final List<Color> numberColors = [
-      const Color(0xFF6B8EFF), // Blue
-      const Color(0xFF8B6BFF), // Purple
-      const Color(0xFFB06BFF), // Violet
-      const Color(0xFFFF6B9D), // Pink
+      const Color(0xFFFF4444), // Red
+      const Color(0xFFFF8844), // Orange
+      const Color(0xFFFFCC44), // Yellow
+      const Color(0xFF888888), // Gray
     ];
 
     final Color numberColor = numberColors[(index - 1) % numberColors.length];
@@ -229,35 +206,20 @@ class _NewsFlashList extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Number with gradient bullet
+            // Number indicator
             Container(
               width: 20,
               height: 20,
               margin: const EdgeInsets.only(top: 2),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  // Gradient circle
-                  Container(
-                    width: 6,
-                    height: 6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [numberColor, numberColor.withOpacity(0.5)],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: numberColor.withOpacity(0.5),
-                          blurRadius: 4,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              alignment: Alignment.center,
+              child: Text(
+                '$index',
+                style: TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  color: numberColor,
+                ),
               ),
             ),
             const SizedBox(width: 8),
@@ -265,12 +227,13 @@ class _NewsFlashList extends StatelessWidget {
             Expanded(
               child: Text(
                 item.text,
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.9),
+                style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w400,
                   fontSize: 14,
-                  height: 1.5,
+                  color: Color(0xFFD2D2D3),
                 ),
-                maxLines: 2,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
             ),

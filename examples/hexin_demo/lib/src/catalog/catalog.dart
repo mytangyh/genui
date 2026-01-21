@@ -5,13 +5,16 @@
 import 'package:genui/genui.dart';
 
 import 'ai_button_list.dart';
+import 'ai_event_overview.dart';
 import 'ai_message.dart';
+import 'auction_anomaly.dart';
 import 'banner_carousel.dart';
 import 'dsl_webview.dart';
 import 'info_summary_card.dart';
 import 'market_breadth_bar.dart';
 import 'markdown_render.dart';
 import 'news_flash_list.dart';
+import 'placeholder.dart';
 import 'section_header.dart';
 import 'stock_quote.dart';
 import 'target_header.dart';
@@ -33,11 +36,14 @@ class FinancialCatalog {
       // DSL 组件
       aiMessage, // AI 消息气泡
       aiButtonList, // AI 按钮组
+      aiEventOverview, // AI 事件概览
+      auctionAnomaly, // 集合竞价异动
       bannerCarousel, // Banner 轮播图
       infoSummaryCard, // 信息摘要卡片
       newsFlashList, // 快讯列表
       dslWebView, // WebView 组件
       targetHeader, // 标的头部
+      placeholder, // 占位符组件
       // 组合容器
       markdownRender, // Markdown 智能渲染容器
       sectionHeader, // 区块头部

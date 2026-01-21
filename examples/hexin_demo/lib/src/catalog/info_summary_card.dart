@@ -129,22 +129,18 @@ class _InfoSummaryCard extends StatelessWidget {
   final String? backgroundColor;
   final VoidCallback? onAction;
 
-  Color _parseColor(String? hex) {
-    if (hex == null || hex.isEmpty) {
-      return const Color(0xFF1E2A3D);
-    }
-    final hexValue = hex.replaceFirst('#', '');
-    return Color(int.parse('FF$hexValue', radix: 16));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: _parseColor(backgroundColor),
+        gradient: const LinearGradient(
+          colors: [Color(0xFF25487C), Color(0xFF232232)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: [0.0, 0.7], // Smooth transition
+        ),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,9 +154,10 @@ class _InfoSummaryCard extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Colors.white,
+                    fontFamily: 'PingFangSC',
+                    fontWeight: FontWeight.w400,
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFFFFFFF),
                   ),
                 ),
                 if (actionText != null || actionTarget != null)
@@ -171,16 +168,18 @@ class _InfoSummaryCard extends StatelessWidget {
                       children: [
                         Text(
                           actionText ?? '查看详情',
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.7),
-                            fontSize: 14,
+                          style: const TextStyle(
+                            fontFamily: 'PingFangSC',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: Color(0xFFA7A7A7),
                           ),
                         ),
                         const SizedBox(width: 4),
-                        Icon(
+                        const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Color(0xFFA7A7A7),
                         ),
                       ],
                     ),
@@ -193,13 +192,13 @@ class _InfoSummaryCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Text(
               summary,
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.85),
+              style: const TextStyle(
+                fontFamily: 'PingFangSC',
+                fontWeight: FontWeight.w400,
                 fontSize: 14,
+                color: Color(0xFFD2D2D3),
                 height: 1.5,
               ),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],

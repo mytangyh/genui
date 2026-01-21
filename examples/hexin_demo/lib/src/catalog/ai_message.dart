@@ -97,7 +97,7 @@ class _AiMessageBubble extends StatefulWidget {
     this.detail,
     this.avatar,
     required this.name,
-    this.expandable = false,
+    this.expandable = true,
     this.defaultExpanded = false,
   });
 
@@ -160,45 +160,39 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
     return _buildSimpleMessage();
   }
 
-  /// Simple non-expandable message (orange bubble)
+  /// Simple non-expandable message (blue bubble with opacity)
   Widget _buildSimpleMessage() {
     return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFF8C00), Color(0xFFFF6B00)],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ),
-        borderRadius: BorderRadius.circular(24),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0xFFFF8C00).withOpacity(0.3),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        color: const Color(0xFF2B7EFF).withOpacity(0.16),
+        borderRadius: BorderRadius.circular(19),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildAvatar(),
-          const SizedBox(width: 10),
+          _buildAvatar(size: 26),
+          const SizedBox(width: 8),
           Flexible(
             child: RichText(
               text: TextSpan(
                 style: const TextStyle(
-                  color: Colors.white,
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w400,
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
                 ),
                 children: [
                   TextSpan(
                     text: '${widget.name} ',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: Color(0xFF408BEC)),
                   ),
-                  TextSpan(text: widget.info),
+                  TextSpan(
+                    text: widget.info,
+                    style: const TextStyle(color: Color(0xFFFFFFFF)),
+                  ),
                 ],
               ),
             ),
@@ -208,50 +202,49 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
     );
   }
 
-  /// Expandable message (dark background with expand/collapse)
+  /// Expandable message (blue background with expand/collapse)
   Widget _buildExpandableMessage() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: const Color(0xFF1E2A3D),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+        color: const Color(0xFF2B7EFF).withOpacity(0.16),
+        borderRadius: BorderRadius.circular(19),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           // Header row with avatar, name, info, and expand button
           InkWell(
             onTap: _toggleExpand,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(19),
             child: Padding(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildAvatar(size: 24, bgColor: const Color(0xFF2D3A4D)),
-                  const SizedBox(width: 10),
+                  _buildAvatar(size: 26),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: RichText(
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      maxLines: _isExpanded ? null : 1,
+                      overflow: _isExpanded
+                          ? TextOverflow.visible
+                          : TextOverflow.ellipsis,
                       text: TextSpan(
                         style: const TextStyle(
-                          color: Colors.white,
+                          fontFamily: 'PingFangSC',
+                          fontWeight: FontWeight.w400,
                           fontSize: 14,
                         ),
                         children: [
                           TextSpan(
                             text: '${widget.name} ',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFFF8C00),
-                            ),
+                            style: const TextStyle(color: Color(0xFF408BEC)),
                           ),
                           TextSpan(
                             text: widget.info,
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.9),
-                            ),
+                            style: const TextStyle(color: Color(0xFFFFFFFF)),
                           ),
                         ],
                       ),
@@ -267,7 +260,7 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
                     child: Icon(
                       Icons.keyboard_arrow_down,
                       color: Colors.white.withOpacity(0.7),
-                      size: 20,
+                      size: 16,
                     ),
                   ),
                 ],
@@ -280,7 +273,7 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
             child: widget.detail != null
                 ? Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                     child: Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
@@ -290,8 +283,10 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
                       child: Text(
                         widget.detail!,
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.85),
+                          fontFamily: 'PingFangSC',
+                          fontWeight: FontWeight.w400,
                           fontSize: 14,
+                          color: Colors.white.withOpacity(0.85),
                           height: 1.5,
                         ),
                       ),

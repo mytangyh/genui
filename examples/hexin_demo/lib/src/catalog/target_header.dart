@@ -1,9 +1,6 @@
-// Copyright 2025 The Flutter Authors.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
+import 'package:intl/intl.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
 
 /// Schema for target header component.
@@ -13,18 +10,18 @@ import 'package:json_schema_builder/json_schema_builder.dart';
 /// {
 ///   "type": "targetHeader",
 ///   "props": {
-///     "timestamp": "08:16",
+///     "timestamp": "1768353940688",
 ///     "title": "盘前",
 ///     "targetName": "上证指数",
-///     "targetValue": "3990.49",
-///     "trend": "up"
+///     "targetValue": "4138.65  -0.00%",
+///     "trend": "flat"
 ///   }
 /// }
 /// ```
 final _targetHeaderSchema = S.object(
   description: '标的头部组件，显示时间、阶段、标的名称和数值',
   properties: {
-    'timestamp': S.string(description: '时间戳，如 08:16'),
+    'timestamp': S.string(description: '时间戳（毫秒），如 1768353940688'),
     'title': S.string(description: '标签或阶段文案，如：盘前 / 盘中 / 昨收'),
     'targetName': S.string(description: '标的名称，如：上证指数'),
     'targetValue': S.string(description: '数值，如：3990.49 (+0.32%)'),
@@ -47,11 +44,11 @@ final targetHeader = CatalogItem(
           "id": "root",
           "component": {
             "targetHeader": {
-              "timestamp": "08:16",
+              "timestamp": "1768353940688",
               "title": "盘前",
               "targetName": "上证指数",
-              "targetValue": "3990.49",
-              "trend": "up"
+              "targetValue": "4138.65  -0.00%",
+              "trend": "flat"
             }
           }
         }
@@ -63,7 +60,7 @@ final targetHeader = CatalogItem(
           "id": "root",
           "component": {
             "targetHeader": {
-              "timestamp": "15:00",
+              "timestamp": "1768440320905",
               "title": "昨收",
               "targetName": "深证成指",
               "targetValue": "11892.35 (-0.56%)",
@@ -118,25 +115,56 @@ class _TargetHeader extends StatelessWidget {
     }
   }
 
+  /// Format timestamp based on date context
+  /// - Today: "HH:mm"
+  /// - Yesterday: "昨天 HH:mm"
+  /// - This year: "MM-dd HH:mm"
+  /// - Previous years: "yyyy-MM-dd HH:mm"
+  String _formatTimestamp(String timestampStr) {
+    try {
+      final timestamp = int.parse(timestampStr);
+      final date = DateTime.fromMillisecondsSinceEpoch(timestamp);
+      final now = DateTime.now();
+      final today = DateTime(now.year, now.month, now.day);
+      final yesterday = today.subtract(const Duration(days: 1));
+      final dateOnly = DateTime(date.year, date.month, date.day);
+
+      if (dateOnly == today) {
+        // Today: show only time
+        return DateFormat('HH:mm').format(date);
+      } else if (dateOnly == yesterday) {
+        // Yesterday: show "昨天 HH:mm"
+        return '昨天 ${DateFormat('HH:mm').format(date)}';
+      } else if (date.year == now.year) {
+        // This year: show "MM-dd HH:mm"
+        return DateFormat('MM-dd HH:mm').format(date);
+      } else {
+        // Previous years: show "yyyy-MM-dd HH:mm"
+        return DateFormat('yyyy-MM-dd HH:mm').format(date);
+      }
+    } catch (e) {
+      return timestampStr;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: const BoxDecoration(
-        color: Color(0xFF0D1421),
-        border: Border(bottom: BorderSide(color: Color(0xFF1E2A3D), width: 1)),
-      ),
+
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Left side: timestamp | title
-          if (timestamp != null || title != null) ...[
-            _buildLeftSection(),
-            const SizedBox(width: 16),
-          ],
-          // Spacer to push right content
-          const Spacer(),
-          // Right side: targetName + targetValue
-          _buildRightSection(),
+          // Left side: timestamp | title (左对齐)
+          if (timestamp != null || title != null)
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: _buildLeftSection(),
+              ),
+            ),
+          // Right side: targetName + targetValue (右对齐)
+          Align(alignment: Alignment.centerRight, child: _buildRightSection()),
         ],
       ),
     );
@@ -148,10 +176,13 @@ class _TargetHeader extends StatelessWidget {
       children: [
         if (timestamp != null)
           Text(
-            timestamp!,
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
-              fontSize: 14,
+            _formatTimestamp(timestamp!),
+            style: const TextStyle(
+              fontFamily: 'PingFangSC',
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+              color: Color(0xFFA9A9A9),
+              height: 1.5, // 18sp line-height / 12sp font-size = 1.5
             ),
           ),
         if (timestamp != null && title != null)
@@ -159,18 +190,24 @@ class _TargetHeader extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
               '|',
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.3),
-                fontSize: 14,
+              style: const TextStyle(
+                fontFamily: 'PingFangSC',
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xFFA9A9A9),
+                height: 1.5,
               ),
             ),
           ),
         if (title != null)
           Text(
             title!,
-            style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
-              fontSize: 14,
+            style: const TextStyle(
+              fontFamily: 'PingFangSC',
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+              color: Color(0xFFA9A9A9),
+              height: 1.5,
             ),
           ),
       ],
@@ -184,18 +221,20 @@ class _TargetHeader extends StatelessWidget {
         Text(
           targetName,
           style: const TextStyle(
-            color: Colors.white,
+            fontFamily: 'PingFangSC',
+            fontWeight: FontWeight.w400,
             fontSize: 14,
-            fontWeight: FontWeight.w500,
+            color: Color(0xFFFFFFFF),
           ),
         ),
         const SizedBox(width: 12),
         Text(
           targetValue,
           style: TextStyle(
+            fontFamily: 'PingFangSC',
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
             color: _getTrendColor(),
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ],
