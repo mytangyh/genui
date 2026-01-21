@@ -123,6 +123,19 @@ class CustomContentGenerator implements ContentGenerator {
         if (tools != null) 'tools': tools,
       };
 
+      // Log request details
+      debugPrint('═══════════════════════════════════════════════════════');
+      debugPrint('DEBUG: Sending API Request');
+      debugPrint('Model: $model');
+      debugPrint('Messages count: ${messages.length}');
+      debugPrint(
+        'Tools: ${tools != null ? "enabled (${tools.length})" : "disabled"}',
+      );
+      debugPrint('───────────────────────────────────────────────────────');
+      debugPrint('Request Body:');
+      _printLongString(const JsonEncoder.withIndent('  ').convert(requestBody));
+      debugPrint('═══════════════════════════════════════════════════════');
+
       final response = await http.post(
         Uri.parse(baseUrl),
         headers: {
@@ -133,7 +146,10 @@ class CustomContentGenerator implements ContentGenerator {
       );
 
       if (response.statusCode == 200) {
-        final data = jsonDecode(utf8.decode(response.bodyBytes));
+        final bodyString = utf8.decode(response.bodyBytes);
+        print('DEBUG: Raw Response: $bodyString');
+
+        final data = jsonDecode(bodyString);
         final choice = data['choices'][0];
         final messageData = choice['message'];
 
@@ -147,9 +163,15 @@ class CustomContentGenerator implements ContentGenerator {
         }
 
         // Handle tool calls
-        if (messageData['tool_calls'] != null) {
-          final toolCalls = messageData['tool_calls'] as List;
-          _handleStandardToolCalls(toolCalls);
+        final toolCallsRaw = messageData['tool_calls'];
+        if (toolCallsRaw != null) {
+          if (toolCallsRaw is List) {
+            _handleStandardToolCalls(toolCallsRaw);
+          } else {
+            print(
+              'WARNING: tool_calls is not a List, it is ${toolCallsRaw.runtimeType}: $toolCallsRaw',
+            );
+          }
         }
       } else {
         throw Exception(
@@ -157,6 +179,7 @@ class CustomContentGenerator implements ContentGenerator {
         );
       }
     } catch (e, stackTrace) {
+      print('ERROR processing API response: $e');
       _errorController.add(ContentGeneratorError(e, stackTrace));
     } finally {
       _isProcessing.value = false;
@@ -164,28 +187,63 @@ class CustomContentGenerator implements ContentGenerator {
   }
 
   void _handleStandardToolCalls(List toolCalls) {
-    for (final toolCallJson in toolCalls) {
-      final function = toolCallJson['function'];
-      final name = function['name'] as String;
-      final arguments = function['arguments'];
+    try {
+      for (final toolCallJson in toolCalls) {
+        if (toolCallJson is! Map) {
+          print('WARNING: toolCallJson is not a Map: $toolCallJson');
+          continue;
+        }
+        final function = toolCallJson['function'];
+        if (function == null || function is! Map) continue;
 
-      // OpenAI format arguments are usually stringified JSON
-      Map<String, Object?> argsMap;
-      if (arguments is String) {
-        argsMap = jsonDecode(arguments) as Map<String, Object?>;
-      } else {
-        argsMap = arguments as Map<String, Object?>;
-      }
+        final name = function['name'] as String?;
+        if (name == null) continue;
 
-      if (name == 'uiGenerationTool') {
-        final toolCall = ToolCall(name: name, args: argsMap);
-        final parsed = parseToolCall(toolCall, name);
+        final arguments = function['arguments'];
 
-        // Add messages to stream
-        for (final msg in parsed.messages) {
-          _a2uiMessageController.add(msg);
+        // OpenAI format arguments are usually stringified JSON
+        Map<String, Object?> argsMap = {};
+        try {
+          if (arguments is String) {
+            final decoded = jsonDecode(arguments);
+            if (decoded is Map<String, dynamic>) {
+              argsMap = decoded;
+            }
+          } else if (arguments is Map) {
+            argsMap = Map<String, Object?>.from(arguments);
+          }
+        } catch (e) {
+          print('Error decoding tool arguments: $e\nArguments: $arguments');
+          continue;
+        }
+
+        if (name == 'uiGenerationTool') {
+          // Heuristic Fix: If 'components' is a string (double-encoded), try to decode it.
+          if (argsMap['components'] is String) {
+            try {
+              argsMap['components'] = jsonDecode(
+                argsMap['components'] as String,
+              );
+            } catch (e) {
+              print('Failed to decode components string: $e');
+            }
+          }
+
+          final toolCall = ToolCall(name: name, args: argsMap);
+          // Safely attempt parsing
+          try {
+            final parsed = parseToolCall(toolCall, name);
+            for (final msg in parsed.messages) {
+              _a2uiMessageController.add(msg);
+            }
+          } catch (e) {
+            print('Error parsing tool call to A2UI messages: $e');
+            print('Faulty Args: $argsMap');
+          }
         }
       }
+    } catch (e) {
+      print('Error iterating toolCalls: $e');
     }
   }
 
@@ -313,6 +371,19 @@ class CustomContentGenerator implements ContentGenerator {
         ];
       }
 
+      // Log follow-up request details
+      debugPrint('═══════════════════════════════════════════════════════');
+      debugPrint('DEBUG: Sending Follow-up Request');
+      debugPrint('Model: $model');
+      debugPrint('Messages count: ${messages.length}');
+      debugPrint(
+        'Tools: ${requestBody['tools'] != null ? "enabled" : "disabled"}',
+      );
+      debugPrint('───────────────────────────────────────────────────────');
+      debugPrint('Follow-up Request Body:');
+      _printLongString(const JsonEncoder.withIndent('  ').convert(requestBody));
+      debugPrint('═══════════════════════════════════════════════════════');
+
       final response = await http.post(
         Uri.parse(baseUrl),
         headers: {
@@ -323,7 +394,10 @@ class CustomContentGenerator implements ContentGenerator {
       );
 
       if (response.statusCode == 200) {
-        final data = jsonDecode(utf8.decode(response.bodyBytes));
+        final bodyString = utf8.decode(response.bodyBytes);
+        print('DEBUG: Raw Response: $bodyString');
+
+        final data = jsonDecode(bodyString);
         final choice = data['choices'][0];
         final messageData = choice['message'];
 
@@ -332,8 +406,15 @@ class CustomContentGenerator implements ContentGenerator {
           await _processContent(content, messages);
         }
 
-        if (messageData['tool_calls'] != null) {
-          _handleStandardToolCalls(messageData['tool_calls'] as List);
+        final toolCallsRaw = messageData['tool_calls'];
+        if (toolCallsRaw != null) {
+          if (toolCallsRaw is List) {
+            _handleStandardToolCalls(toolCallsRaw);
+          } else {
+            print(
+              'WARNING (FollowUp): tool_calls is not a List, it is ${toolCallsRaw.runtimeType}',
+            );
+          }
         }
       }
     } catch (e) {
@@ -365,6 +446,14 @@ class CustomContentGenerator implements ContentGenerator {
     _a2uiMessageController.add(
       BeginRendering(surfaceId: surfaceId, root: 'root'),
     );
+  }
+
+  /// Helper method to print long strings without truncation.
+  void _printLongString(String text) {
+    final pattern = RegExp('.{1,800}'); // Split every 800 characters
+    pattern.allMatches(text).forEach((match) {
+      debugPrint(match.group(0));
+    });
   }
 
   @override
