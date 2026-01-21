@@ -115,7 +115,7 @@ class _TargetHeader extends StatelessWidget {
     }
   }
 
-  /// Format timestamp based on date context
+  /// Format timestamp based on date context (Beijing timezone, UTC+8)
   /// - Today: "HH:mm"
   /// - Yesterday: "昨天 HH:mm"
   /// - This year: "MM-dd HH:mm"
@@ -123,24 +123,35 @@ class _TargetHeader extends StatelessWidget {
   String _formatTimestamp(String timestampStr) {
     try {
       final timestamp = int.parse(timestampStr);
-      final date = DateTime.fromMillisecondsSinceEpoch(timestamp);
-      final now = DateTime.now();
+      // Convert to Beijing timezone (UTC+8)
+      final utcDate = DateTime.fromMillisecondsSinceEpoch(
+        timestamp,
+        isUtc: true,
+      );
+      final beijingDate = utcDate.add(const Duration(hours: 8));
+
+      // Get current Beijing time for comparison
+      final now = DateTime.now().toUtc().add(const Duration(hours: 8));
       final today = DateTime(now.year, now.month, now.day);
       final yesterday = today.subtract(const Duration(days: 1));
-      final dateOnly = DateTime(date.year, date.month, date.day);
+      final dateOnly = DateTime(
+        beijingDate.year,
+        beijingDate.month,
+        beijingDate.day,
+      );
 
       if (dateOnly == today) {
         // Today: show only time
-        return DateFormat('HH:mm').format(date);
+        return DateFormat('HH:mm').format(beijingDate);
       } else if (dateOnly == yesterday) {
         // Yesterday: show "昨天 HH:mm"
-        return '昨天 ${DateFormat('HH:mm').format(date)}';
-      } else if (date.year == now.year) {
+        return '昨天 ${DateFormat('HH:mm').format(beijingDate)}';
+      } else if (beijingDate.year == now.year) {
         // This year: show "MM-dd HH:mm"
-        return DateFormat('MM-dd HH:mm').format(date);
+        return DateFormat('MM-dd HH:mm').format(beijingDate);
       } else {
         // Previous years: show "yyyy-MM-dd HH:mm"
-        return DateFormat('yyyy-MM-dd HH:mm').format(date);
+        return DateFormat('yyyy-MM-dd HH:mm').format(beijingDate);
       }
     } catch (e) {
       return timestampStr;

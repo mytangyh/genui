@@ -169,14 +169,39 @@ class _HighlightsPageState extends State<HighlightsPage>
                           children: [
                             // Render DSL blocks directly without nested ListView
                             ...dslBlocks.map((block) {
-                              return DslSurface(
+                              final isTargetHeader = _isTargetHeader(block);
+                              final content = DslSurface(
                                 dsl: block,
                                 catalog: FinancialCatalog.getDslCatalog(),
                                 onAction: _handleAction,
                               );
+
+                              if (!isTargetHeader) {
+                                return content;
+                              }
+
+                              return Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  content,
+                                  // Blue dot indicator on the timeline
+                                  Positioned(
+                                    left:
+                                        -13, // 14 (line x) - 24 (padding left) - 3 (half dot width)
+                                    top:
+                                        18, // Adjust to vertical center of header (assuming ~something) or simple offset
+                                    child: Container(
+                                      width: 6,
+                                      height: 6,
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xFF2B7EFF),
+                                        shape: BoxShape.circle,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
                             }),
-
-
                           ],
                         ),
                       ),
@@ -186,6 +211,10 @@ class _HighlightsPageState extends State<HighlightsPage>
               ),
       ),
     );
+  }
+
+  bool _isTargetHeader(Map<String, Object?> block) {
+    return block['type'] == 'targetHeader';
   }
 }
 

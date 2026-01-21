@@ -154,10 +154,8 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.expandable) {
-      return _buildExpandableMessage();
-    }
-    return _buildSimpleMessage();
+    // Always use expandable version
+    return _buildExpandableMessage();
   }
 
   /// Simple non-expandable message (blue bubble with opacity)
@@ -205,7 +203,8 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
   /// Expandable message (blue background with expand/collapse)
   Widget _buildExpandableMessage() {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: const Color(0xFF2B7EFF).withOpacity(0.16),
         borderRadius: BorderRadius.circular(19),
@@ -270,29 +269,27 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
           // Expanded content
           SizeTransition(
             sizeFactor: _expandAnimation,
-            child: widget.detail != null
-                ? Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                    child: Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF151D2B),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Text(
-                        widget.detail!,
-                        style: TextStyle(
-                          fontFamily: 'PingFangSC',
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                          color: Colors.white.withOpacity(0.85),
-                          height: 1.5,
-                        ),
-                      ),
-                    ),
-                  )
-                : const SizedBox.shrink(),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF151D2B),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  widget.detail ?? '请求待实现',
+                  style: TextStyle(
+                    fontFamily: 'PingFangSC',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.85),
+                    height: 1.5,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
