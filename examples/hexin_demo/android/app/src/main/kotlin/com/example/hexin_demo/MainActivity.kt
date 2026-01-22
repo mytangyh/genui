@@ -8,6 +8,7 @@ class MainActivity : FlutterActivity() {
         super.configureFlutterEngine(flutterEngine)
 
         // Register native chart view factory
+        android.util.Log.d("MainActivity", "Registering native-chart-view factory")
         flutterEngine.platformViewsController.registry
             .registerViewFactory(
                 "native-chart-view",

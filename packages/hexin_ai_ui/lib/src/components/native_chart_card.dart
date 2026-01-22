@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:genui/genui.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../constants/app_colors.dart';
 
@@ -90,7 +89,6 @@ class NativeChartCardWidget extends StatefulWidget {
 class _NativeChartCardWidgetState extends State<NativeChartCardWidget>
     with WidgetsBindingObserver {
   MethodChannel? _channel;
-  bool _isVisible = true;
   bool _isAppActive = true;
   int? _viewId;
 
@@ -124,25 +122,16 @@ class _NativeChartCardWidgetState extends State<NativeChartCardWidget>
     _viewId = id;
     debugPrint('[NativeChartCard] PlatformView created - viewId: $id');
     _channel = MethodChannel('native-chart-view-$id');
-    // Immediately start if visible
-    if (_isVisible && _isAppActive) {
-      debugPrint('[NativeChartCard] Auto-starting on create');
-      _startUpdates();
-    }
-  }
 
-  void _onVisibilityChanged(VisibilityInfo info) {
-    final wasVisible = _isVisible;
-    // Lower threshold: consider visible if ANY part is visible
-    _isVisible = info.visibleFraction > 0.0;
-
-    debugPrint(
-      '[NativeChartCard] Visibility: fraction=${info.visibleFraction.toStringAsFixed(2)}, '
-      'wasVisible=$wasVisible, isVisible=$_isVisible, viewId=$_viewId',
-    );
-
-    if (wasVisible != _isVisible) {
-      _updateRunningState();
+    // Robust startup: send START multiple times with delays
+    for (int i = 0; i < 3; i++) {
+      Future.delayed(Duration(milliseconds: 100 + i * 500), () {
+        if (mounted && _isAppActive) {
+          debugPrint(
+              '[NativeChartCard] Auto-start attempt ${i + 1} for viewId: $_viewId');
+          _startUpdates();
+        }
+      });
     }
   }
 
@@ -152,10 +141,10 @@ class _NativeChartCardWidgetState extends State<NativeChartCardWidget>
       return;
     }
 
-    final shouldRun = _isVisible && _isAppActive;
+    final shouldRun = _isAppActive;
     debugPrint(
       '[NativeChartCard] updateRunningState: shouldRun=$shouldRun '
-      '(visible=$_isVisible, active=$_isAppActive)',
+      '(active=$_isAppActive)',
     );
 
     if (shouldRun) {
@@ -192,26 +181,22 @@ class _NativeChartCardWidgetState extends State<NativeChartCardWidget>
       return _buildFallback();
     }
 
-    return VisibilityDetector(
-      key: Key('native-chart-visibility-${widget.stockCode}'),
-      onVisibilityChanged: _onVisibilityChanged,
-      child: Container(
-        height: widget.height,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          color: AppColors.cardBackground,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: AndroidView(
-          viewType: 'native-chart-view',
-          creationParams: {
-            'stockCode': widget.stockCode,
-            'refreshInterval': widget.refreshInterval,
-          },
-          creationParamsCodec: const StandardMessageCodec(),
-          onPlatformViewCreated: _onPlatformViewCreated,
-        ),
+    return Container(
+      height: widget.height,
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: AppColors.cardBackground,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: AndroidView(
+        viewType: 'native-chart-view',
+        creationParams: {
+          'stockCode': widget.stockCode,
+          'refreshInterval': widget.refreshInterval,
+        },
+        creationParamsCodec: const StandardMessageCodec(),
+        onPlatformViewCreated: _onPlatformViewCreated,
       ),
     );
   }

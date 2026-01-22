@@ -44,12 +44,12 @@ class NativeChartView(
         channel.setMethodCallHandler { call, result ->
             when (call.method) {
                 "start" -> {
-                    android.util.Log.d(tag, "[$viewId] Received START command")
+                    android.util.Log.d(tag, "[$viewId] Received START command, current isRunning=$isRunning")
                     startUpdates()
                     result.success(null)
                 }
                 "stop" -> {
-                    android.util.Log.d(tag, "[$viewId] Received STOP command")
+                    android.util.Log.d(tag, "[$viewId] Received STOP command, current isRunning=$isRunning")
                     stopUpdates()
                     result.success(null)
                 }
@@ -66,9 +66,7 @@ class NativeChartView(
 
         // Generate initial data immediately for first render
         chartView.generateMockData()
-
-        // Auto-start periodic updates
-        startUpdates()
+        android.util.Log.d(tag, "[$viewId] Init complete, waiting for START command from Flutter")
     }
 
     private val updateRunnable = object : Runnable {
