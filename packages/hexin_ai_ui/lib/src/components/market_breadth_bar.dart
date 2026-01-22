@@ -3,11 +3,14 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
+
+import '../constants/app_colors.dart';
+import '../models/market_breadth_data.dart';
+import '../services/market_data_service.dart';
 
 /// Schema for market breadth bar component.
 ///
@@ -110,7 +113,7 @@ final marketBreadthBar = CatalogItem(
     final Map<String, Object?>? dataSource =
         data['dataSource'] as Map<String, Object?>?;
 
-    return _MarketBreadthBar(
+    return MarketBreadthBar(
       initialUp: up,
       initialDown: down,
       initialFlat: flat,
@@ -138,24 +141,8 @@ class _DataSourceConfig {
   bool get isRealTime => type == 'polling' || type == 'websocket';
 }
 
-class _MarketBreadthData {
-  const _MarketBreadthData({
-    required this.up,
-    required this.down,
-    this.flat = 0,
-    this.limitUp = 0,
-    this.limitDown = 0,
-  });
-
-  final int up;
-  final int down;
-  final int flat;
-  final int limitUp;
-  final int limitDown;
-}
-
-class _MarketBreadthBar extends StatefulWidget {
-  const _MarketBreadthBar({
+class MarketBreadthBar extends StatefulWidget {
+  const MarketBreadthBar({
     required this.initialUp,
     required this.initialDown,
     this.initialFlat = 0,
@@ -172,24 +159,24 @@ class _MarketBreadthBar extends StatefulWidget {
   final _DataSourceConfig? dataSource;
 
   @override
-  State<_MarketBreadthBar> createState() => _MarketBreadthBarState();
+  State<MarketBreadthBar> createState() => _MarketBreadthBarState();
 }
 
-class _MarketBreadthBarState extends State<_MarketBreadthBar>
+class _MarketBreadthBarState extends State<MarketBreadthBar>
     with SingleTickerProviderStateMixin {
-  late _MarketBreadthData _data;
+  late MarketBreadthData _data;
+  final MarketDataService _service = MarketDataService();
   Timer? _pollingTimer;
-  final Random _random = Random();
 
   // Animation
   late AnimationController _animationController;
   late Animation<double> _animation;
-  _MarketBreadthData? _previousData;
+  MarketBreadthData? _previousData;
 
   @override
   void initState() {
     super.initState();
-    _data = _MarketBreadthData(
+    _data = MarketBreadthData(
       up: widget.initialUp,
       down: widget.initialDown,
       flat: widget.initialFlat,
@@ -241,31 +228,16 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
     }
   }
 
-  _MarketBreadthData _generateMockData() {
-    // Generate realistic market data variations
-    final baseUp = widget.initialUp;
-    final baseDown = widget.initialDown;
-
-    // Random fluctuations within ±10%
-    final upChange = (baseUp * 0.1 * (_random.nextDouble() - 0.5)).toInt();
-    final downChange = (baseDown * 0.1 * (_random.nextDouble() - 0.5)).toInt();
-    final flatChange = (_random.nextInt(20) - 10);
-
-    final newUp = (baseUp + upChange).clamp(100, 5000);
-    final newDown = (baseDown + downChange).clamp(100, 5000);
-    final newFlat = (widget.initialFlat + flatChange).clamp(0, 500);
-
-    // Limit up/down also fluctuate
-    final limitUpChange = _random.nextInt(10) - 5;
-    final limitDownChange = _random.nextInt(6) - 3;
-
-    return _MarketBreadthData(
-      up: newUp,
-      down: newDown,
-      flat: newFlat,
-      limitUp: (widget.initialLimitUp + limitUpChange).clamp(0, 200),
-      limitDown: (widget.initialLimitDown + limitDownChange).clamp(0, 100),
+  MarketBreadthData _generateMockData() {
+    // Use the initial config as base
+    final baseData = MarketBreadthData(
+      up: widget.initialUp,
+      down: widget.initialDown,
+      flat: widget.initialFlat,
+      limitUp: widget.initialLimitUp,
+      limitDown: widget.initialLimitDown,
     );
+    return _service.generateMockData(baseData);
   }
 
   int _interpolate(int from, int to, double t) {
@@ -278,7 +250,7 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
       animation: _animation,
       builder: (context, child) {
         final displayData = _previousData != null
-            ? _MarketBreadthData(
+            ? MarketBreadthData(
                 up: _interpolate(_previousData!.up, _data.up, _animation.value),
                 down: _interpolate(
                   _previousData!.down,
@@ -308,7 +280,7 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
     );
   }
 
-  Widget _buildContent(_MarketBreadthData data) {
+  Widget _buildContent(MarketBreadthData data) {
     final total = data.up + data.down + data.flat;
     if (total == 0) return const SizedBox.shrink();
 
@@ -331,7 +303,7 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
                     width: 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: AppColors.downGreen,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -366,7 +338,10 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
                   child: Container(
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFFFF4444), Color(0xFFFF6B6B)],
+                        colors: [
+                          AppColors.gradientRedStart,
+                          AppColors.gradientRedEnd
+                        ],
                       ),
                     ),
                   ),
@@ -375,7 +350,7 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
                 if (flatRatio > 0.001)
                   Expanded(
                     flex: (flatRatio * 1000).toInt().clamp(1, 999),
-                    child: Container(color: const Color(0xFF666666)),
+                    child: Container(color: AppColors.textSecondary),
                   ),
                 // Down section (green)
                 Expanded(
@@ -383,7 +358,10 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
                   child: Container(
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFF00C853), Color(0xFF4CAF50)],
+                        colors: [
+                          AppColors.gradientGreenStart,
+                          AppColors.gradientGreenEnd
+                        ],
                       ),
                     ),
                   ),
@@ -401,21 +379,21 @@ class _MarketBreadthBarState extends State<_MarketBreadthBar>
                 label: '涨',
                 value: data.up,
                 subValue: data.limitUp > 0 ? '涨停${data.limitUp}' : null,
-                color: const Color(0xFFFF4444),
+                color: AppColors.upRed,
               ),
               // Flat stats
               if (data.flat > 0)
                 _buildStatItem(
                   label: '平',
                   value: data.flat,
-                  color: const Color(0xFF888888),
+                  color: AppColors.textSecondary,
                 ),
               // Down stats
               _buildStatItem(
                 label: '跌',
                 value: data.down,
                 subValue: data.limitDown > 0 ? '跌停${data.limitDown}' : null,
-                color: const Color(0xFF00C853),
+                color: AppColors.downGreen,
                 alignRight: true,
               ),
             ],

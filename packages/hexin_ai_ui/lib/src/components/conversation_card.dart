@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 import 'package:json_schema_builder/json_schema_builder.dart';
 
+import '../constants/app_colors.dart';
+
 /// Schema for "Conversation Card" component.
 ///
 /// DSL Example:
@@ -54,7 +56,7 @@ final conversationCard = CatalogItem(
     final onMicTap = data['onMicTap'] as String?;
     final onKeyboardTap = data['onKeyboardTap'] as String?;
 
-    return _ConversationCard(
+    return ConversationCard(
       onAction: (name, route) {
         if (route != null) {
           context.dispatchEvent(
@@ -73,8 +75,8 @@ final conversationCard = CatalogItem(
   },
 );
 
-class _ConversationCard extends StatelessWidget {
-  const _ConversationCard({
+class ConversationCard extends StatelessWidget {
+  const ConversationCard({
     required this.onAction,
     this.orderRoute,
     this.micRoute,
@@ -91,7 +93,7 @@ class _ConversationCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: const BoxDecoration(
-        color: Color(0xFF191919), // Match provided image bg
+        color: AppColors.cardBackground,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -106,7 +108,7 @@ class _ConversationCard extends StatelessWidget {
                   child: Text(
                     '下单',
                     style: TextStyle(
-                      color: Color(0xFFFF4D4F),
+                      color: AppColors.upRed,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
@@ -125,7 +127,10 @@ class _ConversationCard extends StatelessWidget {
                     height: 54,
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFF2BCCFF), Color(0xFF9B6BFF)],
+                        colors: [
+                          AppColors.primaryBlue,
+                          AppColors.primaryPurple
+                        ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       ),
@@ -134,12 +139,12 @@ class _ConversationCard extends StatelessWidget {
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.mic, color: Colors.white, size: 22),
+                        Icon(Icons.mic, color: AppColors.textWhite, size: 22),
                         SizedBox(width: 8),
                         Text(
                           '按住说话',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColors.textWhite,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -156,7 +161,8 @@ class _ConversationCard extends StatelessWidget {
               _buildBadgedButton(
                 onTap: () => onAction('keyboard_tap', keyboardRoute),
                 child: const Center(
-                  child: Icon(Icons.keyboard, color: Colors.white, size: 24),
+                  child: Icon(Icons.keyboard,
+                      color: AppColors.textWhite, size: 24),
                 ),
                 badgeIcon: Icons.search,
               ),
@@ -166,7 +172,7 @@ class _ConversationCard extends StatelessWidget {
           const Text(
             '以上部分内容由AI生成，不构成投资建议',
             style: TextStyle(
-              color: Color(0xFF666666),
+              color: AppColors.textSecondary,
               fontSize: 12,
             ),
           ),
@@ -195,7 +201,7 @@ class _ConversationCard extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: const Color(0xFF2BCCFF),
+                  color: AppColors.primaryBlue,
                   width: 1.5,
                 ),
               ),
@@ -209,12 +215,11 @@ class _ConversationCard extends StatelessWidget {
                 width: 18,
                 height: 18,
                 decoration: const BoxDecoration(
-                  color: Color(0xFF191919), // Bg matches card
+                  color: AppColors.cardBackground,
                   shape: BoxShape.circle,
                 ),
-                padding: const EdgeInsets.all(1), // Border effect
-                child:
-                    Icon(badgeIcon, size: 16, color: const Color(0xFF2BCCFF)),
+                padding: const EdgeInsets.all(1),
+                child: Icon(badgeIcon, size: 16, color: AppColors.primaryBlue),
               ),
             ),
           ],
