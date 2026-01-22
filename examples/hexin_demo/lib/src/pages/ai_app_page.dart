@@ -60,7 +60,8 @@ class _AiAppPageState extends State<AiAppPage>
   }
 
   void _handleTabChange() {
-    // Update immediately when index changes (whether by tap or swipe settlement)
+    // Update immediately when index changes
+    // (whether by tap or swipe settlement)
     _updateHeaderMarkdown();
   }
 
@@ -126,22 +127,49 @@ class _AiAppPageState extends State<AiAppPage>
       backgroundColor: const Color(0xFF191919),
       drawer: const Drawer(),
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            // Header rendered from markdown with embedded DSL
-            DslMarkdownSection(
-              key: ValueKey(_headerMarkdown),
-              markdown: _headerMarkdown,
-              catalog: _catalog,
-              onAction: _handleAction,
+            Column(
+              children: [
+                // Header rendered from markdown with embedded DSL
+                DslMarkdownSection(
+                  key: ValueKey(_headerMarkdown),
+                  markdown: _headerMarkdown,
+                  catalog: _catalog,
+                  onAction: _handleAction,
+                ),
+                // Tab content with padding to avoid overlap with bottom card
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 110),
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: _tabs.map((tab) {
+                        return _buildTabContent(tab['id']!);
+                      }).toList(),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            // Tab content
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: _tabs.map((tab) {
-                  return _buildTabContent(tab['id']!);
-                }).toList(),
+            // Floating Conversation Card at bottom
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: DslMarkdownSection(
+                markdown: '''```dsl
+{
+  "type": "conversationCard",
+  "props": {
+    "onOrderTap": "client://trade/order",
+    "onMicTap": "client://voice/icon",
+    "onKeyboardTap": "client://input/keyboard"
+  }
+}
+```''',
+                catalog: _catalog,
+                onAction: _handleAction,
               ),
             ),
           ],
