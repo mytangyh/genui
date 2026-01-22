@@ -20,5 +20,5 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
+  hexin_ai_ui:
+    path: ../hexin_ai_ui
