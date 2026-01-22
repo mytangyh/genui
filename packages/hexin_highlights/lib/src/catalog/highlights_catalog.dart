@@ -8,32 +8,12 @@ import 'package:hexin_ai_ui/hexin_ai_ui.dart';
 /// Catalog for highlights feature.
 ///
 /// Provides the complete set of catalog items needed for rendering
-/// highlights DSL content.
+/// highlights DSL content. Uses AiUiCatalog which contains all components.
 class HighlightsCatalog {
   HighlightsCatalog._();
 
   /// Returns the catalog with all highlights-related components.
   static Catalog getCatalog() {
-    return Catalog([
-      // AI 消息组件
-      aiMessage,
-      aiButtonList,
-      aiEventOverview,
-
-      // 金融信息组件
-      auctionAnomaly,
-      infoSummaryCard,
-      newsFlashList,
-      targetHeader,
-      marketBreadthBar,
-      bannerCarousel,
-      sectionHeader,
-      stockQuote,
-
-      // 工具组件
-      markdownRender,
-      dslWebView,
-      placeholder,
-    ]);
+    return AiUiCatalog.getCatalog();
   }
 }

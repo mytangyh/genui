@@ -4,53 +4,49 @@
 
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
-import 'package:hexin_ai_ui/hexin_ai_ui.dart';
-import 'package:hexin_dsl/hexin_dsl.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
-/// Default DSL configuration for the AI App bar.
-///
-/// This can be replaced with API-fetched config in the future.
-/// Format follows DslSurface expectations: {type: 'Component', props: {...}}
-const _defaultAppBarDsl = <String, dynamic>{
-  'type': 'AiAppBar',
-  'props': {
-    'showMenu': true,
-    'tabs': [
-      {'id': 'highlights', 'label': '看点'},
-      {'id': 'watchlist', 'label': '盯盘'},
-      {'id': 'stock_picker', 'label': '选股'},
-      {'id': 'portfolio', 'label': '组合'},
+/// Default header markdown for the AI App page.
+/// Contains app bar DSL and other header content.
+const _defaultHeaderMarkdown = '''
+```dsl
+{
+  "type": "AiAppBar",
+  "props": {
+    "showMenu": true,
+    "tabs": [
+      {"id": "highlights", "label": "看点"},
+      {"id": "watchlist", "label": "盯盘"},
+      {"id": "stock_picker", "label": "选股"},
+      {"id": "portfolio", "label": "组合"}
     ],
-    'actionButtons': [
-      {'label': '今日盈亏', 'subLabel': '0.00'},
-      {
-        'label': '消息',
-        'badge': '99+',
-        'action': {'name': 'open_messages'}
-      },
-    ],
-  },
-};
+    "actionButtons": [
+      {"label": "今日盈亏", "subLabel": "0.00"},
+      {"label": "消息", "badge": "99+", "action": {"name": "open_messages"}}
+    ]
+  }
+}
+```
+''';
 
-/// Catalog containing AI App specific components.
+/// Catalog containing AI App components.
+/// Uses AiUiCatalog plus core catalog items.
 Catalog _getAiAppCatalog() {
   return Catalog([
     ...CoreCatalogItems.asCatalog().items,
-    aiAppBar,
-    pillButton,
+    ...AiUiCatalog.getAllItems(),
   ]);
 }
 
-/// The main AI App page with DSL-driven configurable top bar.
+/// The main AI App page with MarkdownRender pattern.
 ///
-/// The app bar is rendered from DSL configuration, enabling future
-/// remote configuration via API.
+/// The header is rendered from markdown with embedded DSL,
+/// enabling flexible remote configuration via API.
 class AiAppPage extends StatefulWidget {
-  /// Optional custom DSL config for the app bar.
-  final Map<String, dynamic>? appBarConfig;
+  /// Optional custom header markdown.
+  final String? headerMarkdown;
 
-  const AiAppPage({super.key, this.appBarConfig});
+  const AiAppPage({super.key, this.headerMarkdown});
 
   @override
   State<AiAppPage> createState() => _AiAppPageState();
@@ -58,20 +54,24 @@ class AiAppPage extends StatefulWidget {
 
 class _AiAppPageState extends State<AiAppPage>
     with SingleTickerProviderStateMixin {
-  late final Map<String, dynamic> _appBarConfig;
+  late final String _headerMarkdown;
   late final TabController _tabController;
   late final Catalog _catalog;
+
+  // Tab configuration - can be extracted from header DSL in future
+  final List<Map<String, String>> _tabs = [
+    {'id': 'highlights', 'label': '看点'},
+    {'id': 'watchlist', 'label': '盯盘'},
+    {'id': 'stock_picker', 'label': '选股'},
+    {'id': 'portfolio', 'label': '组合'},
+  ];
 
   @override
   void initState() {
     super.initState();
-    _appBarConfig = widget.appBarConfig ?? _defaultAppBarDsl;
+    _headerMarkdown = widget.headerMarkdown ?? _defaultHeaderMarkdown;
     _catalog = _getAiAppCatalog();
-
-    // Extract tabs from props
-    final props = _appBarConfig['props'] as Map<String, dynamic>? ?? {};
-    final tabs = props['tabs'] as List? ?? [];
-    _tabController = TabController(length: tabs.length, vsync: this);
+    _tabController = TabController(length: _tabs.length, vsync: this);
   }
 
   @override
@@ -98,26 +98,29 @@ class _AiAppPageState extends State<AiAppPage>
 
   @override
   Widget build(BuildContext context) {
-    final props = _appBarConfig['props'] as Map<String, dynamic>? ?? {};
-    final tabs = props['tabs'] as List<dynamic>? ?? [];
-
     return Scaffold(
       backgroundColor: const Color(0xFF191919),
       drawer: const Drawer(),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: DslSurface(
-          dsl: _appBarConfig,
-          catalog: _catalog,
-          onAction: _handleAction,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Header rendered from markdown with embedded DSL
+            DslMarkdownSection(
+              markdown: _headerMarkdown,
+              catalog: _catalog,
+              onAction: _handleAction,
+            ),
+            // Tab content
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: _tabs.map((tab) {
+                  return _buildTabContent(tab['id']!);
+                }).toList(),
+              ),
+            ),
+          ],
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: tabs.map((tab) {
-          final tabId = (tab as Map<String, dynamic>)['id'] as String;
-          return _buildTabContent(tabId);
-        }).toList(),
       ),
     );
   }
