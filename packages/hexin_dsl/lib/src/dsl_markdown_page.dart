@@ -111,22 +111,33 @@ class DslMarkdownSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final segments = _parseSegments(markdown);
+    try {
+      final segments = _parseSegments(markdown);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: segments.map((segment) => _buildSegment(segment)).toList(),
-    );
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: segments.map((segment) => _buildSegment(segment)).toList(),
+      );
+    } catch (e) {
+      // If any error occurs during parsing/building, return empty widget
+      // This prevents red screen errors for malformed content
+      return const SizedBox.shrink();
+    }
   }
 
   Widget _buildSegment(_ContentSegment segment) {
-    switch (segment.type) {
-      case _SegmentType.text:
-        return _buildMarkdownText(segment.content!);
-      case _SegmentType.dsl:
-        return _buildDslComponent(segment.dsl!, segment.language!);
-      case _SegmentType.code:
-        return _buildCodeBlock(segment.content!, segment.language!);
+    try {
+      switch (segment.type) {
+        case _SegmentType.text:
+          return _buildMarkdownText(segment.content!);
+        case _SegmentType.dsl:
+          return _buildDslComponent(segment.dsl!, segment.language!);
+        case _SegmentType.code:
+          return _buildCodeBlock(segment.content!, segment.language!);
+      }
+    } catch (e) {
+      // If any error occurs building this segment, return empty widget
+      return const SizedBox.shrink();
     }
   }
 
@@ -147,57 +158,67 @@ class DslMarkdownSection extends StatelessWidget {
   }
 
   Widget _buildDslComponent(Map<String, dynamic> dsl, String language) {
-    Map<String, dynamic> surfaceDsl;
+    try {
+      Map<String, dynamic> surfaceDsl;
 
-    if (language == 'web') {
-      // Web blocks are rendered as webview components
-      surfaceDsl = {'type': 'webview', 'props': dsl};
-    } else {
-      // Check for simplyDSL wrapper format and unwrap
-      if (dsl.containsKey('simplyDSL') && dsl.containsKey('children')) {
-        final children = dsl['children'] as List<dynamic>;
-        if (children.isNotEmpty) {
-          // Render all children in a column
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: children.map((child) {
-              if (child is Map<String, dynamic>) {
-                return _buildSingleDslComponent(child);
-              }
-              return const SizedBox.shrink();
-            }).toList(),
-          );
+      if (language == 'web') {
+        // Web blocks are rendered as webview components
+        surfaceDsl = {'type': 'webview', 'props': dsl};
+      } else {
+        // Check for simplyDSL wrapper format and unwrap
+        if (dsl.containsKey('simplyDSL') && dsl.containsKey('children')) {
+          final children = dsl['children'] as List<dynamic>;
+          if (children.isNotEmpty) {
+            // Render all children in a column
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: children.map((child) {
+                if (child is Map<String, dynamic>) {
+                  return _buildSingleDslComponent(child);
+                }
+                return const SizedBox.shrink();
+              }).toList(),
+            );
+          }
+          return const SizedBox.shrink();
         }
-        return const SizedBox.shrink();
+        surfaceDsl = dsl;
       }
-      surfaceDsl = dsl;
-    }
 
-    return _buildSingleDslComponent(surfaceDsl);
+      return _buildSingleDslComponent(surfaceDsl);
+    } catch (_) {
+      // If any error occurs during DSL processing, return empty widget
+      return const SizedBox.shrink();
+    }
   }
 
   Widget _buildSingleDslComponent(Map<String, dynamic> dsl) {
-    // Check if it's a nested markdownRender
-    final type = dsl['type'] as String?;
-    if (type == 'markdownRender') {
-      final props = dsl['props'] as Map<String, dynamic>? ?? {};
-      final content = props['content'] as String? ?? '';
-      // Recursively render nested markdownRender
-      return DslMarkdownSection(
-        markdown: content,
-        catalog: catalog,
-        onAction: onAction,
-      );
-    }
+    try {
+      // Check if it's a nested markdownRender
+      final type = dsl['type'] as String?;
+      if (type == 'markdownRender') {
+        final props = dsl['props'] as Map<String, dynamic>? ?? {};
+        final content = props['content'] as String? ?? '';
+        // Recursively render nested markdownRender
+        return DslMarkdownSection(
+          markdown: content,
+          catalog: catalog,
+          onAction: onAction,
+        );
+      }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: DslSurface(
-        dsl: dsl,
-        catalog: catalog,
-        onAction: onAction,
-      ),
-    );
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: DslSurface(
+          dsl: dsl,
+          catalog: catalog,
+          onAction: onAction,
+        ),
+      );
+    } catch (_) {
+      // If any error occurs during component building, return empty widget
+      return const SizedBox.shrink();
+    }
   }
 
   Widget _buildCodeBlock(String code, String language) {
@@ -265,49 +286,70 @@ class DslMarkdownSection extends StatelessWidget {
   }
 
   /// Parse markdown content into segments.
+  ///
+  /// Handles nested code blocks by properly matching ``` pairs.
   List<_ContentSegment> _parseSegments(String content) {
     final List<_ContentSegment> segments = [];
+    int pos = 0;
 
-    // Match code blocks: ```language ... ```
-    final pattern = RegExp(r'```(\w+)?\s*\n([\s\S]*?)```', multiLine: true);
+    while (pos < content.length) {
+      // Find next code block start
+      final startMatch = content.indexOf('```', pos);
 
-    int lastEnd = 0;
+      if (startMatch == -1) {
+        // No more code blocks, add remaining text
+        final remaining = content.substring(pos);
+        if (remaining.trim().isNotEmpty) {
+          segments.add(_ContentSegment.text(remaining));
+        }
+        break;
+      }
 
-    for (final match in pattern.allMatches(content)) {
       // Add text before this code block
-      if (match.start > lastEnd) {
-        final textBefore = content.substring(lastEnd, match.start);
+      if (startMatch > pos) {
+        final textBefore = content.substring(pos, startMatch);
         if (textBefore.trim().isNotEmpty) {
           segments.add(_ContentSegment.text(textBefore));
         }
       }
 
-      final language = match.group(1) ?? '';
-      final codeContent = match.group(2)?.trim() ?? '';
+      // Find the language identifier (ends at newline)
+      final afterBackticks = startMatch + 3;
+      final newlinePos = content.indexOf('\n', afterBackticks);
+      if (newlinePos == -1) {
+        // Malformed, no newline after ```, skip to end
+        break;
+      }
 
-      // Check if it's a DSL or web block
+      final language = content.substring(afterBackticks, newlinePos).trim();
+      final contentStart = newlinePos + 1;
+
+      // Find matching closing ``` by counting nested pairs
+      final endPos = _findMatchingClose(content, contentStart);
+
+      if (endPos == -1) {
+        // No matching close found, skip this block
+        pos = contentStart;
+        continue;
+      }
+
+      final codeContent = content.substring(contentStart, endPos).trim();
+
+      // Process the code block
       if (language == 'dsl' || language == 'web') {
         try {
           final decoded = json.decode(codeContent) as Map<String, dynamic>;
           segments.add(_ContentSegment.dsl(decoded, language));
         } catch (_) {
-          // JSON parse failed, render as code block
-          segments.add(_ContentSegment.code(codeContent, language));
+          // JSON parse failed - skip this block silently
         }
-      } else {
+      } else if (language.isNotEmpty) {
         // Other languages - render as code block
         segments.add(_ContentSegment.code(codeContent, language));
       }
 
-      lastEnd = match.end;
-    }
-
-    // Add remaining text after last code block
-    if (lastEnd < content.length) {
-      final textAfter = content.substring(lastEnd);
-      if (textAfter.trim().isNotEmpty) {
-        segments.add(_ContentSegment.text(textAfter));
-      }
+      // Move past the closing ```
+      pos = endPos + 3;
     }
 
     // If no segments found, treat entire content as text
@@ -316,6 +358,54 @@ class DslMarkdownSection extends StatelessWidget {
     }
 
     return segments;
+  }
+
+  /// Find the matching closing ``` for a code block.
+  /// Counts nested ``` pairs to find the correct match.
+  /// Returns the position of the closing ```, or -1 if not found.
+  int _findMatchingClose(String content, int startPos) {
+    int pos = startPos;
+    int depth = 1; // We're inside one code block
+
+    while (pos < content.length) {
+      final nextBackticks = content.indexOf('```', pos);
+
+      if (nextBackticks == -1) {
+        // No more ``` found, unbalanced
+        return -1;
+      }
+
+      // Check if this is an opening or closing ```
+      // Opening: has language identifier or newline after, at start or after newline
+      // Closing: followed by newline or end of string, preceded by newline
+
+      // Look at context to determine if opening or closing
+      final beforePos = nextBackticks > 0 ? nextBackticks - 1 : 0;
+      final afterPos = nextBackticks + 3;
+
+      final charBefore = nextBackticks > 0 ? content[beforePos] : '\n';
+      final charAfter = afterPos < content.length ? content[afterPos] : '\n';
+
+      // It's a closing ``` if preceded by newline and followed by newline/end
+      final isClosing = charBefore == '\n' &&
+          (charAfter == '\n' || afterPos >= content.length);
+
+      // It's an opening ``` if preceded by newline and followed by language/newline
+      final isOpening = charBefore == '\n' && !isClosing;
+
+      if (isClosing) {
+        depth--;
+        if (depth == 0) {
+          return nextBackticks;
+        }
+      } else if (isOpening) {
+        depth++;
+      }
+
+      pos = nextBackticks + 3;
+    }
+
+    return -1; // No matching close found
   }
 }
 

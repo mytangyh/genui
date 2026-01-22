@@ -86,24 +86,30 @@ final infoSummaryCard = CatalogItem(
     final data = context.data as Map<String, Object?>;
     final String title = data['title'] as String? ?? '';
     final String summary = data['summary'] as String? ?? '';
+    // Support optional contentTitle field from API
+    final String? contentTitle = data['contentTitle'] as String?;
     final Map<String, Object?>? action =
         data['action'] as Map<String, Object?>?;
     final String? backgroundColor = data['backgroundColor'] as String?;
 
+    // Support both 'route' (API format) and 'target' (schema format)
+    final String? actionTarget =
+        action?['route'] as String? ?? action?['target'] as String?;
+
     return _InfoSummaryCard(
       title: title,
       summary: summary,
+      contentTitle: contentTitle,
       actionText: action?['text'] as String?,
-      actionTarget: action?['target'] as String?,
+      actionTarget: actionTarget,
       backgroundColor: backgroundColor,
       onAction: () {
-        final target = action?['target'] as String?;
-        if (target != null) {
+        if (actionTarget != null) {
           context.dispatchEvent(
             UserActionEvent(
               name: 'navigate',
               sourceComponentId: context.id,
-              context: {'target': target},
+              context: {'target': actionTarget},
             ),
           );
         }
@@ -116,6 +122,7 @@ class _InfoSummaryCard extends StatelessWidget {
   const _InfoSummaryCard({
     required this.title,
     required this.summary,
+    this.contentTitle,
     this.actionText,
     this.actionTarget,
     this.backgroundColor,
@@ -124,6 +131,7 @@ class _InfoSummaryCard extends StatelessWidget {
 
   final String title;
   final String summary;
+  final String? contentTitle;
   final String? actionText;
   final String? actionTarget;
   final String? backgroundColor;
@@ -187,6 +195,20 @@ class _InfoSummaryCard extends StatelessWidget {
               ],
             ),
           ),
+          // Content title (if available)
+          if (contentTitle != null && contentTitle!.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+              child: Text(
+                contentTitle!,
+                style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           // Summary text
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),

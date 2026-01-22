@@ -93,11 +93,20 @@ final marketBreadthBar = CatalogItem(
   ],
   widgetBuilder: (context) {
     final data = context.data as Map<String, Object?>;
-    final int up = (data['up'] as num?)?.toInt() ?? 0;
-    final int down = (data['down'] as num?)?.toInt() ?? 0;
-    final int flat = (data['flat'] as num?)?.toInt() ?? 0;
-    final int limitUp = (data['limitUp'] as num?)?.toInt() ?? 0;
-    final int limitDown = (data['limitDown'] as num?)?.toInt() ?? 0;
+
+    // Helper to parse int from either String or num
+    int parseIntValue(Object? value) {
+      if (value == null) return 0;
+      if (value is num) return value.toInt();
+      if (value is String) return int.tryParse(value) ?? 0;
+      return 0;
+    }
+
+    final int up = parseIntValue(data['up']);
+    final int down = parseIntValue(data['down']);
+    final int flat = parseIntValue(data['flat']);
+    final int limitUp = parseIntValue(data['limitUp']);
+    final int limitDown = parseIntValue(data['limitDown']);
     final Map<String, Object?>? dataSource =
         data['dataSource'] as Map<String, Object?>?;
 
@@ -110,7 +119,8 @@ final marketBreadthBar = CatalogItem(
       dataSource: dataSource != null
           ? _DataSourceConfig(
               type: dataSource['type'] as String? ?? 'static',
-              interval: (dataSource['interval'] as num?)?.toInt() ?? 3000,
+              interval:
+                  parseIntValue(dataSource['interval']).clamp(1000, 60000),
               url: dataSource['url'] as String?,
             )
           : null,
