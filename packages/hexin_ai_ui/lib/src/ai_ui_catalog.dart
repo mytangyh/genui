@@ -23,6 +23,7 @@ import 'components/target_header.dart';
 import 'components/trailhead.dart';
 import 'components/people_also_ask_card.dart';
 import 'components/conversation_card.dart';
+import 'components/native_chart_card.dart';
 
 /// Centralized catalog provider for hexin_ai_ui components.
 ///
@@ -65,6 +66,7 @@ class AiUiCatalog {
       trailhead,
       peopleAlsoAskCard,
       conversationCard,
+      nativeChartCard,
 
       // AI App 组件
       pillButton,

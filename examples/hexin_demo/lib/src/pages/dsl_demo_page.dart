@@ -145,9 +145,38 @@ class _DslDemoPageState extends State<DslDemoPage> {
     "duration": 4000
   }
 }
-```''',
+\`\`\`''',
 
-    // Section 4: Nested markdownRender demo
+    // Section 4: Native Chart Card Demo
+    '''## 原生图表嵌入演示
+
+下面是嵌入的 **Android 原生图表**，支持实时数据刷新和生命周期管理：
+
+\`\`\`dsl
+{
+  "type": "nativeChartCard",
+  "props": {
+    "stockCode": "600000",
+    "height": 220,
+    "refreshInterval": 1000
+  }
+}
+\`\`\`
+
+> 💡 滚动此卡片离开屏幕，刷新次数将暂停；滚回可见区域后恢复刷新。
+
+\`\`\`dsl
+{
+  "type": "nativeChartCard",
+  "props": {
+    "stockCode": "000001",
+    "height": 220,
+    "refreshInterval": 2000
+  }
+}
+\`\`\`''',
+
+    // Section 5: Nested markdownRender demo
     '''## MarkdownRender 嵌套演示
 
 下面演示 DSL 中嵌套 markdownRender 组件：
