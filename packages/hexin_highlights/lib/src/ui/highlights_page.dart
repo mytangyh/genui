@@ -6,15 +6,14 @@ import 'package:flutter/material.dart';
 
 import 'package:hexin_dsl/hexin_dsl.dart';
 
-import '../../hexin_highlights.dart';
 import '../catalog/highlights_catalog.dart';
 import '../models/highlights_response.dart';
 import '../services/highlights_service.dart';
 
 /// Page displaying real-time financial highlights and news.
 ///
-/// Fetches data from the news aggregations API and renders it using
-/// DSL-based components from the catalog.
+/// Uses DslMarkdownPage for flexible markdown rendering with embedded DSL.
+/// Each summary is rendered as a markdown section with timeline decoration.
 class HighlightsPage extends StatefulWidget {
   const HighlightsPage({super.key});
 
@@ -83,150 +82,127 @@ class _HighlightsPageState extends State<HighlightsPage>
         onRefresh: _loadHighlights,
         backgroundColor: const Color(0xFF1E2A3D),
         color: const Color(0xFFFF8C00),
-        child: _isLoading
-            ? const Center(
-                child: CircularProgressIndicator(color: Color(0xFFFF8C00)),
-              )
-            : _errorMessage != null
-                ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.error_outline,
-                          size: 48,
-                          color: Colors.white.withOpacity(0.5),
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          _errorMessage!,
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.7)),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: _loadHighlights,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFFF8C00),
-                          ),
-                          child: const Text('重试'),
-                        ),
-                      ],
-                    ),
-                  )
-                : _summaries.isEmpty
-                    ? Center(
-                        child: Text(
-                          '暂无数据',
-                          style:
-                              TextStyle(color: Colors.white.withOpacity(0.5)),
-                        ),
-                      )
-                    : ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: _summaries.length,
-                        itemBuilder: (context, index) {
-                          final summary = _summaries[index];
-
-                          // Parse DSL blocks from the markdown
-                          final rawBlocks =
-                              DslParser.extractBlocks(summary.markDown);
-
-                          // Unwrap simplyDSL format: extract children from the wrapper
-                          final dslBlocks = <Map<String, dynamic>>[];
-                          for (final block in rawBlocks) {
-                            if (block.containsKey('simplyDSL') &&
-                                block.containsKey('children')) {
-                              // Extract children from simplyDSL wrapper
-                              final children =
-                                  block['children'] as List<dynamic>;
-                              for (final child in children) {
-                                if (child is Map<String, dynamic>) {
-                                  dslBlocks.add(child);
-                                }
-                              }
-                            } else {
-                              // Regular DSL block without wrapper
-                              dslBlocks.add(block);
-                            }
-                          }
-
-                          return Stack(
-                            children: [
-                              // Timeline - vertical dashed line at 14dp from left
-                              Positioned(
-                                left: 14,
-                                top: 0,
-                                bottom: 0,
-                                child: CustomPaint(
-                                  painter: _DashedLinePainter(
-                                    color: Colors.white.withOpacity(0.2),
-                                  ),
-                                  size: const Size(1, double.infinity),
-                                ),
-                              ),
-
-                              // Content with proper margins
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 24, right: 13),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // Render DSL blocks directly without nested ListView
-                                    ...dslBlocks.map((block) {
-                                      final isTargetHeader =
-                                          _isTargetHeader(block);
-                                      final content = DslSurface(
-                                        dsl: block,
-                                        catalog: HighlightsCatalog.getCatalog(),
-                                        onAction: _handleAction,
-                                      );
-
-                                      if (!isTargetHeader) {
-                                        return content;
-                                      }
-
-                                      return Stack(
-                                        clipBehavior: Clip.none,
-                                        children: [
-                                          content,
-                                          // Blue dot indicator on the timeline
-                                          Positioned(
-                                            left:
-                                                -13, // 14 (line x) - 24 (padding left) - 3 (half dot width)
-                                            top:
-                                                18, // Adjust to vertical center of header (assuming ~something) or simple offset
-                                            child: Container(
-                                              width: 6,
-                                              height: 6,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFF2B7EFF),
-                                                shape: BoxShape.circle,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      );
-                                    }),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      ),
+        child: _buildContent(),
       ),
     );
   }
 
-  bool _isTargetHeader(Map<String, Object?> block) {
-    return block['type'] == 'targetHeader';
+  Widget _buildContent() {
+    if (_isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(color: Color(0xFFFF8C00)),
+      );
+    }
+
+    if (_errorMessage != null) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.error_outline,
+              size: 48,
+              color: Colors.white.withOpacity(0.5),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              _errorMessage!,
+              style: TextStyle(color: Colors.white.withOpacity(0.7)),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _loadHighlights,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFF8C00),
+              ),
+              child: const Text('重试'),
+            ),
+          ],
+        ),
+      );
+    }
+
+    if (_summaries.isEmpty) {
+      return Center(
+        child: Text(
+          '暂无数据',
+          style: TextStyle(color: Colors.white.withOpacity(0.5)),
+        ),
+      );
+    }
+
+    // Use DslMarkdownPage for flexible rendering
+    return DslMarkdownPage(
+      markdownSections: _summaries.map((s) => s.markDown).toList(),
+      catalog: HighlightsCatalog.getCatalog(),
+      onAction: _handleAction,
+      sectionBuilder: (content, index) => _buildTimelineSection(content, index),
+    );
+  }
+
+  /// Builds a section with timeline decoration.
+  Widget _buildTimelineSection(Widget content, int index) {
+    return Stack(
+      children: [
+        // Timeline - vertical dashed line at 14dp from left
+        Positioned(
+          left: 14,
+          top: 0,
+          bottom: 0,
+          child: CustomPaint(
+            painter: _DashedLinePainter(
+              color: Colors.white.withOpacity(0.2),
+            ),
+            size: const Size(1, double.infinity),
+          ),
+        ),
+
+        // Content with proper margins
+        Padding(
+          padding: const EdgeInsets.only(left: 24, right: 13),
+          child: _TimelineContentWrapper(
+            child: content,
+          ),
+        ),
+      ],
+    );
   }
 }
 
-/// Custom painter for dashed vertical line
+/// Wraps content to add timeline dot indicator for targetHeader components.
+class _TimelineContentWrapper extends StatelessWidget {
+  const _TimelineContentWrapper({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    // The blue dot is now added in DslMarkdownSection for targetHeader
+    // components. This wrapper provides consistent padding.
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        child,
+        // Blue dot indicator on the timeline (at the start of section)
+        Positioned(
+          left: -13, // 14 (line x) - 24 (padding left) - 3 (half dot width)
+          top: 18, // Adjust to align with header
+          child: Container(
+            width: 6,
+            height: 6,
+            decoration: const BoxDecoration(
+              color: Color(0xFF2B7EFF),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Custom painter for dashed vertical line.
 class _DashedLinePainter extends CustomPainter {
   _DashedLinePainter({required this.color});
 

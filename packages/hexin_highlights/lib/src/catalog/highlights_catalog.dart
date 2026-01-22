@@ -25,9 +25,14 @@ class HighlightsCatalog {
       infoSummaryCard,
       newsFlashList,
       targetHeader,
+      marketBreadthBar,
+      bannerCarousel,
+      sectionHeader,
+      stockQuote,
 
       // 工具组件
       markdownRender,
+      dslWebView,
       placeholder,
     ]);
   }

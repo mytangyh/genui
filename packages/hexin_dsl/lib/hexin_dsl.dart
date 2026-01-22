@@ -12,3 +12,4 @@ library hexin_dsl;
 export 'src/dsl_parser.dart';
 export 'src/dsl_surface.dart';
 export 'src/dsl_block_list.dart';
+export 'src/dsl_markdown_page.dart';

@@ -3,14 +3,15 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-import '../catalog/catalog.dart';
 import 'package:hexin_dsl/hexin_dsl.dart';
 
-/// A demo page that shows how DslParser and DslSurface work together.
+import '../catalog/catalog.dart';
+
+/// A demo page that shows how DslMarkdownPage renders mixed markdown + DSL.
 ///
 /// This page simulates receiving markdown with embedded DSL blocks
-/// from a backend API and rendering them as native Flutter widgets.
+/// from a backend API and rendering them as native Flutter widgets,
+/// while also supporting standard markdown formatting.
 class DslDemoPage extends StatefulWidget {
   const DslDemoPage({super.key});
 
@@ -19,12 +20,19 @@ class DslDemoPage extends StatefulWidget {
 }
 
 class _DslDemoPageState extends State<DslDemoPage> {
-  late List<Map<String, dynamic>> _dslBlocks;
   bool _isLoading = true;
+  List<String> _markdownSections = [];
 
   // Simulated markdown response from backend - organized by page sections
-  static const String _mockMarkdownResponse = '''
-# 智能投顾首页
+  static const List<String> _mockMarkdownSections = [
+    // Section 1: Market overview with markdown + DSL
+    '''# 智能投顾首页
+
+今日市场**开盘走高**，主要指数表现如下：
+
+- 沪指 +0.37%
+- 深成指 +0.52%
+- 创业板 +0.85%
 
 ```dsl
 {
@@ -47,14 +55,21 @@ class _DslDemoPageState extends State<DslDemoPage> {
     "name": "aimi"
   }
 }
-```
+```''',
+
+    // Section 2: Morning news with image
+    '''## 早间必读
+
+> 美国国会众议院以222票支持209票反对通过参议院已通过的联邦政府临时拨款法案。
+
+![市场走势](https://zsap.stocke.com.cn/oss-files/YXGL/2025/10/29/6111b7dc10514ea6a2d71ddceb48cfdd.png)
 
 ```dsl
 {
   "type": "infoSummaryCard",
   "props": {
     "title": "早间必读",
-    "summary": "早间必读：美国国会众议院以222票支持209票反对通过参议院已通过的联邦政府临时对时拨款法案。",
+    "summary": "早间必读：美国国会众议院以222票支持209票反对通过参议院已通过的联邦政府临时拨款法案。",
     "action": {
       "text": "查看详情",
       "target": "aiapp://news/morning"
@@ -72,8 +87,7 @@ class _DslDemoPageState extends State<DslDemoPage> {
     "items": [
       {"text": "国产汽车芯片认证审查技术体系实现突破", "route": "client://news/1"},
       {"text": "狂飙涨停潮！AI应用方向集体走高半导体板块…", "route": "client://news/2"},
-      {"text": "沪指低位震荡半日跌0.56%｜AI应用方向全面爆…", "route": "client://news/3"},
-      {"text": "瑞银：预计明年中国股市将迎来又一个丰…", "route": "client://news/4"}
+      {"text": "沪指低位震荡半日跌0.56%｜AI应用方向全面爆…", "route": "client://news/3"}
     ]
   }
 }
@@ -89,74 +103,21 @@ class _DslDemoPageState extends State<DslDemoPage> {
     ]
   }
 }
-```
+```''',
 
-```dsl
-{
-  "type": "targetHeader",
-  "props": {
-    "timestamp": "09:18",
-    "title": "盘前",
-    "targetName": "上证指数",
-    "targetValue": "3990.49 -1.04%",
-    "trend": "down"
-  }
-}
-```
+    // Section 3: Market statistics
+    '''## 大盘统计
 
-```dsl
-{
-  "type": "ai_message",
-  "props": {
-    "info": "为您提炼了截止09:28的股市重点",
-    "detail": "对盘前解读的资讯内容进行AI汇总解读，并完整展示在这里。点击查看详情链接跳转到资讯二级页。",
-    "name": "aimi",
-    "expandable": true
-  }
-}
-```
+截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**。
 
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "盘前必读",
-    "action": {
-      "type": "image",
-      "text": "AI 深度解读",
-      "route": "client://ai/premarket"
-    }
-  }
-}
-```
+### 主力资金流向
 
-```dsl
-{
-  "type": "infoSummaryCard",
-  "props": {
-    "title": "市场概览",
-    "summary": "对盘前解读的资讯内容进行AI汇总解读，并完整展示在这里。点击查看详情跳转到资讯二级页。",
-    "action": {
-      "text": "查看详情",
-      "target": "aiapp://market/overview"
-    }
-  }
-}
-```
-
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "竞价异动",
-    "action": {
-      "type": "text",
-      "text": "查看更多",
-      "route": "client://market/auction"
-    }
-  }
-}
-```
+| 板块 | 净流入 |
+|------|--------|
+| 上证 | -336.28亿 |
+| 深证 | -316.12亿 |
+| 创业 | -106.51亿 |
+| 科创 | +7.21亿 |
 
 ```dsl
 {
@@ -177,64 +138,26 @@ class _DslDemoPageState extends State<DslDemoPage> {
   "props": {
     "items": [
       {"route": "client://banner/1", "image_url": "https://via.placeholder.com/400x120/FF8C00/FFFFFF?text=AI+智能选股"},
-      {"route": "client://banner/2", "image_url": "https://via.placeholder.com/400x120/6B8EFF/FFFFFF?text=新手理财课堂"},
-      {"route": "client://banner/3", "image_url": "https://via.placeholder.com/400x120/B06BFF/FFFFFF?text=热门板块分析"}
+      {"route": "client://banner/2", "image_url": "https://via.placeholder.com/400x120/6B8EFF/FFFFFF?text=新手理财课堂"}
     ],
     "height": 120,
     "autoPlay": true,
     "duration": 4000
   }
 }
-```
+```''',
 
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "大盘统计",
-    "action": {
-      "type": "image",
-      "text": "AI 深度解读",
-      "route": "client://ai/market"
-    }
-  }
-}
-```
+    // Section 4: Nested markdownRender demo
+    '''## MarkdownRender 嵌套演示
+
+下面演示 DSL 中嵌套 markdownRender 组件：
 
 ```dsl
 {
   "type": "markdownRender",
   "props": {
-    "content": "截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**，预测全天场增+391亿。大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。"
-  }
-}
-```
-
-```dsl
-{
-  "type": "marketBreadthBar",
-  "props": {
-    "up": 2272,
-    "down": 1499,
-    "flat": 13,
-    "limitUp": 62,
-    "limitDown": 13
-  }
-}
-```
-
-```dsl
-{
-  "type": "newsFlashList",
-  "props": {
-    "title": "午后快讯",
-    "subtitle": "更新于13:30",
-    "items": [
-      {"text": "A股三大指数午后震荡上行", "route": "client://news/5"},
-      {"text": "北向资金午后加速流入", "route": "client://news/6"},
-      {"text": "科创板个股普涨，芯片股领涨", "route": "client://news/7"},
-      {"text": "港股恒生科技指数涨超2%", "route": "client://news/8"}
-    ]
+    "content": "### 嵌套内容\\n\\n这是一个**嵌套的 markdownRender** 组件\\n\\n- 支持标准 Markdown\\n- 支持列表\\n- 支持*斜体*和**粗体**",
+    "backgroundColor": "#1A1F2E"
   }
 }
 ```
@@ -245,12 +168,36 @@ class _DslDemoPageState extends State<DslDemoPage> {
   "props": {
     "buttons": [
       {"text": "热门板块", "icon": "analytics", "route": "client://ai/sectors"},
-      {"text": "龙头股分析", "icon": "insights", "route": "client://ai/leaders"},
-      {"text": "风险提示", "icon": "recommend", "route": "client://ai/risk"}
+      {"text": "龙头股分析", "icon": "insights", "route": "client://ai/leaders"}
     ]
   }
 }
-```
+```''',
+
+    // Section 5: WebView demo
+    '''## WebView 嵌入演示
+
+使用 ` ``` web ``` ` 代码块嵌入网页：
+
+```web
+{
+  "url": "https://m.10jqka.com.cn",
+  "height": 300,
+  "enableJS": true,
+  "loadingText": "加载同花顺行情..."
+}
+```''',
+
+    // Section 6: Summary
+    '''## 收盘总结
+
+今日A股三大指数涨跌互现：
+
+1. **沪指** 微涨 +0.12%
+2. **深成指** 跌 -0.35%
+3. **创业板指** 跌 -0.56%
+
+两市成交额突破**万亿**。
 
 ```dsl
 {
@@ -266,93 +213,10 @@ class _DslDemoPageState extends State<DslDemoPage> {
 }
 ```
 
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "MarkdownRender 组合演示",
-    "action": {
-      "type": "text",
-      "text": "智能容器",
-      "route": "client://demo/markdown"
-    }
-  }
-}
-```
+---
 
-```dsl
-{
-  "type": "markdownRender",
-  "props": {
-    "content": "## 大盘统计\n\n截止此时：大盘成交额总计**13214亿**，较上一日此时增+3921亿，预测全天成交**19214亿**。\n\n大盘主力净流入-657.51亿，其中上证主力净流入-336.28亿，深证主力净流入-316.12亿，创业板主力净流入-106.51亿，科创板主力进入+7.21亿。\n\n```dsl\n{\"type\": \"infoSummaryCard\", \"props\": {\"title\": \"嵌套组件测试\", \"summary\": \"这是一个嵌套在 Markdown 中的 DSL 组件，测试 \\\"引号\\\" 解析是否正常。\", \"action\": {\"text\": \"查看详情\", \"target\": \"aiapp://test\"}}}\n```",
-    "backgroundColor": "#1A1F2E"
-  }
-}
-```
-
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "WebView 嵌入演示",
-    "action": {
-      "type": "text",
-      "text": "原生性能",
-      "route": "client://demo/webview"
-    }
-  }
-}
-```
-
-```web
-{
-  "url": "https://m.10jqka.com.cn",
-  "height": 300,
-  "enableJS": true,
-  "loadingText": "加载同花顺行情..."
-}
-```
-
-```web
-{
-  "url": "https://m.eastmoney.com",
-  "height": 300,
-  "enableJS": true,
-  "loadingText": "加载东方财富..."
-}
-```
-
-```dsl
-{
-  "type": "sectionHeader",
-  "props": {
-    "title": "实时数据演示",
-    "action": {
-      "type": "text",
-      "text": "Polling 2s",
-      "route": "client://demo/realtime"
-    }
-  }
-}
-```
-
-```dsl
-{
-  "type": "marketBreadthBar",
-  "props": {
-    "up": 2272,
-    "down": 1499,
-    "flat": 13,
-    "limitUp": 62,
-    "limitDown": 13,
-    "dataSource": {
-      "type": "polling",
-      "interval": 2000
-    }
-  }
-}
-```
-''';
+*数据来源：实时行情*''',
+  ];
 
   @override
   void initState() {
@@ -364,21 +228,9 @@ class _DslDemoPageState extends State<DslDemoPage> {
     // Simulate network delay
     await Future<void>.delayed(const Duration(milliseconds: 500));
 
-    // Parse DSL and Web blocks from markdown in order
-    final allBlocks = DslParser.extractMixedBlocks(
-      _mockMarkdownResponse,
-      languages: ['dsl', 'web'],
-      transformer: (data, language) {
-        if (language == 'web') {
-          return {'type': 'webview', 'props': data};
-        }
-        return data;
-      },
-    );
-
     if (mounted) {
       setState(() {
-        _dslBlocks = allBlocks;
+        _markdownSections = _mockMarkdownSections;
         _isLoading = false;
       });
     }
@@ -416,14 +268,14 @@ class _DslDemoPageState extends State<DslDemoPage> {
         ],
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: Colors.white))
-          : DslBlockListView(
-              blocks: _dslBlocks,
+          ? const Center(
+              child: CircularProgressIndicator(color: Colors.white),
+            )
+          : DslMarkdownPage(
+              markdownSections: _markdownSections,
               catalog: FinancialCatalog.getDslCatalog(),
               onAction: _handleAction,
-              blockSpacing: 0,
-              itemSpacing: 0,
-              padding: const EdgeInsets.symmetric(vertical: 8),
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             ),
     );
   }
