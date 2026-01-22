@@ -40,6 +40,9 @@ final _schema = S.object(
     'menuAction': A2uiSchemas.action(
       description: 'Action when menu icon is tapped',
     ),
+    'selectedTabId': S.string(
+      description: 'ID of the currently selected tab. Defaults to first tab.',
+    ),
   },
   required: ['tabs'],
 );
@@ -68,6 +71,7 @@ extension type _AiAppBarData.fromMap(Map<String, Object?> _json) {
           .map(_ActionButtonData.fromMap)
           .toList();
   JsonMap? get menuAction => _json['menuAction'] as JsonMap?;
+  String? get selectedTabId => _json['selectedTabId'] as String?;
 }
 
 /// A configurable app bar for AI App interfaces.
@@ -111,6 +115,7 @@ final aiAppBar = CatalogItem(
       tabs: data.tabs,
       actionButtons: data.actionButtons,
       menuAction: data.menuAction,
+      selectedTabId: data.selectedTabId,
       widgetId: itemContext.id,
       dispatchEvent: itemContext.dispatchEvent,
     );
@@ -123,6 +128,7 @@ class _AiAppBar extends StatelessWidget {
     required this.tabs,
     required this.actionButtons,
     this.menuAction,
+    this.selectedTabId,
     required this.widgetId,
     required this.dispatchEvent,
   });
@@ -131,11 +137,16 @@ class _AiAppBar extends StatelessWidget {
   final List<_TabData> tabs;
   final List<_ActionButtonData> actionButtons;
   final JsonMap? menuAction;
+  final String? selectedTabId;
   final String widgetId;
   final DispatchEventCallback dispatchEvent;
 
   @override
   Widget build(BuildContext context) {
+    // Default to the first tab if no selection is provided
+    final currentTabId =
+        selectedTabId ?? (tabs.isNotEmpty ? tabs.first.id : '');
+
     return SafeArea(
       bottom: false,
       child: Container(
@@ -155,7 +166,7 @@ class _AiAppBar extends StatelessWidget {
                   children: tabs.asMap().entries.map((entry) {
                     final index = entry.key;
                     final tab = entry.value;
-                    final isFirst = index == 0;
+                    final isSelected = tab.id == currentTabId;
                     return GestureDetector(
                       onTap: () => _handleTabTap(index, tab.id),
                       child: Padding(
@@ -163,10 +174,11 @@ class _AiAppBar extends StatelessWidget {
                         child: Text(
                           tab.label,
                           style: TextStyle(
-                            color: isFirst ? Colors.white : Colors.grey,
-                            fontSize: isFirst ? 18 : 16,
-                            fontWeight:
-                                isFirst ? FontWeight.bold : FontWeight.normal,
+                            color: isSelected ? Colors.white : Colors.grey,
+                            fontSize: isSelected ? 18 : 16,
+                            fontWeight: isSelected
+                                ? FontWeight.bold
+                                : FontWeight.normal,
                           ),
                         ),
                       ),

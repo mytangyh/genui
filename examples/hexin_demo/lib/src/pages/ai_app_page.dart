@@ -6,29 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
-/// Default header markdown for the AI App page.
-/// Contains app bar DSL and other header content.
-const _defaultHeaderMarkdown = '''
-```dsl
-{
-  "type": "AiAppBar",
-  "props": {
-    "showMenu": true,
-    "tabs": [
-      {"id": "highlights", "label": "看点"},
-      {"id": "watchlist", "label": "盯盘"},
-      {"id": "stock_picker", "label": "选股"},
-      {"id": "portfolio", "label": "组合"}
-    ],
-    "actionButtons": [
-      {"label": "今日盈亏", "subLabel": "0.00"},
-      {"label": "消息", "badge": "99+", "action": {"name": "open_messages"}}
-    ]
-  }
-}
-```
-''';
-
 /// Catalog containing AI App components.
 /// Uses AiUiCatalog plus core catalog items.
 Catalog _getAiAppCatalog() {
@@ -54,7 +31,7 @@ class AiAppPage extends StatefulWidget {
 
 class _AiAppPageState extends State<AiAppPage>
     with SingleTickerProviderStateMixin {
-  late final String _headerMarkdown;
+  String _headerMarkdown = '';
   late final TabController _tabController;
   late final Catalog _catalog;
 
@@ -69,15 +46,62 @@ class _AiAppPageState extends State<AiAppPage>
   @override
   void initState() {
     super.initState();
-    _headerMarkdown = widget.headerMarkdown ?? _defaultHeaderMarkdown;
     _catalog = _getAiAppCatalog();
     _tabController = TabController(length: _tabs.length, vsync: this);
+    _tabController.addListener(_handleTabChange);
+    _updateHeaderMarkdown();
   }
 
   @override
   void dispose() {
+    _tabController.removeListener(_handleTabChange);
     _tabController.dispose();
     super.dispose();
+  }
+
+  void _handleTabChange() {
+    // Update immediately when index changes (whether by tap or swipe settlement)
+    _updateHeaderMarkdown();
+  }
+
+  void _updateHeaderMarkdown() {
+    if (widget.headerMarkdown != null) {
+      setState(() {
+        _headerMarkdown = widget.headerMarkdown!;
+      });
+      return;
+    }
+
+    final currentTabId = _tabs[_tabController.index]['id'];
+
+    // Generate DSL with dynamic selectedTabId
+    final newMarkdown = '''
+```dsl
+{
+  "type": "AiAppBar",
+  "props": {
+    "selectedTabId": "$currentTabId",
+    "showMenu": true,
+    "tabs": ${_generateTabsJson()},
+    "actionButtons": [
+      {"label": "今日盈亏", "subLabel": "0.00"},
+      {"label": "消息", "badge": "99+", "action": {"name": "open_messages"}}
+    ]
+  }
+}
+```
+''';
+
+    setState(() {
+      _headerMarkdown = newMarkdown;
+    });
+  }
+
+  String _generateTabsJson() {
+    final tabsList = _tabs
+        .map((t) => '{"id": "${t['id']}", "label": "${t['label']}"}')
+        .join(',');
+    return '[$tabsList]';
   }
 
   void _handleAction(String actionName, Map<String, dynamic> actionContext) {
@@ -106,6 +130,7 @@ class _AiAppPageState extends State<AiAppPage>
           children: [
             // Header rendered from markdown with embedded DSL
             DslMarkdownSection(
+              key: ValueKey(_headerMarkdown),
               markdown: _headerMarkdown,
               catalog: _catalog,
               onAction: _handleAction,
