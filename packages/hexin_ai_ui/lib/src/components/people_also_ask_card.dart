@@ -127,9 +127,10 @@ class _PeopleAlsoAskCard extends StatelessWidget {
           Row(
             children: [
               // Avatar
+              // Avatar
               Container(
-                width: 24,
-                height: 24,
+                width: 34,
+                height: 34,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Color(0xFF3A3A45),
@@ -138,8 +139,8 @@ class _PeopleAlsoAskCard extends StatelessWidget {
                     ? ClipOval(
                         child: Image.network(
                           avatarUrl!,
-                          width: 24,
-                          height: 24,
+                          width: 34,
+                          height: 34,
                           fit: BoxFit.cover,
                           errorBuilder: (_, __, ___) => _buildDefaultAvatar(),
                         ),
@@ -150,9 +151,11 @@ class _PeopleAlsoAskCard extends StatelessWidget {
               Text(
                 title,
                 style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
                   color: Colors.white,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  height: 26 / 16,
                 ),
               ),
             ],
@@ -162,8 +165,8 @@ class _PeopleAlsoAskCard extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: const Color(0xFF2A2A35),
-              borderRadius: BorderRadius.circular(12),
+              color: const Color(0xFF232232),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
               children: questions.asMap().entries.map((entry) {
@@ -182,8 +185,8 @@ class _PeopleAlsoAskCard extends StatelessWidget {
 
   Widget _buildDefaultAvatar() {
     return Container(
-      width: 24,
-      height: 24,
+      width: 34,
+      height: 34,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         gradient: LinearGradient(
@@ -194,7 +197,7 @@ class _PeopleAlsoAskCard extends StatelessWidget {
       ),
       child: const Icon(
         Icons.person,
-        size: 16,
+        size: 20,
         color: Colors.white,
       ),
     );
@@ -225,38 +228,26 @@ class _PeopleAlsoAskCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Q icon
-            Container(
-              width: 18,
-              height: 18,
-              margin: const EdgeInsets.only(top: 2),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: Colors.white.withOpacity(0.4),
-                  width: 1,
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  'Q',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.6),
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+            // Q icon (Magnifying glass)
+            const Padding(
+              padding: EdgeInsets.only(top: 2),
+              child: Icon(
+                Icons.search,
+                size: 18,
+                color: Color(0xFFD2D2D3),
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             // Question text
             Expanded(
               child: Text(
                 question.text,
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.85),
+                style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w400,
                   fontSize: 14,
-                  height: 1.4,
+                  color: Color(0xFFD2D2D3),
+                  height: 18 / 14,
                 ),
               ),
             ),

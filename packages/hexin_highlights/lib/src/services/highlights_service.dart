@@ -127,6 +127,41 @@ class HighlightsService {
     }
   }
 
+  /// Fetches related questions for the "People Also Ask" card.
+  Future<List<String>> fetchQuestions() async {
+    const url =
+        'https://mncg-base-b2b-cloud.0033.com/simulated-stocks-web-saas/ai/info/api/news/questions';
+
+    // Use mock data if enabled
+    if (useMockData) {
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+      return ["今天的大盘走势属于强势还是弱势？", "板块热度排名说明了什么市场信号？", "市场缩量/放量意味着什么？会影响后续趋势吗？"];
+    }
+
+    try {
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode != 200) {
+        throw Exception(
+            'Failed to fetch questions: HTTP ${response.statusCode}');
+      }
+
+      final jsonData = jsonDecode(response.body) as Map<String, dynamic>;
+
+      if (jsonData['flag'] != 0) {
+        throw Exception('API error: ${jsonData['msg']}');
+      }
+
+      final data = jsonData['data'] as Map<String, dynamic>;
+      final questions = (data['questions'] as List).cast<String>();
+
+      return questions;
+    } catch (e) {
+      // Return empty list on error to allow page to render without card
+      return [];
+    }
+  }
+
   // Mock data for development
   static final Map<String, dynamic> _mockData = {
     "flag": 0,

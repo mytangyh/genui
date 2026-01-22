@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:hexin_dsl/hexin_dsl.dart';
@@ -84,11 +86,60 @@ class _HighlightsPageState extends State<HighlightsPage>
 
     try {
       final response = await _service.fetchHighlights(limit: 30);
+
+      // Fetch questions separately
+      List<String> questions = [];
+      try {
+        questions = await _service.fetchQuestions();
+      } catch (e) {
+        debugPrint('Failed to fetch questions: $e');
+      }
+
       if (mounted) {
         setState(() {
           _items.clear();
-          // Response is Ascending [Old...New], reverse to [New...Old]
-          _items.addAll(response.data.summaries.reversed);
+
+          List<NewsSummary> summaries =
+              response.data.summaries.reversed.toList();
+
+          // Inject "People Also Ask" card if we have questions and data
+          if (questions.isNotEmpty && summaries.isNotEmpty) {
+            final newestItem = summaries.first;
+            final newestTime = int.tryParse(newestItem.updateTime) ??
+                DateTime.now().millisecondsSinceEpoch;
+            final fakeTime = newestTime + 1000;
+
+            final questionObjects = questions
+                .map((q) => {
+                      'text': q,
+                      'route':
+                          'client://ai.route/question?q=${Uri.encodeComponent(q)}'
+                    })
+                .toList();
+
+            final cardJson = {
+              'type': 'peopleAlsoAskCard',
+              'props': {
+                'title': '大家还在问',
+                'avatarUrl':
+                    'http://u.thsi.cn/imgsrc/passport/92224443/head_120.jpg',
+                'questions': questionObjects,
+              }
+            };
+
+            // Manually construct markdown with embedded DSL
+            final markdown = '```dsl\n${jsonEncode(cardJson)}\n```';
+
+            final cardSummary = NewsSummary(
+              markDown: markdown,
+              updateTime: fakeTime.toString(),
+            );
+
+            // Insert at beginning (Bottom of reverse list)
+            summaries.insert(0, cardSummary);
+          }
+
+          _items.addAll(summaries);
           _isLoading = false;
         });
       }
@@ -106,10 +157,57 @@ class _HighlightsPageState extends State<HighlightsPage>
   Future<void> _onRefresh() async {
     try {
       final response = await _service.fetchHighlights(limit: 30);
+
+      // Fetch questions separately
+      List<String> questions = [];
+      try {
+        questions = await _service.fetchQuestions();
+      } catch (e) {
+        debugPrint('Failed to fetch questions: $e');
+      }
+
       if (mounted) {
         setState(() {
           _items.clear();
-          _items.addAll(response.data.summaries.reversed);
+          List<NewsSummary> summaries =
+              response.data.summaries.reversed.toList();
+
+          // Inject "People Also Ask" card logic (duplicate for now to ensure consistency)
+          if (questions.isNotEmpty && summaries.isNotEmpty) {
+            final newestItem = summaries.first;
+            final newestTime = int.tryParse(newestItem.updateTime) ??
+                DateTime.now().millisecondsSinceEpoch;
+            final fakeTime = newestTime + 1000;
+
+            final questionObjects = questions
+                .map((q) => {
+                      'text': q,
+                      'route':
+                          'client://ai.route/question?q=${Uri.encodeComponent(q)}'
+                    })
+                .toList();
+
+            final cardJson = {
+              'type': 'peopleAlsoAskCard',
+              'props': {
+                'title': '大家还在问',
+                'avatarUrl':
+                    'http://u.thsi.cn/imgsrc/passport/92224443/head_120.jpg',
+                'questions': questionObjects,
+              }
+            };
+
+            final markdown = '```dsl\n${jsonEncode(cardJson)}\n```';
+
+            final cardSummary = NewsSummary(
+              markDown: markdown,
+              updateTime: fakeTime.toString(),
+            );
+
+            summaries.insert(0, cardSummary);
+          }
+
+          _items.addAll(summaries);
         });
       }
     } catch (e) {
