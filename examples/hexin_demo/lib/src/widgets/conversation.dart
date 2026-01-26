@@ -14,87 +14,71 @@ typedef UserPromptBuilder = Widget Function(
 typedef UserUiInteractionBuilder = Widget Function(
     BuildContext context, UserUiInteractionMessage message);
 
-/// A widget that renders a list of chat messages in the conversation.
-///
-/// This handles rendering different message types:
-/// - [UserMessage] → Chat bubble with person icon
-/// - [AiTextMessage] → Chat bubble with robot icon
-/// - [AiUiMessage] → [GenUiSurface] widget
-/// - [InternalMessage] / [ToolResponseMessage] → Debug widgets
+/// A widget that displays a conversation with a generative AI.
 class Conversation extends StatelessWidget {
+  /// Creates a new [Conversation].
   const Conversation({
     super.key,
     required this.messages,
     required this.manager,
-    this.userPromptBuilder,
+    required this.scrollController,
     this.userUiInteractionBuilder,
     this.showInternalMessages = false,
-    this.scrollController,
   });
 
   final List<ChatMessage> messages;
-  final GenUiManager manager;
-  final UserPromptBuilder? userPromptBuilder;
+  final A2uiMessageProcessor manager;
+  final ScrollController scrollController;
   final UserUiInteractionBuilder? userUiInteractionBuilder;
   final bool showInternalMessages;
-  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
-    final List<ChatMessage> renderedMessages = messages.where((message) {
-      if (showInternalMessages) {
-        return true;
-      }
-      return message is! InternalMessage && message is! ToolResponseMessage;
+    // Hide internal messages unless requested.
+    final renderedMessages = messages.where((m) {
+      return showInternalMessages || m is! InternalMessage;
     }).toList();
+
     return ListView.builder(
       controller: scrollController,
       itemCount: renderedMessages.length,
       itemBuilder: (context, index) {
         final ChatMessage message = renderedMessages[index];
-        switch (message) {
-          case UserMessage():
-            return userPromptBuilder != null
-                ? userPromptBuilder!(context, message)
-                : ChatMessageWidget(
-                    text: message.parts
-                        .whereType<TextPart>()
-                        .map((part) => part.text)
-                        .join('\n'),
-                    icon: Icons.person,
-                    alignment: MainAxisAlignment.end,
-                  );
-          case AiTextMessage():
-            final String text = message.parts
-                .whereType<TextPart>()
-                .map((part) => part.text)
-                .join('\n');
-            if (text.trim().isEmpty) {
-              return const SizedBox.shrink();
-            }
-            return MarkdownMessageWidget(
-              text: text,
-              icon: Icons.smart_toy_outlined,
-              alignment: MainAxisAlignment.start,
-            );
-          case AiUiMessage():
-            return Padding(
+        return switch (message) {
+          UserMessage() => ChatMessageView(
+              text: message.text,
+              icon: Icons.person,
+              alignment: MainAxisAlignment.end,
+            ),
+          AiTextMessage() => message.text.trim().isEmpty
+              ? const SizedBox.shrink()
+              : MarkdownMessageWidget(
+                  text: message.text,
+                  icon: Icons.smart_toy_outlined,
+                  alignment: MainAxisAlignment.start,
+                ),
+          AiUiMessage() => Padding(
               padding: const EdgeInsets.all(16.0),
               child: GenUiSurface(
                 key: message.uiKey,
                 host: manager,
                 surfaceId: message.surfaceId,
               ),
-            );
-          case InternalMessage():
-            return InternalMessageWidget(content: message.text);
-          case UserUiInteractionMessage():
-            return userUiInteractionBuilder != null
-                ? userUiInteractionBuilder!(context, message)
-                : const SizedBox.shrink();
-          case ToolResponseMessage():
-            return InternalMessageWidget(content: message.results.toString());
-        }
+            ),
+          InternalMessage() => InternalMessageView(content: message.text),
+          UserUiInteractionMessage() => userUiInteractionBuilder != null
+              ? userUiInteractionBuilder!(context, message)
+              : ChatMessageView(
+                  text: message.text,
+                  icon: Icons.touch_app,
+                  alignment: MainAxisAlignment.end,
+                ),
+          ToolResponseMessage() =>
+            // Tool responses are typically internal, but if shown, just show text count/summary
+            InternalMessageView(
+              content: 'Tool Result: ${message.results.length} items',
+            ),
+        };
       },
     );
   }

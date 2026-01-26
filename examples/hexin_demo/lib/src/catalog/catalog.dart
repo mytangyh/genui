@@ -12,7 +12,7 @@ class FinancialCatalog {
   static Catalog getDslCatalog() {
     return Catalog([
       ...AiUiCatalog.getAllItems(),
-    ]);
+    ], catalogId: 'hexin_demo_catalog');
   }
 
   /// Alias for getDslCatalog for backward compatibility.

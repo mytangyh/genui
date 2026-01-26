@@ -20,13 +20,13 @@ class StreamingGenUiConversation {
     this.onTextResponse,
     this.onError,
     required this.contentGenerator,
-    required this.genUiManager,
+    required this.a2uiMessageProcessor,
   }) {
     _a2uiSubscription = contentGenerator.a2uiMessageStream.listen(
-      genUiManager.handleMessage,
+      a2uiMessageProcessor.handleMessage,
     );
-    _userEventSubscription = genUiManager.onSubmit.listen(sendRequest);
-    _surfaceUpdateSubscription = genUiManager.surfaceUpdates.listen(
+    _userEventSubscription = a2uiMessageProcessor.onSubmit.listen(sendRequest);
+    _surfaceUpdateSubscription = a2uiMessageProcessor.surfaceUpdates.listen(
       _handleSurfaceUpdate,
     );
     _textResponseSubscription = contentGenerator.textResponseStream.listen(
@@ -39,7 +39,7 @@ class StreamingGenUiConversation {
   final ContentGenerator contentGenerator;
 
   /// The manager for the UI surfaces in the conversation.
-  final GenUiManager genUiManager;
+  final A2uiMessageProcessor a2uiMessageProcessor;
 
   /// A callback for when a new surface is added by the AI.
   final ValueChanged<SurfaceAdded>? onSurfaceAdded;
@@ -110,11 +110,11 @@ class StreamingGenUiConversation {
     _textResponseSubscription.cancel();
     _errorSubscription.cancel();
     contentGenerator.dispose();
-    genUiManager.dispose();
+    a2uiMessageProcessor.dispose();
   }
 
   /// The host for the UI surfaces managed by this agent.
-  GenUiHost get host => genUiManager;
+  GenUiHost get host => a2uiMessageProcessor;
 
   /// A [ValueNotifier] that provides the current conversation history.
   ValueNotifier<List<ChatMessage>> get conversation => _conversation;
@@ -125,7 +125,7 @@ class StreamingGenUiConversation {
 
   /// Returns a [ValueNotifier] for the given [surfaceId].
   ValueNotifier<UiDefinition?> surface(String surfaceId) {
-    return genUiManager.getSurfaceNotifier(surfaceId);
+    return a2uiMessageProcessor.getSurfaceNotifier(surfaceId);
   }
 
   /// Sends a user message to the AI to generate a UI response.

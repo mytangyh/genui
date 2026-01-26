@@ -58,6 +58,7 @@ class CustomContentGenerator implements ContentGenerator {
   Future<void> sendRequest(
     ChatMessage message, {
     Iterable<ChatMessage>? history,
+    A2UiClientCapabilities? clientCapabilities,
   }) async {
     if (_isProcessing.value) return;
 

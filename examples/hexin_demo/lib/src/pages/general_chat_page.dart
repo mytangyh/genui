@@ -23,15 +23,15 @@ class GeneralChatPage extends StatefulWidget {
 }
 
 class _GeneralChatPageState extends State<GeneralChatPage> {
-  final _settingsService = SettingsService();
-  final _historyService = ChatHistoryService();
+  late final StreamingGenUiConversation _uiConversation;
+  late final StreamSubscription<ChatMessage> _userMessageSubscription;
+  late final String _selectedModel;
+
   final _textController = TextEditingController();
   final _scrollController = ScrollController();
 
-  StreamingGenUiConversation? _uiConversation;
-  StreamSubscription<ChatMessage>? _userMessageSubscription;
-  bool _isLoading = true;
-  String? _currentModel;
+  final _settingsService = SettingsService();
+  final _historyService = ChatHistoryService();
 
   @override
   void initState() {
@@ -40,8 +40,6 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
   }
 
   Future<void> _initialize() async {
-    setState(() => _isLoading = true);
-
     final settings = await _settingsService.loadSettings();
     if (settings == null) {
       if (mounted) {
@@ -55,8 +53,8 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
 
   Future<void> _loadHistory() async {
     final history = await _historyService.loadHistory();
-    if (history.isNotEmpty && _uiConversation != null) {
-      _uiConversation!.conversation.value = history;
+    if (history.isNotEmpty) {
+      _uiConversation.conversation.value = history;
       Future.delayed(const Duration(milliseconds: 100), _scrollToBottom);
     }
   }
@@ -76,18 +74,12 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
       final settings = await _settingsService.loadSettings();
       if (settings == null) {
         if (mounted) Navigator.pop(context); // Go back to entry page
-      } else {
-        setState(() => _isLoading = false);
       }
     }
   }
 
   void _setupConversation(Map<String, String> settings) {
-    _currentModel = settings['model'];
-
-    // Dispose previous conversation if any
-    _uiConversation?.dispose();
-    _userMessageSubscription?.cancel();
+    _selectedModel = settings['model']!;
 
     // Catalog
     final catalog = Catalog([
@@ -95,16 +87,11 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
       ...FinancialCatalog.getCatalog().items, // giving it full power
     ]);
 
-    final genUiManager = GenUiManager(
-      catalog: catalog,
-      configuration: const GenUiConfiguration(
-        actions: ActionsConfig(allowCreate: true, allowUpdate: true),
-      ),
+    final a2uiMessageProcessor = A2uiMessageProcessor(catalogs: [catalog]);
+
+    _userMessageSubscription = a2uiMessageProcessor.onSubmit.listen(
+      _handleUserMessageFromUi,
     );
-
-    _userMessageSubscription =
-        genUiManager.onSubmit.listen(_handleUserMessageFromUi);
-
     final contentGenerator = SSEContentGenerator(
       baseUrl: settings['baseUrl']!,
       apiKey: settings['apiKey']!,
@@ -115,7 +102,7 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
     );
 
     _uiConversation = StreamingGenUiConversation(
-      genUiManager: genUiManager,
+      a2uiMessageProcessor: a2uiMessageProcessor,
       contentGenerator: contentGenerator,
       onSurfaceUpdated: (_) {
         _scrollToBottom();
@@ -133,9 +120,7 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
     );
 
     // Listen to conversation changes for other message types (UserMessage)
-    _uiConversation!.conversation.addListener(_onConversationChanged);
-
-    setState(() => _isLoading = false);
+    _uiConversation.conversation.addListener(_onConversationChanged);
   }
 
   void _onConversationChanged() {
@@ -143,9 +128,7 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
   }
 
   void _saveHistory() {
-    if (_uiConversation != null) {
-      _historyService.saveHistory(_uiConversation!.conversation.value);
-    }
+    _historyService.saveHistory(_uiConversation.conversation.value);
   }
 
   void _scrollToBottom() {
@@ -165,12 +148,12 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
   }
 
   Future<void> _sendMessage(String text) async {
-    if (_uiConversation == null || text.trim().isEmpty) return;
-    if (_uiConversation!.isProcessing.value) return;
+    if (text.trim().isEmpty) return;
+    if (_uiConversation.isProcessing.value) return;
 
     _textController.clear();
     _scrollToBottom();
-    await _uiConversation!.sendRequest(UserMessage.text(text));
+    await _uiConversation.sendRequest(UserMessage.text(text));
   }
 
   void _onError(ContentGeneratorError error) {
@@ -185,9 +168,8 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
 
   @override
   void dispose() {
-    _uiConversation?.conversation.removeListener(_onConversationChanged);
-    _uiConversation?.dispose();
-    _userMessageSubscription?.cancel();
+    _userMessageSubscription.cancel();
+    _uiConversation.dispose();
     _textController.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -195,18 +177,9 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-
-    // Safety check in case initialization failed but loading stopped
-    if (_uiConversation == null) {
-      return const Scaffold(body: Center(child: Text('Initialization failed')));
-    }
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentModel ?? 'Chat'),
+        title: Text(_selectedModel),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -218,11 +191,11 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
         children: [
           Expanded(
             child: ValueListenableBuilder<List<ChatMessage>>(
-              valueListenable: _uiConversation!.conversation,
+              valueListenable: _uiConversation.conversation,
               builder: (context, messages, child) {
                 return Conversation(
                   messages: messages,
-                  manager: _uiConversation!.genUiManager,
+                  manager: _uiConversation.a2uiMessageProcessor,
                   scrollController: _scrollController,
                 );
               },
@@ -238,7 +211,7 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ValueListenableBuilder<bool>(
-        valueListenable: _uiConversation!.isProcessing,
+        valueListenable: _uiConversation.isProcessing,
         builder: (context, isProcessing, child) {
           return Row(
             children: [

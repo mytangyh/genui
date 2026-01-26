@@ -42,6 +42,8 @@ dependency_overrides:
     path: ../../packages/genui
   json_schema_builder:
     path: ../../packages/json_schema_builder
+  genai_primitives:
+    path: ../../packages/genai_primitives
   # Pin flutter_markdown_plus to version compatible with Flutter 3.22
   flutter_markdown_plus: 1.0.0+1
   # Pin webview_flutter to version compatible with Dart 3.4
