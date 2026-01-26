@@ -33,6 +33,8 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
   final _settingsService = SettingsService();
   final _historyService = ChatHistoryService();
 
+  bool _isLoading = true;
+
   @override
   void initState() {
     super.initState();
@@ -121,6 +123,12 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
 
     // Listen to conversation changes for other message types (UserMessage)
     _uiConversation.conversation.addListener(_onConversationChanged);
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   void _onConversationChanged() {
@@ -177,6 +185,14 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(_selectedModel),
