@@ -23,32 +23,38 @@ import 'data_model.dart';
 @immutable
 class Catalog {
   /// Creates a new catalog with the given list of items.
-  const Catalog(this.items);
+  const Catalog(this.items, {this.catalogId});
 
   /// The list of [CatalogItem]s available in this catalog.
   final Iterable<CatalogItem> items;
+
+  /// A string that uniquely identifies this catalog. It is recommended to use
+  /// a reverse-domain name notation, e.g. 'com.example.my_catalog'.
+  final String? catalogId;
 
   /// Returns a new [Catalog] containing the items from both this catalog and
   /// the provided [items].
   ///
   /// If an item with the same name already exists in the catalog, it will be
   /// replaced with the new item.
-  Catalog copyWith(List<CatalogItem> newItems) {
+  Catalog copyWith(List<CatalogItem> newItems, {String? catalogId}) {
     final Map<String, CatalogItem> itemsByName = {
       for (final item in items) item.name: item,
     };
     itemsByName.addAll({for (final item in newItems) item.name: item});
-    return Catalog(itemsByName.values);
+    return Catalog(itemsByName.values, catalogId: catalogId ?? this.catalogId);
   }
 
   /// Returns a new [Catalog] instance containing the items from this catalog
   /// with the specified items removed.
-  Catalog copyWithout(Iterable<CatalogItem> itemNames) {
-    final Set<String> namesToRemove =
-        itemNames.map<String>((item) => item.name).toSet();
-    final List<CatalogItem> updatedItems =
-        items.where((item) => !namesToRemove.contains(item.name)).toList();
-    return Catalog(updatedItems);
+  Catalog copyWithout(Iterable<CatalogItem> itemNames, {String? catalogId}) {
+    final Set<String> namesToRemove = itemNames
+        .map<String>((item) => item.name)
+        .toSet();
+    final List<CatalogItem> updatedItems = items
+        .where((item) => !namesToRemove.contains(item.name))
+        .toList();
+    return Catalog(updatedItems, catalogId: catalogId ?? this.catalogId);
   }
 
   /// Builds a Flutter widget from a JSON-like data structure.
@@ -70,9 +76,9 @@ class Catalog {
         id: itemContext.id,
         buildChild: (String childId, [DataContext? childDataContext]) =>
             itemContext.buildChild(
-          childId,
-          childDataContext ?? itemContext.dataContext,
-        ),
+              childId,
+              childDataContext ?? itemContext.dataContext,
+            ),
         dispatchEvent: itemContext.dispatchEvent,
         buildContext: itemContext.buildContext,
         dataContext: itemContext.dataContext,
@@ -96,12 +102,14 @@ class Catalog {
 
     return S.object(
       title: 'A2UI Catalog Description Schema',
-      description: 'A schema for a custom Catalog Description including A2UI '
+      description:
+          'A schema for a custom Catalog Description including A2UI '
           'components and styles.',
       properties: {
         'components': S.object(
           title: 'A2UI Components',
-          description: 'A schema that defines a catalog of A2UI components. '
+          description:
+              'A schema that defines a catalog of A2UI components. '
               'Each key is a component name, and each value is the JSON '
               'schema for that component\'s properties.',
           properties: componentProperties,

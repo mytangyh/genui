@@ -124,7 +124,7 @@ final column = CatalogItem(
                   componentId: componentId,
                   dataContext: dataContext,
                   buildChild: buildChild,
-                  component: getComponent(componentId),
+                  weight: getComponent(componentId)?.weight,
                 ),
               )
               .toList(),
@@ -143,7 +143,7 @@ final column = CatalogItem(
                   DataPath('$dataBinding/$i'),
                 ),
                 buildChild: itemContext.buildChild,
-                component: itemContext.getComponent(componentId),
+                weight: itemContext.getComponent(componentId)?.weight,
               ),
             ],
           ],

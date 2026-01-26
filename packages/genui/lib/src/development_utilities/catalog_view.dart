@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 
-import '../core/genui_manager.dart';
+import '../core/a2ui_message_processor.dart';
 import '../core/genui_surface.dart';
 import '../model/a2ui_message.dart';
 import '../model/catalog.dart';
@@ -45,51 +45,66 @@ class DebugCatalogView extends StatefulWidget {
 }
 
 class _DebugCatalogViewState extends State<DebugCatalogView> {
-  late final GenUiManager _genUi;
+  late final A2uiMessageProcessor _a2uiMessageProcessor;
   final surfaceIds = <String>[];
   late final StreamSubscription<UserUiInteractionMessage>? _subscription;
 
   @override
   void initState() {
     super.initState();
+    final Catalog catalog = widget.catalog;
 
-    _genUi = GenUiManager(catalog: widget.catalog);
+    _a2uiMessageProcessor = A2uiMessageProcessor(catalogs: [catalog]);
     if (widget.onSubmit != null) {
-      _subscription = _genUi.onSubmit.listen(widget.onSubmit);
+      _subscription = _a2uiMessageProcessor.onSubmit.listen(widget.onSubmit);
     } else {
       _subscription = null;
     }
 
-    for (final CatalogItem item in widget.catalog.items) {
+    for (final CatalogItem item in catalog.items) {
       for (var i = 0; i < item.exampleData.length; i++) {
         final ExampleBuilderCallback exampleBuilder = item.exampleData[i];
         final indexPart = item.exampleData.length > 1 ? '-$i' : '';
         final surfaceId = '${item.name}$indexPart';
 
         final String exampleJsonString = exampleBuilder();
-        final exampleData = jsonDecode(exampleJsonString) as List<Object?>;
 
-        final List<Component> components =
-            exampleData.map((e) => Component.fromJson(e as JsonMap)).toList();
+        try {
+          final exampleData = jsonDecode(exampleJsonString) as List<Object?>;
 
-        Component? rootComponent;
-        rootComponent = components.firstWhereOrNull((c) => c.id == 'root');
+          final List<Component> components = exampleData
+              .map((e) => Component.fromJson(e as JsonMap))
+              .toList();
 
-        if (rootComponent == null) {
-          debugPrint(
-            'Skipping example for ${item.name} because it is missing a root '
-            'component.',
+          Component? rootComponent;
+          rootComponent = components.firstWhereOrNull((c) => c.id == 'root');
+
+          if (rootComponent == null) {
+            debugPrint(
+              'Skipping example for ${item.name} because it is missing a root '
+              'component.',
+            );
+            continue;
+          }
+
+          _a2uiMessageProcessor.handleMessage(
+            SurfaceUpdate(surfaceId: surfaceId, components: components),
           );
-          continue;
+          _a2uiMessageProcessor.handleMessage(
+            BeginRendering(
+              surfaceId: surfaceId,
+              root: rootComponent.id,
+              catalogId: catalog.catalogId,
+            ),
+          );
+          surfaceIds.add(surfaceId);
+        } catch (e, s) {
+          debugPrint('Failed to load example for "${item.name}":\n$e\n$s');
+          throw Exception(
+            'Failed to load example for "${item.name}". Check logs for '
+            'details.',
+          );
         }
-
-        _genUi.handleMessage(
-          SurfaceUpdate(surfaceId: surfaceId, components: components),
-        );
-        _genUi.handleMessage(
-          BeginRendering(surfaceId: surfaceId, root: rootComponent.id),
-        );
-        surfaceIds.add(surfaceId);
       }
     }
   }
@@ -97,7 +112,7 @@ class _DebugCatalogViewState extends State<DebugCatalogView> {
   @override
   void dispose() {
     _subscription?.cancel();
-    _genUi.dispose();
+    _a2uiMessageProcessor.dispose();
     super.dispose();
   }
 
@@ -107,7 +122,10 @@ class _DebugCatalogViewState extends State<DebugCatalogView> {
       itemCount: surfaceIds.length,
       itemBuilder: (BuildContext context, int index) {
         final String surfaceId = surfaceIds[index];
-        final surfaceWidget = GenUiSurface(host: _genUi, surfaceId: surfaceId);
+        final surfaceWidget = GenUiSurface(
+          host: _a2uiMessageProcessor,
+          surfaceId: surfaceId,
+        );
         return Card(
           color: Theme.of(context).colorScheme.secondaryContainer,
           child: Padding(

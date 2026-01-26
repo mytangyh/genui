@@ -34,13 +34,10 @@ class GoogleGenerativeAiContentGenerator implements ContentGenerator {
     this.systemInstruction,
     this.outputToolName = 'provideFinalOutput',
     this.serviceFactory = defaultGenerativeServiceFactory,
-    this.configuration = const GenUiConfiguration(),
     this.additionalTools = const [],
     this.modelName = 'models/gemini-2.5-flash',
     this.apiKey,
   });
-
-  final GenUiConfiguration configuration;
 
   /// The catalog of UI components available to the AI.
   final Catalog catalog;
@@ -113,6 +110,7 @@ class GoogleGenerativeAiContentGenerator implements ContentGenerator {
   Future<void> sendRequest(
     ChatMessage message, {
     Iterable<ChatMessage>? history,
+    A2UiClientCapabilities? clientCapabilities,
   }) async {
     _isProcessing.value = true;
     try {
@@ -316,7 +314,7 @@ class GoogleGenerativeAiContentGenerator implements ContentGenerator {
         google_ai.Part(
           functionResponse: google_ai.FunctionResponse(
             id: call.id,
-            name: call.name!,
+            name: call.name,
             response: protobuf.Struct.fromJson(toolResult),
           ),
         ),
@@ -344,17 +342,15 @@ class GoogleGenerativeAiContentGenerator implements ContentGenerator {
 
     try {
       final availableTools = [
-        if (configuration.actions.allowCreate ||
-            configuration.actions.allowUpdate) ...[
-          SurfaceUpdateTool(
-            handleMessage: _a2uiMessageController.add,
-            catalog: catalog,
-            configuration: configuration,
-          ),
-          BeginRenderingTool(handleMessage: _a2uiMessageController.add),
-        ],
-        if (configuration.actions.allowDelete)
-          DeleteSurfaceTool(handleMessage: _a2uiMessageController.add),
+        SurfaceUpdateTool(
+          handleMessage: _a2uiMessageController.add,
+          catalog: catalog,
+        ),
+        BeginRenderingTool(
+          handleMessage: _a2uiMessageController.add,
+          catalogId: catalog.catalogId,
+        ),
+        DeleteSurfaceTool(handleMessage: _a2uiMessageController.add),
         ...additionalTools,
       ];
 
@@ -407,7 +403,7 @@ With functions:
           final request = google_ai.GenerateContentRequest(
             model: modelName,
             contents: [...systemInstructionContent, ...content],
-            tools: tools,
+            tools: tools ?? [],
             toolConfig: isForcedToolCalling
                 ? google_ai.ToolConfig(
                     functionCallingConfig: google_ai.FunctionCallingConfig(
@@ -433,10 +429,8 @@ With functions:
         final elapsed = DateTime.now().difference(inferenceStartTime);
 
         if (response.usageMetadata != null) {
-          inputTokenUsage += (response.usageMetadata!.promptTokenCount ?? 0)
-              .toInt();
-          outputTokenUsage +=
-              (response.usageMetadata!.candidatesTokenCount ?? 0).toInt();
+          inputTokenUsage += response.usageMetadata!.promptTokenCount;
+          outputTokenUsage += response.usageMetadata!.candidatesTokenCount;
         }
         genUiLogger.info(
           '****** Completed Inference ******\n'
@@ -446,17 +440,17 @@ With functions:
           'Prompt tokens = ${response.usageMetadata?.promptTokenCount ?? 0}',
         );
 
-        if (response.candidates == null || response.candidates!.isEmpty) {
+        if (response.candidates.isEmpty) {
           genUiLogger.warning(
             'Response has no candidates: ${response.promptFeedback}',
           );
           return isForcedToolCalling ? null : '';
         }
 
-        final candidate = response.candidates!.first;
+        final candidate = response.candidates.first;
         final functionCalls = <google_ai.FunctionCall>[];
         if (candidate.content?.parts != null) {
-          for (final part in candidate.content!.parts!) {
+          for (final part in candidate.content!.parts) {
             if (part.functionCall != null) {
               functionCalls.add(part.functionCall!);
             }
@@ -473,7 +467,7 @@ With functions:
             // Extract text from parts
             String? text;
             if (candidate.content?.parts != null) {
-              final textParts = candidate.content!.parts!
+              final textParts = candidate.content!.parts
                   .where((google_ai.Part p) => p.text != null)
                   .map((google_ai.Part p) => p.text!)
                   .toList();
@@ -495,7 +489,7 @@ With functions:
             // Extract text from parts
             var text = '';
             if (candidate.content?.parts != null) {
-              final textParts = candidate.content!.parts!
+              final textParts = candidate.content!.parts
                   .where((google_ai.Part p) => p.text != null)
                   .map((google_ai.Part p) => p.text!)
                   .toList();
@@ -518,7 +512,7 @@ With functions:
         }
         genUiLogger.fine(
           'Added assistant message with '
-          '${candidate.content?.parts?.length ?? 0} '
+          '${candidate.content?.parts.length ?? 0} '
           'parts to conversation.',
         );
 
@@ -544,7 +538,7 @@ With functions:
         // If the model returned a text response, we assume it's the final
         // response and we should stop the tool calling loop.
         if (!isForcedToolCalling && candidate.content?.parts != null) {
-          final textParts = candidate.content!.parts!
+          final textParts = candidate.content!.parts
               .where((google_ai.Part p) => p.text != null)
               .map((google_ai.Part p) => p.text!)
               .toList();
@@ -590,37 +584,35 @@ String _responseToString(google_ai.GenerateContentResponse response) {
   buffer.writeln('  usageMetadata: ${response.usageMetadata},');
   buffer.writeln('  promptFeedback: ${response.promptFeedback},');
   buffer.writeln('  candidates: [');
-  if (response.candidates != null) {
-    for (final candidate in response.candidates!) {
-      buffer.writeln('    Candidate(');
-      buffer.writeln('      finishReason: ${candidate.finishReason},');
-      buffer.writeln('      finishMessage: "${candidate.finishMessage}",');
-      buffer.writeln('      content: Content(');
-      buffer.writeln('        role: "${candidate.content?.role}",');
-      buffer.writeln('        parts: [');
-      if (candidate.content?.parts != null) {
-        for (final part in candidate.content!.parts!) {
-          if (part.text != null) {
-            buffer.writeln('          Part(text: "${part.text}"),');
-          } else if (part.functionCall != null) {
-            buffer.writeln('          Part(functionCall:');
-            buffer.writeln('            FunctionCall(');
-            buffer.writeln('              name: "${part.functionCall!.name}",');
-            final indentedLines = (const JsonEncoder.withIndent('  ').convert(
-              part.functionCall!.args ?? {},
-            )).split('\n').join('\n              ');
-            buffer.writeln('              args: $indentedLines,');
-            buffer.writeln('            ),');
-            buffer.writeln('          ),');
-          } else {
-            buffer.writeln('          Unknown Part,');
-          }
+  for (final candidate in response.candidates) {
+    buffer.writeln('    Candidate(');
+    buffer.writeln('      finishReason: ${candidate.finishReason},');
+    buffer.writeln('      finishMessage: "${candidate.finishMessage}",');
+    buffer.writeln('      content: Content(');
+    buffer.writeln('        role: "${candidate.content?.role}",');
+    buffer.writeln('        parts: [');
+    if (candidate.content?.parts != null) {
+      for (final part in candidate.content!.parts) {
+        if (part.text != null) {
+          buffer.writeln('          Part(text: "${part.text}"),');
+        } else if (part.functionCall != null) {
+          buffer.writeln('          Part(functionCall:');
+          buffer.writeln('            FunctionCall(');
+          buffer.writeln('              name: "${part.functionCall!.name}",');
+          final indentedLines = (const JsonEncoder.withIndent('  ').convert(
+            part.functionCall!.args ?? {},
+          )).split('\n').join('\n              ');
+          buffer.writeln('              args: $indentedLines,');
+          buffer.writeln('            ),');
+          buffer.writeln('          ),');
+        } else {
+          buffer.writeln('          Unknown Part,');
         }
       }
-      buffer.writeln('        ],');
-      buffer.writeln('      ),');
-      buffer.writeln('    ),');
     }
+    buffer.writeln('        ],');
+    buffer.writeln('      ),');
+    buffer.writeln('    ),');
   }
   buffer.writeln('  ],');
   buffer.writeln(')');

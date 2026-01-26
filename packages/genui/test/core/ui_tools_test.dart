@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:genui/src/core/genui_configuration.dart';
 import 'package:genui/src/core/ui_tools.dart';
 import 'package:genui/src/model/a2ui_message.dart';
 import 'package:genui/src/model/catalog.dart';
@@ -31,8 +30,7 @@ void main() {
             },
             dataSchema: Schema.object(properties: {}),
           ),
-        ]),
-        configuration: const GenUiConfiguration(),
+        ], catalogId: 'test_catalog'),
       );
 
       final Map<String, Object> args = {
@@ -58,6 +56,57 @@ void main() {
       expect(surfaceUpdate.components[0].componentProperties, {
         'Text': {'text': 'Hello'},
       });
+      expect(surfaceUpdate.components[0].weight, isNull);
+    });
+
+    test('invoke correctly parses int weight', () async {
+      final messages = <A2uiMessage>[];
+      final tool = SurfaceUpdateTool(
+        handleMessage: messages.add,
+        catalog: const Catalog([], catalogId: 'test_catalog'),
+      );
+
+      final Map<String, Object> args = {
+        surfaceIdKey: 'testSurface',
+        'components': [
+          {
+            'id': 'weightedWidget',
+            'component': {'Text': <Object?, Object?>{}},
+            'weight': 1,
+          },
+        ],
+      };
+
+      await tool.invoke(args);
+
+      expect(messages.length, 1);
+      final surfaceUpdate = messages[0] as SurfaceUpdate;
+      expect(surfaceUpdate.components[0].weight, 1);
+    });
+
+    test('invoke correctly parses double weight', () async {
+      final messages = <A2uiMessage>[];
+      final tool = SurfaceUpdateTool(
+        handleMessage: messages.add,
+        catalog: const Catalog([], catalogId: 'test_catalog'),
+      );
+
+      final Map<String, Object> args = {
+        surfaceIdKey: 'testSurface',
+        'components': [
+          {
+            'id': 'weightedWidget',
+            'component': {'Text': <Object?, Object?>{}},
+            'weight': 1.0,
+          },
+        ],
+      };
+
+      await tool.invoke(args);
+
+      expect(messages.length, 1);
+      final surfaceUpdate = messages[0] as SurfaceUpdate;
+      expect(surfaceUpdate.components[0].weight, 1);
     });
   });
 
@@ -90,7 +139,10 @@ void main() {
         messages.add(message);
       }
 
-      final tool = BeginRenderingTool(handleMessage: fakeHandleMessage);
+      final tool = BeginRenderingTool(
+        handleMessage: fakeHandleMessage,
+        catalogId: 'test_catalog',
+      );
 
       final Map<String, String> args = {
         surfaceIdKey: 'testSurface',
@@ -104,6 +156,7 @@ void main() {
       final beginRendering = messages[0] as BeginRendering;
       expect(beginRendering.surfaceId, 'testSurface');
       expect(beginRendering.root, 'rootWidget');
+      expect(beginRendering.catalogId, 'test_catalog');
     });
   });
 }

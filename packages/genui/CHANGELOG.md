@@ -1,7 +1,31 @@
 # `genui` Changelog
 
-## 0.5.2 (in progress)
+## 0.7.0 (in progress)
+
+- **Fix**: Improved error handling for catalog example loading to include context about the invalid item (#653).
+- **BREAKING**: Renamed `ChatMessageWidget` to `ChatMessageView` and `InternalMessageWidget` to `InternalMessageView` (#661).
+- **Fix**: Pass the correct `catalogId` in `DebugCatalogView` widget (#676).
+
+## 0.6.1
+
+- **Fix**: Corrected `DateTimeInput` catalog item JSON key mapping (#622).
+- **Fix**: Added missing `weight` property to `Component` constructor (#603).
+- **Fix**: Defaulted `TextField` `width` to 1 when nested in a `Row` (#603).
+
+## 0.6.0
+
+- **BREAKING**: Renamed `GenUiManager` to `A2uiMessageProcessor` to better reflect its role.
+- **BREAKING**: `A2uiMessageProcessor` now accepts an `Iterable<Catalog>` via `catalogs` instead of a single `catalog`.
+- **BREAKING**: Removed `GenUiConfiguration` and `ActionsConfig`.
+- **BREAKING**: Removed `GenUiHost.catalog` in favor of `GenUiHost.catalogs`.
+- Improved surface rendering logic to cache components before rendering.
 - Updated README sample code to reflect current `FirebaseAiContentGenerator` API (added `catalog` parameter and replaced `tools` with `additionalTools`).
+- **Feature**: `GenUiManager` now supports multiple catalogs by accepting an `Iterable<Catalog>` in its constructor.
+- **Feature**: `A2uiMessageProcessor` now supports multiple catalogs by accepting an `Iterable<Catalog>` in its constructor.
+- **Feature**: `catalogId` property added to `UiDefinition` to specify which catalog a UI surface should use.
+- **Refactor**: Moved `standardCatalogId` constant from `core_catalog.dart` to `primitives/constants.dart` for better organization and accessibility.
+- **Fix**: `MultipleChoice` widget now correctly handles `maxAllowedSelections` when provided as a `double` in JSON, preventing type cast errors.
+- **Fix**: The `Text` catalog item now respects the ambient `DefaultTextStyle`, resolving contrast issues where, for example, text inside a dark purple primary `Button` would be black instead of white.
 
 ## 0.5.1
 

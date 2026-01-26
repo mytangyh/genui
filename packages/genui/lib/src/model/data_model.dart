@@ -12,8 +12,10 @@ import '../primitives/simple_items.dart';
 @immutable
 class DataPath {
   factory DataPath(String path) {
-    final List<String> segments =
-        path.split('/').where((s) => s.isNotEmpty).toList();
+    final List<String> segments = path
+        .split(_separator)
+        .where((s) => s.isNotEmpty)
+        .toList();
     return DataPath._(segments, path.startsWith(_separator));
   }
 
@@ -22,7 +24,7 @@ class DataPath {
   final List<String> segments;
   final bool isAbsolute;
 
-  static final String _separator = '/';
+  static const String _separator = '/';
   static const DataPath root = DataPath._([], true);
 
   String get basename => segments.last;

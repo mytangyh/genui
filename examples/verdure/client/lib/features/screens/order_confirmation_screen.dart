@@ -27,15 +27,14 @@ class OrderConfirmationScreen extends ConsumerWidget {
           .when(
             data: (aiState) {
               return ValueListenableBuilder<UiDefinition?>(
-                valueListenable: aiState.genUiManager.getSurfaceNotifier(
-                  'confirmation',
-                ),
+                valueListenable: aiState.a2uiMessageProcessor
+                    .getSurfaceNotifier('confirmation'),
                 builder: (context, definition, child) {
                   if (definition == null) {
                     return const Center(child: CircularProgressIndicator());
                   }
                   return GenUiSurface(
-                    host: aiState.genUiManager,
+                    host: aiState.a2uiMessageProcessor,
                     surfaceId: 'confirmation',
                   );
                 },
@@ -45,7 +44,7 @@ class OrderConfirmationScreen extends ConsumerWidget {
             error: (error, stackTrace) => Center(child: Text('Error: $error')),
           ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: ElevatedButton(
           onPressed: () => context.go('/'),
           child: const Text('Back to Start'),

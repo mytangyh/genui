@@ -20,22 +20,16 @@ An integration package for [`genui`](https://pub.dev/packages/genui) and the [A2
 
 ### Installation
 
-Add the following to your `pubspec.yaml`:
+Use `flutter pub add` to add the latest versions of `genui` and `genui_a2ui` as
+dependencies in your `pubspec.yaml` file:
 
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  genui: ^0.5.1 # Or the latest version
-  genui_a2ui: ^0.5.1 # Or the latest version
-  a2a: ^3.1.0 # Or the latest version
+```bash
+flutter pub add genui genui_a2ui
 ```
-
-Then run `flutter pub get`.
 
 ### Basic Usage
 
-1.  **Initialize `GenUiManager`:** Set up `GenUiManager` with your widget `Catalog`.
+1.  **Initialize `A2uiMessageProcessor`:** Set up `A2uiMessageProcessor` with your widget `Catalog`.
 2.  **Create `A2uiContentGenerator`:** Instantiate `A2uiContentGenerator`, providing the A2A server `Uri`.
 3.  **Create `GenUiConversation`:** Pass the `A2uiContentGenerator` to the `GenUiConversation`.
 4.  **Render with `GenUiSurface`:** Use `GenUiSurface` widgets in your UI to display the agent-generated content.
@@ -87,8 +81,8 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
-  final GenUiManager _genUiManager =
-      GenUiManager(catalog: CoreCatalogItems.asCatalog());
+  final A2uiMessageProcessor _a2uiMessageProcessor =
+      A2uiMessageProcessor(catalog: CoreCatalogItems.asCatalog());
   late final A2uiContentGenerator _contentGenerator;
   late final GenUiConversation _uiAgent;
   final List<ChatMessage> _messages = [];
@@ -101,7 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
     );
     _uiAgent = GenUiConversation(
       contentGenerator: _contentGenerator,
-      genUiManager: _genUiManager,
+      a2uiMessageProcessor: _a2uiMessageProcessor,
     );
 
     // Listen for text responses from the agent
@@ -122,7 +116,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void dispose() {
     _textController.dispose();
     _uiAgent.dispose();
-    _genUiManager.dispose();
+    _a2uiMessageProcessor.dispose();
     _contentGenerator.dispose();
     super.dispose();
   }
@@ -163,7 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
           SizedBox(
               height: 300,
               child: GenUiSurface(
-                host: _genUiManager,
+                host: _a2uiMessageProcessor,
                 surfaceId: 'main_surface',
               )),
         ],
@@ -230,7 +224,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
 ## Key Components
 
--   **`A2uiContentGenerator`**: Implements `ContentGenerator`. Manages the connection to the A2A server and processes incoming A2UI messages, updating the `GenUiManager`.
+-   **`A2uiContentGenerator`**: Implements `ContentGenerator`. Manages the connection to the A2A server and processes incoming A2UI messages, updating the `A2uiMessageProcessor`.
 -   **`A2uiAgentConnector`**: Handles the low-level WebSocket communication with the A2A server, including sending messages and parsing stream events.
 -   **`AgentCard`**: A data class holding metadata about the connected AI agent.
 

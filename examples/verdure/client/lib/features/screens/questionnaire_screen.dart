@@ -25,12 +25,12 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
   @override
   Widget build(BuildContext context) {
     ref.listen<AsyncValue<AiClientState>>(aiProvider, (previous, next) {
-      if (next is AsyncData && !_initialRequestSent) {
+      if (_initialRequestSent) return;
+      if (next case AsyncData(value: final aiState)) {
         setState(() {
           _initialRequestSent = true;
         });
-        final AiClientState? aiState = next.value;
-        aiState?.conversation.sendRequest(
+        aiState.conversation.sendRequest(
           UserMessage.text('USER_SUBMITTED_DETAILS'),
         );
       }
@@ -54,9 +54,8 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
           .when(
             data: (aiState) {
               return ValueListenableBuilder<UiDefinition?>(
-                valueListenable: aiState.genUiManager.getSurfaceNotifier(
-                  'questionnaire',
-                ),
+                valueListenable: aiState.a2uiMessageProcessor
+                    .getSurfaceNotifier('questionnaire'),
                 builder: (context, definition, child) {
                   if (definition == null) {
                     return const Center(child: CircularProgressIndicator());
@@ -64,7 +63,7 @@ class _QuestionnaireScreenState extends ConsumerState<QuestionnaireScreen> {
                   return SingleChildScrollView(
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
                     child: GenUiSurface(
-                      host: aiState.genUiManager,
+                      host: aiState.a2uiMessageProcessor,
                       surfaceId: 'questionnaire',
                     ),
                   );
