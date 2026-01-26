@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:genui/genui.dart';
 
+import 'markdown_message_widget.dart';
+
 typedef UserPromptBuilder = Widget Function(
     BuildContext context, UserMessage message);
 
@@ -70,7 +72,7 @@ class Conversation extends StatelessWidget {
             if (text.trim().isEmpty) {
               return const SizedBox.shrink();
             }
-            return ChatMessageWidget(
+            return MarkdownMessageWidget(
               text: text,
               icon: Icons.smart_toy_outlined,
               alignment: MainAxisAlignment.start,
