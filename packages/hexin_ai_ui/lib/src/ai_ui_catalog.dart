@@ -9,14 +9,17 @@ import 'components/ai_button_list.dart';
 import 'components/ai_event_overview.dart';
 import 'components/ai_message.dart';
 import 'components/auction_anomaly.dart';
+import 'components/intraday_anomaly.dart';
 import 'components/banner_carousel.dart';
 import 'components/dsl_webview.dart';
+import 'components/web_container.dart';
 import 'components/info_summary_card.dart';
 import 'components/market_breadth_bar.dart';
 import 'components/markdown_render.dart';
 import 'components/news_flash_list.dart';
 import 'components/pill_button.dart';
 import 'components/placeholder.dart';
+import 'components/not_implemented.dart';
 import 'components/section_header.dart';
 import 'components/stock_quote.dart';
 import 'components/target_header.dart';
@@ -48,6 +51,7 @@ class AiUiCatalog {
 
       // 金融信息组件
       auctionAnomaly,
+      intradayAnomaly,
       bannerCarousel,
       infoSummaryCard,
       newsFlashList,
@@ -56,7 +60,9 @@ class AiUiCatalog {
 
       // 工具组件
       placeholder,
+      notImplemented,
       dslWebView,
+      webContainer,
 
       // 组合容器
       markdownRender,

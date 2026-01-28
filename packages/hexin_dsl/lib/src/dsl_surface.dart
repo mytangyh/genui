@@ -122,17 +122,36 @@ class _DslRenderer extends StatelessWidget {
     // Find the catalog item for this type
     final item = catalog.items.where((i) => i.name == type).firstOrNull;
     if (item == null) {
-      // Unknown component type
+      // Unknown component type - show styled placeholder
       return Container(
-        padding: const EdgeInsets.all(8),
+        height: 100,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: Colors.red.withOpacity(0.1),
-          border: Border.all(color: Colors.red),
-          borderRadius: BorderRadius.circular(8),
+          color: const Color(0xFF1A2332),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: const Color(0xFF2A3A4D), width: 1),
         ),
-        child: Text(
-          'Unknown component: $type',
-          style: const TextStyle(color: Colors.red),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.construction,
+                color: Colors.white.withOpacity(0.4),
+                size: 28,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'type "$type" 暂未实现',
+                style: TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Colors.white.withOpacity(0.5),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
