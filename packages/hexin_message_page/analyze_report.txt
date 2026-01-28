@@ -1,0 +1,8 @@
+Analyzing hexin_message_page...
+
+   info - lib\src\ui\message_page.dart:7:8 - The import of 'package:hexin_ai_ui/hexin_ai_ui.dart' is unnecessary because all of the used elements are also provided by the import of 'package:hexin_highlights/hexin_highlights.dart'. Try removing the import directive. - unnecessary_import
+   info - lib\src\ui\message_page.dart:8:8 - The import of 'package:hexin_dsl/hexin_dsl.dart' is unnecessary because all of the used elements are also provided by the import of 'package:hexin_highlights/hexin_highlights.dart'. Try removing the import directive. - unnecessary_import
+   info - pubspec.yaml:23:3 - Dependencies not sorted alphabetically. Try sorting the dependencies alphabetically (A to Z). - sort_pub_dependencies
+   info - pubspec.yaml:31:3 - Dependencies not sorted alphabetically. Try sorting the dependencies alphabetically (A to Z). - sort_pub_dependencies
+
+4 issues found.

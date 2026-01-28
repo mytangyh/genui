@@ -1,0 +1,5 @@
+Resolving dependencies...
+The current Dart SDK version is 3.4.0.
+
+Because every version of genui_a2ui from path depends on sse_channel >=0.2.0 which requires SDK version >=3.9.2 <4.0.0, genui_a2ui from path is forbidden.
+So, because hexin_general_chat depends on genui_a2ui from path, version solving failed.

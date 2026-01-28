@@ -80,7 +80,7 @@ extension type _AiAppBarData.fromMap(Map<String, Object?> _json) {
 /// configuration data. This component is designed for use where the
 /// app bar structure can be dynamically defined via DSL.
 final aiAppBar = CatalogItem(
-  name: 'AiAppBar',
+  name: 'aiAppBar',
   dataSchema: _schema,
   exampleData: [
     () => '''
@@ -88,7 +88,7 @@ final aiAppBar = CatalogItem(
         {
           "id": "root",
           "component": {
-            "AiAppBar": {
+            "aiAppBar": {
               "showMenu": true,
               "tabs": [
                 {"id": "highlights", "label": "看点"},

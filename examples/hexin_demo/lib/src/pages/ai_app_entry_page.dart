@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 import 'ai_app_page.dart';
-import 'general_chat_page.dart';
+import 'package:hexin_general_chat/hexin_general_chat.dart';
 
 /// Entry page for the AI App demo.
 class AiAppEntryPage extends StatelessWidget {

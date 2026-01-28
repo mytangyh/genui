@@ -1,0 +1,55 @@
+Analyzing hexin_demo...
+
+warning - analysis_options.yaml:5:10 - Warning in the included options file D:\Code\gitRepo\genui\analysis_options.yaml(1133..1165): 'omit_obvious_local_variable_types' is not a recognized lint rule. - included_file_warning
+warning - analysis_options.yaml:5:10 - Warning in the included options file D:\Code\gitRepo\genui\analysis_options.yaml(1174..1212): 'specify_nonobvious_local_variable_types' is not a recognized lint rule. - included_file_warning
+warning - analysis_options.yaml:5:10 - Warning in the included options file D:\Code\gitRepo\genui\analysis_options.yaml(1221..1253): 'specify_nonobvious_property_types' is not a recognized lint rule. - included_file_warning
+warning - analysis_options.yaml:5:10 - Warning in the included options file D:\Code\gitRepo\genui\analysis_options.yaml(1262..1287): 'strict_top_level_inference' is not a recognized lint rule. - included_file_warning
+warning - lib\src\catalog\asset_allocation_pie.dart:67:9 - The generic type 'List<dynamic>' should have explicit type arguments but doesn't. Use explicit type arguments for 'List<dynamic>'. - strict_raw_type
+warning - lib\src\catalog\asset_allocation_pie.dart:111:9 - The generic type 'List<dynamic>' should have explicit type arguments but doesn't. Use explicit type arguments for 'List<dynamic>'. - strict_raw_type
+warning - lib\src\services\custom_content_generator.dart:190:33 - The generic type 'List<dynamic>' should have explicit type arguments but doesn't. Use explicit type arguments for 'List<dynamic>'. - strict_raw_type
+   info - lib\src\catalog\stock_chart.dart:108:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\pages\advisor_page.dart:12:1 - Place 'package:' imports before relative imports. Try sorting the directives. - directives_ordering
+   info - lib\src\pages\advisor_page.dart:42:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\pages\ai_app_entry_page.dart:8:1 - Place 'package:' imports before relative imports. Try sorting the directives. - directives_ordering
+   info - lib\src\pages\dsl_demo_page.dart:148:1 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:148:3 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:148:5 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:155:1 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:155:3 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:155:5 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:164:1 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:164:3 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:164:5 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:168:1 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:168:3 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:168:5 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:177:1 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:177:3 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:177:5 - Unnecessary escape in string literal. Remove the '\' escape. - unnecessary_string_escapes
+   info - lib\src\pages\dsl_demo_page.dart:347:20 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+   info - lib\src\services\custom_content_generator.dart:80:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\services\custom_content_generator.dart:154:24 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:154:24 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:155:29 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:158:13 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:159:13 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:160:27 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:167:30 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:173:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\services\custom_content_generator.dart:222:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\services\custom_content_generator.dart:289:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\services\custom_content_generator.dart:402:24 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:402:24 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:403:29 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:405:25 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:410:30 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - lib\src\services\custom_content_generator.dart:416:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\utils.dart:9:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - pubspec.yaml:25:3 - Dependencies not sorted alphabetically. Try sorting the dependencies alphabetically (A to Z). - sort_pub_dependencies
+   info - pubspec.yaml:49:3 - Dependencies not sorted alphabetically. Try sorting the dependencies alphabetically (A to Z). - sort_pub_dependencies
+   info - test\bug_repro_test.dart:6:12 - The local variable '_unescapeContent' starts with an underscore. Try renaming the variable to not start with an underscore. - no_leading_underscores_for_local_identifiers
+   info - test\bug_repro_test.dart:13:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - test\bug_repro_test.dart:16:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - test\bug_repro_test.dart:17:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+
+51 issues found.

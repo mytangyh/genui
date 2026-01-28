@@ -9,8 +9,7 @@ import 'package:genui/genui.dart';
 
 import '../catalog/catalog.dart';
 import '../services/custom_content_generator.dart';
-import '../services/streaming_gen_ui_conversation.dart';
-import '../widgets/conversation.dart';
+import 'package:hexin_general_chat/hexin_general_chat.dart';
 
 class AdvisorPage extends StatefulWidget {
   const AdvisorPage({super.key});

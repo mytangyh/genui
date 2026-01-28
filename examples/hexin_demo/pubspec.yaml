@@ -26,6 +26,10 @@ dependencies:
     path: ../../packages/hexin_ai_ui
   hexin_dsl:
     path: ../../packages/hexin_dsl
+  hexin_general_chat:
+    path: ../../packages/hexin_general_chat
+  hexin_message_page:
+    path: ../../packages/hexin_message_page
   # Utilities
   intl: ^0.19.0
   json_schema_builder: ^0.1.3

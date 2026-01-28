@@ -1,0 +1,40 @@
+# Copyright 2025 The Flutter Authors.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+name: hexin_general_chat
+description: General Chat business feature for Hexin applications.
+version: 0.1.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hexin_ai_ui:
+    path: ../hexin_ai_ui
+  hexin_dsl:
+    path: ../hexin_dsl
+  genui:
+    path: ../genui
+  logging: ^1.2.0
+  shared_preferences: ^2.2.3
+  http: ^1.2.0
+  uuid: ^4.3.3
+
+dependency_overrides:
+  genui:
+    path: ../genui
+  json_schema_builder:
+    path: ../json_schema_builder
+  genai_primitives:
+    path: ../genai_primitives
+  flutter_markdown_plus: 1.0.0+1
+  webview_flutter: 4.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

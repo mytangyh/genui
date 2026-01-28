@@ -57,7 +57,7 @@ extension type _MessageAppBarData.fromMap(Map<String, Object?> _json) {
 /// Renders pill-styled tabs with menu, volume, and close buttons.
 /// Designed for the message/conversation page interface.
 final messageAppBar = CatalogItem(
-  name: 'MessageAppBar',
+  name: 'messageAppBar',
   dataSchema: _schema,
   exampleData: [
     () => '''
@@ -65,7 +65,7 @@ final messageAppBar = CatalogItem(
         {
           "id": "root",
           "component": {
-            "MessageAppBar": {
+            "messageAppBar": {
               "showMenu": true,
               "showVolume": true,
               "showClose": true,

@@ -121,7 +121,8 @@ class StreamingGenUiConversation {
 
   /// A [ValueListenable] that indicates whether the agent is currently
   /// processing a request.
-  ValueListenable<bool> get isProcessing => contentGenerator.isProcessing;
+  ValueNotifier<bool> get isProcessing =>
+      contentGenerator.isProcessing as ValueNotifier<bool>;
 
   /// Returns a [ValueNotifier] for the given [surfaceId].
   ValueNotifier<UiDefinition?> surface(String surfaceId) {

@@ -1,0 +1,3 @@
+Resolving dependencies...
+Because every version of genui_a2ui from path depends on genui from hosted and hexin_general_chat depends on genui from path, genui_a2ui from path is forbidden.
+So, because hexin_general_chat depends on genui_a2ui from path, version solving failed.

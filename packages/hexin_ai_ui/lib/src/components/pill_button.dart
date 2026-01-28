@@ -44,7 +44,7 @@ extension type _PillButtonData.fromMap(Map<String, Object?> _json) {
 /// Displays a rounded button with optional secondary label and badge.
 /// Commonly used in app bars for actions like "今日盈亏" or "消息".
 final pillButton = CatalogItem(
-  name: 'PillButton',
+  name: 'pillButton',
   dataSchema: _schema,
   exampleData: [
     () => '''
@@ -52,7 +52,7 @@ final pillButton = CatalogItem(
         {
           "id": "root",
           "component": {
-            "PillButton": {
+            "pillButton": {
               "label": "今日盈亏",
               "subLabel": "0.00"
             }
@@ -65,7 +65,7 @@ final pillButton = CatalogItem(
         {
           "id": "root",
           "component": {
-            "PillButton": {
+            "pillButton": {
               "label": "消息",
               "badge": "99+",
               "action": {"name": "open_messages"}

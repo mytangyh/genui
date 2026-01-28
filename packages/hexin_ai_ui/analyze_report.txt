@@ -1,0 +1,24 @@
+Analyzing hexin_ai_ui...
+
+   info - lib\hexin_ai_ui.dart:13:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\hexin_ai_ui.dart:21:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\hexin_ai_ui.dart:29:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\hexin_ai_ui.dart:30:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\hexin_ai_ui.dart:33:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:13:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:16:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:18:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:22:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:27:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:28:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\ai_ui_catalog.dart:30:1 - Sort directive sections alphabetically. Try sorting the directives. - directives_ordering
+   info - lib\src\components\ai_message.dart:162:10 - The declaration '_buildSimpleMessage' isn't referenced. Try removing the declaration of '_buildSimpleMessage'. - unused_element
+   info - lib\src\components\banner_carousel.dart:312:19 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+   info - lib\src\components\banner_carousel.dart:313:19 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+   info - lib\src\components\native_chart_card.dart:131:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - lib\src\components\target_header.dart:199:11 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+   info - lib\src\components\target_header.dart:201:20 - Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation. - prefer_const_constructors
+   info - lib\src\services\market_data_service.dart:19:24 - Unnecessary use of parentheses. Try removing the parentheses. - unnecessary_parenthesis
+   info - pubspec.yaml:23:3 - Dependencies not sorted alphabetically. Try sorting the dependencies alphabetically (A to Z). - sort_pub_dependencies
+
+20 issues found.

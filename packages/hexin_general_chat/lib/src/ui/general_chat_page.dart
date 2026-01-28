@@ -6,13 +6,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
+import 'package:hexin_ai_ui/hexin_ai_ui.dart';
 
-import '../catalog/catalog.dart';
+import '../services/chat_history_service.dart';
 import '../services/settings_service.dart';
 import '../services/sse_content_generator.dart';
-import '../services/chat_history_service.dart';
-import '../widgets/conversation.dart';
 import '../services/streaming_gen_ui_conversation.dart';
+import '../widgets/conversation.dart';
 import 'chat_settings_page.dart';
 
 class GeneralChatPage extends StatefulWidget {
@@ -86,7 +86,7 @@ class _GeneralChatPageState extends State<GeneralChatPage> {
     // Catalog
     final catalog = Catalog([
       ...CoreCatalogItems.asCatalog().items,
-      ...FinancialCatalog.getCatalog().items, // giving it full power
+      ...AiUiCatalog.getAllItems(), // Use AiUiCatalog directly
     ]);
 
     final a2uiMessageProcessor = A2uiMessageProcessor(catalogs: [catalog]);

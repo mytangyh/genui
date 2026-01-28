@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
-import 'message_page.dart';
+import 'package:hexin_message_page/hexin_message_page.dart';
 
 /// Catalog containing AI App components.
 /// Uses AiUiCatalog plus core catalog items.
@@ -81,7 +81,7 @@ class _AiAppPageState extends State<AiAppPage>
     final newMarkdown = '''
 ```dsl
 {
-  "type": "AiAppBar",
+  "type": "aiAppBar",
   "props": {
     "selectedTabId": "$currentTabId",
     "showMenu": true,
