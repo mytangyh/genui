@@ -121,8 +121,6 @@ class _HighlightsPageState extends State<HighlightsPage>
               'type': 'peopleAlsoAskCard',
               'props': {
                 'title': '大家还在问',
-                'avatarUrl':
-                    'http://u.thsi.cn/imgsrc/passport/92224443/head_120.jpg',
                 'questions': questionObjects,
               }
             };
@@ -191,8 +189,6 @@ class _HighlightsPageState extends State<HighlightsPage>
               'type': 'peopleAlsoAskCard',
               'props': {
                 'title': '大家还在问',
-                'avatarUrl':
-                    'http://u.thsi.cn/imgsrc/passport/92224443/head_120.jpg',
                 'questions': questionObjects,
               }
             };

@@ -6,50 +6,49 @@ import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
-import 'message_page.dart';
-
 /// Catalog containing AI App components.
 /// Uses AiUiCatalog plus core catalog items.
-Catalog _getAiAppCatalog() {
+Catalog _getMessagePageCatalog() {
   return Catalog([
     ...CoreCatalogItems.asCatalog().items,
     ...AiUiCatalog.getAllItems(),
   ]);
 }
 
-/// The main AI App page with MarkdownRender pattern.
+/// The message/conversation page with tabs: 看点, 对话, 消息.
 ///
-/// The header is rendered from markdown with embedded DSL,
-/// enabling flexible remote configuration via API.
-class AiAppPage extends StatefulWidget {
-  /// Optional custom header markdown.
-  final String? headerMarkdown;
-
-  const AiAppPage({super.key, this.headerMarkdown});
+/// Accessed from AiAppPage by tapping the "消息" button.
+/// Header is rendered from markdown with embedded DSL for remote configuration.
+class MessagePage extends StatefulWidget {
+  const MessagePage({super.key});
 
   @override
-  State<AiAppPage> createState() => _AiAppPageState();
+  State<MessagePage> createState() => _MessagePageState();
 }
 
-class _AiAppPageState extends State<AiAppPage>
+class _MessagePageState extends State<MessagePage>
     with SingleTickerProviderStateMixin {
   String _headerMarkdown = '';
   late final TabController _tabController;
   late final Catalog _catalog;
 
-  // Tab configuration - can be extracted from header DSL in future
+  // Tab configuration - 看点, 对话, 消息
   final List<Map<String, String>> _tabs = [
     {'id': 'highlights', 'label': '看点'},
-    {'id': 'watchlist', 'label': '盯盘'},
-    {'id': 'stock_picker', 'label': '选股'},
-    {'id': 'portfolio', 'label': '组合'},
+    {'id': 'conversation', 'label': '对话'},
+    {'id': 'messages', 'label': '消息'},
   ];
 
   @override
   void initState() {
     super.initState();
-    _catalog = _getAiAppCatalog();
-    _tabController = TabController(length: _tabs.length, vsync: this);
+    _catalog = _getMessagePageCatalog();
+    // Default to "消息" tab (index 2)
+    _tabController = TabController(
+      length: _tabs.length,
+      vsync: this,
+      initialIndex: 2,
+    );
     _tabController.addListener(_handleTabChange);
     _updateHeaderMarkdown();
   }
@@ -62,34 +61,22 @@ class _AiAppPageState extends State<AiAppPage>
   }
 
   void _handleTabChange() {
-    // Update immediately when index changes
-    // (whether by tap or swipe settlement)
     _updateHeaderMarkdown();
   }
 
   void _updateHeaderMarkdown() {
-    if (widget.headerMarkdown != null) {
-      setState(() {
-        _headerMarkdown = widget.headerMarkdown!;
-      });
-      return;
-    }
-
     final currentTabId = _tabs[_tabController.index]['id'];
 
-    // Generate DSL with dynamic selectedTabId
     final newMarkdown = '''
 ```dsl
 {
-  "type": "AiAppBar",
+  "type": "MessageAppBar",
   "props": {
     "selectedTabId": "$currentTabId",
     "showMenu": true,
-    "tabs": ${_generateTabsJson()},
-    "actionButtons": [
-      {"label": "今日盈亏", "subLabel": "0.00"},
-      {"label": "消息", "badge": "99+", "action": {"name": "open_messages"}}
-    ]
+    "showVolume": true,
+    "showClose": true,
+    "tabs": ${_generateTabsJson()}
   }
 }
 ```
@@ -114,15 +101,12 @@ class _AiAppPageState extends State<AiAppPage>
         if (tabIndex != null && tabIndex < _tabController.length) {
           _tabController.animateTo(tabIndex);
         }
-      case 'open_messages':
-        Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (context) => const MessagePage(),
-          ),
-        );
-      default:
+      case 'close_tap':
+        Navigator.of(context).pop();
+      case 'menu_tap':
+      case 'volume_tap':
         final snackBar = SnackBar(
-          content: Text('Action: $actionName, Context: $actionContext'),
+          content: Text('Action: $actionName'),
           behavior: SnackBarBehavior.floating,
         );
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -133,8 +117,8 @@ class _AiAppPageState extends State<AiAppPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF191919),
-      drawer: const Drawer(),
       body: SafeArea(
+        top: false,
         child: Stack(
           children: [
             Column(
@@ -190,6 +174,10 @@ class _AiAppPageState extends State<AiAppPage>
     switch (tabId) {
       case 'highlights':
         return const HighlightsPage();
+      case 'conversation':
+        return const _PlaceholderTab(title: '对话');
+      case 'messages':
+        return const _EmptyMessageState();
       default:
         return _PlaceholderTab(title: tabId);
     }
@@ -207,6 +195,51 @@ class _PlaceholderTab extends StatelessWidget {
       child: Text(
         '$title 页待开发',
         style: const TextStyle(color: Colors.white54, fontSize: 20),
+      ),
+    );
+  }
+}
+
+/// Empty state for messages tab with mascot image.
+class _EmptyMessageState extends StatelessWidget {
+  const _EmptyMessageState();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Mascot placeholder - would be replaced with actual mascot image
+          Container(
+            width: 120,
+            height: 120,
+            decoration: BoxDecoration(
+              color: const Color(0xFF2A2A35),
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: const Icon(
+              Icons.pets,
+              size: 60,
+              color: Colors.white54,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: const Color(0xFF2A2A35),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Text(
+              '暂无消息',
+              style: TextStyle(
+                color: Colors.white70,
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
