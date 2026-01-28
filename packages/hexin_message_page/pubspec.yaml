@@ -22,6 +22,8 @@ dependencies:
     path: ../hexin_highlights
   genui:
     path: ../genui
+  http: ^1.2.0
+  flutter_markdown_plus: 1.0.0+1
 
 dependency_overrides:
   genui:

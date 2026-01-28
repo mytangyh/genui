@@ -1,0 +1,1791 @@
+commit 58c6a9ed74f71fa4694e2c6b703621feab232b16
+Merge: 80d89bf 25aa7ca
+Author: mytangyh <mytangyh@163.com>
+Date:   Mon Jan 26 21:29:40 2026 +0800
+
+    Merge branch 'main' into hexin_3.22_update
+    
+    # Conflicts:
+    #       .gitignore
+    #       packages/genui/lib/src/catalog/core_widgets/date_time_input.dart
+    #       packages/genui/lib/src/core/genui_configuration.dart
+    #       packages/genui/lib/src/core/ui_tools.dart
+    #       packages/genui/lib/src/development_utilities/catalog_view.dart
+    #       packages/genui/lib/src/model/a2ui_schemas.dart
+    #       packages/genui/lib/src/model/catalog.dart
+    #       packages/genui/lib/src/model/chat_message.dart
+    #       packages/genui/lib/src/model/data_model.dart
+    #       packages/genui/pubspec.yaml
+    #       packages/genui/test/model/data_model_test.dart
+    #       packages/genui_google_generative_ai/pubspec.yaml
+    #       pubspec.lock
+    #       pubspec.yaml
+
+commit 80d89bf3a1a68f81d28ef742e0d9a2ef02dd3ecf
+Author: mytangyh <mytangyh@163.com>
+Date:   Mon Jan 26 20:43:00 2026 +0800
+
+    feat(hexin_demo): Implement General LLM Chatbot
+    
+    - Add GeneralChatPage, ChatSettingsPage, and ChatHistoryService
+    - Implement SSEContentGenerator with generic OpenAI-compatible streaming
+    - Implement StreamingGenUiConversation for correct local text streaming
+    - Add Markdown rendering support using flutter_markdown_plus
+    - Add shared_preferences for settings and history persistence
+    - Fix Android build Gradle connectivity issues (Aliyun mirrors)
+
+ examples/hexin_demo/.flutter-plugins               |   8 +
+ examples/hexin_demo/android/build.gradle.kts       |   2 +
+ examples/hexin_demo/android/settings.gradle.kts    |   3 +
+ .../lib/src/pages/ai_app_entry_page.dart           |  35 ++-
+ .../lib/src/pages/chat_settings_page.dart          | 150 +++++++++++
+ .../lib/src/pages/general_chat_page.dart           | 276 +++++++++++++++++++++
+ .../lib/src/services/chat_history_service.dart     | 125 ++++++++++
+ .../lib/src/services/settings_service.dart         |  52 ++++
+ .../lib/src/services/sse_content_generator.dart    | 229 +++++++++++++++++
+ .../services/streaming_gen_ui_conversation.dart    | 167 +++++++++++++
+ .../hexin_demo/lib/src/widgets/conversation.dart   |   4 +-
+ .../lib/src/widgets/markdown_message_widget.dart   |  84 +++++++
+ examples/hexin_demo/pubspec.lock                   | 125 +++++++++-
+ examples/hexin_demo/pubspec.yaml                   |   1 +
+ 14 files changed, 1243 insertions(+), 18 deletions(-)
+
+commit 25aa7caa2e6b0d63782849d7cd178f1e233777d5
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Fri Jan 23 14:28:01 2026 -0800
+
+    - (#685)
+
+ packages/genui/lib/src/model/parts/image.dart | 4 ++--
+ packages/genui/lib/src/model/parts/ui.dart    | 8 ++++----
+ packages/genui/pubspec.yaml                   | 2 +-
+ pubspec.lock                                  | 4 ++--
+ 4 files changed, 9 insertions(+), 9 deletions(-)
+
+commit 6c00eeeceefd25e55bcf4062421eff6bb3a46b6f
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Jan 22 13:08:54 2026 -0800
+
+    Rename Part to StandardPart and BasePart to Part. (#683)
+
+ packages/genai_primitives/CHANGELOG.md             |  6 ++-
+ .../genai_primitives/lib/genai_primitives.dart     |  2 +-
+ .../genai_primitives/lib/src/chat_message.dart     | 25 +++++----
+ packages/genai_primitives/lib/src/parts/model.dart | 14 ++---
+ packages/genai_primitives/lib/src/parts/parts.dart | 14 ++---
+ .../src/parts/{part.dart => standard_part.dart}    | 63 ++++++++++------------
+ packages/genai_primitives/pubspec.yaml             |  2 +-
+ .../genai_primitives/test/custom_part_test.dart    | 12 ++---
+ .../test/genai_primitives_test.dart                | 12 ++---
+ 9 files changed, 76 insertions(+), 74 deletions(-)
+
+commit c27e9ef627d75ee58cc19c184f1814b2a4fd11ad
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Thu Jan 22 11:09:23 2026 -0800
+
+    Fix small automation warning (#684)
+
+ .github/workflows/flutter_packages.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b165642db3ad4823f625ab9d7bae4f41b2c05e67
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Jan 22 09:06:40 2026 -0800
+
+    Upgrade primitives. (#681)
+
+ packages/genui/lib/src/model/parts.dart          |  4 +--
+ packages/genui/lib/src/model/parts/image.dart    |  4 +--
+ packages/genui/lib/src/model/parts/thinking.dart | 33 ------------------------
+ packages/genui/lib/src/model/parts/ui.dart       |  8 +++---
+ packages/genui/pubspec.yaml                      |  2 +-
+ pubspec.lock                                     | 20 +++++++-------
+ 6 files changed, 18 insertions(+), 53 deletions(-)
+
+commit a6fc74c4736b9e85f95f3a9a2eb6902ab82d34b7
+Author: mytangyh <mytangyh@163.com>
+Date:   Fri Jan 23 01:04:56 2026 +0800
+
+    feat(hexin_ai_ui): optimize nativeChartCard lifecycle and fix auto-refresh issue
+    
+    - Added robust startup mechanism with retries to resolve race conditions on initialization
+    - Added visible update counter and detailed logging for status tracking
+    - Simplified lifecycle by removing visibility_detector (temporarily) to verify base behavior
+    - Integrated into DslDemoPage for visual verification
+
+ .../kotlin/com/example/hexin_demo/MainActivity.kt  |  1 +
+ .../com/example/hexin_demo/NativeChartView.kt      |  8 +--
+ .../lib/src/components/native_chart_card.dart      | 69 +++++++++-------------
+ packages/hexin_ai_ui/pubspec.yaml                  |  1 -
+ 4 files changed, 31 insertions(+), 48 deletions(-)
+
+commit 9f17e9c26ff3b477a97d40b85dcd71f152ecb537
+Author: mytangyh <mytangyh@163.com>
+Date:   Fri Jan 23 00:54:51 2026 +0800
+
+    feat(hexin_ai_ui): implement nativeChartCard with Android Platform View and visibility lifecycle
+    
+    - Added NativeChartView in Kotlin with canvas drawing and real-time updates
+    - Registered native view factory in MainActivity
+    - Created nativeChartCard CatalogItem in Flutter with visibility_detector
+    - Integrated nativeChartCard into DslDemoPage for testing
+    - Added detailed logging and handled MissingPluginException on view disposal
+
+ .../kotlin/com/example/hexin_demo/MainActivity.kt  |  14 +-
+ .../com/example/hexin_demo/NativeChartView.kt      | 214 +++++++++++++++++++
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    |  33 ++-
+ examples/hexin_demo/pubspec.lock                   |   8 +
+ packages/hexin_ai_ui/lib/src/ai_ui_catalog.dart    |   2 +
+ .../lib/src/components/native_chart_card.dart      | 236 +++++++++++++++++++++
+ packages/hexin_ai_ui/pubspec.lock                  |   8 +
+ packages/hexin_ai_ui/pubspec.yaml                  |   1 +
+ packages/hexin_highlights/pubspec.lock             | 118 +++++------
+ 9 files changed, 572 insertions(+), 62 deletions(-)
+
+commit 65995da60fd2daaf7fcab52ff935ad61b05854ae
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 23:52:03 2026 +0800
+
+    refactor(hexin_ai_ui): 优化代码结构，分离逻辑并添加测试
+    
+    - 常量提取: AppColors 统一管理颜色
+    - 逻辑抽离: 提取 MarketBreadthData 模型和 MarketDataService
+    - 组件重构: ConversationCard 和 MarketBreadthBar 适配新架构，类改为 public
+    - 单元测试: 添加 conversation_card_test 和 market_breadth_bar_test
+
+ .../lib/src/components/conversation_card.dart      | 35 ++++----
+ .../lib/src/components/market_breadth_bar.dart     | 96 +++++++++-------------
+ .../hexin_ai_ui/lib/src/constants/app_colors.dart  | 33 ++++++++
+ .../lib/src/models/market_breadth_data.dart        | 29 +++++++
+ .../lib/src/services/market_data_service.dart      | 37 +++++++++
+ .../test/components/conversation_card_test.dart    | 57 +++++++++++++
+ .../test/components/market_breadth_bar_test.dart   | 56 +++++++++++++
+ 7 files changed, 269 insertions(+), 74 deletions(-)
+
+commit 3bd75ebc8e509670acd216119fd3b34dceeb6b2f
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 22:00:14 2026 +0800
+
+    fix(android): add internet permission
+
+ examples/hexin_demo/android/app/src/main/AndroidManifest.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2355fa18c3fbb42399dee4aa6996f62be55ba427
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 21:29:46 2026 +0800
+
+    feat(ai_ui): 新增对话卡片并集成到首页
+    
+    - 新增 ConversationCard 组件 (下单/语音/键盘入口)
+    - 注册组件到 AiUiCatalog
+    - AiAppPage 布局改为 Stack，底部悬浮显示对话卡片
+    - 优化 Tab 内容避让布局
+
+ examples/hexin_demo/lib/src/pages/ai_app_page.dart |  58 ++++--
+ packages/hexin_ai_ui/lib/src/ai_ui_catalog.dart    |   2 +
+ .../lib/src/components/conversation_card.dart      | 225 +++++++++++++++++++++
+ 3 files changed, 270 insertions(+), 15 deletions(-)
+
+commit ec9fcd6a9dc06dc72de1a382d67ce27be0a66972
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 21:06:39 2026 +0800
+
+    feat(highlights): 集成"大家还在问"功能
+    
+    - 新增 PeopleAlsoAskCard 组件样式优化 (PeopleAlsoAskCard)
+    - HighlightsService 支持获取相关问题数据 (fetchQuestions)
+    - HighlightsPage 列表动态插入相关问题卡片
+
+ .../lib/src/components/people_also_ask_card.dart   |  63 ++++++-------
+ .../lib/src/services/highlights_service.dart       |  35 +++++++
+ .../lib/src/ui/highlights_page.dart                | 104 ++++++++++++++++++++-
+ 3 files changed, 163 insertions(+), 39 deletions(-)
+
+commit 90238b850adb3571317bfb89637461f215a207dd
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 20:27:22 2026 +0800
+
+    feat(ai_ui): add people_also_ask_card component
+    
+    - Implement PeopleAlsoAskCard component with avatar header and question list
+    - Register component in AiUiCatalog
+
+ packages/hexin_ai_ui/lib/src/ai_ui_catalog.dart    |   2 +
+ .../lib/src/components/people_also_ask_card.dart   | 268 +++++++++++++++++++++
+ 2 files changed, 270 insertions(+)
+
+commit 429e5d6c023f03a1ef7b4db634e755c9644f9469
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 20:23:28 2026 +0800
+
+    feat(highlights): improve refresh UX and add scroll to latest button
+
+ .../lib/src/ui/highlights_page.dart                | 430 +++++----------------
+ 1 file changed, 101 insertions(+), 329 deletions(-)
+
+commit 2f570b60c09c0ec8c8cd99f2b439d832056503dc
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 20:00:06 2026 +0800
+
+    fix: 修复 Highlights 页面和组件渲染问题
+    
+    - HighlightsPage: 使用 reverse 列表避免首次加载滚动动画
+    - HighlightsService: 切换到真实 API
+    - DslMarkdownPage: 支持嵌套 markdown 代码块解析,添加错误处理
+    - InfoSummaryCard: 支持 API 返回的 route 字段和 contentTitle
+    - MarketBreadthBar: 修复 String/num 类型转换错误
+
+ .../lib/src/components/info_summary_card.dart      |  30 +-
+ .../lib/src/components/market_breadth_bar.dart     |  22 +-
+ packages/hexin_dsl/lib/src/dsl_markdown_page.dart  | 242 ++++++++----
+ .../lib/src/services/highlights_service.dart       | 187 ++++-----
+ .../lib/src/ui/highlights_page.dart                | 433 +++++++++++++++++++--
+ 5 files changed, 671 insertions(+), 243 deletions(-)
+
+commit a384d85cbb31db201dd89b7beafe2079912f4685
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 19:59:13 2026 +0800
+
+    fix: 降级 flutter_markdown_plus 和 webview_flutter 版本以兼容 Flutter 3.22
+
+ examples/hexin_demo/pubspec.yaml  |   4 +-
+ packages/genui/pubspec.yaml       |   2 +-
+ packages/hexin_ai_ui/pubspec.yaml |   4 +-
+ packages/hexin_dsl/pubspec.lock   | 149 +++++++++++++++++++++++++-------------
+ packages/hexin_dsl/pubspec.yaml   |   4 +-
+ 5 files changed, 105 insertions(+), 58 deletions(-)
+
+commit 1c258b2545c2c413f0d7b120c4265fc50d47b744
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 15:38:12 2026 +0800
+
+    feat(hexin_demo): Add dynamic tab selection to AiAppBar
+    
+    - Add `selectedTabId` property to the `AiAppBar` component to allow for dynamic control over which tab is active.
+    - Refactor `AiAppPage` to dynamically generate the header DSL based on the currently selected tab.
+    - Remove the static default header markdown in `AiAppPage`, replacing it with stateful logic that updates the header when the tab changes.
+    - Ensure the active tab's style (font size, weight, and color) is correctly applied in `AiAppBar`.
+
+ examples/hexin_demo/lib/src/pages/ai_app_page.dart | 75 ++++++++++++++--------
+ .../hexin_ai_ui/lib/src/components/ai_app_bar.dart | 22 +++++--
+ 2 files changed, 67 insertions(+), 30 deletions(-)
+
+commit 2702d9eeb4b3b89451a1b08af3642bb142d189cc
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 15:12:21 2026 +0800
+
+    refactor(hexin_demo): Use MarkdownRender for AI App header
+    
+    - Replace direct DSL object for the app bar with a `DslMarkdownSection` that renders a markdown string containing the DSL.
+    - Update `AiAppPage` to render the header within a `SafeArea` and `Column` instead of the `Scaffold.appBar`.
+    - Simplify the AI App and Highlights catalogs by using the consolidated `AiUiCatalog`.
+
+ examples/hexin_demo/lib/src/pages/ai_app_page.dart | 117 +++++++++++----------
+ .../lib/src/catalog/highlights_catalog.dart        |  24 +----
+ 2 files changed, 62 insertions(+), 79 deletions(-)
+
+commit d34a7cd3859f0d35bdc7433d07f3b12ddf6f4214
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 14:57:59 2026 +0800
+
+    feat: 实现灵活MarkdownRender页面组件
+    
+    - 新增 DslMarkdownPage 和 DslMarkdownSection 组件
+    - 支持标准Markdown渲染(标题、列表、引用、图片、表格)
+    - 支持 dsl/web 代码块解析为组件
+    - 支持 markdownRender 类型嵌套渲染
+    - 重构 HighlightsPage 使用新组件
+    - 重构 DslDemoPage 使用新组件
+    - 优化 BannerCarousel: 无限循环滚动、aspectRatio自适应
+    - 更新 HighlightsCatalog 添加更多组件
+
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    | 298 +++++------------
+ .../lib/src/components/banner_carousel.dart        | 175 +++++-----
+ packages/hexin_dsl/lib/hexin_dsl.dart              |   1 +
+ packages/hexin_dsl/lib/src/dsl_markdown_page.dart  | 351 +++++++++++++++++++++
+ .../lib/src/catalog/highlights_catalog.dart        |   5 +
+ .../lib/src/services/highlights_service.dart       |  77 +++--
+ .../lib/src/ui/highlights_page.dart                | 248 +++++++--------
+ 7 files changed, 699 insertions(+), 456 deletions(-)
+
+commit 86826e8c3b017f958416318c0b303ea89f76587c
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Jan 21 20:59:28 2026 -0800
+
+    Differentiate Part(sealed) and BasePart(extendable). (#680)
+
+ packages/genai_primitives/CHANGELOG.md             |   4 +
+ .../genai_primitives/lib/genai_primitives.dart     |   2 +-
+ .../genai_primitives/lib/src/chat_message.dart     |  64 ++--
+ packages/genai_primitives/lib/src/parts/items.dart |   8 -
+ .../genai_primitives/lib/src/parts/items/data.dart | 138 -------
+ .../genai_primitives/lib/src/parts/items/link.dart |  69 ----
+ .../genai_primitives/lib/src/parts/items/text.dart |  44 ---
+ .../genai_primitives/lib/src/parts/items/tool.dart | 130 -------
+ packages/genai_primitives/lib/src/parts/model.dart |  26 +-
+ packages/genai_primitives/lib/src/parts/part.dart  | 416 +++++++++++++++++++++
+ packages/genai_primitives/lib/src/parts/parts.dart |  47 +--
+ packages/genai_primitives/pubspec.yaml             |   2 +-
+ .../genai_primitives/test/custom_part_test.dart    |  36 +-
+ .../test/genai_primitives_test.dart                | 123 ++++--
+ 14 files changed, 577 insertions(+), 532 deletions(-)
+
+commit 008f4a59a53c6897c0e837047ecf944db32d384d
+Author: David Iglesias <ditman@gmail.com>
+Date:   Wed Jan 21 13:06:13 2026 -0800
+
+    Pass catalogId to BeginRendering message in DebugCatalogView widget. (#676)
+    
+    * Pass catalogId to BeginRendering message in DebugCatalogView widget.
+    * Add test/development_utilities/catalog_view_test.dart
+
+ packages/genui/CHANGELOG.md                        |   1 +
+ .../src/development_utilities/catalog_view.dart    |  11 +-
+ .../development_utilities/catalog_view_test.dart   |  50 ++++++++
+ pubspec.lock                                       | 128 ++++++++++-----------
+ 4 files changed, 123 insertions(+), 67 deletions(-)
+
+commit a226fee8371bc367e4eaa00a9a1a59b1cdc7a4e2
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Jan 21 09:21:57 2026 -0800
+
+    Define genui parts as extensions of genai_primitives. (#675)
+
+ packages/genui/lib/src/model/chat_message.dart     |   5 +-
+ packages/genui/lib/src/model/parts.dart            |  22 ++++
+ packages/genui/lib/src/model/parts/image.dart      | 125 +++++++++++++++++++++
+ packages/genui/lib/src/model/parts/thinking.dart   |  33 ++++++
+ packages/genui/lib/src/model/parts/ui.dart         |  99 ++++++++++++++++
+ packages/genui/lib/src/model/ui_models.dart        |  28 ++++-
+ .../genui/lib/src/primitives/simple_items.dart     |   4 +
+ packages/genui/pubspec.yaml                        |   2 +
+ pubspec.lock                                       |   8 ++
+ 9 files changed, 321 insertions(+), 5 deletions(-)
+
+commit dec9abbdd17ab89eb5e7bfd75a5585b5895433dc
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Jan 21 09:04:26 2026 -0800
+
+    Minor doc improvements. (#674)
+
+ packages/genai_primitives/README.md                 | 10 +++++++++-
+ packages/genai_primitives/lib/src/chat_message.dart |  2 +-
+ 2 files changed, 10 insertions(+), 2 deletions(-)
+
+commit da2db48c90fd71f707eec08d3975c812b8bae72f
+Author: mytangyh <mytangyh@163.com>
+Date:   Thu Jan 22 00:44:51 2026 +0800
+
+    feat(hexin): implement configurable AI App page with DSL-driven catalog components
+
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  16 +-
+ examples/hexin_demo/lib/src/pages/ai_app_page.dart | 235 +++++++++--------
+ packages/hexin_ai_ui/.flutter-plugins              |   4 +
+ packages/hexin_ai_ui/lib/hexin_ai_ui.dart          |   7 +
+ packages/hexin_ai_ui/lib/src/ai_ui_catalog.dart    |  70 ++++++
+ .../hexin_ai_ui/lib/src/components/ai_app_bar.dart | 279 +++++++++++++++++++++
+ .../lib/src/components/markdown_render.dart        |  62 +++--
+ .../lib/src/components/pill_button.dart            | 187 ++++++++++++++
+ packages/hexin_ai_ui/pubspec.lock                  | 125 ++++-----
+ packages/hexin_ai_ui/pubspec.yaml                  |   6 +
+ 10 files changed, 765 insertions(+), 226 deletions(-)
+
+commit a83be966f8698b09fba97a12f22f838c6feb35bf
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Jan 21 23:51:02 2026 +0800
+
+    fix(hexin_demo): Downgrade dependencies for Flutter 3.22 compatibility
+    
+    - Pin flutter_markdown_plus to 1.0.0+1
+    - Pin webview_flutter to 4.8.0
+    - Fix build.gradle.kts versionCode/versionName syntax
+    - Upgrade NDK to 27.0.12077973
+    - Move AI App tab to first position
+    - Add HEXIN_ARCHITECTURE.md documentation
+
+ HEXIN_ARCHITECTURE.md                            |  70 +++++++++++++
+ examples/hexin_demo/.flutter-plugins             |   4 +
+ examples/hexin_demo/android/app/build.gradle.kts |   6 +-
+ examples/hexin_demo/lib/main.dart                |   4 +-
+ examples/hexin_demo/pubspec.lock                 | 126 +++++++++++------------
+ examples/hexin_demo/pubspec.yaml                 |   8 +-
+ packages/genui/pubspec.yaml                      |   2 +-
+ packages/json_schema_builder/pubspec.yaml        |   6 +-
+ 8 files changed, 152 insertions(+), 74 deletions(-)
+
+commit 3aaa52fcd2e7dc2b29bdfa1e230609e99a369c2d
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Jan 21 20:27:24 2026 +0800
+
+    fix(sec): Move API key to gitignored secrets file
+    feat(hexin): Refactor architecture and add AI App UI
+    
+    - Downgrade SDK to Flutter 3.22 / Dart 3.4 for compatibility.
+    - Modularize code into hexin_ai_ui, hexin_dsl, hexin_highlights.
+    - Refactor hexin_demo to use new modular packages.
+    - Implement new 'AI App' UI flow with custom navigation bar.
+    - Add components: AiAppEntryPage, AiAppPage.
+    - Move HighlightsPage to hexin_highlights package.
+
+ .gitignore                                         |    5 +-
+ .vscode/settings.json                              |    1 +
+ examples/catalog_gallery/pubspec.yaml              |    8 +-
+ examples/custom_backend/pubspec.yaml               |    8 +-
+ examples/hexin_demo/lib/main.dart                  |    9 +-
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |   27 +-
+ .../lib/src/catalog/information_card.dart          |   28 +-
+ .../hexin_demo/lib/src/catalog/quick_actions.dart  |    2 +-
+ examples/hexin_demo/lib/src/dsl/dsl.dart           |   30 -
+ examples/hexin_demo/lib/src/models/portfolio.dart  |   28 +-
+ .../hexin_demo/lib/src/models/recommendation.dart  |   18 +-
+ examples/hexin_demo/lib/src/models/stock.dart      |   32 +-
+ .../hexin_demo/lib/src/pages/advisor_page.dart     |   59 +-
+ .../lib/src/pages/ai_app_entry_page.dart           |   30 +
+ examples/hexin_demo/lib/src/pages/ai_app_page.dart |  152 +++
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    |    7 +-
+ .../hexin_demo/lib/src/pages/highlights_page.dart  |  248 ----
+ .../lib/src/tools/analyze_risk_tool.dart           |   10 +-
+ .../lib/src/tools/get_portfolio_tool.dart          |   10 +-
+ .../lib/src/tools/get_recommendations_tool.dart    |   38 +-
+ .../lib/src/tools/get_stock_data_tool.dart         |   28 +-
+ .../hexin_demo/lib/src/widgets/conversation.dart   |    8 +-
+ examples/hexin_demo/pubspec.lock                   |  194 +--
+ examples/hexin_demo/pubspec.yaml                   |   22 +-
+ examples/hexin_demo/test/bug_repro_test.dart       |    2 +-
+ examples/hexin_demo/test/fallback_test.dart        |    2 +-
+ examples/hexin_demo/test/widget_test.dart          |    2 +-
+ examples/simple_chat/pubspec.yaml                  |    8 +-
+ examples/travel_app/pubspec.yaml                   |    8 +-
+ examples/verdure/client/pubspec.yaml               |    6 +-
+ hexin_ai_ui_analyze.txt                            |   94 ++
+ hexin_ai_ui_error.txt                              |    4 +
+ hexin_ai_ui_error_2.txt                            |    4 +
+ hexin_demo_analyze.txt                             |  120 ++
+ hexin_demo_analyze_final.txt                       |  116 ++
+ hexin_demo_analyze_final_2.txt                     |  102 ++
+ hexin_highlights_analyze.txt                       |   46 +
+ .../genui/lib/src/catalog/core_widgets/button.dart |   26 +-
+ .../lib/src/catalog/core_widgets/check_box.dart    |    8 +-
+ .../genui/lib/src/catalog/core_widgets/column.dart |   11 +-
+ .../src/catalog/core_widgets/date_time_input.dart  |   17 +-
+ .../genui/lib/src/catalog/core_widgets/icon.dart   |    4 +-
+ .../genui/lib/src/catalog/core_widgets/image.dart  |    4 +-
+ .../genui/lib/src/catalog/core_widgets/list.dart   |   40 +-
+ .../genui/lib/src/catalog/core_widgets/modal.dart  |    9 +-
+ .../src/catalog/core_widgets/multiple_choice.dart  |   18 +-
+ .../genui/lib/src/catalog/core_widgets/row.dart    |   11 +-
+ .../genui/lib/src/catalog/core_widgets/slider.dart |   15 +-
+ .../genui/lib/src/catalog/core_widgets/text.dart   |    4 +-
+ .../lib/src/catalog/core_widgets/text_field.dart   |   23 +-
+ .../src/catalog/core_widgets/widget_helpers.dart   |   32 +-
+ .../genui/lib/src/core/genui_configuration.dart    |    2 +-
+ packages/genui/lib/src/core/genui_surface.dart     |   10 +-
+ packages/genui/lib/src/core/ui_tools.dart          |   73 +-
+ .../src/development_utilities/catalog_view.dart    |    5 +-
+ .../src/facade/direct_call_integration/model.dart  |   16 +-
+ .../src/facade/direct_call_integration/utils.dart  |    2 +-
+ packages/genui/lib/src/model/a2ui_schemas.dart     |  278 ++--
+ packages/genui/lib/src/model/catalog.dart          |   22 +-
+ packages/genui/lib/src/model/catalog_item.dart     |    4 +-
+ packages/genui/lib/src/model/chat_message.dart     |   33 +-
+ packages/genui/lib/src/model/data_model.dart       |    6 +-
+ packages/genui/lib/src/model/ui_models.dart        |   26 +-
+ packages/genui/lib/test/validation.dart            |    5 +-
+ packages/genui/pubspec.lock                        |  444 +++++++
+ packages/genui/pubspec.yaml                        |   11 +-
+ .../test/catalog/core_widgets/column_test.dart     |    5 +-
+ .../genui/test/catalog/core_widgets/row_test.dart  |    5 +-
+ packages/genui/test/core/genui_manager_test.dart   |    3 +-
+ packages/genui/test/model/data_model_test.dart     |    8 +-
+ packages/genui/test/validation_test_utils.dart     |    5 +-
+ packages/genui_a2ui/example/pubspec.yaml           |    8 +-
+ packages/genui_a2ui/pubspec.yaml                   |    8 +-
+ .../Flutter/ephemeral/Flutter-Generated.xcconfig   |   11 +
+ .../ephemeral/flutter_export_environment.sh        |   12 +
+ packages/genui_firebase_ai/pubspec.yaml            |    8 +-
+ packages/genui_google_generative_ai/pubspec.yaml   |    8 +-
+ packages/hexin_ai_ui/lib/hexin_ai_ui.dart          |   26 +
+ .../lib/src/components}/ai_button_list.dart        |    0
+ .../lib/src/components}/ai_event_overview.dart     |    0
+ .../lib/src/components}/ai_message.dart            |    0
+ .../lib/src/components}/auction_anomaly.dart       |    0
+ .../lib/src/components}/banner_carousel.dart       |    2 +-
+ .../lib/src/components}/dsl_webview.dart           |    0
+ .../lib/src/components}/info_summary_card.dart     |    0
+ .../lib/src/components}/markdown_render.dart       |   57 +-
+ .../lib/src/components}/market_breadth_bar.dart    |    5 +-
+ .../lib/src/components}/news_flash_list.dart       |    0
+ .../lib/src/components}/placeholder.dart           |    0
+ .../lib/src/components}/section_header.dart        |    0
+ .../lib/src/components}/stock_quote.dart           |    0
+ .../lib/src/components}/target_header.dart         |    1 -
+ .../hexin_ai_ui/lib/src/components}/trailhead.dart |    3 +-
+ packages/hexin_ai_ui/pubspec.lock                  |  339 +++++
+ packages/hexin_ai_ui/pubspec.yaml                  |   29 +
+ packages/hexin_dsl/lib/hexin_dsl.dart              |   14 +
+ packages/hexin_dsl/lib/src/dsl_block_list.dart     |   97 ++
+ .../hexin_dsl/lib/src}/dsl_parser.dart             |    2 +-
+ .../hexin_dsl/lib/src}/dsl_surface.dart            |   93 +-
+ packages/hexin_dsl/pubspec.lock                    |  299 +++++
+ packages/hexin_dsl/pubspec.yaml                    |   24 +
+ .../hexin_highlights/lib/hexin_highlights.dart     |   27 +
+ .../lib/src/catalog/highlights_catalog.dart        |   34 +
+ .../lib/src/models/highlights_response.dart        |    0
+ .../lib/src/services/highlights_service.dart       |    0
+ .../lib/src/ui/highlights_page.dart                |  256 ++++
+ packages/hexin_highlights/pubspec.lock             |  353 +++++
+ packages/hexin_highlights/pubspec.yaml             |   29 +
+ .../lib/src/schema/integer_schema.dart             |   21 +-
+ .../lib/src/schema/list_schema.dart                |   29 +-
+ .../lib/src/schema/number_schema.dart              |   21 +-
+ .../lib/src/schema/object_schema.dart              |   33 +-
+ .../json_schema_builder/lib/src/schema/schema.dart |    6 +-
+ .../lib/src/schema/string_schema.dart              |   23 +-
+ .../json_schema_builder/lib/src/schema_cache.dart  |    6 +-
+ .../lib/src/schema_registry.dart                   |    3 +-
+ .../lib/src/schema_validation.dart                 |   90 +-
+ .../lib/src/validation_error.dart                  |   22 +-
+ .../lib/src/validation_result.dart                 |   25 +-
+ packages/json_schema_builder/pubspec.yaml          |    8 +-
+ .../test/schema_cache_test.mocks.dart              |  169 ++-
+ packages/json_schema_builder/test/schema_test.dart |   61 +-
+ .../json_schema_builder/test/test_suite_test.dart  |   11 +-
+ pub_error.txt                                      |   19 +
+ pubspec.lock                                       | 1353 --------------------
+ pubspec.yaml                                       |   21 +-
+ tool/fix_copyright/pubspec.yaml                    |    6 +-
+ tool/release/pubspec.yaml                          |    6 +-
+ tool/test_and_fix/pubspec.yaml                     |    6 +-
+ 129 files changed, 3572 insertions(+), 2813 deletions(-)
+
+commit f6683ecf3ad0731744878f453590957fb4ba922f
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Jan 21 15:49:09 2026 +0800
+
+    feat(hexin_demo): refine UI for highlights page
+    
+    - Make AiMessage component always expandable
+    - Add a placeholder for empty detail content in AiMessage
+    - Implement UTC+8 timezone conversion for TargetHeader timestamps
+    - Add a blue dot indicator to the timeline for TargetHeader items
+
+ .../hexin_demo/lib/src/catalog/ai_message.dart     | 53 ++++++++++------------
+ .../hexin_demo/lib/src/catalog/target_header.dart  | 29 ++++++++----
+ .../hexin_demo/lib/src/pages/highlights_page.dart  | 35 ++++++++++++--
+ 3 files changed, 77 insertions(+), 40 deletions(-)
+
+commit a070bf2f2136fab577235765203f4b7918e02f60
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Jan 21 15:05:31 2026 +0800
+
+    feat(hexin_demo): 完成看点页面组件样式调整
+    
+    - 更新 newsFlashList 样式：渐变背景、PingFangSC字体、彩色序号
+    - 更新 infoSummaryCard 样式：与newsFlashList一致的渐变效果
+    - 更新 ai_button_list 布局：两列布局、新背景色和字体
+    - 更新 ai_message 样式：调整边距、字体和颜色
+    - 新增 ai_event_overview 占位符组件
+    - 调整页面布局：移除分割线、统一边距、添加时间线
+    - 更新 targetHeader 时间戳格式化逻辑
+    - 启用真实API接口
+
+ examples/hexin_demo/analysis_output.txt            | 203 +++++++++++++++++++
+ examples/hexin_demo/analysis_output_2.txt          | 202 +++++++++++++++++++
+ examples/hexin_demo/lib/main.dart                  |  11 +-
+ .../hexin_demo/lib/src/catalog/ai_button_list.dart |  59 +++---
+ .../lib/src/catalog/ai_event_overview.dart         |  65 ++++++
+ .../hexin_demo/lib/src/catalog/ai_message.dart     |  83 ++++----
+ .../lib/src/catalog/auction_anomaly.dart           |  77 ++++++++
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |   6 +
+ .../lib/src/catalog/info_summary_card.dart         |  41 ++--
+ .../lib/src/catalog/news_flash_list.dart           | 141 +++++--------
+ .../hexin_demo/lib/src/catalog/placeholder.dart    |  82 ++++++++
+ .../hexin_demo/lib/src/catalog/target_header.dart  | 117 +++++++----
+ .../lib/src/models/highlights_response.dart        |  84 ++++++++
+ .../hexin_demo/lib/src/pages/highlights_page.dart  | 219 +++++++++++++++++++++
+ .../lib/src/services/highlights_service.dart       | 167 ++++++++++++++++
+ examples/hexin_demo/pubspec.lock                   |  20 +-
+ examples/hexin_demo/test/bug_repro_test.dart       |  76 +++++++
+ examples/hexin_demo/test/fallback_test.dart        |  46 +++++
+ examples/hexin_demo/test/json_parse_test.dart      |  18 ++
+ 19 files changed, 1490 insertions(+), 227 deletions(-)
+
+commit c05227668333b6143c967b734f61e6f5476bec34
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Jan 21 11:16:55 2026 +0800
+
+    refactor(hexin_demo): Improve API logging and tool call handling
+    
+    - Add detailed debug logging for API requests and responses, including a helper to print long strings without truncation.
+    - Enhance robustness of tool call processing with more comprehensive error handling and type checking.
+    - Add checks for `tool_calls` being a list before iteration.
+    - Implement safer JSON decoding for tool arguments with try-catch blocks.
+    - Add a heuristic fix to handle double-encoded JSON strings in the `components` argument of the `uiGenerationTool`.
+    - Add error handling for `parseToolCall` to prevent crashes from faulty arguments.
+
+ .../lib/src/services/custom_content_generator.dart | 139 +++++++++++++++++----
+ 1 file changed, 114 insertions(+), 25 deletions(-)
+
+commit 51a2a030881285aa6ee473088cc6d371dcd6e3e3
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Tue Jan 20 13:13:16 2026 -0800
+
+    Bump version and make minor improvements to prepare for release. (#672)
+
+ packages/genai_primitives/CHANGELOG.md             | 2 +-
+ packages/genai_primitives/lib/src/parts/parts.dart | 5 ++++-
+ packages/genai_primitives/pubspec.yaml             | 8 ++++++--
+ 3 files changed, 11 insertions(+), 4 deletions(-)
+
+commit f5aa50ca8d5663bb53e85572904e9e4f86e438f9
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 18:37:26 2026 +0800
+
+    feat(hexin_demo): add support for custom content generator
+    
+    - Add `custom` option to `AiBackend` enum
+    - Introduce `CustomContentGenerator` to connect with external LLM APIs
+    - Add `uuid` and `http` as new dependencies for the custom generator
+    - Update `AdvisorPage` to initialize `CustomContentGenerator` when `aiBackend` is set to `custom`
+
+ .../hexin_demo/lib/src/config/configuration.dart   |  10 +-
+ .../hexin_demo/lib/src/pages/advisor_page.dart     |  11 +
+ .../lib/src/services/custom_content_generator.dart | 377 +++++++++++++++++++++
+ examples/hexin_demo/pubspec.yaml                   |   2 +
+ 4 files changed, 392 insertions(+), 8 deletions(-)
+
+commit 408fb018b1825f2dada2a47ccf0a65571e132ef7
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 17:30:06 2026 +0800
+
+    feat(hexin_demo): 合并 MarkdownRender 示例
+    
+    - 将多个 `MarkdownRender` 示例合并为一个，以展示 DSL 组件的组合渲染能力。
+
+ .../lib/src/catalog/markdown_render.dart           | 105 +++++++++++++--------
+ 1 file changed, 66 insertions(+), 39 deletions(-)
+
+commit 5c7fb7a872c8177fafd4ffdcee9c248549565756
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 15:52:58 2026 +0800
+
+    feat(markdown): enhance markdownRender with mixed content support
+    
+    - Add `flutter_markdown_plus` dependency for improved Markdown rendering.
+    - Refactor `markdownRender` to parse and render mixed content including standard Markdown, `dsl`, and `web` code blocks.
+    - Implement custom rich text rendering to support colored numbers for financial data (e.g., `+10.5%`, `-500亿`).
+    - Replace `DslParser.parseSegments` with a local parsing implementation inside `markdownRender` to handle text and code blocks sequentially.
+    - Update `DslParser` to introduce `extractMixedBlocks`, which parses multiple code block languages (`dsl`, `web`) while maintaining their original document order.
+    - Deprecate `DslParser.extractAllBlocks` in favor of the new `extractMixedBlocks` method.
+    - Update `DslDemoPage` to use `extractMixedBlocks` for parsing and rendering a mix of DSL and web components from a single Markdown source.
+
+ .../lib/src/catalog/markdown_render.dart           | 432 ++++++++++++++-------
+ examples/hexin_demo/lib/src/dsl/dsl_parser.dart    |  91 ++++-
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    |  26 +-
+ examples/hexin_demo/pubspec.yaml                   |   1 +
+ 4 files changed, 375 insertions(+), 175 deletions(-)
+
+commit 092578e0a8113917fcb5d9e53b7c67ce68ffefc4
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 14:35:52 2026 +0800
+
+    feat(hexin_demo): 新增多个 DSL 组件和实时数据支持
+    
+    新增组件:
+    - sectionHeader: 区块头部，支持 AI 徽章
+    - marketBreadthBar: 涨跌平统计条，支持 polling 实时数据
+    - markdownRender: 智能容器，解析 Markdown + 嵌入 DSL
+    - banner_carousel: 轮播图组件
+    - ai_buttonList: AI 按钮组
+    - targetHeader: 标的头部
+    
+    优化组件:
+    - ai_message: 添加展开/收起功能
+    - newsFlashList: 渐变标题和彩色序号
+    
+    更新 Demo:
+    - 按页面逻辑重新组织
+    - 添加 markdownRender、WebView、实时数据演示
+
+ .../hexin_demo/lib/src/catalog/ai_button_list.dart | 199 +++++++++
+ .../hexin_demo/lib/src/catalog/ai_message.dart     | 253 +++++++++--
+ .../lib/src/catalog/banner_carousel.dart           | 320 ++++++++++++++
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  13 +
+ .../lib/src/catalog/markdown_render.dart           | 323 ++++++++++++++
+ .../lib/src/catalog/market_breadth_bar.dart        | 463 +++++++++++++++++++++
+ .../lib/src/catalog/news_flash_list.dart           | 247 +++++------
+ .../hexin_demo/lib/src/catalog/section_header.dart | 194 +++++++++
+ .../hexin_demo/lib/src/catalog/target_header.dart  | 204 +++++++++
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    | 417 +++++++------------
+ 10 files changed, 2204 insertions(+), 429 deletions(-)
+
+commit 3bd66afc497c2596ffc3835d1570e81ebc9e8b97
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 02:30:47 2026 +0800
+
+    feat(hexin_demo): 添加 WebView 组件支持
+    
+    - 新增 DslWebView 组件，支持嵌入网页内容
+    - 支持 web 代码块解析和渲染
+    - 添加 6 个中国财经网站 WebView 示例
+    - 更新 pubspec.yaml 添加 webview_flutter 依赖
+
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |   2 +
+ .../hexin_demo/lib/src/catalog/dsl_webview.dart    | 249 +++++++++++++++++++++
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    |  87 ++++++-
+ examples/hexin_demo/pubspec.lock                   |  32 +++
+ examples/hexin_demo/pubspec.yaml                   |   1 +
+ 5 files changed, 368 insertions(+), 3 deletions(-)
+
+commit 5df3154e408cc6b527e7632d33486cc7d83f57f1
+Author: mytangyh <mytangyh@163.com>
+Date:   Tue Jan 20 02:00:13 2026 +0800
+
+    feat(hexin_demo): 添加 DSL 解析和渲染系统
+    
+    - 新增三个 DSL 组件: ai_message, infoSummaryCard, newsFlashList
+    - 新增 DslParser: 从 Markdown 提取 DSL 代码块
+    - 新增 DslSurface: 将 DSL 渲染为 Flutter Widget
+    - 新增 DslDemoPage: 完整演示页面
+    - 更新 Catalog: 提供 getDslCatalog() 方法
+    - 更新 main.dart: 添加 DSL Demo 标签页
+
+ examples/hexin_demo/lib/main.dart                  |  10 +-
+ .../hexin_demo/lib/src/catalog/ai_message.dart     | 161 ++++++
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  26 +-
+ .../lib/src/catalog/info_summary_card.dart         | 209 ++++++++
+ .../lib/src/catalog/news_flash_list.dart           | 279 ++++++++++
+ examples/hexin_demo/lib/src/dsl/dsl.dart           |  30 ++
+ examples/hexin_demo/lib/src/dsl/dsl_parser.dart    | 204 ++++++++
+ examples/hexin_demo/lib/src/dsl/dsl_surface.dart   | 292 +++++++++++
+ .../hexin_demo/lib/src/pages/dsl_demo_page.dart    | 564 +++++++++++++++++++++
+ 9 files changed, 1767 insertions(+), 8 deletions(-)
+
+commit aff44f6679ca444d46a1662b4915fd2bc201968d
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Fri Jan 16 15:41:35 2026 -0800
+
+    Reorganize code to prepare for more code for parts. (#669)
+
+ .../genai_primitives/lib/genai_primitives.dart     |   5 +-
+ .../genai_primitives/lib/src/chat_message.dart     |  11 +-
+ .../genai_primitives/lib/src/message_parts.dart    | 418 ---------------------
+ packages/genai_primitives/lib/src/parts/items.dart |   8 +
+ .../genai_primitives/lib/src/parts/items/data.dart | 138 +++++++
+ .../genai_primitives/lib/src/parts/items/link.dart |  69 ++++
+ .../genai_primitives/lib/src/parts/items/text.dart |  44 +++
+ .../genai_primitives/lib/src/parts/items/tool.dart | 130 +++++++
+ packages/genai_primitives/lib/src/parts/model.dart |  58 +++
+ .../lib/src/{ => parts}/parts.dart                 |  31 +-
+ .../genai_primitives/test/custom_part_test.dart    |   8 +-
+ .../test/genai_primitives_test.dart                |  30 +-
+ 12 files changed, 520 insertions(+), 430 deletions(-)
+
+commit daf71a8509e28aaace99e2c6c848e3ced72910c2
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Fri Jan 16 12:27:08 2026 -0800
+
+    Small improvements in genai_primitives to prepare for publishing. (#667)
+
+ README.md                                          |  1 +
+ packages/genai_primitives/CHANGELOG.md             |  2 +-
+ packages/genai_primitives/README.md                |  6 +++++-
+ .../genai_primitives/lib/src/chat_message.dart     | 12 +++++------
+ packages/genai_primitives/lib/src/parts.dart       |  6 +++---
+ packages/genai_primitives/pubspec.yaml             |  2 +-
+ packages/genai_primitives/test/example_test.dart   |  8 --------
+ .../test/genai_primitives_test.dart                | 24 +++++++++++++++-------
+ 8 files changed, 34 insertions(+), 27 deletions(-)
+
+commit 65baa13df0b6ba5f5acc620e402aa54bb966185a
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Fri Jan 16 09:56:00 2026 -0800
+
+    Updates to make the library applicable for wider range of use cases, and more stable.  (#644)
+
+ packages/genai_primitives/example/main.dart        |  12 +-
+ .../genai_primitives/lib/genai_primitives.dart     |   1 +
+ .../genai_primitives/lib/src/chat_message.dart     | 178 ++++++-----
+ .../genai_primitives/lib/src/message_parts.dart    | 346 +++++++++++++--------
+ packages/genai_primitives/lib/src/parts.dart       |  93 ++++++
+ .../genai_primitives/lib/src/tool_definition.dart  |  33 +-
+ packages/genai_primitives/lib/src/utils.dart       |  22 --
+ packages/genai_primitives/pubspec.lock             |   2 +-
+ packages/genai_primitives/pubspec.yaml             |   1 +
+ .../genai_primitives/test/custom_part_test.dart    | 123 ++++++++
+ packages/genai_primitives/test/example_test.dart   | 149 +++++++++
+ .../test/genai_primitives_test.dart                | 314 +++++++++++++++++--
+ 12 files changed, 1009 insertions(+), 265 deletions(-)
+
+commit ea2a58cd1717e43464c9831a7bb7d9e8c23fe060
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Jan 15 10:52:35 2026 -0800
+
+    Reorganize specifications. (#662)
+
+ .gemini/GEMINI.md                | 91 +---------------------------------------
+ .gemini/README.md                |  1 -
+ specs/README.md                  | 37 ++++++++++++++++
+ {.gemini => specs}/styleguide.md |  0
+ 4 files changed, 38 insertions(+), 91 deletions(-)
+
+commit 2f2a510e232e0d6e6d95f81c2aa8cfe6f67f011a
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Jan 15 09:55:29 2026 -0800
+
+    Move Chat widgets to facade and rename. (#661)
+
+ examples/travel_app/lib/src/widgets/conversation.dart        |  8 ++++----
+ packages/genui/CHANGELOG.md                                  |  3 ++-
+ packages/genui/lib/genui.dart                                |  2 +-
+ .../lib/src/{core => facade}/widgets/chat_primitives.dart    | 12 ++++++------
+ 4 files changed, 13 insertions(+), 12 deletions(-)
+
+commit 462f01bd268ee76bc4b7bbb19eac337ba0e65c51
+Author: Parker Lougheed <parlough@gmail.com>
+Date:   Wed Jan 14 19:29:52 2026 -0600
+
+    Enable stricter dynamic-related analysis (#652)
+
+ analysis_options.yaml                                 |  5 ++++-
+ .../lib/src/tools/booking/booking_service.dart        |  6 ++----
+ packages/genui/test/model/data_model_test.dart        | 19 ++++++++++++-------
+ .../genui_dartantic/example/lib/src/jumping_dots.dart |  6 ++++--
+ .../test/dartantic_schema_adapter_test.dart           |  2 +-
+ .../json_schema_builder/lib/src/schema_registry.dart  |  4 ++--
+ .../lib/src/schema_validation.dart                    | 10 +++++-----
+ tool/fix_copyright/test/fix_copyright_test.dart       |  2 +-
+ 8 files changed, 31 insertions(+), 23 deletions(-)
+
+commit c6a9d649a243b505b0cd91c6a05bc797327acf44
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Wed Jan 14 16:36:49 2026 -0800
+
+    Make ContentGeneratorError be an Exception (#660)
+
+ packages/genui/lib/src/content_generator.dart | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit dddef8b609a1f075dd3e634a0c5a9cb7056af68e
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Mon Jan 12 17:22:59 2026 -0800
+
+    - (#658)
+
+ packages/genui/CHANGELOG.md |  2 ++
+ pubspec.lock                | 20 ++++++++++----------
+ 2 files changed, 12 insertions(+), 10 deletions(-)
+
+commit 1d7382ee9fc0e71253a2e88ab11133b46b3ab547
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Mon Jan 12 13:25:44 2026 -0800
+
+    Document how to get permissions to publish. (#657)
+
+ tool/release/README.md | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+commit 1342f082cc6cd3ff66aee00b4a7df255fd8d22e4
+Author: Parker Lougheed <parlough@gmail.com>
+Date:   Thu Jan 8 12:26:25 2026 -0600
+
+    [examples] Verdure client cleanup and dependency updates (#646)
+
+ .../client/lib/features/ai/ai_provider.dart        |  2 +-
+ .../client/lib/features/ai/ai_provider.g.dart      | 21 +++++-----
+ .../screens/order_confirmation_screen.dart         |  2 +-
+ .../lib/features/screens/questionnaire_screen.dart |  6 +--
+ .../lib/features/screens/upload_photo_screen.dart  | 20 +++++----
+ .../lib/features/screens/welcome_screen.dart       | 14 +++----
+ .../client/lib/features/state/loading_state.dart   |  2 +-
+ .../client/lib/features/widgets/app_navigator.dart | 10 ++---
+ .../widgets/global_progress_indicator.dart         | 10 ++---
+ examples/verdure/client/pubspec.yaml               | 14 ++++---
+ pubspec.lock                                       | 48 ++++++----------------
+ 11 files changed, 64 insertions(+), 85 deletions(-)
+
+commit ca82847fedbac6629a4609ca331735da98ca79c1
+Author: Nan Yu <nanyu@google.com>
+Date:   Tue Jan 6 23:44:22 2026 +0000
+
+    Improve error handling for catalog example loading (#653)
+    
+    Wraps the example data parsing and component creation in a try-catch block
+    to capture and rethrow errors with additional context (the item name).
+    This makes it easier to identify which catalog item has invalid example data.
+
+ .../src/development_utilities/catalog_view.dart    | 47 +++++++++++++---------
+ 1 file changed, 28 insertions(+), 19 deletions(-)
+
+commit 7ccdc1ee6474cfb859eea39946ec6bfae434c328
+Author: Parker Lougheed <parlough@gmail.com>
+Date:   Tue Jan 6 14:32:54 2026 -0600
+
+    [docs] Suggest using `flutter pub add` for adding dependencies (#645)
+
+ .../.guides/docs/create_a_custom_catalogitem.md    | 11 ++++----
+ packages/genui/.guides/setup.md                    | 33 +++++++++-------------
+ packages/genui/README.md                           | 29 +++++++------------
+ packages/genui_a2ui/README.md                      | 15 ++++------
+ packages/genui_google_generative_ai/README.md      |  7 ++++-
+ 5 files changed, 39 insertions(+), 56 deletions(-)
+
+commit 93599b852f6286e339c2597e6f556388e1369b82
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Mon Jan 5 12:11:10 2026 -0800
+
+    Post publish commit to add sections to CHANGELOGs (#650)
+
+ packages/genui/CHANGELOG.md                      |  2 ++
+ packages/genui_a2ui/CHANGELOG.md                 |  2 ++
+ packages/genui_dartantic/CHANGELOG.md            |  2 ++
+ packages/genui_firebase_ai/CHANGELOG.md          |  2 ++
+ packages/genui_google_generative_ai/CHANGELOG.md |  2 ++
+ pubspec.lock                                     | 32 +++++++++---------------
+ 6 files changed, 22 insertions(+), 20 deletions(-)
+
+commit 39a6e6f60f055f0e49d42c9af82cb332590a8b58
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Mon Jan 5 12:04:28 2026 -0800
+
+    Update dartantic_ai dependency (#649)
+
+ packages/genui_dartantic/CHANGELOG.md |  3 +-
+ packages/genui_dartantic/pubspec.yaml |  2 +-
+ pubspec.lock                          | 54 ++++++++++++++++++++---------------
+ pubspec.yaml                          |  5 ----
+ 4 files changed, 34 insertions(+), 30 deletions(-)
+
+commit 7e81ea35b314984d52474a325130631704cb9a4b
+Author: jacobsimionato <jsimionato@google.com>
+Date:   Tue Jan 6 04:49:03 2026 +1030
+
+    Add A2UI support section to README (#648)
+
+ README.md | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 4b376fb9fefa1a1fdae80725f7c44ce659d14ef3
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Sun Jan 4 19:23:58 2026 -0500
+
+    ci: add workflow_dispatch to enable manual CI triggers (#633)
+
+ .github/workflows/flutter_packages.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit cbd1704cf91a679d1bed3c65edb9560c5ba2edd3
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Tue Dec 23 17:26:54 2025 -0800
+
+    Run CI every hour. (#641)
+
+ .github/workflows/flutter_packages.yaml |  4 ++++
+ pubspec.lock                            | 32 ++++++++++++--------------------
+ 2 files changed, 16 insertions(+), 20 deletions(-)
+
+commit 26585f0772a8b8d6e4be2163bc6ac26bad8c3049
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Tue Dec 23 17:19:03 2025 -0800
+
+    Minor doc cleanup. (#642)
+
+ CONTRIBUTING.md | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
+
+commit 3b98cd6df39bb3555ae7a953347ba3c14b93a525
+Author: Chris Sells <csells@sellsbrothers.com>
+Date:   Mon Dec 22 17:54:33 2025 -0800
+
+    initial port of dartantic_interface types (#619)
+
+ packages/genai_primitives/CHANGELOG.md             |   5 +-
+ packages/genai_primitives/example/example.dart     |  10 -
+ packages/genai_primitives/example/main.dart        | 120 +++++++
+ .../genai_primitives/lib/genai_primitives.dart     |  10 +-
+ .../genai_primitives/lib/src/chat_message.dart     | 141 +++++++++
+ .../lib/src/genai_primitives_base.dart             |  10 -
+ .../genai_primitives/lib/src/message_parts.dart    | 344 +++++++++++++++++++++
+ .../genai_primitives/lib/src/tool_definition.dart  |  38 +++
+ packages/genai_primitives/lib/src/utils.dart       |  22 ++
+ packages/genai_primitives/pubspec.lock             |  78 ++++-
+ packages/genai_primitives/pubspec.yaml             |  14 +-
+ .../genai_primitives/test/ai_primitives_test.dart  |  20 --
+ .../test/genai_primitives_test.dart                | 290 +++++++++++++++++
+ pubspec.lock                                       |   8 +-
+ 14 files changed, 1052 insertions(+), 58 deletions(-)
+
+commit 4f26206c9d2e51b3fa8f551feedc991ebbe866e7
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Mon Dec 22 12:59:04 2025 -0800
+
+    Update CHANGELOG entries and bump version with a patch update in prep for publishing (#631)
+
+ packages/genai_primitives/CHANGELOG.md           |   7 +-
+ packages/genai_primitives/pubspec.yaml           |   2 +-
+ packages/genui/CHANGELOG.md                      |   6 +-
+ packages/genui/pubspec.yaml                      |   2 +-
+ packages/genui_a2ui/CHANGELOG.md                 |   4 +-
+ packages/genui_a2ui/pubspec.yaml                 |   2 +-
+ packages/genui_dartantic/CHANGELOG.md            |   4 +-
+ packages/genui_dartantic/pubspec.yaml            |   2 +-
+ packages/genui_firebase_ai/CHANGELOG.md          |   2 +-
+ packages/genui_firebase_ai/pubspec.yaml          |   2 +-
+ packages/genui_google_generative_ai/CHANGELOG.md |   4 +-
+ packages/genui_google_generative_ai/pubspec.yaml |   2 +-
+ pubspec.lock                                     | 102 +++--------------------
+ pubspec.yaml                                     |   5 ++
+ 14 files changed, 42 insertions(+), 104 deletions(-)
+
+commit 725a463db93557ecfd602a479aa22b751040cc00
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Mon Dec 22 14:27:24 2025 -0500
+
+    fix(deps): pin dartantic_ai to 2.0.3, remove unused dependency on a2a in verdure/client (#636)
+
+ examples/verdure/client/pubspec.yaml  | 1 -
+ packages/genui_dartantic/pubspec.yaml | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+commit 0ccc9e8b8e1946575e1ef2950b212d80e6eeb3a2
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Mon Dec 22 07:06:36 2025 -0800
+
+    Add help, more readme info, and exclude genai_primitives from release tool (#630)
+
+ tool/release/README.md              |  20 +++++
+ tool/release/bin/release.dart       |  94 +++++++++++++++++-----
+ tool/release/lib/src/publish.dart   |   3 +-
+ tool/release/lib/src/utils.dart     |   2 +-
+ tool/release/test/release_test.dart | 153 ++++++++++++++++++++++++++++++++++++
+ 5 files changed, 251 insertions(+), 21 deletions(-)
+
+commit ab584f9175be3d0aba4d43da4968a8f9b12c12a4
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Fri Dec 19 17:35:21 2025 -0800
+
+    Switch to local A2A Dart client library (#627)
+
+ examples/verdure/client/.metadata                  |   14 +-
+ examples/verdure/client/lib/core/logging.dart      |    3 +-
+ examples/verdure/client/web/favicon.png            |  Bin 0 -> 917 bytes
+ examples/verdure/client/web/icons/Icon-192.png     |  Bin 0 -> 5292 bytes
+ examples/verdure/client/web/icons/Icon-512.png     |  Bin 0 -> 8252 bytes
+ .../verdure/client/web/icons/Icon-maskable-192.png |  Bin 0 -> 5594 bytes
+ .../verdure/client/web/icons/Icon-maskable-512.png |  Bin 0 -> 20998 bytes
+ examples/verdure/client/web/index.html             |   41 +
+ examples/verdure/client/web/manifest.json          |   35 +
+ packages/genui_a2ui/README.md                      |    5 +-
+ packages/genui_a2ui/build.yaml                     |   14 +
+ packages/genui_a2ui/lib/src/a2a/a2a.dart           |   24 +
+ .../genui_a2ui/lib/src/a2a/client/a2a_client.dart  |  444 +++++++
+ .../lib/src/a2a/client/a2a_exception.dart          |   92 ++
+ .../lib/src/a2a/client/a2a_exception.freezed.dart  |  991 ++++++++++++++
+ .../lib/src/a2a/client/a2a_exception.g.dart        |  145 +++
+ .../genui_a2ui/lib/src/a2a/client/a2a_handler.dart |   46 +
+ .../lib/src/a2a/client/http_transport.dart         |  113 ++
+ .../genui_a2ui/lib/src/a2a/client/sse_parser.dart  |   74 ++
+ .../lib/src/a2a/client/sse_transport.dart          |   82 ++
+ .../genui_a2ui/lib/src/a2a/client/transport.dart   |   72 ++
+ .../lib/src/a2a/core/agent_capabilities.dart       |   50 +
+ .../src/a2a/core/agent_capabilities.freezed.dart   |  319 +++++
+ .../lib/src/a2a/core/agent_capabilities.g.dart     |   27 +
+ .../genui_a2ui/lib/src/a2a/core/agent_card.dart    |  113 ++
+ .../lib/src/a2a/core/agent_card.freezed.dart       |  529 ++++++++
+ .../genui_a2ui/lib/src/a2a/core/agent_card.g.dart  |   89 ++
+ .../lib/src/a2a/core/agent_extension.dart          |   38 +
+ .../lib/src/a2a/core/agent_extension.freezed.dart  |  305 +++++
+ .../lib/src/a2a/core/agent_extension.g.dart        |   25 +
+ .../lib/src/a2a/core/agent_interface.dart          |   49 +
+ .../lib/src/a2a/core/agent_interface.freezed.dart  |  288 +++++
+ .../lib/src/a2a/core/agent_interface.g.dart        |   27 +
+ .../lib/src/a2a/core/agent_provider.dart           |   31 +
+ .../lib/src/a2a/core/agent_provider.freezed.dart   |  284 ++++
+ .../lib/src/a2a/core/agent_provider.g.dart         |   21 +
+ .../genui_a2ui/lib/src/a2a/core/agent_skill.dart   |   53 +
+ .../lib/src/a2a/core/agent_skill.freezed.dart      |  368 ++++++
+ .../genui_a2ui/lib/src/a2a/core/agent_skill.g.dart |   47 +
+ packages/genui_a2ui/lib/src/a2a/core/events.dart   |   81 ++
+ .../lib/src/a2a/core/events.freezed.dart           |  523 ++++++++
+ packages/genui_a2ui/lib/src/a2a/core/events.g.dart |   64 +
+ .../lib/src/a2a/core/list_tasks_params.dart        |   61 +
+ .../src/a2a/core/list_tasks_params.freezed.dart    |  347 +++++
+ .../lib/src/a2a/core/list_tasks_params.g.dart      |   45 +
+ .../lib/src/a2a/core/list_tasks_result.dart        |   39 +
+ .../src/a2a/core/list_tasks_result.freezed.dart    |  310 +++++
+ .../lib/src/a2a/core/list_tasks_result.g.dart      |   27 +
+ packages/genui_a2ui/lib/src/a2a/core/message.dart  |   70 +
+ .../lib/src/a2a/core/message.freezed.dart          |  376 ++++++
+ .../genui_a2ui/lib/src/a2a/core/message.g.dart     |   41 +
+ packages/genui_a2ui/lib/src/a2a/core/part.dart     |  103 ++
+ .../genui_a2ui/lib/src/a2a/core/part.freezed.dart  |  908 +++++++++++++
+ packages/genui_a2ui/lib/src/a2a/core/part.g.dart   |   76 ++
+ .../lib/src/a2a/core/push_notification.dart        |   72 ++
+ .../src/a2a/core/push_notification.freezed.dart    |  889 +++++++++++++
+ .../lib/src/a2a/core/push_notification.g.dart      |   63 +
+ .../lib/src/a2a/core/security_scheme.dart          |  149 +++
+ .../lib/src/a2a/core/security_scheme.freezed.dart  | 1352 ++++++++++++++++++++
+ .../lib/src/a2a/core/security_scheme.g.dart        |  129 ++
+ packages/genui_a2ui/lib/src/a2a/core/task.dart     |  144 +++
+ .../genui_a2ui/lib/src/a2a/core/task.freezed.dart  |  998 +++++++++++++++
+ packages/genui_a2ui/lib/src/a2a/core/task.g.dart   |   84 ++
+ .../genui_a2ui/lib/src/a2ui_agent_connector.dart   |  229 ++--
+ packages/genui_a2ui/pubspec.yaml                   |   11 +-
+ .../a2a/client/a2a_client_compliance_test.dart     |  109 ++
+ .../test/a2a/client/a2a_client_test.dart           |  253 ++++
+ .../test/a2a/client/http_transport_test.dart       |   65 +
+ .../test/a2a/client/sse_transport_test.dart        |  143 +++
+ .../genui_a2ui/test/a2a/core/agent_card_test.dart  |  148 +++
+ .../genui_a2ui/test/a2a/core/data_models_test.dart |  210 +++
+ packages/genui_a2ui/test/a2a/example_test.dart     |  104 ++
+ packages/genui_a2ui/test/a2a/fake_transport.dart   |   71 +
+ packages/genui_a2ui/test/a2a/fakes.dart            |   80 ++
+ .../genui_a2ui/test/a2ui_agent_connector_test.dart |  143 +--
+ .../test/a2ui_content_generator_test.dart          |   17 +-
+ packages/genui_a2ui/test/fakes.dart                |  149 +--
+ pubspec.lock                                       |   24 +
+ pubspec.yaml                                       |   12 +-
+ tool/test_and_fix/GEMINI.md                        |    2 +
+ 80 files changed, 13296 insertions(+), 283 deletions(-)
+
+commit 03d81a054a5f882ae9c36f7a344db26dff3e3d5d
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Thu Dec 18 16:07:18 2025 -0800
+
+    Return dartantic to monorepo, update changelogs. (#624)
+
+ examples/verdure/client/pubspec.yaml             |   3 +-
+ packages/genui/CHANGELOG.md                      |   2 +
+ packages/genui_a2ui/CHANGELOG.md                 |   4 +
+ packages/genui_a2ui/pubspec.yaml                 |   3 +-
+ packages/genui_a2ui/test/fakes.dart              |  25 +++--
+ packages/genui_dartantic/CHANGELOG.md            |   2 +
+ packages/genui_dartantic/example/pubspec.yaml    |   6 +-
+ packages/genui_dartantic/pubspec.yaml            |   2 +
+ packages/genui_firebase_ai/CHANGELOG.md          |   2 +
+ packages/genui_google_generative_ai/CHANGELOG.md |   2 +
+ pubspec.lock                                     | 130 ++++++++++++++++++++++-
+ pubspec.yaml                                     |   2 +
+ 12 files changed, 163 insertions(+), 20 deletions(-)
+
+commit da1de1d2bdc8459c372a72fbef34d1cdc5a16f52
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Thu Dec 18 16:41:39 2025 -0500
+
+    fix(genui): fix `DateTimeInput` core catalog item (#622)
+
+ .../src/catalog/core_widgets/date_time_input.dart  | 206 ++++++++++++---
+ .../catalog/core_widgets/date_time_input_test.dart | 282 ++++++++++++++++++---
+ 2 files changed, 417 insertions(+), 71 deletions(-)
+
+commit 4ef7ec6dd436b86fa192db710455114494a97766
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Dec 18 10:52:00 2025 -0800
+
+    Update diagram and table. (#621)
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit dda017c52ca9befed9e57690bc1318063e243f51
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Dec 18 10:25:47 2025 -0800
+
+    Update README.md (#620)
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 7aced2c88af845f373c739ec9e18a4d93b659ae0
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Wed Dec 17 15:25:04 2025 -0800
+
+    Add missing files (#617)
+
+ packages/genui_dartantic/CHANGELOG.md |  5 +++++
+ packages/genui_dartantic/LICENSE      | 26 ++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
+
+commit ddd481ee389e281615864ab32aa2ed4e9aa25085
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Wed Dec 17 14:45:27 2025 -0800
+
+    Temporarily remove dartantic from monorepo (#616)
+
+ packages/genui_dartantic/example/pubspec.yaml    |   9 +-
+ packages/genui_dartantic/pubspec.yaml            |   6 +-
+ packages/genui_google_generative_ai/pubspec.yaml |   1 +
+ pubspec.lock                                     | 130 +----------------------
+ pubspec.yaml                                     |   2 -
+ 5 files changed, 14 insertions(+), 134 deletions(-)
+
+commit eafd9ee2e3d9237a1b98ce7913e9340235f89b91
+Author: Chris Sells <csells@sellsbrothers.com>
+Date:   Wed Dec 17 13:16:02 2025 -0800
+
+    Add Dartantic Content Generator (#583)
+
+ .gitignore                                         |   3 +-
+ .vscode/launch.json                                |  18 +-
+ packages/genui_dartantic/README.md                 | 115 ++++
+ packages/genui_dartantic/example/.gitignore        |  45 ++
+ packages/genui_dartantic/example/.metadata         |  30 +
+ packages/genui_dartantic/example/README.md         |  67 ++
+ .../genui_dartantic/example/analysis_options.yaml  |   5 +
+ packages/genui_dartantic/example/lib/main.dart     |  33 +
+ .../genui_dartantic/example/lib/src/catalog.dart   |  43 ++
+ .../genui_dartantic/example/lib/src/game_page.dart | 186 ++++++
+ .../example/lib/src/jumping_dots.dart              |  99 +++
+ .../example/lib/src/provider_selection_page.dart   | 133 ++++
+ .../example/lib/src/thinking_verbs.dart            | 106 ++++
+ .../example/lib/src/tic_tac_toe_board.dart         |  59 ++
+ packages/genui_dartantic/example/macos/.gitignore  |   7 +
+ .../example/macos/Flutter/Flutter-Debug.xcconfig   |   1 +
+ .../example/macos/Flutter/Flutter-Release.xcconfig |   1 +
+ .../macos/Flutter/GeneratedPluginRegistrant.swift  |  10 +
+ .../example/macos/Runner.xcodeproj/project.pbxproj | 705 +++++++++++++++++++++
+ .../xcshareddata/IDEWorkspaceChecks.plist          |   8 +
+ .../xcshareddata/xcschemes/Runner.xcscheme         |  99 +++
+ .../Runner.xcworkspace/contents.xcworkspacedata    |   7 +
+ .../xcshareddata/IDEWorkspaceChecks.plist          |   8 +
+ .../example/macos/Runner/AppDelegate.swift         |  17 +
+ .../AppIcon.appiconset/Contents.json               |  68 ++
+ .../AppIcon.appiconset/app_icon_1024.png           | Bin 0 -> 102994 bytes
+ .../AppIcon.appiconset/app_icon_128.png            | Bin 0 -> 5680 bytes
+ .../AppIcon.appiconset/app_icon_16.png             | Bin 0 -> 520 bytes
+ .../AppIcon.appiconset/app_icon_256.png            | Bin 0 -> 14142 bytes
+ .../AppIcon.appiconset/app_icon_32.png             | Bin 0 -> 1066 bytes
+ .../AppIcon.appiconset/app_icon_512.png            | Bin 0 -> 36406 bytes
+ .../AppIcon.appiconset/app_icon_64.png             | Bin 0 -> 2218 bytes
+ .../example/macos/Runner/Base.lproj/MainMenu.xib   | 343 ++++++++++
+ .../example/macos/Runner/Configs/AppInfo.xcconfig  |  14 +
+ .../example/macos/Runner/Configs/Debug.xcconfig    |   2 +
+ .../example/macos/Runner/Configs/Release.xcconfig  |   2 +
+ .../example/macos/Runner/Configs/Warnings.xcconfig |  13 +
+ .../example/macos/Runner/DebugProfile.entitlements |  14 +
+ .../example/macos/Runner/Info.plist                |  32 +
+ .../example/macos/Runner/MainFlutterWindow.swift   |  19 +
+ .../example/macos/Runner/Release.entitlements      |  10 +
+ .../example/macos/RunnerTests/RunnerTests.swift    |  16 +
+ packages/genui_dartantic/example/pubspec.yaml      |  32 +
+ .../example/readme/genui-tic-tac-toe.mov           | Bin 0 -> 3279117 bytes
+ packages/genui_dartantic/lib/genui_dartantic.dart  |  36 ++
+ .../lib/src/dartantic_content_converter.dart       | 274 ++++++++
+ .../lib/src/dartantic_content_generator.dart       | 215 +++++++
+ .../lib/src/dartantic_schema_adapter.dart          |  17 +
+ packages/genui_dartantic/pubspec.yaml              |  29 +
+ .../test/dartantic_content_converter_test.dart     | 291 +++++++++
+ .../test/dartantic_content_generator_test.dart     | 106 ++++
+ .../test/dartantic_schema_adapter_test.dart        | 122 ++++
+ packages/genui_google_generative_ai/README.md      |   2 +-
+ .../lib/src/google_content_converter.dart          |   3 +-
+ .../google_generative_ai_content_generator.dart    |   7 +-
+ pubspec.lock                                       | 122 +++-
+ pubspec.yaml                                       |   2 +
+ 57 files changed, 3586 insertions(+), 10 deletions(-)
+
+commit f38374a51424806b153e647b4343582cf44eb059
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Dec 17 13:08:04 2025 -0800
+
+    Create boilerplate for the package ai_primitives. (#606)
+
+ packages/genai_primitives/CHANGELOG.md             |   1 +
+ packages/genai_primitives/LICENSE                  |  26 ++
+ packages/genai_primitives/README.md                |   1 +
+ packages/genai_primitives/example/example.dart     |  10 +
+ .../genai_primitives/lib/genai_primitives.dart     |  12 +
+ .../lib/src/genai_primitives_base.dart             |  10 +
+ packages/genai_primitives/pubspec.lock             | 389 +++++++++++++++++++++
+ packages/genai_primitives/pubspec.yaml             |  14 +
+ .../genai_primitives/test/ai_primitives_test.dart  |  20 ++
+ 9 files changed, 483 insertions(+)
+
+commit cf405cb6837a13a749d94a4fc5d2e159124917f9
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Dec 17 13:00:49 2025 -0800
+
+    Fix test  failures at main. (#615)
+
+ examples/verdure/client/pubspec.yaml | 3 ++-
+ packages/genui_a2ui/pubspec.yaml     | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit bbc489c4258661b5d3feb705f08d08d6b2804ac6
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Tue Dec 16 23:18:24 2025 -0500
+
+    fix(genui): add missing `weight` property to `Component` constructor; default `TextField` `width` to 1 when nested in a `Row` (#603)
+
+ .../genui/lib/src/catalog/core_widgets/column.dart |   4 +-
+ .../genui/lib/src/catalog/core_widgets/row.dart    |  13 +-
+ .../lib/src/catalog/core_widgets/text_field.dart   |   1 +
+ .../src/catalog/core_widgets/widget_helpers.dart   |   4 +-
+ packages/genui/lib/src/core/ui_tools.dart          |   1 +
+ .../test/catalog/core_widgets/text_field_test.dart | 134 +++++++++++++++++++++
+ packages/genui/test/core/ui_tools_test.dart        |  51 ++++++++
+ 7 files changed, 201 insertions(+), 7 deletions(-)
+
+commit 3ed7d09a5cd66a0d90cc91448efe6278137d4b5c
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Tue Dec 16 13:14:03 2025 -0800
+
+    Bump versions in preparation for publishing (#608)
+
+ docs/migration_0.5.1_to_0.6.0.md                 | 72 ++++++++++++++++++++++++
+ examples/catalog_gallery/pubspec.yaml            |  2 +-
+ examples/custom_backend/pubspec.yaml             |  2 +-
+ examples/simple_chat/pubspec.yaml                |  6 +-
+ examples/travel_app/pubspec.yaml                 |  6 +-
+ examples/verdure/client/pubspec.yaml             |  4 +-
+ packages/genui/CHANGELOG.md                      |  7 ++-
+ packages/genui/pubspec.yaml                      |  2 +-
+ packages/genui_a2ui/CHANGELOG.md                 |  5 +-
+ packages/genui_a2ui/example/pubspec.yaml         |  4 +-
+ packages/genui_a2ui/pubspec.yaml                 |  4 +-
+ packages/genui_firebase_ai/CHANGELOG.md          |  7 ++-
+ packages/genui_firebase_ai/pubspec.yaml          |  4 +-
+ packages/genui_google_generative_ai/CHANGELOG.md |  5 +-
+ packages/genui_google_generative_ai/pubspec.yaml |  4 +-
+ pubspec.lock                                     | 52 ++++++++---------
+ 16 files changed, 137 insertions(+), 49 deletions(-)
+
+commit 80836fd8738ab48ca805457a15ec319fbfe11b79
+Author: Yegor <yjbanov@google.com>
+Date:   Tue Dec 16 10:49:10 2025 -0700
+
+    [cleanup] refer to path separator char consistently (#605)
+
+ packages/genui/lib/src/model/data_model.dart | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0319f1e30eda55983e2e371472d5e7407de72ce9
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Dec 17 01:27:10 2025 +0800
+
+    feat(hexin_demo): add simple financial components
+    
+    - Add StockQuote component for stock price display
+    - Add MarketIndex component for market indices
+    - Add AlertCard component for notifications
+    - Add QuickActions interactive component
+    - Simplify catalog to 2 components (StockQuote + Trailhead) to avoid Gemini API schema complexity limits
+
+ .../hexin_demo/lib/src/catalog/alert_card.dart     |  88 ++++++++++
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  18 +-
+ .../hexin_demo/lib/src/catalog/market_index.dart   |  80 +++++++++
+ .../hexin_demo/lib/src/catalog/quick_actions.dart  | 189 +++++++++++++++++++++
+ .../hexin_demo/lib/src/catalog/stock_quote.dart    | 101 +++++++++++
+ examples/hexin_demo/lib/src/catalog/test_card.dart |  65 -------
+ 6 files changed, 464 insertions(+), 77 deletions(-)
+
+commit 60b93f99fc4e1bdd78d7b4724ea5cd469f553d32
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Dec 17 01:09:00 2025 +0800
+
+    fix(hexin_demo): refactor advisor_page to use GenUiManager pattern
+    
+    - Replace non-existent A2uiMessageProcessor with GenUiManager
+    - Add Conversation widget for rendering chat messages
+    - Fix GenUiConversation constructor parameters
+    - Add AutomaticKeepAliveClientMixin for tab state preservation
+    - Simplify catalog to 4 core components to avoid schema limits
+    - Add exampleData and fix structure in stock_chart.dart
+
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  14 +-
+ .../hexin_demo/lib/src/catalog/stock_chart.dart    |  39 ++-
+ .../hexin_demo/lib/src/pages/advisor_page.dart     | 312 ++++++++++++---------
+ .../hexin_demo/lib/src/widgets/conversation.dart   |  99 +++++++
+ 4 files changed, 330 insertions(+), 134 deletions(-)
+
+commit bc40fa422634cf5cf0abb929e9f0881f1f1e72eb
+Author: mytangyh <mytangyh@gmail.com>
+Date:   Wed Dec 17 00:14:06 2025 +0800
+
+    hexin demo
+
+ examples/hexin_demo/.gitignore                     |  45 ++
+ examples/hexin_demo/.metadata                      |  36 ++
+ examples/hexin_demo/README.md                      | 145 ++++++
+ examples/hexin_demo/analysis_options.yaml          |   5 +
+ examples/hexin_demo/android/.gitignore             |  14 +
+ examples/hexin_demo/android/app/build.gradle.kts   |  44 ++
+ .../android/app/src/debug/AndroidManifest.xml      |   7 +
+ .../android/app/src/main/AndroidManifest.xml       |  45 ++
+ .../kotlin/com/example/hexin_demo/MainActivity.kt  |   5 +
+ .../main/res/drawable-v21/launch_background.xml    |  12 +
+ .../src/main/res/drawable/launch_background.xml    |  12 +
+ .../app/src/main/res/mipmap-hdpi/ic_launcher.png   | Bin 0 -> 544 bytes
+ .../app/src/main/res/mipmap-mdpi/ic_launcher.png   | Bin 0 -> 442 bytes
+ .../app/src/main/res/mipmap-xhdpi/ic_launcher.png  | Bin 0 -> 721 bytes
+ .../app/src/main/res/mipmap-xxhdpi/ic_launcher.png | Bin 0 -> 1031 bytes
+ .../src/main/res/mipmap-xxxhdpi/ic_launcher.png    | Bin 0 -> 1443 bytes
+ .../app/src/main/res/values-night/styles.xml       |  18 +
+ .../android/app/src/main/res/values/styles.xml     |  18 +
+ .../android/app/src/profile/AndroidManifest.xml    |   7 +
+ examples/hexin_demo/android/build.gradle.kts       |  24 +
+ examples/hexin_demo/android/gradle.properties      |   2 +
+ .../gradle/wrapper/gradle-wrapper.properties       |   5 +
+ examples/hexin_demo/android/settings.gradle.kts    |  26 +
+ examples/hexin_demo/lib/main.dart                  |  75 +++
+ .../lib/src/catalog/asset_allocation_pie.dart      | 161 +++++++
+ examples/hexin_demo/lib/src/catalog/catalog.dart   |  18 +
+ .../lib/src/catalog/information_card.dart          | 169 +++++++
+ .../lib/src/catalog/market_news_card.dart          | 178 +++++++
+ .../lib/src/catalog/portfolio_summary.dart         | 267 +++++++++++
+ .../lib/src/catalog/risk_assessment_card.dart      | 224 +++++++++
+ .../lib/src/catalog/simple_test_card.dart          |  79 +++
+ .../hexin_demo/lib/src/catalog/stock_chart.dart    | 189 ++++++++
+ examples/hexin_demo/lib/src/catalog/test_card.dart |  65 +++
+ .../lib/src/catalog/trade_recommendation.dart      | 251 ++++++++++
+ examples/hexin_demo/lib/src/catalog/trailhead.dart | 146 ++++++
+ .../hexin_demo/lib/src/config/configuration.dart   |  19 +
+ examples/hexin_demo/lib/src/models/portfolio.dart  |  60 +++
+ .../hexin_demo/lib/src/models/recommendation.dart  |  40 ++
+ examples/hexin_demo/lib/src/models/stock.dart      |  67 +++
+ .../hexin_demo/lib/src/pages/advisor_page.dart     | 317 ++++++++++++
+ .../lib/src/pages/catalog_gallery_page.dart        |  40 ++
+ .../lib/src/services/mock_data_service.dart        | 229 +++++++++
+ .../lib/src/tools/analyze_risk_tool.dart           |  26 +
+ .../lib/src/tools/get_portfolio_tool.dart          |  27 ++
+ .../lib/src/tools/get_recommendations_tool.dart    |  44 ++
+ .../lib/src/tools/get_stock_data_tool.dart         |  42 ++
+ examples/hexin_demo/lib/src/utils.dart             |  19 +
+ examples/hexin_demo/linux/.gitignore               |   1 +
+ examples/hexin_demo/linux/CMakeLists.txt           | 128 +++++
+ examples/hexin_demo/linux/flutter/CMakeLists.txt   |  88 ++++
+ .../linux/flutter/generated_plugin_registrant.cc   |  11 +
+ .../linux/flutter/generated_plugin_registrant.h    |  15 +
+ .../linux/flutter/generated_plugins.cmake          |  23 +
+ examples/hexin_demo/linux/runner/CMakeLists.txt    |  26 +
+ examples/hexin_demo/linux/runner/main.cc           |   6 +
+ examples/hexin_demo/linux/runner/my_application.cc | 148 ++++++
+ examples/hexin_demo/linux/runner/my_application.h  |  21 +
+ examples/hexin_demo/pubspec.lock                   | 534 +++++++++++++++++++++
+ examples/hexin_demo/pubspec.yaml                   |  43 ++
+ examples/hexin_demo/test/widget_test.dart          |  22 +
+ examples/hexin_demo/web/favicon.png                | Bin 0 -> 917 bytes
+ examples/hexin_demo/web/icons/Icon-192.png         | Bin 0 -> 5292 bytes
+ examples/hexin_demo/web/icons/Icon-512.png         | Bin 0 -> 8252 bytes
+ .../hexin_demo/web/icons/Icon-maskable-192.png     | Bin 0 -> 5594 bytes
+ .../hexin_demo/web/icons/Icon-maskable-512.png     | Bin 0 -> 20998 bytes
+ examples/hexin_demo/web/index.html                 |  38 ++
+ examples/hexin_demo/web/manifest.json              |  35 ++
+ 67 files changed, 4361 insertions(+)
+
+commit 0d6c78cb1bf6e98a2dcbb8fc44fc23aef33bdcff
+Author: mytangyh <mytangyh@163.com>
+Date:   Wed Dec 17 00:09:03 2025 +0800
+
+    Comment out google-services plugin in travel_app example
+
+ examples/travel_app/android/app/build.gradle.kts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 106091e04e13a8d8debc219323565e17620a89f6
+Author: Seth Ladd <sethladd@gmail.com>
+Date:   Mon Dec 15 18:17:03 2025 -0800
+
+    Add features section to README (#604)
+
+ README.md | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit bd4c750e6ff49cdccec284923f79a27359e5c083
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Thu Dec 11 20:44:26 2025 -0800
+
+    Bump dependent package versions to the latest that work with Flutter stable (#601)
+    
+    * Bump dependent package versions to the latest that work with Flutter stable
+    
+    * Fix ImagePart mimeType to not be nullable.
+
+ packages/genui/lib/src/model/chat_message.dart     |  23 ++--
+ .../genui_a2ui/lib/src/a2ui_agent_connector.dart   |   4 +-
+ .../lib/src/gemini_content_converter.dart          |   4 +-
+ .../test/gemini_content_converter_test.dart        |   2 +-
+ packages/genui_google_generative_ai/CHANGELOG.md   |   2 +
+ .../google_generative_ai_content_generator.dart    |  77 ++++++-------
+ .../lib/src/google_schema_adapter.dart             |  20 ++--
+ packages/genui_google_generative_ai/pubspec.yaml   |   4 +-
+ .../test/google_content_converter_test.dart        |  17 ++-
+ ...oogle_generative_ai_content_generator_test.dart | 125 ++++++++++-----------
+ .../test/google_schema_adapter_test.dart           |   6 +-
+ pubspec.lock                                       |  32 ++----
+ 12 files changed, 157 insertions(+), 159 deletions(-)
+
+commit 733405e67029ed1a27c6bc47ff6f55d4e5beeb0b
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Thu Dec 11 16:02:42 2025 -0800
+
+    fix(genui): handle non-integer values provided for `maxAllowedSelections` in `MultipleChoice` (#585)
+    
+    Currently, passing a double (e.g. 3.0) for maxAllowedSelections in the
+    MultipleChoice widget JSON would cause a type cast error, crashing the app.
+    This change safely casts the value to num? before converting to int.
+    Adds a regression test to ensure non-integer values are handled correctly.
+
+ packages/genui/CHANGELOG.md                        |  1 +
+ .../src/catalog/core_widgets/multiple_choice.dart  |  3 +-
+ .../catalog/core_widgets/multiple_choice_test.dart | 73 ++++++++++++++++++++--
+ pubspec.lock                                       | 28 ++++++---
+ 4 files changed, 88 insertions(+), 17 deletions(-)
+
+commit f0ae103ab4a9ab11cb2d63a5acfc7c9b2149c4c3
+Author: Andrew Kolos <andrewrkolos@gmail.com>
+Date:   Thu Dec 11 15:37:34 2025 -0800
+
+    fix(genui): inherit DefaultTextStyle in Text widget for better nesting support (#584)
+
+ packages/genui/CHANGELOG.md                        |  4 +-
+ .../genui/lib/src/catalog/core_widgets/text.dart   |  2 +-
+ .../genui/test/catalog/core_widgets/text_test.dart | 45 ++++++++++++++++++++++
+ 3 files changed, 49 insertions(+), 2 deletions(-)
+
+commit 268934a86d6d294c161b89b1415d5aaf0de57ab8
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Thu Dec 11 11:59:54 2025 -0800
+
+    Add smoke testWidgets to simple_chat. (#596)
+
+ .../lib/{ => api_key}/io_get_api_key.dart          | 11 +++++++---
+ .../lib/{ => api_key}/web_get_api_key.dart         | 11 +++++++---
+ examples/simple_chat/lib/main.dart                 |  6 +++---
+ examples/simple_chat/test/smoke_test.dart          | 24 ++++++++++++++++++++++
+ 4 files changed, 43 insertions(+), 9 deletions(-)
+
+commit d69148f35a29feb148b5714085856ae7755cf96b
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Dec 10 16:51:39 2025 -0800
+
+    Reorganize code and update diagram. (#598)
+
+ README.md                                                               | 1 +
+ packages/genui/lib/genui.dart                                           | 2 +-
+ .../genui/lib/src/{conversation => facade}/gen_ui_conversation.dart     | 0
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit a5b25fd71e4dab1b27bef1acc8a5d6a1bea46b8f
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Dec 10 14:14:50 2025 -0800
+
+    Add examples to diagram and document process for pubspec.lock. (#595)
+
+ CONTRIBUTING.md |   7 ++++
+ README.md       |   9 ++++-
+ pubspec.lock    | 120 ++++++++++++++++++++++++++------------------------------
+ 3 files changed, 71 insertions(+), 65 deletions(-)
+
+commit 40616b2445aab4dc48258fba4882334ee265e7e3
+Author: Greg Spencer <gspencergoog@users.noreply.github.com>
+Date:   Wed Dec 10 12:10:26 2025 -0800
+
+    Fix Verdure example server on macOS, iOS and Android (#593)
+    
+    * Fix Verdure example server
+    
+    * Update examples/verdure/server/a2ui_extension/src/a2ui_ext/__init__.py
+    
+    Co-authored-by: gemini-code-assist[bot] <176961590+gemini-code-assist[bot]@users.noreply.github.com>
+    
+    ---------
+    
+    Co-authored-by: gemini-code-assist[bot] <176961590+gemini-code-assist[bot]@users.noreply.github.com>
+
+ examples/verdure/client/ios/Podfile.lock                        | 8 +++++++-
+ examples/verdure/client/macos/Podfile.lock                      | 6 ++++++
+ examples/verdure/server/a2ui_extension/src/a2ui_ext/__init__.py | 3 ++-
+ examples/verdure/server/verdure/ui_examples.py                  | 2 +-
+ 4 files changed, 16 insertions(+), 3 deletions(-)
+
+commit cfa854c337c80363f4266698f6f05f623f2cbe0c
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Wed Dec 10 09:47:11 2025 -0800
+
+    Add diagram, link pub.dev and fix capitalization in the headers. (#592)
+
+ README.md | 38 ++++++++++++++++++++++++--------------
+ 1 file changed, 24 insertions(+), 14 deletions(-)
+
+commit 9fb8b68a0102c1dccd811cf5242a954c8bd45eaa
+Author: jacobsimionato <jsimionato@google.com>
+Date:   Wed Dec 10 08:36:11 2025 +1030
+
+    Rename GenUiManager to A2uiMessageProcessor (#587)
+
+ examples/catalog_gallery/lib/samples_view.dart     |  21 +++--
+ examples/custom_backend/lib/main.dart              |   8 +-
+ examples/simple_chat/README.md                     |   2 +-
+ examples/simple_chat/lib/main.dart                 |   6 +-
+ examples/travel_app/README.md                      |   2 +-
+ .../travel_app/lib/src/travel_planner_page.dart    |  16 ++--
+ .../travel_app/lib/src/widgets/conversation.dart   |   2 +-
+ .../travel_app/test/widgets/conversation_test.dart |   4 +-
+ .../client/lib/features/ai/ai_provider.dart        |  14 +--
+ .../screens/order_confirmation_screen.dart         |   7 +-
+ .../lib/features/screens/presentation_screen.dart  |   7 +-
+ .../lib/features/screens/questionnaire_screen.dart |   7 +-
+ .../lib/features/screens/shopping_cart_screen.dart |   7 +-
+ .../.guides/docs/connect_to_agent_provider.md      |  16 ++--
+ .../.guides/docs/create_a_custom_catalogitem.md    |   4 +-
+ packages/genui/.guides/examples/riddles.dart       |  52 +++++------
+ packages/genui/.guides/usage.md                    |  10 +-
+ packages/genui/CHANGELOG.md                        |   2 +-
+ packages/genui/DESIGN.md                           |  48 +++++-----
+ packages/genui/README.md                           | 101 ++++++++++++---------
+ packages/genui/lib/genui.dart                      |   2 +-
+ packages/genui/lib/src/content_generator.dart      |   2 +-
+ .../lib/src/conversation/gen_ui_conversation.dart  |  24 ++---
+ ...ui_manager.dart => a2ui_message_processor.dart} |  10 +-
+ packages/genui/lib/src/core/genui_surface.dart     |   4 +-
+ .../src/development_utilities/catalog_view.dart    |  19 ++--
+ .../test/catalog/core_widgets/button_test.dart     |   2 +-
+ .../genui/test/catalog/core_widgets/card_test.dart |   2 +-
+ .../test/catalog/core_widgets/check_box_test.dart  |   2 +-
+ .../test/catalog/core_widgets/column_test.dart     |   4 +-
+ .../catalog/core_widgets/date_time_input_test.dart |   2 +-
+ .../test/catalog/core_widgets/divider_test.dart    |   2 +-
+ .../genui/test/catalog/core_widgets/icon_test.dart |   4 +-
+ .../genui/test/catalog/core_widgets/list_test.dart |   2 +-
+ .../test/catalog/core_widgets/modal_test.dart      |   2 +-
+ .../catalog/core_widgets/multiple_choice_test.dart |   2 +-
+ .../genui/test/catalog/core_widgets/row_test.dart  |   4 +-
+ .../test/catalog/core_widgets/slider_test.dart     |   2 +-
+ .../genui/test/catalog/core_widgets/tabs_test.dart |   2 +-
+ packages/genui/test/catalog/core_widgets_test.dart |  20 ++--
+ ..._test.dart => a2ui_message_processor_test.dart} |  71 +++++++++------
+ packages/genui/test/genui_surface_test.dart        |  24 ++---
+ packages/genui/test/ui_tools_test.dart             |  16 ++--
+ packages/genui_a2ui/DESIGN.md                      |  16 ++--
+ packages/genui_a2ui/GEMINI.md                      |   2 +-
+ packages/genui_a2ui/README.md                      |  14 +--
+ packages/genui_a2ui/example/lib/main.dart          |  16 ++--
+ packages/genui_firebase_ai/README.md               |   4 +-
+ 48 files changed, 320 insertions(+), 292 deletions(-)
+
+commit 061ba8943160894a16ab0ffeaae99b7859e0ac49
+Author: Polina Cherkasova <polina.c@live.com>
+Date:   Tue Dec 9 12:25:40 2025 -0800
+
+    Retire genUI configuration. (#586)
+
+ packages/genui/lib/genui.dart                      |  1 -
+ .../genui/lib/src/core/genui_configuration.dart    | 39 ----------------------
+ packages/genui/lib/src/core/genui_manager.dart     |  8 +----
+ packages/genui/lib/src/core/ui_tools.dart          | 19 ++++-------
+ .../test/catalog/core_widgets/button_test.dart     |  1 -
+ .../genui/test/catalog/core_widgets/card_test.dart |  1 -
+ .../test/catalog/core_widgets/check_box_test.dart  |  1 -
+ .../test/catalog/core_widgets/column_test.dart     |  2 --
+ .../catalog/core_widgets/date_time_input_test.dart |  1 -
+ .../test/catalog/core_widgets/divider_test.dart    |  1 -
+ .../genui/test/catalog/core_widgets/icon_test.dart |  2 --
+ .../genui/test/catalog/core_widgets/list_test.dart |  1 -
+ .../test/catalog/core_widgets/modal_test.dart      |  1 -
+ .../catalog/core_widgets/multiple_choice_test.dart |  1 -
+ .../genui/test/catalog/core_widgets/row_test.dart  |  2 --
+ .../test/catalog/core_widgets/slider_test.dart     |  1 -
+ .../genui/test/catalog/core_widgets/tabs_test.dart |  1 -
+ packages/genui/test/catalog/core_widgets_test.dart |  5 +--
+ packages/genui/test/core/genui_manager_test.dart   | 11 +-----
+ packages/genui/test/core/ui_tools_test.dart        |  2 --
+ packages/genui/test/genui_surface_test.dart        |  5 +--
+ packages/genui/test/ui_tools_test.dart             | 12 +------
+ .../lib/src/firebase_ai_content_generator.dart     | 26 +++++----------
+ .../google_generative_ai_content_generator.dart    | 26 +++++----------
+ 24 files changed, 29 insertions(+), 141 deletions(-)
+
+commit bdbe4e2f376a17a5e8ed13e4e338ec325591ebd6
+Author: jacobsimionato <jsimionato@google.com>
+Date:   Tue Dec 9 21:45:40 2025 +1030
+
+    Implement A2UI catalog negotiation (#576)
+
+ examples/catalog_gallery/lib/samples_view.dart     |  4 +-
+ examples/custom_backend/lib/main.dart              |  2 +-
+ examples/simple_chat/lib/main.dart                 |  2 +-
+ examples/travel_app/lib/src/catalog.dart           | 49 +++++-------
+ .../travel_app/lib/src/travel_planner_page.dart    | 11 +--
+ .../travel_app/test/widgets/conversation_test.dart |  2 +-
+ .../client/lib/features/ai/ai_provider.dart        |  2 +-
+ packages/genui/CHANGELOG.md                        |  4 +
+ packages/genui/README.md                           |  4 +-
+ packages/genui/lib/genui.dart                      |  1 +
+ packages/genui/lib/src/catalog/core_catalog.dart   |  3 +-
+ packages/genui/lib/src/content_generator.dart      |  2 +
+ .../lib/src/conversation/gen_ui_conversation.dart  | 14 +++-
+ packages/genui/lib/src/core/genui_manager.dart     | 17 ++---
+ packages/genui/lib/src/core/genui_surface.dart     | 47 +++++++++++-
+ packages/genui/lib/src/core/ui_tools.dart          | 24 ++----
+ .../src/development_utilities/catalog_view.dart    |  2 +-
+ .../lib/src/model/a2ui_client_capabilities.dart    | 40 ++++++++++
+ packages/genui/lib/src/model/a2ui_message.dart     |  5 ++
+ packages/genui/lib/src/model/a2ui_schemas.dart     | 29 ++++++++
+ packages/genui/lib/src/model/catalog.dart          | 14 ++--
+ packages/genui/lib/src/model/ui_models.dart        |  6 ++
+ packages/genui/lib/src/primitives/constants.dart   |  6 ++
+ .../genui/lib/test/fake_content_generator.dart     |  5 ++
+ .../test/catalog/core_widgets/button_test.dart     | 13 +++-
+ .../genui/test/catalog/core_widgets/card_test.dart | 13 +++-
+ .../test/catalog/core_widgets/check_box_test.dart  | 10 ++-
+ .../test/catalog/core_widgets/column_test.dart     | 26 ++++++-
+ .../catalog/core_widgets/date_time_input_test.dart | 13 +++-
+ .../test/catalog/core_widgets/divider_test.dart    | 10 ++-
+ .../genui/test/catalog/core_widgets/icon_test.dart | 20 ++++-
+ .../genui/test/catalog/core_widgets/list_test.dart | 13 +++-
+ .../test/catalog/core_widgets/modal_test.dart      | 18 +++--
+ .../catalog/core_widgets/multiple_choice_test.dart | 13 +++-
+ .../genui/test/catalog/core_widgets/row_test.dart  | 26 ++++++-
+ .../test/catalog/core_widgets/slider_test.dart     | 10 ++-
+ .../genui/test/catalog/core_widgets/tabs_test.dart | 13 +++-
+ packages/genui/test/catalog/core_widgets_test.dart |  8 +-
+ packages/genui/test/catalog_test.dart              |  7 ++
+ packages/genui/test/core/genui_manager_test.dart   | 21 +++++-
+ packages/genui/test/core/ui_tools_test.dart        |  8 +-
+ packages/genui/test/genui_surface_test.dart        | 87 +++++++++++++++++++---
+ packages/genui/test/model/ui_definition_test.dart  |  1 +
+ packages/genui/test/ui_tools_test.dart             |  8 +-
+ packages/genui_a2ui/example/lib/main.dart          |  2 +-
+ .../genui_a2ui/lib/src/a2ui_agent_connector.dart   | 11 ++-
+ .../genui_a2ui/lib/src/a2ui_content_generator.dart |  6 +-
+ .../genui_a2ui/test/a2ui_agent_connector_test.dart | 20 +++++
+ .../test/a2ui_content_generator_test.dart          | 28 ++++++-
+ packages/genui_a2ui/test/fakes.dart                |  7 +-
+ packages/genui_firebase_ai/README.md               |  2 +-
+ .../lib/src/firebase_ai_content_generator.dart     |  6 +-
+ .../google_generative_ai_content_generator.dart    |  6 +-
+ 53 files changed, 571 insertions(+), 150 deletions(-)
+
+commit be542303f854bbf3d06f07e97ea269ce0e49eab7
+Author: jacobsimionato <jsimionato@google.com>
+Date:   Sat Dec 6 02:30:02 2025 +1030
+
+    Update A2UI extension name to https://a2ui.org/a2a-extension/a2ui/v0.8 (#581)
+
+ packages/genui_a2ui/lib/src/a2ui_agent_connector.dart | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 31c491f0f93dbaf8e4d60ff47ee80d7b77f4ebc8
+Author: jacobsimionato <jsimionato@google.com>
+Date:   Fri Dec 5 02:41:59 2025 +1030
+
+    Fix genui_a2ui example app build for iOS and MacOS (#579)
+
+ packages/genui_a2ui/example/.metadata                     | 15 +++++++++------
+ .../project.xcworkspace/contents.xcworkspacedata          |  7 +++++++
+ .../ios/Runner.xcworkspace/contents.xcworkspacedata       |  7 +++++++
+ .../example/ios/Runner/Runner-Bridging-Header.h           |  5 +++++
+ .../macos/Runner.xcworkspace/contents.xcworkspacedata     |  7 +++++++
+ 5 files changed, 35 insertions(+), 6 deletions(-)
+
+commit 9280fc02484487f8e3f4ca093f31048c6a8e3729
+Author: Bjorn-Donald Bassey <bjorndonaldb@gmail.com>
+Date:   Mon Dec 1 06:25:31 2025 +0100
+
+    Update documentation for the genui implemention - 'Getting Started wi… (#573)
+
+ packages/genui/CHANGELOG.md | 1 +
+ packages/genui/README.md    | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)

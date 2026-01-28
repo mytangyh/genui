@@ -8,6 +8,8 @@ import 'package:hexin_ai_ui/hexin_ai_ui.dart';
 import 'package:hexin_dsl/hexin_dsl.dart';
 import 'package:hexin_highlights/hexin_highlights.dart';
 
+import 'messages_tab.dart';
+
 class MessagePage extends StatefulWidget {
   const MessagePage({super.key});
 
@@ -160,40 +162,9 @@ class _MessagePageState extends State<MessagePage>
           ),
         );
       case 'messages':
-        return _buildMessagesEmptyState();
+        return const MessagesTab();
       default:
         return const SizedBox.shrink();
     }
-  }
-
-  Widget _buildMessagesEmptyState() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        // Placeholder for a mascot/image
-        Container(
-          width: 120,
-          height: 120,
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.05),
-            shape: BoxShape.circle,
-          ),
-          child: const Icon(
-            Icons.chat_bubble_outline,
-            size: 60,
-            color: Colors.white24,
-          ),
-        ),
-        const SizedBox(height: 24),
-        const Text(
-          '暂无消息',
-          style: TextStyle(
-            color: Colors.white38,
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ],
-    );
   }
 }
