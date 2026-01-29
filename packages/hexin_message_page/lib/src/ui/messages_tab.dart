@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../models/message_models.dart';
 import '../services/message_service.dart';
@@ -185,6 +186,25 @@ class _MessagesTabState extends State<MessagesTab>
         }
       },
     );
+  }
+
+  void _onCopy(String text) {
+    Clipboard.setData(ClipboardData(text: text)).then((_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('已复制到剪切板'),
+            behavior: SnackBarBehavior.floating,
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    });
+  }
+
+  void _onRetryAiSummary() {
+    // Clear previous interaction steps related to this summary and retry
+    _onTriggerAiSummary();
   }
 
   Future<void> _onMarkAsRead() async {
@@ -453,9 +473,10 @@ class _MessagesTabState extends State<MessagesTab>
               padding: const EdgeInsets.symmetric(horizontal: 64, vertical: 8),
               child: Row(
                 children: [
-                  _buildFeedbackButton(Icons.thumb_up_outlined, '有用'),
-                  const SizedBox(width: 16),
-                  _buildFeedbackButton(Icons.thumb_down_outlined, '没用'),
+                  _buildIconButton(
+                      Icons.copy_outlined, () => _onCopy(item.summaryText!)),
+                  const SizedBox(width: 24),
+                  _buildIconButton(Icons.refresh_outlined, _onRetryAiSummary),
                 ],
               ),
             ),
@@ -483,35 +504,10 @@ class _MessagesTabState extends State<MessagesTab>
     }
   }
 
-  Widget _buildFeedbackButton(IconData icon, String label) {
+  Widget _buildIconButton(IconData icon, VoidCallback onTap) {
     return GestureDetector(
-      onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('感谢您的反馈：$label'),
-            behavior: SnackBarBehavior.floating,
-            duration: const Duration(seconds: 1),
-          ),
-        );
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        decoration: BoxDecoration(
-          color: const Color(0xFF232232),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 14, color: const Color(0xFF999999)),
-            const SizedBox(width: 4),
-            Text(
-              label,
-              style: const TextStyle(color: Color(0xFF999999), fontSize: 12),
-            ),
-          ],
-        ),
-      ),
+      onTap: onTap,
+      child: Icon(icon, size: 20, color: const Color(0xFF919191)),
     );
   }
 
