@@ -1,0 +1,581 @@
+[ +373 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[  +50 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[   +3 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[  +79 ms] Skipping pub get: version match.
+[  +41 ms] Found plugin path_provider at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+[   +3 ms] Found plugin path_provider_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.10\
+[   +2 ms] Found plugin path_provider_foundation at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+[   +2 ms] Found plugin path_provider_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+[   +3 ms] Found plugin path_provider_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+[   +5 ms] Found plugin record at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record-5.2.1\
+[   +1 ms] Found plugin record_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_android-1.3.3\
+[   +1 ms] Found plugin record_darwin at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_darwin-1.2.2\
+[   +1 ms] Found plugin record_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_linux-0.7.2\
+[   +2 ms] Found plugin record_web at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_web-1.1.9\
+[   +1 ms] Found plugin record_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_windows-1.0.6\
+[   +1 ms] Found plugin sherpa_onnx at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx-1.12.23\
+[   +3 ms] Found plugin sherpa_onnx_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_android-1.12.23\
+[   +2 ms] Found plugin sherpa_onnx_ios at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_ios-1.12.23\
+[   +1 ms] Found plugin sherpa_onnx_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_linux-1.12.23\
+[   +2 ms] Found plugin sherpa_onnx_macos at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_macos-1.12.23\
+[   +1 ms] Found plugin sherpa_onnx_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_windows-1.12.23\
+[  +51 ms] Found plugin path_provider at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider-2.1.5\
+[   +1 ms] Found plugin path_provider_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.10\
+[   +1 ms] Found plugin path_provider_foundation at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_foundation-2.4.1\
+[   +1 ms] Found plugin path_provider_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_linux-2.2.1\
+[   +1 ms] Found plugin path_provider_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_windows-2.3.0\
+[   +2 ms] Found plugin record at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record-5.2.1\
+[        ] Found plugin record_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_android-1.3.3\
+[        ] Found plugin record_darwin at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_darwin-1.2.2\
+[        ] Found plugin record_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_linux-0.7.2\
+[   +1 ms] Found plugin record_web at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_web-1.1.9\
+[        ] Found plugin record_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_windows-1.0.6\
+[   +1 ms] Found plugin sherpa_onnx at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx-1.12.23\
+[   +1 ms] Found plugin sherpa_onnx_android at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_android-1.12.23\
+[        ] Found plugin sherpa_onnx_ios at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_ios-1.12.23\
+[        ] Found plugin sherpa_onnx_linux at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_linux-1.12.23\
+[        ] Found plugin sherpa_onnx_macos at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_macos-1.12.23\
+[        ] Found plugin sherpa_onnx_windows at C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_windows-1.12.23\
+[  +19 ms] Generating D:\Code\gitRepo\genui\packages\hexin_speech\example\android\app\src\main\java\io\flutter\plugins\GeneratedPluginRegistrant.java
+[  +75 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +144 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +123 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +105 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +119 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +123 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[ +108 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio 2\jbr\bin\java -version
+[        ] openjdk version "21.0.8" 2025-07-15
+           OpenJDK Runtime Environment (build 21.0.8+-14196175-b1038.72)
+           OpenJDK 64-Bit Server VM (build 21.0.8+-14196175-b1038.72, mixed mode)
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio\jbr\bin\java -version
+[ +105 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio\jbr\bin\java -version
+[        ] openjdk version "21.0.9" 2025-10-21
+           OpenJDK Runtime Environment (build 21.0.9+-14649483-b1163.86)
+           OpenJDK 64-Bit Server VM (build 21.0.9+-14649483-b1163.86, mixed mode)
+[   +6 ms] Top-level Gradle build file not found, skipping migration of task "clean".
+[   +1 ms] executing: D:\Code\JetBrains\Android Studio\jbr\bin\java --version
+[ +101 ms] Exit code 0 from: D:\Code\JetBrains\Android Studio\jbr\bin\java --version
+[        ] openjdk 21.0.9 2025-10-21
+           OpenJDK Runtime Environment (build 21.0.9+-14649483-b1163.86)
+           OpenJDK 64-Bit Server VM (build 21.0.9+-14649483-b1163.86, mixed mode)
+[   +1 ms] Version of Java is different than impacted version, no migration attempted.
+[  +27 ms] Using gradle from D:\Code\gitRepo\genui\packages\hexin_speech\example\android\gradlew.bat.
+[   +1 ms] Running Gradle task 'assembleRelease'...
+[   +5 ms] executing: [D:\Code\gitRepo\genui\packages\hexin_speech\example\android/] D:\Code\gitRepo\genui\packages\hexin_speech\example\android\gradlew.bat --full-stacktrace --info -Pverbose=true -Ptarget-platform=android-arm,android-arm64,android-x64 -Ptarget=lib\main.dart -Pbase-application-name=android.app.Application -Pdart-obfuscation=false -Ptrack-widget-creation=true -Ptree-shake-icons=true assembleRelease
+[ +639 ms] Initialized native services in: C:\Users\tangyh\.gradle\native
+[        ] Initialized jansi services in: C:\Users\tangyh\.gradle\native
+[ +223 ms] Found daemon DaemonInfo{pid=20300, address=[4542fd65-390e-4323-b68c-699144081851 port:60926, addresses:[/127.0.0.1]], state=Idle, lastBusy=1769674690663, context=DefaultDaemonContext[uid=035cf224-d017-4528-916c-5434cf467162,javaHome=C:\Program Files\Java\jdk-25,javaVersion=25,javaVendor=Oracle Corporation,daemonRegistryDir=C:\Users\tangyh\.gradle\daemon,pid=20300,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=CN,-Duser.language=zh,-Duser.variant]} however its context does not match the desired criteria.
+[        ] JVM is incompatible.
+[        ] Wanted: DaemonRequestContext{jvmCriteria=D:\Code\JetBrains\Android Studio\jbr (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=4G, -XX:ReservedCodeCacheSize=512m, -XX:+HeapDumpOnOutOfMemoryError, -Xmx8G, -Dfile.encoding=UTF-8, -Duser.country=CN, -Duser.language=zh, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+[        ] Actual: DefaultDaemonContext[uid=035cf224-d017-4528-916c-5434cf467162,javaHome=C:\Program Files\Java\jdk-25,javaVersion=25,javaVendor=Oracle Corporation,daemonRegistryDir=C:\Users\tangyh\.gradle\daemon,pid=20300,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=4G,-XX:ReservedCodeCacheSize=512m,-XX:+HeapDumpOnOutOfMemoryError,-Xmx8G,-Dfile.encoding=UTF-8,-Duser.country=CN,-Duser.language=zh,-Duser.variant]
+[        ]   Looking for a different daemon...
+[  +93 ms] The client will now receive all logging from the daemon (pid: 26920). The daemon log file: C:\Users\tangyh\.gradle\daemon\8.14\daemon-26920.out.log
+[        ] Starting 5th build in daemon [uptime: 10 mins 8.335 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 8 GiB, non-heap usage: 5% of 4 GiB]
+[        ] Using 16 worker leases.
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\fileHashes\fileHashes.bin
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\buildOutputCleanup\outputFiles.bin
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\fileHashes\resourceHashesCache.bin
+[        ] Now considering [D:\Code\gitRepo\genui\packages\hexin_speech\example\android, D:\Code\fvm\versions\3.22.0\packages\flutter_tools\gradle] as hierarchies to watch
+[        ] Watching the file system is configured to be enabled if available
+[        ] File system watching is active
+[        ] Starting Build
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\checksums\md5-checksums.bin
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\checksums\sha1-checksums.bin
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\checksums\sha256-checksums.bin
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\checksums\sha512-checksums.bin
+[        ] Now considering [D:\Code\fvm\versions\3.22.0\packages\flutter_tools\gradle, D:\Code\gitRepo\genui\packages\hexin_speech\example\android] as hierarchies to watch
+[ +108 ms] > Configure project :gradle
+[        ] Evaluating project ':gradle' using build file 'D:\Code\fvm\versions\3.22.0\packages\flutter_tools\gradle\build.gradle.kts'.
+[        ] Resolved plugin [id: 'org.gradle.java-gradle-plugin']
+[        ] Resolved plugin [id: 'org.gradle.groovy']
+[        ] Resolved plugin [id: 'dev.flutter.flutter-plugin-loader', version: '1.0.0']
+[        ] Resolved plugin [id: 'com.android.application', version: '8.9.1', apply: false]
+[        ] Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.1.0', apply: false]
+[        ] Resolve mutations for :gradle:compileJava (Thread[#854,Execution worker Thread 2,5,main]) started.
+[        ] :gradle:compileJava (Thread[#854,Execution worker Thread 2,5,main]) started.
+[        ] > Task :gradle:compileJava NO-SOURCE
+[        ] Skipping task ':gradle:compileJava' as it has no source files and no previous output files.
+[        ] Resolve mutations for :gradle:compileGroovy (Thread[#854,Execution worker Thread 2,5,main]) started.
+[        ] :gradle:compileGroovy (Thread[#854,Execution worker Thread 2,5,main]) started.
+[        ] > Task :gradle:compileGroovy UP-TO-DATE
+[        ] Caching disabled for task ':gradle:compileGroovy' because:
+[        ]   Build cache is disabled
+[        ] Skipping task ':gradle:compileGroovy' as it is up-to-date.
+[        ] Resolve mutations for :gradle:pluginDescriptors (Thread[#854,Execution worker Thread 2,5,main]) started.
+[        ] :gradle:pluginDescriptors (Thread[#859,Execution worker Thread 7,5,main]) started.
+[        ] > Task :gradle:pluginDescriptors UP-TO-DATE
+[        ] Caching disabled for task ':gradle:pluginDescriptors' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:pluginDescriptors' as it is up-to-date.
+[        ] Resolve mutations for :gradle:processResources (Thread[#859,Execution worker Thread 7,5,main]) started.
+[        ] :gradle:processResources (Thread[#859,Execution worker Thread 7,5,main]) started.
+[        ] > Task :gradle:processResources UP-TO-DATE
+[        ] Caching disabled for task ':gradle:processResources' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:processResources' as it is up-to-date.
+[        ] Resolve mutations for :gradle:classes (Thread[#859,Execution worker Thread 7,5,main]) started.
+[        ] :gradle:classes (Thread[#856,Execution worker Thread 4,5,main]) started.
+[        ] > Task :gradle:classes UP-TO-DATE
+[        ] Skipping task ':gradle:classes' as it has no actions.
+[        ] Resolve mutations for :gradle:jar (Thread[#856,Execution worker Thread 4,5,main]) started.
+[        ] :gradle:jar (Thread[#852,included builds,5,main]) started.
+[        ] > Task :gradle:jar UP-TO-DATE
+[        ] Caching disabled for task ':gradle:jar' because:
+[        ]   Build cache is disabled
+[        ]   Not worth caching
+[        ] Skipping task ':gradle:jar' as it is up-to-date.
+[  +88 ms] Settings evaluated using settings file 'D:\Code\gitRepo\genui\packages\hexin_speech\example\android\settings.gradle.kts'.
+[        ] Projects loaded. Root project using build file 'D:\Code\gitRepo\genui\packages\hexin_speech\example\android\build.gradle.kts'.
+[        ] Included projects: [root project 'android', project ':app', project ':path_provider_android', project ':record_android', project ':sherpa_onnx_android']
+[ +294 ms] > Configure project :app
+[        ] Evaluating project ':app' using build file 'D:\Code\gitRepo\genui\packages\hexin_speech\example\android\app\build.gradle.kts'.
+[        ] Resolved plugin [id: 'com.android.application']
+[        ] Resolved plugin [id: 'kotlin-android']
+[        ] Resolved plugin [id: 'dev.flutter.flutter-gradle-plugin']
+[        ] Using default execution profile
+[        ] Using Kotlin Gradle Plugin gradle85 variant
+[        ] > Configure project :
+[        ] Evaluating root project 'android' using build file 'D:\Code\gitRepo\genui\packages\hexin_speech\example\android\build.gradle.kts'.
+[        ] > Configure project :path_provider_android
+[        ] Evaluating project ':path_provider_android' using build file 'C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\path_provider_android-2.2.10\android\build.gradle'.
+[        ] Using default execution profile
+[ +107 ms] > Configure project :record_android
+[        ] Evaluating project ':record_android' using build file 'C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\record_android-1.3.3\android\build.gradle'.
+[        ] Using default execution profile
+[        ] Using Kotlin Gradle Plugin gradle85 variant
+[  +92 ms] > Configure project :sherpa_onnx_android
+[        ] Evaluating project ':sherpa_onnx_android' using build file 'C:\Users\tangyh\AppData\Local\Pub\Cache\hosted\pub.dev\sherpa_onnx_android-1.12.23\android\build.gradle'.
+[        ] Using default execution profile
+[        ] All projects evaluated.
+[        ] Task name matched 'assembleRelease'
+[        ] Selected primary task 'assembleRelease' from project :
+[ +111 ms] Tasks to be executed: [task ':app:preBuild', task ':app:preReleaseBuild', task ':app:mergeReleaseJniLibFolders', task ':app:compileFlutterBuildRelease', task ':app:packJniLibsflutterBuildRelease', task ':path_provider_android:preBuild', task ':path_provider_android:preReleaseBuild', task ':path_provider_android:mergeReleaseJniLibFolders', task ':path_provider_android:mergeReleaseNativeLibs', task ':path_provider_android:copyReleaseJniLibsProjectOnly', task ':record_android:preBuild', task ':record_android:preReleaseBuild', task ':record_android:mergeReleaseJniLibFolders', task ':record_android:mergeReleaseNativeLibs', task ':record_android:copyReleaseJniLibsProjectOnly', task ':sherpa_onnx_android:preBuild', task ':sherpa_onnx_android:preReleaseBuild', task ':sherpa_onnx_android:mergeReleaseJniLibFolders', task ':sherpa_onnx_android:mergeReleaseNativeLibs', task ':sherpa_onnx_android:copyReleaseJniLibsProjectOnly', task ':app:mergeReleaseNativeLibs', task ':app:stripReleaseDebugSymbols', task ':app:extractReleaseNativeSymbolTables', task ':app:mergeReleaseNativeDebugMetadata', task ':path_provider_android:generateReleaseResValues', task ':path_provider_android:generateReleaseResources', task ':path_provider_android:packageReleaseResources', task ':path_provider_android:parseReleaseLocalResources', task ':path_provider_android:generateReleaseRFile', task ':path_provider_android:javaPreCompileRelease', task ':path_provider_android:compileReleaseJavaWithJavac', task ':path_provider_android:mergeReleaseGeneratedProguardFiles', task ':path_provider_android:exportReleaseConsumerProguardFiles', task ':record_android:checkKotlinGradlePluginConfigurationErrors', task ':record_android:generateReleaseResValues', task ':record_android:generateReleaseResources', task ':record_android:packageReleaseResources', task ':record_android:parseReleaseLocalResources', task ':record_android:generateReleaseRFile', task ':record_android:compileReleaseKotlin', task ':record_android:javaPreCompileRelease', task ':record_android:compileReleaseJavaWithJavac', task ':record_android:mergeReleaseGeneratedProguardFiles', task ':record_android:exportReleaseConsumerProguardFiles', task ':sherpa_onnx_android:generateReleaseResValues', task ':sherpa_onnx_android:generateReleaseResources', task ':sherpa_onnx_android:packageReleaseResources', task ':sherpa_onnx_android:parseReleaseLocalResources', task ':sherpa_onnx_android:generateReleaseRFile', task ':sherpa_onnx_android:javaPreCompileRelease', task ':sherpa_onnx_android:compileReleaseJavaWithJavac', task ':sherpa_onnx_android:mergeReleaseGeneratedProguardFiles', task ':sherpa_onnx_android:exportReleaseConsumerProguardFiles', task ':app:buildKotlinToolingMetadata', task ':app:checkReleaseDuplicateClasses', task ':app:checkKotlinGradlePluginConfigurationErrors', task ':path_provider_android:writeReleaseAarMetadata', task ':record_android:writeReleaseAarMetadata', task ':sherpa_onnx_android:writeReleaseAarMetadata', task ':app:checkReleaseAarMetadata', task ':app:cleanMergeReleaseAssets', task ':app:mergeReleaseShaders', task ':app:compileReleaseShaders', task ':app:generateReleaseAssets', task ':path_provider_android:mergeReleaseShaders', task ':path_provider_android:compileReleaseShaders', task ':path_provider_android:generateReleaseAssets', task ':path_provider_android:mergeReleaseAssets', task ':record_android:mergeReleaseShaders', task ':record_android:compileReleaseShaders', task ':record_android:generateReleaseAssets', task ':record_android:mergeReleaseAssets', task ':sherpa_onnx_android:mergeReleaseShaders', task ':sherpa_onnx_android:compileReleaseShaders', task ':sherpa_onnx_android:generateReleaseAssets', task ':sherpa_onnx_android:mergeReleaseAssets', task ':app:mergeReleaseAssets', task ':app:copyFlutterAssetsRelease', task ':app:generateReleaseResValues', task ':app:mapReleaseSourceSetPaths', task ':app:generateReleaseResources', task ':app:mergeReleaseResources', task ':app:packageReleaseResources', task ':app:parseReleaseLocalResources', task ':app:createReleaseCompatibleScreenManifests', task ':app:extractDeepLinksRelease', task ':path_provider_android:extractDeepLinksRelease', task ':path_provider_android:processReleaseManifest', task ':record_android:extractDeepLinksRelease', task ':record_android:processReleaseManifest', task ':sherpa_onnx_android:extractDeepLinksRelease', task ':sherpa_onnx_android:processReleaseManifest', task ':app:processReleaseMainManifest', task ':app:processReleaseManifest', task ':app:processReleaseManifestForPackage', task ':app:processReleaseResources', task ':path_provider_android:bundleLibCompileToJarRelease', task ':record_android:bundleLibCompileToJarRelease', task ':sherpa_onnx_android:bundleLibCompileToJarRelease', task ':app:compileReleaseKotlin', task ':app:javaPreCompileRelease', task ':app:compileReleaseJavaWithJavac', task ':path_provider_android:prepareReleaseArtProfile', task ':record_android:prepareReleaseArtProfile', task ':sherpa_onnx_android:prepareReleaseArtProfile', task ':app:mergeReleaseArtProfile', task ':path_provider_android:bundleLibRuntimeToJarRelease', task ':record_android:bundleLibRuntimeToJarRelease', task ':sherpa_onnx_android:bundleLibRuntimeToJarRelease', task ':app:expandReleaseArtProfileWildcards', task ':app:extractProguardFiles', task ':app:mergeReleaseGeneratedProguardFiles', task ':app:processReleaseJavaRes', task ':path_provider_android:processReleaseJavaRes', task ':record_android:processReleaseJavaRes', task ':sherpa_onnx_android:processReleaseJavaRes', task ':app:mergeReleaseJavaResource', task ':app:mergeReleaseStartupProfile', task ':app:minifyReleaseWithR8', task ':app:compileReleaseArtProfile', task ':app:compressReleaseAssets', task ':app:extractReleaseVersionControlInfo', task ':path_provider_android:createFullJarRelease', task ':path_provider_android:extractProguardFiles', task ':path_provider_android:generateReleaseLintModel', task ':path_provider_android:prepareLintJarForPublish', task ':record_android:createFullJarRelease', task ':record_android:extractProguardFiles', task ':record_android:generateReleaseLintModel', task ':record_android:prepareLintJarForPublish', task ':sherpa_onnx_android:createFullJarRelease', task ':sherpa_onnx_android:extractProguardFiles', task ':sherpa_onnx_android:generateReleaseLintModel', task ':sherpa_onnx_android:prepareLintJarForPublish', task ':app:generateReleaseLintVitalReportModel', task ':path_provider_android:stripReleaseDebugSymbols', task ':path_provider_android:copyReleaseJniLibsProjectAndLocalJars', task ':path_provider_android:extractDeepLinksForAarRelease', task ':path_provider_android:extractReleaseAnnotations', task ':path_provider_android:mergeReleaseConsumerProguardFiles', task ':path_provider_android:mergeReleaseJavaResource', task ':path_provider_android:syncReleaseLibJars', task ':path_provider_android:bundleReleaseLocalLintAar', task ':record_android:stripReleaseDebugSymbols', task ':record_android:copyReleaseJniLibsProjectAndLocalJars', task ':record_android:extractDeepLinksForAarRelease', task ':record_android:extractReleaseAnnotations', task ':record_android:mergeReleaseConsumerProguardFiles', task ':record_android:mergeReleaseJavaResource', task ':record_android:syncReleaseLibJars', task ':record_android:bundleReleaseLocalLintAar', task ':sherpa_onnx_android:stripReleaseDebugSymbols', task ':sherpa_onnx_android:copyReleaseJniLibsProjectAndLocalJars', task ':sherpa_onnx_android:extractDeepLinksForAarRelease', task ':sherpa_onnx_android:extractReleaseAnnotations', task ':sherpa_onnx_android:mergeReleaseConsumerProguardFiles', task ':sherpa_onnx_android:mergeReleaseJavaResource', task ':sherpa_onnx_android:syncReleaseLibJars', task ':sherpa_onnx_android:bundleReleaseLocalLintAar', task ':path_provider_android:lintVitalAnalyzeRelease', task ':path_provider_android:writeReleaseLintModelMetadata', task ':record_android:lintVitalAnalyzeRelease', task ':record_android:writeReleaseLintModelMetadata', task ':sherpa_onnx_android:lintVitalAnalyzeRelease', task ':sherpa_onnx_android:writeReleaseLintModelMetadata', task ':app:lintVitalAnalyzeRelease', task ':path_provider_android:generateReleaseLintVitalModel', task ':record_android:generateReleaseLintVitalModel', task ':sherpa_onnx_android:generateReleaseLintVitalModel', task ':app:lintVitalReportRelease', task ':app:lintVitalRelease', task ':app:convertShrunkResourcesToBinaryRelease', task ':app:optimizeReleaseResources', task ':app:collectReleaseDependencies', task ':app:sdkReleaseDependencyData', task ':app:validateSigningRelease', task ':app:writeReleaseAppMetadata', task ':app:writeReleaseSigningConfigVersions', task ':app:packageRelease', task ':app:createReleaseApkListingFileRedirect', task ':app:assembleRelease', task ':path_provider_android:bundleReleaseAar', task ':path_provider_android:mapReleaseSourceSetPaths', task ':path_provider_android:mergeReleaseResources', task ':path_provider_android:verifyReleaseResources', task ':path_provider_android:assembleRelease', task ':record_android:bundleReleaseAar', task ':record_android:mapReleaseSourceSetPaths', task ':record_android:mergeReleaseResources', task ':record_android:verifyReleaseResources', task ':record_android:assembleRelease', task ':sherpa_onnx_android:bundleReleaseAar', task ':sherpa_onnx_android:mapReleaseSourceSetPaths', task ':sherpa_onnx_android:mergeReleaseResources', task ':sherpa_onnx_android:verifyReleaseResources', task ':sherpa_onnx_android:assembleRelease']
+[        ] Tasks that were excluded: []
+[        ] work action Parameters of FilterShrinkerRulesTransform (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] work action Parameters of ExtractAarTransform (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] Resolve mutations for :app:preBuild (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] :app:preBuild (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] Invalidating in-memory cache of D:\Code\gitRepo\genui\packages\hexin_speech\example\android\.gradle\8.14\executionHistory\executionHistory.bin
+[        ] > Task :app:preBuild UP-TO-DATE
+[        ] Skipping task ':app:preBuild' as it has no actions.
+[        ] Resolve mutations for :app:preReleaseBuild (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] :app:preReleaseBuild (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] > Task :app:preReleaseBuild UP-TO-DATE
+[        ] Skipping task ':app:preReleaseBuild' as it has no actions.
+[        ] Resolve mutations for :app:mergeReleaseJniLibFolders (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] :app:mergeReleaseJniLibFolders (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] > Task :app:mergeReleaseJniLibFolders
+[        ] Deleting stale output file: D:\Code\gitRepo\genui\packages\hexin_speech\example\build\app\intermediates\merged_jni_libs\release\mergeReleaseJniLibFolders\out
+[        ] Caching disabled for task ':app:mergeReleaseJniLibFolders' because:
+[        ]   Build cache is disabled
+[        ]   Simple merging task
+[        ] Task ':app:mergeReleaseJniLibFolders' is not up-to-date because:
+[        ]   No history is available.
+[        ] The input changes require a full rebuild for incremental task ':app:mergeReleaseJniLibFolders'.
+[        ] Resolve mutations for :app:compileFlutterBuildRelease (Thread[#863,Execution worker Thread 11,5,main]) started.
+[        ] :app:compileFlutterBuildRelease (Thread[#863,Execution worker Thread 11,5,main]) started.
+[+1986 ms] > Task :app:compileFlutterBuildRelease
+[        ] Deleting stale output file: D:\Code\gitRepo\genui\packages\hexin_speech\example\build\app\intermediates\flutter\release
+[        ] Caching disabled for task ':app:compileFlutterBuildRelease' because:
+[        ]   Build cache is disabled
+[        ]   Caching has not been enabled for the task
+[        ] Task ':app:compileFlutterBuildRelease' is not up-to-date because:
+[        ]   No history is available.
+[        ] Starting process 'command 'D:\Code\fvm\versions\3.22.0\bin\flutter.bat''. Working directory: D:\Code\gitRepo\genui\packages\hexin_speech\example Command: D:\Code\fvm\versions\3.22.0\bin\flutter.bat --verbose assemble --no-version-check --depfile D:\Code\gitRepo\genui\packages\hexin_speech\example\build\app\intermediates\flutter\release/flutter_build.d --output D:\Code\gitRepo\genui\packages\hexin_speech\example\build\app\intermediates\flutter\release -dTargetFile=lib\main.dart -dTargetPlatform=android -dBuildMode=release -dTrackWidgetCreation=true -dTreeShakeIcons=true -dFlavor= -dAndroidArchs=android-arm android-arm64 android-x64 -dMinSdkVersion=21 android_aot_bundle_release_android-arm android_aot_bundle_release_android-arm64 android_aot_bundle_release_android-x64
+[        ] Successfully started process 'command 'D:\Code\fvm\versions\3.22.0\bin\flutter.bat''
+[        ] [ +285 ms] Artifact Instance of 'AndroidGenSnapshotArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[        ] [   +2 ms] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] [  +57 ms] Artifact Instance of 'MaterialFonts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'GradleWrapper' is not required, skipping update.
+[        ] [   +3 ms] Artifact Instance of 'AndroidInternalBuildArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterWebSdk' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LegacyCanvasKitRemover' is not required, skipping update.
+[   +1 ms] [        ] Artifact Instance of 'FlutterSdk' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'WindowsEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxEngineArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'LinuxFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'MacOSFuchsiaSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerSDKArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FlutterRunnerDebugSymbols' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'IosUsbArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'FontSubsetArtifacts' is not required, skipping update.
+[        ] [        ] Artifact Instance of 'PubDependencies' is not required, skipping update.
+[        ] [  +48 ms] Initializing file store
+[        ] [   +9 ms] Done initializing file store
+[        ] [  +79 ms] Skipping target: native_assets
+[        ] [   +1 ms] Skipping target: gen_localizations
+[        ] [   +2 ms] Skipping target: gen_dart_plugin_registrant
+[        ] [ +372 ms] kernel_snapshot: Starting due to {}
+[        ] [   +5 ms] Embedding native assets mapping D:\Code\gitRepo\genui\packages\hexin_speech\example\.dart_tool\flutter_build\25c7ecabd3b40ac7ed8d3eb8aaf5387c\native_assets.yaml in kernel.
+[        ] [   +6 ms] D:\Code\fvm\versions\3.22.0\bin\cache\dart-sdk\bin\dartaotruntime.exe --disable-dart-dev D:\Code\fvm\versions\3.22.0\bin\cache\dart-sdk\bin\snapshots\frontend_server_aot.dart.snapshot --sdk-root D:\Code\fvm\versions\3.22.0\bin\cache\artifacts\engine\common\flutter_patched_sdk_product/ --target=flutter --no-print-incremental-dependencies -Ddart.vm.profile=false -Ddart.vm.product=true --delete-tostring-package-uri=dart:ui --delete-tostring-package-uri=package:flutter --aot --tfa --target-os android --packages D:\Code\gitRepo\genui\packages\hexin_speech\example\.dart_tool\package_config.json --output-dill D:\Code\gitRepo\genui\packages\hexin_speech\example\.dart_tool\flutter_build\25c7ecabd3b40ac7ed8d3eb8aaf5387c\app.dill --depfile D:\Code\gitRepo\genui\packages\hexin_speech\example\.dart_tool\flutter_build\25c7ecabd3b40ac7ed8d3eb8aaf5387c\kernel_snapshot.d --source file:///D:/Code/gitRepo/genui/packages/hexin_speech/example/.dart_tool/flutter_build/dart_plugin_registrant.dart --source package:flutter/src/dart_plugin_registrant.dart -Dflutter.dart_plugin_registrant=file:///D:/Code/gitRepo/genui/packages/hexin_speech/example/.dart_tool/flutter_build/dart_plugin_registrant.dart --native-assets D:\Code\gitRepo\genui\packages\hexin_speech\example\.dart_tool\flutter_build\25c7ecabd3b40ac7ed8d3eb8aaf5387c\native_assets.yaml --verbosity=error package:hexin_speech_example/main.dart
+[ +104 ms] [ +919 ms] /C:/Users/tangyh/AppData/Local/Pub/Cache/hosted/pub.dev/record_linux-0.7.2/lib/record_linux.dart:12:7: Error: The non-abstract class 'RecordLinux' is missing implementations for these members:
+[   +1 ms] [   +1 ms]  - RecordPlatform.startStream
+[        ] [        ] Try to either
+[        ] [        ]  - provide an implementation,
+[        ] [        ]  - inherit an implementation from a superclass or mixin,
+[        ] [        ]  - mark the class as abstract, or
+[        ] [        ]  - provide a 'noSuchMethod' implementation.
+[        ] [        ] class RecordLinux extends RecordPlatform {
+[        ] [        ]       ^^^^^^^^^^^
+[        ] [        ] /C:/Users/tangyh/AppData/Local/Pub/Cache/hosted/pub.dev/record_platform_interface-1.3.0/lib/src/record_platform_interface.dart:55:29: Context: 'RecordPlatform.startStream' is defined here.
+[        ] [        ]   Future<Stream<Uint8List>> startStream(
+[        ] [        ]                             ^^^^^^^^^^^
+[+3694 ms] [+3703 ms] Persisting file store
+[        ] [   +6 ms] Done persisting file store
+[        ] [   +3 ms] Target kernel_snapshot failed: Exception
+[        ]            #0      KernelSnapshot.build (package:flutter_tools/src/build_system/targets/common.dart:274:7)
+[        ]            <asynchronous suspension>
+[        ]            #1      _BuildInstance._invokeInternal (package:flutter_tools/src/build_system/build_system.dart:875:9)
+[        ]            <asynchronous suspension>
+[        ]            #2      Future.wait.<anonymous closure> (dart:async/future.dart:524:21)
+[        ]            <asynchronous suspension>
+[        ]            #3      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+[        ]            <asynchronous suspension>
+[        ]            #4      Future.wait.<anonymous closure> (dart:async/future.dart:524:21)
+[        ]            <asynchronous suspension>
+[        ]            #5      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+[        ]            <asynchronous suspension>
+[        ]            #6      Future.wait.<anonymous closure> (dart:async/future.dart:524:21)
+[        ]            <asynchronous suspension>
+[        ]            #7      _BuildInstance.invokeTarget (package:flutter_tools/src/build_system/build_system.dart:813:32)
+[        ]            <asynchronous suspension>
+[        ]            #8      FlutterBuildSystem.build (package:flutter_tools/src/build_system/build_system.dart:642:16)
+[        ]            <asynchronous suspension>
+[        ]            #9      AssembleCommand.runCommand (package:flutter_tools/src/commands/assemble.dart:322:32)
+[        ]            <asynchronous suspension>
+[        ]            #10     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1394:27)
+[        ]            <asynchronous suspension>
+[        ]            #11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #12     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+[        ]            <asynchronous suspension>
+[        ]            #13     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:372:9)
+[        ]            <asynchronous suspension>
+[        ]            #14     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #15     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:308:5)
+[        ]            <asynchronous suspension>
+[        ]            #16     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+[        ]            <asynchronous suspension>
+[        ]            #17     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #18     main (package:flutter_tools/executable.dart:93:3)
+[        ]            <asynchronous suspension>
+[        ] [  +38 ms] 
+[        ]            #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+[        ]            #1      AssembleCommand.runCommand (package:flutter_tools/src/commands/assemble.dart:339:7)
+[        ]            <asynchronous suspension>
+[        ]            #2      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1394:27)
+[        ]            <asynchronous suspension>
+[        ] [   +4 ms] "flutter assemble" took 5,240ms.
+[        ]            #3      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #4      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+[        ]            <asynchronous suspension>
+[        ]            #5      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:372:9)
+[        ]            <asynchronous suspension>
+[        ]            #6      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #7      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:308:5)
+[        ]            <asynchronous suspension>
+[        ]            #8      run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+[        ]            <asynchronous suspension>
+[        ]            #9      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+[        ]            <asynchronous suspension>
+[        ]            #10     main (package:flutter_tools/executable.dart:93:3)
+[        ]            <asynchronous suspension>
+[ +199 ms] [ +169 ms] ensureAnalyticsSent: 167ms
+[        ] [        ] Running 0 shutdown hooks
+[        ] [        ] Shutdown hooks complete
+[        ] [   +4 ms] exiting with code 1
+[        ] > Task :app:compileFlutterBuildRelease FAILED
+[ +499 ms] [Incubating] Problems report is available at: file:///D:/Code/gitRepo/genui/packages/hexin_speech/example/build/reports/problems/problems-report.html
+[        ] FAILURE: Build failed with an exception.
+[        ] * What went wrong:
+[        ] Execution failed for task ':app:compileFlutterBuildRelease'.
+[        ] > Process 'command 'D:\Code\fvm\versions\3.22.0\bin\flutter.bat'' finished with non-zero exit value 1
+[        ] * Try:
+[        ] > Run with --debug option to get more log output.
+[        ] > Run with --scan to get full insights.
+[        ] > Get more help at https://help.gradle.org.
+[        ] * Exception is:
+[        ] org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileFlutterBuildRelease'.
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+[        ] 	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+[        ] 	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+[        ] 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+[        ] 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+[        ] 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ] 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[        ] 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[        ] 	at java.base/java.lang.Thread.run(Unknown Source)
+[        ] Caused by: org.gradle.process.internal.ExecException: Process 'command 'D:\Code\fvm\versions\3.22.0\bin\flutter.bat'' finished with non-zero exit value 1
+[        ] 	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:442)
+[        ] 	at org.gradle.process.internal.DefaultExecAction.execute(DefaultExecAction.java:49)
+[        ] 	at org.gradle.process.internal.DefaultExecActionFactory.exec(DefaultExecActionFactory.java:216)
+[        ] 	at org.gradle.api.internal.DeprecatedProcessOperations.exec(DeprecatedProcessOperations.java:74)
+[        ] 	at org.gradle.api.internal.project.DefaultProject.exec(DefaultProject.java:1286)
+[        ] 	at org.gradle.api.Project$exec$7.call(Unknown Source)
+[        ] 	at BaseFlutterTask.buildBundle(flutter.groovy:1629)
+[        ] 	at BaseFlutterTask$buildBundle.callCurrent(Unknown Source)
+[        ] 	at FlutterTask.build(flutter.groovy:1767)
+[        ] 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+[        ] 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+[        ] 	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+[        ] 	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:244)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+[        ] 	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+[        ] 	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+[        ] 	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+[        ] 	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+[        ] 	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+[        ] 	at org.gradle.internal.Either$Right.fold(Either.java:175)
+[        ] 	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+[        ] 	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+[        ] 	at java.base/java.util.Optional.orElseGet(Unknown Source)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+[        ] 	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+[        ] 	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+[        ] 	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+[        ] 	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:107)
+[        ] 	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:56)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+[        ] 	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+[        ] 	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+[        ] 	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+[        ] 	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+[        ] 	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+[        ] 	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+[        ] 	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at java.base/java.util.Optional.orElseGet(Unknown Source)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+[        ] 	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+[        ] 	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+[        ] 	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+[        ] 	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+[        ] 	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+[        ] 	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+[        ] 	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+[        ] 	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+[        ] 	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+[        ] 	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+[        ] 	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+[        ] 	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+[        ] 	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+[        ] 	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+[        ] 	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+[        ] 	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+[        ] 	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+[        ] 	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+[        ] 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+[        ] 	at java.base/java.lang.Thread.run(Unknown Source)
+[        ] Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+[        ] BUILD FAILED in 8s
+[        ] You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+[        ] For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+[        ] 6 actionable tasks: 2 executed, 4 up-to-date
+[        ] Watched directory hierarchies: [D:\Code\fvm\versions\3.22.0\packages\flutter_tools\gradle]
+[  +89 ms] Running Gradle task 'assembleRelease'... (completed in 8.4s)
+[  +32 ms] "flutter apk" took 9,780ms.
+[  +29 ms] Gradle task assembleRelease failed with exit code 1
+[        ] 
+           #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+           #1      AndroidGradleBuilder.buildGradleApp (package:flutter_tools/src/android/gradle.dart:498:9)
+           <asynchronous suspension>
+           #2      AndroidGradleBuilder.buildApk (package:flutter_tools/src/android/gradle.dart:223:5)
+           <asynchronous suspension>
+           #3      BuildApkCommand.runCommand (package:flutter_tools/src/commands/build_apk.dart:140:5)
+           <asynchronous suspension>
+           #4      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1394:27)
+           <asynchronous suspension>
+           #5      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #6      CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+           <asynchronous suspension>
+           #7      FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:372:9)
+           <asynchronous suspension>
+           #8      AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #9      FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:308:5)
+           <asynchronous suspension>
+           #10     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:130:9)
+           <asynchronous suspension>
+           #11     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:153:19)
+           <asynchronous suspension>
+           #12     main (package:flutter_tools/executable.dart:93:3)
+           <asynchronous suspension>
+
+
+[ +104 ms] ensureAnalyticsSent: 103ms
+[        ] Running 0 shutdown hooks
+[        ] Shutdown hooks complete
+[  +73 ms] exiting with code 1
