@@ -10,37 +10,56 @@ import 'package:logging/logging.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
+import '../models/speech_config.dart';
 import '../models/speech_error.dart';
 
 /// Manages downloading and caching of sherpa-onnx models.
 class ModelManager {
   static final _log = Logger('ModelManager');
 
-  /// Base URL for model downloads.
-  ///
-  /// Using a lightweight Chinese streaming model from Hugging Face.
-  static const String _baseUrl = 'https://huggingface.co/csukuangfj/'
-      'sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/resolve/main';
+  /// Model metadata.
+  static const Map<SpeechModelLevel, Map<String, dynamic>> _modelMetadata = {
+    SpeechModelLevel.lowLatency: {
+      'baseUrl': 'https://huggingface.co/csukuangfj/'
+          'sherpa-onnx-streaming-zipformer-zh-14M-2023-02-23/resolve/main',
+      'files': [
+        'encoder-epoch-99-avg-1.onnx',
+        'decoder-epoch-99-avg-1.onnx',
+        'joiner-epoch-99-avg-1.onnx',
+        'tokens.txt',
+      ],
+      'dir': 'low_latency',
+    },
+    SpeechModelLevel.highAccuracy: {
+      'baseUrl': 'https://huggingface.co/csukuangfj/'
+          'sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/resolve/main',
+      'files': [
+        'encoder-epoch-99-avg-1.onnx',
+        'decoder-epoch-99-avg-1.onnx',
+        'joiner-epoch-99-avg-1.onnx',
+        'tokens.txt',
+      ],
+      'dir': 'high_accuracy',
+    },
+  };
 
-  /// Required model files.
-  static const List<String> _requiredFiles = [
-    'encoder-epoch-99-avg-1.onnx',
-    'decoder-epoch-99-avg-1.onnx',
-    'joiner-epoch-99-avg-1.onnx',
-    'tokens.txt',
-  ];
-
-  /// Get the model cache directory.
-  Future<Directory> _getModelCacheDir() async {
+  /// Get the model cache directory for a specific level.
+  Future<Directory> _getModelCacheDir(
+    SpeechModelLevel level, {
+    String locale = 'zh_CN',
+  }) async {
     final appDir = await getApplicationDocumentsDirectory();
-    final modelDir = Directory(p.join(appDir.path, 'sherpa_models', 'zh_CN'));
+    final metadata = _modelMetadata[level]!;
+    final modelDir = Directory(
+      p.join(appDir.path, 'sherpa_models', locale, metadata['dir'] as String),
+    );
     if (!await modelDir.exists()) {
       await modelDir.create(recursive: true);
     }
     return modelDir;
   }
 
-  /// Get the path to a model for the given locale.
+  /// Get the path to a model for the given locale and level.
   ///
   /// Returns the directory path containing the model files.
   /// If [autoDownload] is true and model is not cached, will download it.
@@ -48,13 +67,14 @@ class ModelManager {
   /// Throws [ModelError] if model cannot be loaded or downloaded.
   Future<String> getModelPath({
     String locale = 'zh_CN',
+    SpeechModelLevel level = SpeechModelLevel.lowLatency,
     bool autoDownload = true,
     void Function(String fileName, double progress)? onProgress,
   }) async {
-    final modelDir = await _getModelCacheDir();
+    final modelDir = await _getModelCacheDir(level, locale: locale);
 
     // Check if model is already cached
-    if (await _isModelCached(modelDir)) {
+    if (await _isModelCached(modelDir, level)) {
       _log.info('Model found in cache: ${modelDir.path}');
       return modelDir.path;
     }
@@ -66,15 +86,17 @@ class ModelManager {
     }
 
     // Download the model
-    _log.info('Model not cached, downloading...');
-    await downloadModel(modelDir.path, onProgress: onProgress);
+    _log.info('Model ($level) not cached, downloading...');
+    await downloadModel(modelDir.path, level, onProgress: onProgress);
 
     return modelDir.path;
   }
 
   /// Check if all required model files are cached.
-  Future<bool> _isModelCached(Directory modelDir) async {
-    for (final fileName in _requiredFiles) {
+  Future<bool> _isModelCached(
+      Directory modelDir, SpeechModelLevel level) async {
+    final files = _modelMetadata[level]!['files'] as List<String>;
+    for (final fileName in files) {
       final file = File(p.join(modelDir.path, fileName));
       if (!await file.exists()) {
         return false;
@@ -88,23 +110,28 @@ class ModelManager {
   /// [onProgress] is called for each file with (fileName, downloaded, total).
   /// Throws [NetworkError] if download fails.
   Future<void> downloadModel(
-    String targetPath, {
+    String targetPath,
+    SpeechModelLevel level, {
     void Function(String fileName, double progress)? onProgress,
   }) async {
-    _log.info('Downloading model to $targetPath');
+    _log.info('Downloading model ($level) to $targetPath');
 
     final targetDir = Directory(targetPath);
     if (!await targetDir.exists()) {
       await targetDir.create(recursive: true);
     }
 
+    final metadata = _modelMetadata[level]!;
+    final baseUrl = metadata['baseUrl'] as String;
+    final files = metadata['files'] as List<String>;
+
     try {
-      for (var i = 0; i < _requiredFiles.length; i++) {
-        final fileName = _requiredFiles[i];
+      for (var i = 0; i < files.length; i++) {
+        final fileName = files[i];
         if (onProgress != null) {
-          onProgress(fileName, i / _requiredFiles.length);
+          onProgress(fileName, i / files.length);
         }
-        await _downloadFile(fileName, targetPath);
+        await _downloadFile(fileName, targetPath, baseUrl);
       }
       if (onProgress != null) {
         onProgress('Complete', 1.0);
@@ -117,8 +144,12 @@ class ModelManager {
   }
 
   /// Download a single file.
-  Future<void> _downloadFile(String fileName, String targetPath) async {
-    final url = '$_baseUrl/$fileName';
+  Future<void> _downloadFile(
+    String fileName,
+    String targetPath,
+    String baseUrl,
+  ) async {
+    final url = '$baseUrl/$fileName';
     _log.info('Downloading $fileName from $url');
 
     final response = await http.get(Uri.parse(url));

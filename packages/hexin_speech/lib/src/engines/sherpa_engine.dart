@@ -4,6 +4,7 @@
 
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:logging/logging.dart';
@@ -59,6 +60,7 @@ class SherpaEngine implements SpeechRecognizer {
       // Get model path (download if needed)
       final modelPath = await _modelManager.getModelPath(
         locale: config.locale,
+        level: config.modelLevel,
         autoDownload: config.autoDownloadModel,
         onProgress: onProgress,
       );
@@ -167,17 +169,22 @@ class SherpaEngine implements SpeechRecognizer {
       // Convert PCM16 bytes to Float32 samples
       final samples = _convertBytesToFloat32(audioData);
 
-      // Calculate RMS for debugging volume issues
+      // Calculate RMS and max level for debugging
       double sum = 0;
+      double maxAbs = 0;
       for (final s in samples) {
         sum += s * s;
+        if (s.abs() > maxAbs) maxAbs = s.abs();
       }
-      final rms = (sum / samples.length).toDouble();
-      // Normalize RMS to 0.0-1.0 for UI display (roughly log-scaled or capped)
-      final volume = (rms * 10).clamp(0.0, 1.0);
+      final rms = sqrt(sum / samples.length);
 
-      if (rms < 0.00001) {
-        _log.fine('Silence detected (RMS: $rms)');
+      // Normalize to 0.0-1.0 for UI display
+      // Using a slightly more aggressive scaling for weak signals
+      final volume = (rms * 5).clamp(0.0, 1.0);
+
+      if (rms < 0.001) {
+        _log.fine('Silence/Low volume detected (RMS: '
+            '${rms.toStringAsFixed(6)}, Max: ${maxAbs.toStringAsFixed(6)})');
       }
 
       // Feed audio to recognizer
@@ -242,13 +249,35 @@ class SherpaEngine implements SpeechRecognizer {
     }
   }
 
-  Float32List _convertBytesToFloat32(Uint8List bytes) {
-    final int16List = Int16List.view(bytes.buffer);
-    final floatList = Float32List(int16List.length);
-    for (var i = 0; i < int16List.length; i++) {
-      floatList[i] = int16List[i] / 32768.0;
+  Float32List _convertBytesToFloat32(Uint8List bytes, {int channels = 1}) {
+    Int16List int16List;
+    if (bytes.offsetInBytes % 2 != 0) {
+      // If the buffer offset is not aligned to 2 bytes, we must copy to a
+      // new aligned buffer before creating the Int16List view.
+      final aligned = Uint8List.fromList(bytes);
+      int16List = Int16List.view(aligned.buffer);
+    } else {
+      int16List = Int16List.view(
+        bytes.buffer,
+        bytes.offsetInBytes,
+        bytes.lengthInBytes ~/ 2,
+      );
     }
-    return floatList;
+
+    if (channels == 1) {
+      final floatList = Float32List(int16List.length);
+      for (var i = 0; i < int16List.length; i++) {
+        floatList[i] = int16List[i] / 32768.0;
+      }
+      return floatList;
+    } else {
+      // Extract only the first channel for multi-channel audio
+      final floatList = Float32List(int16List.length ~/ channels);
+      for (var i = 0; i < floatList.length; i++) {
+        floatList[i] = int16List[i * channels] / 32768.0;
+      }
+      return floatList;
+    }
   }
 
   @override
@@ -299,40 +328,60 @@ class SherpaEngine implements SpeechRecognizer {
       final bytes = await file.readAsBytes();
       _log.info('File read: ${file.path}, size: ${bytes.length} bytes');
 
-      // Simple WAV parser (assumes PCM 16-bit, 16kHz Mono)
-      // Standard WAV header is 44 bytes.
       var offset = 0;
-      bool isWav = false;
+      int channels = 1;
+      int sampleRate = 16000;
+
       if (bytes.length > 44 &&
           String.fromCharCodes(bytes.sublist(0, 4)) == 'RIFF') {
-        offset = 44;
-        isWav = true;
-        _log.info('WAV header detected at offset 44');
+        _log.info('WAV header (RIFF) detected');
+
+        // Parse fmt chunk to get channels and sample rate
+        // Typically starts at offset 12
+        for (int i = 12; i < bytes.length - 20; i++) {
+          if (String.fromCharCodes(bytes.sublist(i, i + 3)) == 'fmt') {
+            final fmtChunkOffset = i + 8;
+            channels =
+                bytes[fmtChunkOffset + 2] | (bytes[fmtChunkOffset + 3] << 8);
+            sampleRate = bytes[fmtChunkOffset + 4] |
+                (bytes[fmtChunkOffset + 5] << 8) |
+                (bytes[fmtChunkOffset + 6] << 16) |
+                (bytes[fmtChunkOffset + 7] << 24);
+            _log.info('WAV Info: Channels=$channels, SampleRate=$sampleRate');
+            break;
+          }
+        }
+
+        // Find data chunk
+        for (int i = 12; i < bytes.length - 8; i++) {
+          if (String.fromCharCodes(bytes.sublist(i, i + 4)) == 'data') {
+            offset = i + 8;
+            _log.info('WAV data chunk found at offset $offset');
+            break;
+          }
+        }
+
+        if (offset == 0) {
+          _log.warning(
+              'Could not find data chunk in WAV, falling back to offset 44');
+          offset = 44;
+        }
       } else {
         final header = bytes.take(4).toList();
         _log.warning('No RIFF header found. First 4 bytes: $header. '
-            'Treating as raw PCM or unsupported format.');
+            'Treating as raw PCM16 Mono.');
+      }
+
+      if (sampleRate != 16000) {
+        _log.warning('Sample rate $sampleRate != 16000. '
+            'Recognition will be inaccurate as no resampling is performed.');
       }
 
       final pcmData = bytes.sublist(offset);
       _log.info('Processing ${pcmData.length} bytes of audio data');
 
-      // Diagnostic: Check WAV format if header exists
-      if (isWav && bytes.length >= 44) {
-        final channels = bytes[22] | (bytes[23] << 8);
-        final sampleRate = bytes[24] |
-            (bytes[25] << 8) |
-            (bytes[26] << 16) |
-            (bytes[27] << 24);
-        _log.info('WAV Info: Channels=$channels, SampleRate=$sampleRate');
-        if (channels != 1 || sampleRate != 16000) {
-          _log.warning('WAV format mismatch! Expected 16kHz Mono. '
-              'Recognition accuracy will be poor.');
-        }
-      }
-
-      final samples = _convertBytesToFloat32(pcmData);
-      _log.info('Converted to ${samples.length} float32 samples');
+      final samples = _convertBytesToFloat32(pcmData, channels: channels);
+      _log.info('Extracted ${samples.length} float32 samples from channel 0');
 
       final fileStream = _recognizer!.createStream();
       fileStream.acceptWaveform(

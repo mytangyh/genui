@@ -56,6 +56,7 @@ class _SpeechHomePageState extends State<SpeechHomePage> {
   bool _enableVad = true;
   double _maxSilenceSeconds = 2.0;
   bool _enableDebugLogging = true;
+  SpeechModelLevel _modelLevel = SpeechModelLevel.lowLatency;
 
   // State
   bool _isInitialized = false;
@@ -97,6 +98,7 @@ class _SpeechHomePageState extends State<SpeechHomePage> {
           enableVad: _enableVad,
           maxSilenceSeconds: _maxSilenceSeconds,
           enableDebugLogging: _enableDebugLogging,
+          modelLevel: _modelLevel,
           autoDownloadModel: true,
         ),
         onProgress: (fileName, progress) {
@@ -456,6 +458,35 @@ class _SpeechHomePageState extends State<SpeechHomePage> {
                   setState(() => _maxSilenceSeconds = v);
                 },
               ),
+              const Divider(height: 32),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Text('Model Accuracy (Higher = More Memory/Net)'),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SegmentedButton<SpeechModelLevel>(
+                  segments: const [
+                    ButtonSegment(
+                      value: SpeechModelLevel.lowLatency,
+                      label: Text('Low Latency'),
+                      icon: Icon(Icons.speed),
+                    ),
+                    ButtonSegment(
+                      value: SpeechModelLevel.highAccuracy,
+                      label: Text('High Accuracy'),
+                      icon: Icon(Icons.high_quality),
+                    ),
+                  ],
+                  selected: {_modelLevel},
+                  onSelectionChanged: (Set<SpeechModelLevel> selected) {
+                    final newLevel = selected.first;
+                    setModalState(() => _modelLevel = newLevel);
+                    setState(() => _modelLevel = newLevel);
+                  },
+                ),
+              ),
+              const Divider(height: 32),
               SwitchListTile(
                 title: const Text('Enable Debug Logging'),
                 subtitle: const Text('Show detailed engine logs'),

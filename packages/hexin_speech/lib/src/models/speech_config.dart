@@ -2,6 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+/// Available speech model levels.
+enum SpeechModelLevel {
+  /// Smallest model (e.g., zh-14M). Very fast and low memory,
+  /// but accuracy is limited.
+  lowLatency,
+
+  /// Standard larger model (e.g., zipformer-bilingual-zh-en).
+  /// Improved accuracy for general use cases.
+  highAccuracy,
+}
+
 /// Configuration for speech recognition.
 class SpeechConfig {
   /// Language locale (e.g., 'zh_CN' for Mandarin Chinese).
@@ -23,6 +34,9 @@ class SpeechConfig {
   /// If null, the default model for the locale will be loaded.
   /// If provided, should point to a directory containing model files.
   final String? modelPath;
+
+  /// The level of model to use.
+  final SpeechModelLevel modelLevel;
 
   /// Whether to automatically download the model if not found locally.
   ///
@@ -48,6 +62,7 @@ class SpeechConfig {
     this.sampleRate = 16000,
     this.numChannels = 1,
     this.modelPath,
+    this.modelLevel = SpeechModelLevel.lowLatency,
     this.autoDownloadModel = true,
     this.enableVad = true,
     this.maxSilenceSeconds = 2.0,
@@ -60,6 +75,7 @@ class SpeechConfig {
     int? sampleRate,
     int? numChannels,
     String? modelPath,
+    SpeechModelLevel? modelLevel,
     bool? autoDownloadModel,
     bool? enableVad,
     double? maxSilenceSeconds,
@@ -70,6 +86,7 @@ class SpeechConfig {
       sampleRate: sampleRate ?? this.sampleRate,
       numChannels: numChannels ?? this.numChannels,
       modelPath: modelPath ?? this.modelPath,
+      modelLevel: modelLevel ?? this.modelLevel,
       autoDownloadModel: autoDownloadModel ?? this.autoDownloadModel,
       enableVad: enableVad ?? this.enableVad,
       maxSilenceSeconds: maxSilenceSeconds ?? this.maxSilenceSeconds,
@@ -81,8 +98,8 @@ class SpeechConfig {
   String toString() {
     return 'SpeechConfig('
         'locale: $locale, '
+        'modelLevel: $modelLevel, '
         'sampleRate: $sampleRate, '
-        'modelPath: $modelPath, '
         'autoDownloadModel: $autoDownloadModel'
         ')';
   }
