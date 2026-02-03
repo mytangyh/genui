@@ -2,9 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:genui/genui.dart';
+import 'package:http/http.dart' as http;
 import 'package:json_schema_builder/json_schema_builder.dart';
+
+/// Base URL for the AI flow API (configurable)
+const String _defaultFlowApiBaseUrl = 'https://cs.cnht.com.cn:9443';
 
 /// Schema for AI message component.
 ///
@@ -14,6 +20,7 @@ import 'package:json_schema_builder/json_schema_builder.dart';
 ///   "type": "ai_message",
 ///   "props": {
 ///     "info": "截至09:28的股市焦点",
+///     "timestamp": "1770089370780",
 ///     "detail": "展开展示截止09:28AI总结分析的股市重点内容...",
 ///     "name": "aimi",
 ///     "avatar": "assets/aimi.png",
@@ -25,11 +32,13 @@ final _aiMessageSchema = S.object(
   description: 'AI 助手消息气泡，显示 AI 生成的简短信息，支持展开查看详情',
   properties: {
     'info': S.string(description: 'AI 消息内容（简短摘要）'),
-    'detail': S.string(description: '展开后显示的详细内容（可选）'),
+    'timestamp': S.string(description: '时间戳，用于请求详情'),
+    'detail': S.string(description: '展开后显示的详细内容（可选，静态内容）'),
     'avatar': S.string(description: '头像 URL 或 asset 路径（可选）'),
     'name': S.string(description: 'AI 助手名称（可选，默认为 aimi）'),
     'expandable': S.boolean(description: '是否可展开（可选，默认 false）'),
     'defaultExpanded': S.boolean(description: '默认是否展开（可选，默认 false）'),
+    'flowApiBaseUrl': S.string(description: 'API 基础地址（可选）'),
   },
   required: ['info'],
 );
@@ -37,7 +46,7 @@ final _aiMessageSchema = S.object(
 /// AI message bubble component.
 ///
 /// Displays an AI assistant message with avatar and info text.
-/// Supports expandable detail content.
+/// Supports expandable detail content with API fetch on click.
 final aiMessage = CatalogItem(
   name: 'ai_message',
   dataSchema: _aiMessageSchema,
@@ -62,7 +71,7 @@ final aiMessage = CatalogItem(
           "component": {
             "ai_message": {
               "info": "为您提炼了截止09:28的股市重点",
-              "detail": "展开展示截止09:28AI总结分析的股市重点内容展示截止09:28AI总结分析的股市重点内容，展开展示截止09:28AI总结分析。",
+              "timestamp": "1770089370780",
               "name": "aimi",
               "expandable": true
             }
@@ -74,19 +83,24 @@ final aiMessage = CatalogItem(
   widgetBuilder: (context) {
     final data = context.data as Map<String, Object?>;
     final String info = data['info'] as String? ?? '';
+    final String? timestamp = data['timestamp'] as String?;
     final String? detail = data['detail'] as String?;
     final String? avatar = data['avatar'] as String?;
     final String name = data['name'] as String? ?? 'aimi';
     final bool expandable = data['expandable'] as bool? ?? (detail != null);
     final bool defaultExpanded = data['defaultExpanded'] as bool? ?? false;
+    final String flowApiBaseUrl =
+        data['flowApiBaseUrl'] as String? ?? _defaultFlowApiBaseUrl;
 
     return _AiMessageBubble(
       info: info,
+      timestamp: timestamp,
       detail: detail,
       avatar: avatar,
       name: name,
       expandable: expandable,
       defaultExpanded: defaultExpanded,
+      flowApiBaseUrl: flowApiBaseUrl,
     );
   },
 );
@@ -94,19 +108,23 @@ final aiMessage = CatalogItem(
 class _AiMessageBubble extends StatefulWidget {
   const _AiMessageBubble({
     required this.info,
+    this.timestamp,
     this.detail,
     this.avatar,
     required this.name,
     this.expandable = true,
     this.defaultExpanded = false,
+    required this.flowApiBaseUrl,
   });
 
   final String info;
+  final String? timestamp;
   final String? detail;
   final String? avatar;
   final String name;
   final bool expandable;
   final bool defaultExpanded;
+  final String flowApiBaseUrl;
 
   @override
   State<_AiMessageBubble> createState() => _AiMessageBubbleState();
@@ -117,6 +135,11 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
   late bool _isExpanded;
   late AnimationController _animationController;
   late Animation<double> _expandAnimation;
+
+  // API response state
+  bool _isLoading = false;
+  String? _responseText;
+  String? _errorMessage;
 
   @override
   void initState() {
@@ -146,10 +169,113 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
       _isExpanded = !_isExpanded;
       if (_isExpanded) {
         _animationController.forward();
+        // Fetch detail when expanding if timestamp is provided
+        if (widget.timestamp != null) {
+          _fetchDetail();
+        }
       } else {
         _animationController.reverse();
       }
     });
+  }
+
+  /// Fetch detail content from the flow API
+  Future<void> _fetchDetail() async {
+    if (widget.timestamp == null) return;
+
+    setState(() {
+      _isLoading = true;
+      _errorMessage = null;
+    });
+
+    try {
+      final url = Uri.parse(
+        '${widget.flowApiBaseUrl}/agent/flow/v2/run_by_flux',
+      );
+      final body = jsonEncode({
+        'expire': 86400,
+        'inputVariableValue': {'timestamp': widget.timestamp},
+        'flowId': 27063,
+        'mode': 'WORK_FLOW',
+      });
+
+      debugPrint('AI Message requesting: $url');
+      debugPrint('AI Message body: $body');
+
+      final response = await http.post(
+        url,
+        headers: {
+          'businessType': 'ai-app2.0',
+          'Content-Type': 'application/json',
+        },
+        body: body,
+      );
+
+      debugPrint('AI Message response status: ${response.statusCode}');
+      debugPrint('AI Message response body length: ${response.body.length}');
+
+      if (response.statusCode == 200) {
+        // Parse SSE response - extract text from respond events
+        final text = _parseSSEResponse(response.body);
+        if (mounted) {
+          setState(() {
+            _responseText = text;
+            _isLoading = false;
+          });
+        }
+      } else {
+        throw Exception(
+          'HTTP ${response.statusCode}: ${response.reasonPhrase}',
+        );
+      }
+    } catch (e) {
+      debugPrint('AI Message error: $e');
+      if (mounted) {
+        setState(() {
+          _errorMessage = '加载失败: $e';
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  /// Parse SSE response and extract the final text content
+  String _parseSSEResponse(String responseBody) {
+    final lines = responseBody.split('\n');
+    String? lastText;
+
+    for (final line in lines) {
+      if (!line.startsWith('data:')) continue;
+
+      final jsonStr = line.substring(5).trim();
+      if (jsonStr.isEmpty) continue;
+
+      try {
+        final data = jsonDecode(jsonStr) as Map<String, dynamic>;
+        final innerData = data['data'] as Map<String, dynamic>?;
+        if (innerData == null) continue;
+
+        // Check for result.text in the response
+        final result = innerData['result'];
+        if (result is Map<String, dynamic>) {
+          final text = result['text'] as String?;
+          if (text != null && text.isNotEmpty) {
+            lastText = text;
+          }
+
+          // Also check for output field (from branch merge)
+          final output = result['output'] as String?;
+          if (output != null && output.isNotEmpty) {
+            lastText = output;
+          }
+        }
+      } catch (e) {
+        // Skip invalid JSON lines
+        continue;
+      }
+    }
+
+    return lastText ?? '暂无详情内容';
   }
 
   @override
@@ -196,6 +322,52 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  /// Build the content to display in the expanded area
+  Widget _buildExpandedContent() {
+    if (_isLoading) {
+      return const Center(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              color: Colors.white70,
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (_errorMessage != null) {
+      return Text(
+        _errorMessage!,
+        style: TextStyle(
+          fontFamily: 'PingFangSC',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          color: Colors.red.withOpacity(0.85),
+          height: 1.5,
+        ),
+      );
+    }
+
+    // Priority: API response > static detail > placeholder
+    final displayText = _responseText ?? widget.detail ?? '请求待实现';
+
+    return Text(
+      displayText,
+      style: TextStyle(
+        fontFamily: 'PingFangSC',
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        color: Colors.white.withOpacity(0.85),
+        height: 1.5,
       ),
     );
   }
@@ -269,26 +441,9 @@ class _AiMessageBubbleState extends State<_AiMessageBubble>
           // Expanded content
           SizeTransition(
             sizeFactor: _expandAnimation,
-            child: Container(
-              width: double.infinity,
+            child: Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF151D2B),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  widget.detail ?? '请求待实现',
-                  style: TextStyle(
-                    fontFamily: 'PingFangSC',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                    color: Colors.white.withOpacity(0.85),
-                    height: 1.5,
-                  ),
-                ),
-              ),
+              child: _buildExpandedContent(),
             ),
           ),
         ],
