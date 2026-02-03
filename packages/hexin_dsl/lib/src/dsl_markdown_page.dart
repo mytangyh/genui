@@ -146,6 +146,12 @@ class DslMarkdownSection extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
+    // Check if text contains BBCode-style tags
+    final hasBBCode = RegExp(r'\[(?:weight|color)=').hasMatch(text);
+    if (hasBBCode) {
+      return _buildBBCodeRichText(text);
+    }
+
     return MarkdownBody(
       data: text,
       styleSheet: _buildStyleSheet(),
@@ -155,6 +161,168 @@ class DslMarkdownSection extends StatelessWidget {
         }
       },
     );
+  }
+
+  /// Build rich text with BBCode support: [color=up/down], [weight=bold]
+  Widget _buildBBCodeRichText(String text) {
+    final lines = text.split('\n');
+    final List<Widget> widgets = [];
+
+    for (final line in lines) {
+      if (line.trim().isEmpty) {
+        widgets.add(const SizedBox(height: 8));
+        continue;
+      }
+
+      // Check for markdown headers
+      if (line.startsWith('## ')) {
+        widgets.add(
+          Padding(
+            padding: const EdgeInsets.only(top: 12, bottom: 8),
+            child: Text(
+              line.substring(3),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+      } else if (line.startsWith('# ')) {
+        widgets.add(
+          Padding(
+            padding: const EdgeInsets.only(top: 16, bottom: 8),
+            child: Text(
+              line.substring(2),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+      } else if (line.startsWith('### ')) {
+        widgets.add(
+          Padding(
+            padding: const EdgeInsets.only(top: 8, bottom: 4),
+            child: Text(
+              line.substring(4),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        );
+      } else {
+        widgets.add(_buildRichTextLine(line));
+      }
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: widgets,
+    );
+  }
+
+  /// Build a single line with BBCode parsing
+  Widget _buildRichTextLine(String line) {
+    final spans = _parseBBCode(line);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: RichText(text: TextSpan(children: spans)),
+    );
+  }
+
+  /// Parse BBCode tags: [color=up/down], [weight=bold]
+  List<InlineSpan> _parseBBCode(String text) {
+    final List<InlineSpan> spans = [];
+    final RegExp bbCodePattern = RegExp(
+      r'\[(color|weight)=(\w+)\]([^\[]*)\[/\1\]',
+    );
+
+    String remaining = text;
+    int safety = 0;
+
+    while (remaining.isNotEmpty && safety < 100) {
+      safety++;
+      final match = bbCodePattern.firstMatch(remaining);
+
+      if (match == null) {
+        if (remaining.isNotEmpty) {
+          spans.add(
+            TextSpan(
+              text: remaining,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                height: 1.6,
+              ),
+            ),
+          );
+        }
+        break;
+      }
+
+      // Add text before match
+      if (match.start > 0) {
+        spans.add(
+          TextSpan(
+            text: remaining.substring(0, match.start),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              height: 1.6,
+            ),
+          ),
+        );
+      }
+
+      final tag = match.group(1)!;
+      final value = match.group(2)!;
+      final content = match.group(3)!;
+
+      // Get style for this tag
+      Color color = Colors.white;
+      FontWeight fontWeight = FontWeight.normal;
+
+      if (tag == 'color') {
+        if (value == 'up') {
+          color = const Color(0xFFFF4444); // Red for up
+        } else if (value == 'down') {
+          color = const Color(0xFF00C853); // Green for down
+        }
+      } else if (tag == 'weight' && value == 'bold') {
+        fontWeight = FontWeight.bold;
+      }
+
+      spans.add(
+        TextSpan(
+          text: content,
+          style: TextStyle(color: color, fontSize: 14, fontWeight: fontWeight),
+        ),
+      );
+
+      remaining = remaining.substring(match.end);
+    }
+
+    if (spans.isEmpty && text.isNotEmpty) {
+      spans.add(
+        TextSpan(
+          text: text,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            height: 1.6,
+          ),
+        ),
+      );
+    }
+
+    return spans;
   }
 
   Widget _buildDslComponent(Map<String, dynamic> dsl, String language) {
@@ -209,11 +377,7 @@ class DslMarkdownSection extends StatelessWidget {
 
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
-        child: DslSurface(
-          dsl: dsl,
-          catalog: catalog,
-          onAction: onAction,
-        ),
+        child: DslSurface(dsl: dsl, catalog: catalog, onAction: onAction),
       );
     } catch (_) {
       // If any error occurs during component building, return empty widget

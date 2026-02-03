@@ -162,24 +162,79 @@ class _DslRenderer extends StatelessWidget {
     // Create a minimal DataModel for this component
     final dataModel = DataModel();
 
-    // Build the widget using the catalog item
-    return item.widgetBuilder(
-      CatalogItemContext(
-        id: data['id'] as String? ?? type,
-        data: props,
-        buildChild: (childId, [dataContext]) {
-          // Look for child in the children array or props
-          final childData = _findChild(data, childId);
-          if (childData != null) {
-            return _buildComponent(context, childData);
-          }
-          return const SizedBox.shrink();
-        },
-        dispatchEvent: (event) => _handleEvent(event),
-        buildContext: context,
-        dataContext: DataContext(dataModel, '/'),
-        getComponent: (componentId) => null,
-        surfaceId: 'dsl_surface',
+    // Build the widget using the catalog item, with error handling
+    try {
+      return item.widgetBuilder(
+        CatalogItemContext(
+          id: data['id'] as String? ?? type,
+          data: props,
+          buildChild: (childId, [dataContext]) {
+            // Look for child in the children array or props
+            final childData = _findChild(data, childId);
+            if (childData != null) {
+              return _buildComponent(context, childData);
+            }
+            return const SizedBox.shrink();
+          },
+          dispatchEvent: (event) => _handleEvent(event),
+          buildContext: context,
+          dataContext: DataContext(dataModel, '/'),
+          getComponent: (componentId) => null,
+          surfaceId: 'dsl_surface',
+        ),
+      );
+    } catch (e, stackTrace) {
+      // Show error card instead of crashing
+      return _buildErrorCard(type, e, stackTrace);
+    }
+  }
+
+  /// Builds an error card widget when component rendering fails.
+  Widget _buildErrorCard(String type, Object error, StackTrace stackTrace) {
+    final errorMessage = error.toString();
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFF2D1A1A),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: const Color(0xFF5C2A2A), width: 1),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.error_outline,
+                color: Colors.red.withOpacity(0.8),
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '组件渲染失败: $type',
+                style: const TextStyle(
+                  fontFamily: 'PingFangSC',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: Colors.red,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            errorMessage,
+            style: TextStyle(
+              fontFamily: 'monospace',
+              fontSize: 12,
+              color: Colors.white.withOpacity(0.7),
+            ),
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
       ),
     );
   }

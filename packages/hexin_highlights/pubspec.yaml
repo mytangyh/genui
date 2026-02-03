@@ -26,4 +26,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+dependency_overrides:
+  genai_primitives:
+    path: ../genai_primitives
+  json_schema_builder:
+    path: ../json_schema_builder
+
+
 

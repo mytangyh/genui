@@ -85,10 +85,7 @@ class HighlightsService {
       return HighlightsResponse.fromJson({
         "flag": 0,
         "msg": "成功",
-        "data": {
-          "summaries": summaries,
-          "total": total,
-        }
+        "data": {"summaries": summaries, "total": total},
       });
     }
 
@@ -99,11 +96,16 @@ class HighlightsService {
         'limit': limit,
       };
 
+      print('Fetching highlights: $baseUrl, body: $requestBody');
+
       final response = await http.post(
         Uri.parse(baseUrl),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(requestBody),
       );
+
+      print('Highlights response status: ${response.statusCode}');
+      print('Highlights response body: ${response.body}');
 
       if (response.statusCode != 200) {
         throw Exception(
@@ -119,7 +121,8 @@ class HighlightsService {
       }
 
       return highlightsResponse;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Failed to fetch highlights: $e\n$stackTrace');
       if (e is Exception) {
         rethrow;
       }
@@ -139,11 +142,16 @@ class HighlightsService {
     }
 
     try {
+      print('Fetching questions: $url');
       final response = await http.get(Uri.parse(url));
+
+      print('Questions response status: ${response.statusCode}');
+      print('Questions response body: ${response.body}');
 
       if (response.statusCode != 200) {
         throw Exception(
-            'Failed to fetch questions: HTTP ${response.statusCode}');
+          'Failed to fetch questions: HTTP ${response.statusCode}',
+        );
       }
 
       final jsonData = jsonDecode(response.body) as Map<String, dynamic>;
@@ -156,7 +164,8 @@ class HighlightsService {
       final questions = (data['questions'] as List).cast<String>();
 
       return questions;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('Failed to fetch questions: $e\n$stackTrace');
       // Return empty list on error to allow page to render without card
       return [];
     }
@@ -166,10 +175,7 @@ class HighlightsService {
   static final Map<String, dynamic> _mockData = {
     "flag": 0,
     "msg": "成功",
-    "data": {
-      "summaries": _generateMockItems(),
-      "total": 60,
-    },
+    "data": {"summaries": _generateMockItems(), "total": 60},
   };
 
   static List<Map<String, dynamic>> _generateMockItems() {

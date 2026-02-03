@@ -46,6 +46,20 @@ final markdownRender = CatalogItem(
         }
       ]
     ''',
+    // BBCode rich text test example
+    () => '''
+      [
+        {
+          "id": "bbcode_test",
+          "component": {
+            "markdownRender": {
+              "content": "## 富文本测试\\n\\n大盘成交额[color=down]缩量-657.5亿[/color]，主力净流入[color=up]+84.71亿[/color]\\n\\n[weight=bold]粗体文本测试[/weight]\\n\\n组合测试：[weight=bold][color=up]+100亿[/color][/weight]",
+              "backgroundColor": "#1A1F2E"
+            }
+          }
+        }
+      ]
+    ''',
   ],
   widgetBuilder: (context) {
     final data = context.data as Map<String, Object?>;
@@ -109,8 +123,14 @@ class _MarkdownRender extends StatelessWidget {
     final unescapedContent = _unescapeContent(content);
     final bgColor = _parseColor(backgroundColor);
 
+    print('markdownRender.build: content length=${unescapedContent.length}');
+    print(
+      'markdownRender.build: content preview=${unescapedContent.substring(0, unescapedContent.length > 300 ? 300 : unescapedContent.length)}',
+    );
+
     // Parse content into segments
     final segments = parseContentSegments(unescapedContent);
+    print('markdownRender.build: ${segments.length} segments parsed');
 
     Widget child;
     if (segments.length == 1 && segments.first.isText) {
@@ -120,8 +140,12 @@ class _MarkdownRender extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: segments.map((segment) {
           if (segment.isText) {
+            print(
+              'markdownRender: TEXT segment: ${segment.text!.substring(0, segment.text!.length > 100 ? 100 : segment.text!.length)}',
+            );
             return _buildTextWidget(segment.text!);
           } else if (segment.isDsl) {
+            print('markdownRender: DSL segment type=${segment.dsl!['type']}');
             return _buildDslWidget(segment.dsl!, segment.language!);
           } else if (segment.isCode) {
             // Render generic code block using standard Markdown
@@ -162,7 +186,16 @@ class _MarkdownRender extends StatelessWidget {
     }
 
     // Check if we need to use rich text with colored numbers
-    if (enableColoredNumbers && _containsColoredPatterns(text)) {
+    final useColoredRichText =
+        enableColoredNumbers && _containsColoredPatterns(text);
+    print(
+      '_buildTextWidget: useColoredRichText=$useColoredRichText, text length=${text.length}',
+    );
+    print(
+      '_buildTextWidget: first 200 chars: ${text.substring(0, text.length > 200 ? 200 : text.length)}',
+    );
+
+    if (useColoredRichText) {
       return _buildColoredRichText(text);
     }
 
@@ -185,11 +218,19 @@ class _MarkdownRender extends StatelessWidget {
   }
 
   bool _containsColoredPatterns(String text) {
-    // Check for +/- number patterns
-    return RegExp(r'[+\-][\d.]+[亿万%]?').hasMatch(text);
+    // Check for +/- number patterns or BBCode-style tags
+    final hasNumbers = RegExp(r'[+\-][\d.]+[亿万%]?').hasMatch(text);
+    final hasBBCode = RegExp(r'\[(?:weight|color)=').hasMatch(text);
+    final result = hasNumbers || hasBBCode;
+    if (hasBBCode) {
+      print(
+        'BBCode detected in text: ${text.substring(0, text.length > 100 ? 100 : text.length)}...',
+      );
+    }
+    return result;
   }
 
-  /// Build rich text with colored numbers.
+  /// Build rich text with colored numbers and BBCode support.
   Widget _buildColoredRichText(String text) {
     // Process the text line by line
     final lines = text.split('\n');
@@ -279,6 +320,103 @@ class _MarkdownRender extends StatelessWidget {
   }
 
   Widget _buildRichTextLine(String line, {bool isQuote = false}) {
+    // First, parse BBCode-style tags
+    final spans = _parseBBCodeText(line, isQuote: isQuote);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 2),
+      child: RichText(text: TextSpan(children: spans)),
+    );
+  }
+
+  /// Parse BBCode-style text: [color=up/down], [weight=bold]
+  /// up = red, down = green
+  List<InlineSpan> _parseBBCodeText(String text, {bool isQuote = false}) {
+    final List<InlineSpan> spans = [];
+
+    // Simple BBCode pattern: [tag=value]content[/tag]
+    // Match one tag at a time, not greedy
+    final RegExp bbCodePattern = RegExp(
+      r'\[(color|weight)=(\w+)\]([^\[]*)\[/\1\]',
+    );
+
+    String remaining = text;
+    int safety = 0;
+
+    while (remaining.isNotEmpty && safety < 100) {
+      safety++;
+      final match = bbCodePattern.firstMatch(remaining);
+
+      if (match == null) {
+        // No more BBCode, add remaining text as-is
+        if (remaining.isNotEmpty) {
+          spans.addAll(_parseLegacyPatterns(remaining, isQuote: isQuote));
+        }
+        break;
+      }
+
+      // Add text before this match
+      if (match.start > 0) {
+        final before = remaining.substring(0, match.start);
+        spans.addAll(_parseLegacyPatterns(before, isQuote: isQuote));
+      }
+
+      final tag = match.group(1)!;
+      final value = match.group(2)!;
+      final content = match.group(3)!;
+
+      print('BBCode parsed: tag=$tag, value=$value, content=$content');
+
+      // Get style for this tag
+      final style = _getBBCodeStyle(tag, value, isQuote);
+      if (style != null && content.isNotEmpty) {
+        spans.add(
+          TextSpan(
+            text: content,
+            style: TextStyle(
+              color: style.color ?? (isQuote ? Colors.white70 : Colors.white),
+              fontSize: 14,
+              fontWeight: style.fontWeight ?? FontWeight.normal,
+            ),
+          ),
+        );
+      } else if (content.isNotEmpty) {
+        spans.addAll(_parseLegacyPatterns(content, isQuote: isQuote));
+      }
+
+      // Move past this match
+      remaining = remaining.substring(match.end);
+    }
+
+    // If no spans were added, return plain text
+    if (spans.isEmpty && text.isNotEmpty) {
+      spans.addAll(_parseLegacyPatterns(text, isQuote: isQuote));
+    }
+
+    return spans;
+  }
+
+  /// Get TextStyle for a BBCode tag
+  TextStyle? _getBBCodeStyle(String tag, String value, bool isQuote) {
+    switch (tag) {
+      case 'weight':
+        if (value == 'bold') {
+          return const TextStyle(fontWeight: FontWeight.bold);
+        }
+        break;
+      case 'color':
+        if (value == 'up') {
+          return const TextStyle(color: Color(0xFFFF4444)); // Red for up
+        } else if (value == 'down') {
+          return const TextStyle(color: Color(0xFF00C853)); // Green for down
+        }
+        break;
+    }
+    return null;
+  }
+
+  /// Legacy pattern parsing for +/- numbers and **bold**
+  List<InlineSpan> _parseLegacyPatterns(String text, {bool isQuote = false}) {
     final List<InlineSpan> spans = [];
 
     // Pattern: **bold**, +/-numbers, regular text
@@ -286,7 +424,7 @@ class _MarkdownRender extends StatelessWidget {
       r'(\*\*([^*]+)\*\*)|([+\-][\d.]+[亿万%元]+)|([^*+\-]+)',
     );
 
-    for (final match in pattern.allMatches(line)) {
+    for (final match in pattern.allMatches(text)) {
       if (match.group(2) != null) {
         // Bold text
         spans.add(
@@ -330,10 +468,7 @@ class _MarkdownRender extends StatelessWidget {
       }
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2),
-      child: RichText(text: TextSpan(children: spans)),
-    );
+    return spans;
   }
 
   MarkdownStyleSheet _buildStyleSheet() {

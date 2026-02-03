@@ -56,7 +56,16 @@ final webContainer = CatalogItem(
   widgetBuilder: (context) {
     final data = context.data as Map<String, Object?>;
     final String url = data['url'] as String? ?? '';
-    final num defaultHeight = data['defaultHeight'] as num? ?? 300;
+
+    // Parse defaultHeight safely - handle both String and num
+    num defaultHeight = 300;
+    final rawHeight = data['defaultHeight'];
+    if (rawHeight is num) {
+      defaultHeight = rawHeight;
+    } else if (rawHeight is String) {
+      defaultHeight = num.tryParse(rawHeight) ?? 300;
+    }
+
     final bool enableJS = data['enableJS'] as bool? ?? true;
     final String? backgroundColor = data['backgroundColor'] as String?;
     final String? loadingText = data['loadingText'] as String?;
