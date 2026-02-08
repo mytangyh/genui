@@ -10,6 +10,8 @@ import 'package:genui/genui.dart';
 import 'package:http/http.dart' as http;
 import 'package:uuid/uuid.dart';
 
+import 'market_data_service.dart';
+
 /// A ContentGenerator that connects to a custom backend API.
 class CustomContentGenerator implements ContentGenerator {
   /// Creates a [CustomContentGenerator].
@@ -41,6 +43,60 @@ class CustomContentGenerator implements ContentGenerator {
   final _errorController = StreamController<ContentGeneratorError>.broadcast();
   final _isProcessing = ValueNotifier<bool>(false);
   final _uuid = const Uuid();
+
+  /// 数据 Tools 定义（用于获取真实数据）
+  static final List<Map<String, Object?>> _dataTools = [
+    {
+      'type': 'function',
+      'function': {
+        'name': 'get_market_overview',
+        'description': '获取大盘实时行情概况，包括上证指数、深证成指、创业板指的实时数据和市场情绪。'
+            '返回真实新浪财经数据。当用户问"看大盘"、"大盘怎么样"、"今天行情"时调用此工具。',
+        'parameters': {'type': 'object', 'properties': {}},
+      }
+    },
+    {
+      'type': 'function',
+      'function': {
+        'name': 'get_realtime_quote',
+        'description': '获取单只股票实时行情数据。当用户询问某只股票时调用此工具。',
+        'parameters': {
+          'type': 'object',
+          'properties': {
+            'stockCode': {
+              'type': 'string',
+              'description': '股票代码，如 600519（沪市）或 000001（深市）'
+            }
+          },
+          'required': ['stockCode']
+        },
+      }
+    },
+    {
+      'type': 'function',
+      'function': {
+        'name': 'get_morning_brief',
+        'description': '获取今日晨报摘要，包括隔夜重要消息、板块异动、北向资金等。盘前场景可用。',
+        'parameters': {'type': 'object', 'properties': {}},
+      }
+    },
+    {
+      'type': 'function',
+      'function': {
+        'name': 'get_trading_history',
+        'description': '获取用户今日交易记录，包括买入卖出操作、时间、价格等。盘后复盘可用。',
+        'parameters': {'type': 'object', 'properties': {}},
+      }
+    },
+    {
+      'type': 'function',
+      'function': {
+        'name': 'get_portfolio',
+        'description': '获取用户当前持仓详情，包括股票列表、成本价、当前价、盈亏等。',
+        'parameters': {'type': 'object', 'properties': {}},
+      }
+    },
+  ];
 
   @override
   Stream<A2uiMessage> get a2uiMessageStream => _a2uiMessageController.stream;
@@ -105,14 +161,16 @@ class CustomContentGenerator implements ContentGenerator {
       // 4. Prepare Tools
       List<Map<String, Object?>>? tools;
       if (catalog != null) {
-        final toolDecl = catalogToFunctionDeclaration(
+        final uiToolDecl = catalogToFunctionDeclaration(
           catalog!,
           'uiGenerationTool',
           'Generates Flutter UI based on user requests.',
         );
 
         tools = [
-          {'type': 'function', 'function': toolDecl.toJson()},
+          {'type': 'function', 'function': uiToolDecl.toJson()},
+          // 使用静态配置的数据 Tools
+          ..._dataTools,
         ];
       }
 
@@ -121,7 +179,7 @@ class CustomContentGenerator implements ContentGenerator {
         'messages': messages,
         'stream': false,
         'temperature': 0.7,
-        'max_tokens': 8192, // Increased to prevent tool call JSON truncation
+        'max_tokens': 16384, // Increased to prevent tool call JSON truncation
         if (tools != null) 'tools': tools,
       };
 
@@ -171,7 +229,7 @@ class CustomContentGenerator implements ContentGenerator {
         if (toolCallsRaw != null) {
           if (toolCallsRaw is List) {
             debugPrint('DEBUG: tool_calls count: ${toolCallsRaw.length}');
-            _handleStandardToolCalls(toolCallsRaw);
+            await _handleStandardToolCalls(toolCallsRaw, messages);
           } else {
             print(
               'WARNING: tool_calls is not a List, it is ${toolCallsRaw.runtimeType}: $toolCallsRaw',
@@ -191,7 +249,13 @@ class CustomContentGenerator implements ContentGenerator {
     }
   }
 
-  void _handleStandardToolCalls(List toolCalls) {
+  Future<void> _handleStandardToolCalls(
+    List toolCalls,
+    List<Map<String, Object?>> currentMessages,
+  ) async {
+    // 收集需要进行多轮对话的数据 Tools 结果
+    final List<Map<String, String>> dataToolResults = [];
+
     try {
       for (final toolCallJson in toolCalls) {
         if (toolCallJson is! Map) {
@@ -228,14 +292,35 @@ class CustomContentGenerator implements ContentGenerator {
           continue;
         }
 
+        // 处理数据 Tools（需要多轮对话）
+        if (name == 'get_market_overview' || name == 'get_realtime_quote') {
+          final toolCallId = toolCallJson['id'] as String? ?? 'unknown';
+          debugPrint('📡 DEBUG: Processing data tool: $name, id: $toolCallId');
+          final result = await _executeMockTool(name, argsMap);
+          debugPrint('📡 DEBUG: Data tool result: ${result.length} chars');
+          dataToolResults.add({
+            'toolCallId': toolCallId,
+            'name': name,
+            'result': result,
+          });
+          continue;
+        }
+
         if (name == 'uiGenerationTool') {
           debugPrint('DEBUG: Processing uiGenerationTool');
           // Heuristic Fix: If 'components' is a string (double-encoded), try to decode it.
           if (argsMap['components'] is String) {
             try {
-              argsMap['components'] = jsonDecode(
-                argsMap['components'] as String,
-              );
+              // 先尝试修复常见的 JSON 问题
+              var componentsStr = argsMap['components'] as String;
+
+              // 修复未转义的换行符
+              componentsStr = componentsStr
+                  .replaceAll('\n', '\\n')
+                  .replaceAll('\r', '\\r')
+                  .replaceAll('\t', '\\t');
+
+              argsMap['components'] = jsonDecode(componentsStr);
               debugPrint('DEBUG: Successfully decoded components from string');
             } catch (e) {
               debugPrint('Failed to decode components string: $e');
@@ -289,6 +374,31 @@ class CustomContentGenerator implements ContentGenerator {
       }
     } catch (e) {
       debugPrint('ERROR iterating toolCalls: $e');
+    }
+
+    // 如果有数据 Tool 结果，进行多轮对话
+    if (dataToolResults.isNotEmpty) {
+      debugPrint(
+          '🔄 DEBUG: Data tools executed (${dataToolResults.length}), triggering follow-up request');
+
+      // 添加 assistant 的 tool_calls 消息
+      currentMessages.add({
+        'role': 'assistant',
+        'tool_calls': toolCalls,
+      });
+
+      // 添加每个 Tool 的结果
+      for (final result in dataToolResults) {
+        currentMessages.add({
+          'role': 'tool',
+          'tool_call_id': result['toolCallId'],
+          'name': result['name'],
+          'content': result['result'],
+        });
+      }
+
+      // 发起第二轮请求
+      await _sendFollowUpRequest(currentMessages);
     }
   }
 
@@ -368,29 +478,75 @@ class CustomContentGenerator implements ContentGenerator {
     }
   }
 
-  Future<String> _executeMockTool(String name) async {
-    // Simulate data fetching
+  final MarketDataService _marketDataService = MarketDataService();
+
+  Future<String> _executeMockTool(String name,
+      [Map<String, Object?>? args]) async {
+    // 新增：真实数据 Tools
+    if (name == 'get_morning_brief') {
+      final data = await _marketDataService.getMorningBrief();
+      return jsonEncode(data);
+    } else if (name == 'get_news') {
+      final news = await _marketDataService.getMarketNews();
+      return jsonEncode({'news': news, 'count': news.length});
+    } else if (name == 'get_trading_history') {
+      final history = await _marketDataService.getTradingHistory();
+      return jsonEncode(history);
+    } else if (name == 'get_realtime_quote') {
+      // 默认返回上证指数
+      final quote = await _marketDataService.getRealTimeQuote('sh000001');
+      return jsonEncode(quote ?? {'error': '获取行情失败'});
+    } else if (name == 'get_market_overview') {
+      // 获取三大指数真实数据
+      final overview = await _marketDataService.getMarketOverview();
+      return jsonEncode(overview);
+    }
+
+    // 原有 Mock Tools
     if (name == 'get_portfolio') {
       return jsonEncode({
-        'total_value': 1250000.00,
+        'total_value': 500000.00,
         'positions': [
-          {'symbol': 'AAPL', 'amount': 150000, 'pl': '+12%'},
-          {'symbol': 'NVDA', 'amount': 200000, 'pl': '+45%'},
-          {'symbol': 'GOOGL', 'amount': 100000, 'pl': '-5%'},
+          {
+            'symbol': '600519',
+            'name': '贵州茅台',
+            'shares': 100,
+            'cost': 1800,
+            'current': 1850,
+            'pl': '+2.78%'
+          },
+          {
+            'symbol': '002594',
+            'name': '比亚迪',
+            'shares': 500,
+            'cost': 230,
+            'current': 280,
+            'pl': '+14.29%'
+          },
+          {
+            'symbol': '601318',
+            'name': '中国平安',
+            'shares': 200,
+            'cost': 45,
+            'current': 42,
+            'pl': '-6.67%'
+          },
         ],
-        'risk_level': 'High',
-        'sector_allocation': {
-          'Technology': '80%',
-          'Healthcare': '10%',
-          'Cash': '10%',
-        },
+        'cash': 50000,
+        'todayPL': 2580,
       });
     } else if (name == 'analyze_risk') {
       return jsonEncode({
-        'assessment': 'High Risk',
-        'score': 85,
-        'warnings': ['Concentrated in Technology sector', 'High volatility'],
-        'suggestions': ['Diversify into Bonds', 'Reduce leverage'],
+        'riskLevel': 'medium',
+        'riskScore': 58,
+        'volatility': 0.22,
+        'diversification': 65,
+        'sectorConcentration': {'金融': '35%', '消费': '40%', '新能源': '25%'},
+        'suggestions': [
+          '建议增加债券类资产配置，降低整体波动性',
+          '当前持仓集中在金融和消费板块，可考虑增加科技股',
+          '建议设置止损点，控制单只股票最大亏损在10%以内',
+        ],
       });
     }
     return '{"status": "ok", "message": "Tool executed (mock)"}';
@@ -454,7 +610,7 @@ class CustomContentGenerator implements ContentGenerator {
         final toolCallsRaw = messageData['tool_calls'];
         if (toolCallsRaw != null) {
           if (toolCallsRaw is List) {
-            _handleStandardToolCalls(toolCallsRaw);
+            await _handleStandardToolCalls(toolCallsRaw, messages);
           } else {
             print(
               'WARNING (FollowUp): tool_calls is not a List, it is ${toolCallsRaw.runtimeType}',

@@ -44,6 +44,12 @@ class AiUiCatalog {
   /// Returns all catalog items as a list.
   static List<CatalogItem> getAllItems() {
     return [
+      // 核心布局组件（来自 genui CoreCatalogItems）
+      CoreCatalogItems.column,
+      CoreCatalogItems.row,
+      CoreCatalogItems.text,
+      CoreCatalogItems.button,
+
       // AI 消息组件
       aiMessage,
       aiButtonList,
