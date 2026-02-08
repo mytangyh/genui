@@ -121,6 +121,7 @@ class CustomContentGenerator implements ContentGenerator {
         'messages': messages,
         'stream': false,
         'temperature': 0.7,
+        'max_tokens': 8192, // Increased to prevent tool call JSON truncation
         if (tools != null) 'tools': tools,
       };
 
@@ -148,7 +149,8 @@ class CustomContentGenerator implements ContentGenerator {
 
       if (response.statusCode == 200) {
         final bodyString = utf8.decode(response.bodyBytes);
-        print('DEBUG: Raw Response: $bodyString');
+        // Use _printLongString to avoid truncation
+        debugPrint('DEBUG: Raw Response Length: ${bodyString.length}');
 
         final data = jsonDecode(bodyString);
         final choice = data['choices'][0];
@@ -165,8 +167,10 @@ class CustomContentGenerator implements ContentGenerator {
 
         // Handle tool calls
         final toolCallsRaw = messageData['tool_calls'];
+        debugPrint('DEBUG: tool_calls found: ${toolCallsRaw != null}');
         if (toolCallsRaw != null) {
           if (toolCallsRaw is List) {
+            debugPrint('DEBUG: tool_calls count: ${toolCallsRaw.length}');
             _handleStandardToolCalls(toolCallsRaw);
           } else {
             print(
@@ -191,16 +195,19 @@ class CustomContentGenerator implements ContentGenerator {
     try {
       for (final toolCallJson in toolCalls) {
         if (toolCallJson is! Map) {
-          print('WARNING: toolCallJson is not a Map: $toolCallJson');
+          debugPrint('WARNING: toolCallJson is not a Map: $toolCallJson');
           continue;
         }
         final function = toolCallJson['function'];
         if (function == null || function is! Map) continue;
 
         final name = function['name'] as String?;
+        debugPrint('DEBUG: Tool name: $name');
         if (name == null) continue;
 
         final arguments = function['arguments'];
+        debugPrint(
+            'DEBUG: Arguments type: ${arguments.runtimeType}, length: ${arguments is String ? arguments.length : "N/A"}');
 
         // OpenAI format arguments are usually stringified JSON
         Map<String, Object?> argsMap = {};
@@ -209,42 +216,79 @@ class CustomContentGenerator implements ContentGenerator {
             final decoded = jsonDecode(arguments);
             if (decoded is Map<String, dynamic>) {
               argsMap = decoded;
+              debugPrint('DEBUG: Successfully decoded arguments');
             }
           } else if (arguments is Map) {
             argsMap = Map<String, Object?>.from(arguments);
           }
         } catch (e) {
-          print('Error decoding tool arguments: $e\nArguments: $arguments');
+          debugPrint('ERROR decoding tool arguments: $e');
+          debugPrint(
+              'Arguments preview: ${arguments is String ? arguments.substring(0, arguments.length > 200 ? 200 : arguments.length) : arguments}');
           continue;
         }
 
         if (name == 'uiGenerationTool') {
+          debugPrint('DEBUG: Processing uiGenerationTool');
           // Heuristic Fix: If 'components' is a string (double-encoded), try to decode it.
           if (argsMap['components'] is String) {
             try {
               argsMap['components'] = jsonDecode(
                 argsMap['components'] as String,
               );
+              debugPrint('DEBUG: Successfully decoded components from string');
             } catch (e) {
-              print('Failed to decode components string: $e');
+              debugPrint('Failed to decode components string: $e');
+              debugPrint(
+                  'ERROR: Components data is truncated or malformed, skipping this tool call');
+              // Skip this tool call if components can't be decoded
+              continue;
             }
           }
 
-          final toolCall = ToolCall(name: name, args: argsMap);
-          // Safely attempt parsing
+          debugPrint('DEBUG: argsMap keys: ${argsMap.keys}');
+          debugPrint(
+              'DEBUG: components type: ${argsMap['components']?.runtimeType}');
+
+          // Log the first component to see what LLM generated
+          final components = argsMap['components'] as List?;
+          if (components != null && components.isNotEmpty) {
+            final firstComp = components.first;
+            debugPrint('DEBUG: First component: ${jsonEncode(firstComp)}');
+          }
+
+          // Custom message generation instead of parseToolCall
+          // This allows setting the correct catalogId
           try {
-            final parsed = parseToolCall(toolCall, name);
-            for (final msg in parsed.messages) {
-              _a2uiMessageController.add(msg);
-            }
+            final surfaceId =
+                argsMap['surfaceId'] as String? ?? 'default_surface';
+            debugPrint('DEBUG: Creating messages for surfaceId: $surfaceId');
+
+            // Create SurfaceUpdate message
+            final surfaceUpdateJson = {'surfaceUpdate': argsMap};
+            final surfaceUpdateMessage =
+                A2uiMessage.fromJson(surfaceUpdateJson);
+
+            // Create BeginRendering message with correct catalogId
+            final beginRenderingMessage = BeginRendering(
+              surfaceId: surfaceId,
+              root: 'root',
+              catalogId: catalog?.catalogId, // Use the catalog's ID!
+            );
+
+            debugPrint(
+                'DEBUG: Created messages with catalogId: ${catalog?.catalogId}');
+            _a2uiMessageController.add(surfaceUpdateMessage);
+            _a2uiMessageController.add(beginRenderingMessage);
+            debugPrint('DEBUG: Messages added to stream');
           } catch (e) {
-            print('Error parsing tool call to A2UI messages: $e');
-            print('Faulty Args: $argsMap');
+            debugPrint('ERROR creating A2UI messages: $e');
+            debugPrint('Faulty Args keys: ${argsMap.keys}');
           }
         }
       }
     } catch (e) {
-      print('Error iterating toolCalls: $e');
+      debugPrint('ERROR iterating toolCalls: $e');
     }
   }
 

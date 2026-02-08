@@ -39,13 +39,12 @@ class _AdvisorPageState extends State<AdvisorPage>
     );
 
     // Initialize content generator
-    // For this demo, we default to CustomContentGenerator as configured in pubspec
-    // and available services.
+    // Using NVIDIA API with GLM-4 model
     final contentGenerator = CustomContentGenerator(
-      baseUrl:
-          'https://api.example.com/v1/chat/completions', // Replace with real config
-      apiKey: 'config_api_key', // Replace with real config
-      model: 'model_name',
+      baseUrl: 'https://integrate.api.nvidia.com/v1/chat/completions',
+      apiKey:
+          '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',
+      model: 'z-ai/glm4.7',
       systemInstruction: _getSystemPrompt(),
       catalog: hexinCatalog,
     );
@@ -54,9 +53,13 @@ class _AdvisorPageState extends State<AdvisorPage>
       a2uiMessageProcessor: a2uiMessageProcessor,
       contentGenerator: contentGenerator,
       onSurfaceUpdated: (update) {
+        debugPrint(
+            'DEBUG: onSurfaceUpdated callback triggered: ${update.surfaceId}');
         _scrollToBottom();
       },
       onSurfaceAdded: (update) {
+        debugPrint(
+            'DEBUG: onSurfaceAdded callback triggered: ${update.surfaceId}');
         _scrollToBottom();
       },
       onTextResponse: (text) {
@@ -102,19 +105,37 @@ class _AdvisorPageState extends State<AdvisorPage>
 
   String _getSystemPrompt() {
     return '''
-You are Hexin, an intelligent investment advisor assistant.
-Your goal is to help users analyze the market, manage portfolios, and make investment decisions.
+# 角色设定
 
-**CRITICAL: You must use UI components to display information whenever possible.**
+你是 Hexin Flow（同花顺·流）智能投资顾问。通过 UI 组件与用户交流。
 
-## Usage Rules
-1. Call `surfaceUpdate` and `beginRendering` to create UI.
-2. Prioritize visual components over text.
-3. Use data fetching tools to get real-time info.
+# 重要规则
 
-## Available Desired Components
-- RiskAssessmentCard
-- TradeRecommendation
+1. 必须调用 uiGenerationTool 生成 UI
+2. 每次只使用**一个简单组件**，避免复杂嵌套
+3. components 数组中必须有一个 id 为 "root" 的组件
+
+# 常用组件示例
+
+## infoSummaryCard - 用于摘要信息（推荐使用）
+```json
+{"surfaceId":"info_001","components":[{"id":"root","component":{"infoSummaryCard":{"title":"标题","summary":"内容摘要"}}}]}
+```
+
+## StockQuote - 用于股票行情（注意大写S）
+```json
+{"surfaceId":"stock_001","components":[{"id":"root","component":{"StockQuote":{"stockName":"贵州茅台","stockCode":"600519","price":1850.00,"change":2.35}}}]}
+```
+
+## ai_message - 用于详细分析（注意下划线）
+```json
+{"surfaceId":"analysis_001","components":[{"id":"root","component":{"ai_message":{"info":"分析摘要内容..."}}}]}
+```
+
+# 用户数据
+
+持仓：茅台100股(+2.78%)、比亚迪500股(+14.29%)、平安200股(-6.67%)
+总资产：50万，收益率+5.2%
 ''';
   }
 
