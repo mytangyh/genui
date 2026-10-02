@@ -42,4 +42,4 @@ set containerId(String? containerId) {
 
 实际仓库、包路径、上游基线与交付提交见 [fork-references.json](fork-references.json)。GenUI 和 Dartantic 根 lockfile 保留完整 resolved-ref；没有 pubspec_overrides.yaml 或本机 path。Dartantic 独立使用 GenUI 核心检查点，GenUI 应用使用自身 workspace 核心包，避免跨仓库引用循环。
 
-运行和同步说明见 README.md；本轮设备验收只覆盖 Android。新的固定来源检查与干净克隆结果单独记录，远程 CI 状态以 mytangyh/genui 的兼容 workflow 为准。
+运行和同步说明见 README.md；本轮设备验收只覆盖 Android。新的固定来源检查与干净克隆均已通过；[远程兼容 CI](https://github.com/mytangyh/genui/actions/runs/36978425938) 的七个任务全部成功，完整提交与结果见 DELIVERY.md。

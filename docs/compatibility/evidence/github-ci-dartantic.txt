@@ -1,0 +1,571 @@
+﻿2026-10-02T07:25:08.4558545Z Current runner version: '2.337.0'
+2026-10-02T07:25:08.4583737Z ##[group]Runner Image Provisioner
+2026-10-02T07:25:08.4584564Z Hosted Compute Agent
+2026-10-02T07:25:08.4585257Z Version: 20260901.588
+2026-10-02T07:25:08.4585921Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-02T07:25:08.4586649Z Build Date: 2026-09-01T19:56:44Z
+2026-10-02T07:25:08.4587423Z Worker ID: {20e38376-ed7e-4a56-9bd0-5ef37457b776}
+2026-10-02T07:25:08.4588142Z Azure Region: eastus
+2026-10-02T07:25:08.4588950Z ##[endgroup]
+2026-10-02T07:25:08.4590887Z ##[group]Operating System
+2026-10-02T07:25:08.4591534Z Ubuntu
+2026-10-02T07:25:08.4592203Z 24.04.5
+2026-10-02T07:25:08.4592745Z LTS
+2026-10-02T07:25:08.4593603Z ##[endgroup]
+2026-10-02T07:25:08.4594245Z ##[group]Runner Image
+2026-10-02T07:25:08.4594877Z Image: ubuntu-24.04
+2026-10-02T07:25:08.4595687Z Version: 20260927.320.1
+2026-10-02T07:25:08.4596953Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-02T07:25:08.4598550Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-02T07:25:08.4599874Z ##[endgroup]
+2026-10-02T07:25:08.4601095Z ##[group]GITHUB_TOKEN Permissions
+2026-10-02T07:25:08.4603218Z Contents: read
+2026-10-02T07:25:08.4603945Z Metadata: read
+2026-10-02T07:25:08.4604519Z ##[endgroup]
+2026-10-02T07:25:08.4606768Z Secret source: Actions
+2026-10-02T07:25:08.4607731Z Cache mode: write
+2026-10-02T07:25:08.4608527Z Prepare workflow directory
+2026-10-02T07:25:08.4932745Z Prepare all required actions
+2026-10-02T07:25:08.4979721Z Getting action download info
+2026-10-02T07:25:08.7314747Z Download action repository 'actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10' (SHA:df4cb1c069e1874edd31b4311f1884172cec0e10)
+2026-10-02T07:25:08.8454859Z Download action repository 'subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2' (SHA:1a449444c387b1966244ae4d4f8c696479add0b2)
+2026-10-02T07:25:09.0566199Z Getting action download info
+2026-10-02T07:25:09.1522529Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-10-02T07:25:09.2970697Z Complete job name: dependencies (dartantic_ai, mytangyh/dartantic_ai, d876bd640ba0afa05b2cd264e776d98b0aeaa21a)
+2026-10-02T07:25:09.3735803Z ##[group]Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+2026-10-02T07:25:09.3736898Z with:
+2026-10-02T07:25:09.3737332Z   path: genui
+2026-10-02T07:25:09.3737791Z   persist-credentials: false
+2026-10-02T07:25:09.3738313Z   repository: mytangyh/genui
+2026-10-02T07:25:09.3742573Z   token: ***
+2026-10-02T07:25:09.3743010Z   ssh-strict: true
+2026-10-02T07:25:09.3743459Z   ssh-user: git
+2026-10-02T07:25:09.3744091Z   clean: true
+2026-10-02T07:25:09.3744667Z   sparse-checkout-cone-mode: true
+2026-10-02T07:25:09.3745188Z   fetch-depth: 1
+2026-10-02T07:25:09.3745618Z   fetch-tags: false
+2026-10-02T07:25:09.3746070Z   show-progress: true
+2026-10-02T07:25:09.3746522Z   lfs: false
+2026-10-02T07:25:09.3746953Z   submodules: false
+2026-10-02T07:25:09.3747431Z   set-safe-directory: true
+2026-10-02T07:25:09.3748230Z ##[endgroup]
+2026-10-02T07:25:09.4839825Z Syncing repository: mytangyh/genui
+2026-10-02T07:25:09.4842292Z ##[group]Getting Git version info
+2026-10-02T07:25:09.4843558Z Working directory is '/home/runner/work/genui/genui/genui'
+2026-10-02T07:25:09.4845195Z [command]/usr/bin/git version
+2026-10-02T07:25:09.4905297Z git version 2.55.0
+2026-10-02T07:25:09.4954980Z ##[endgroup]
+2026-10-02T07:25:09.4974677Z Temporarily overriding HOME='/home/runner/work/_temp/f7980ae4-b8b0-4627-8c39-37562e20224b' before making global git config changes
+2026-10-02T07:25:09.4977259Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:25:09.4982260Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/genui
+2026-10-02T07:25:09.5043158Z ##[group]Determining repository object format
+2026-10-02T07:25:09.5046823Z ##[endgroup]
+2026-10-02T07:25:09.5048363Z ##[group]Initializing the repository
+2026-10-02T07:25:09.5055200Z [command]/usr/bin/git init /home/runner/work/genui/genui/genui
+2026-10-02T07:25:09.5197522Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T07:25:09.5199889Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T07:25:09.5201548Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T07:25:09.5202755Z hint: call:
+2026-10-02T07:25:09.5203714Z hint:
+2026-10-02T07:25:09.5204899Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T07:25:09.5206010Z hint:
+2026-10-02T07:25:09.5207296Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T07:25:09.5209367Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T07:25:09.5215274Z hint:
+2026-10-02T07:25:09.5216372Z hint: 	git branch -m <name>
+2026-10-02T07:25:09.5217489Z hint:
+2026-10-02T07:25:09.5219330Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T07:25:09.5221267Z Initialized empty Git repository in /home/runner/work/genui/genui/genui/.git/
+2026-10-02T07:25:09.5230914Z [command]/usr/bin/git remote add origin https://github.com/mytangyh/genui
+2026-10-02T07:25:09.5288821Z ##[endgroup]
+2026-10-02T07:25:09.5289724Z ##[group]Disabling automatic garbage collection
+2026-10-02T07:25:09.5293950Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T07:25:09.5327692Z ##[endgroup]
+2026-10-02T07:25:09.5328503Z ##[group]Setting up auth
+2026-10-02T07:25:09.5329881Z Removing SSH command configuration
+2026-10-02T07:25:09.5336751Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:09.5369881Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:09.5784556Z Removing HTTP extra header
+2026-10-02T07:25:09.5792056Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:09.5833779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:09.6060885Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:09.6068551Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:09.6105300Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:09.6332261Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:25:09.6371980Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/genui/.git.path /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:09.6406709Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:09.6447355Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/genui/.git.path /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:09.6485061Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/genui/.git/worktrees/*.path /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:09.6518083Z ##[endgroup]
+2026-10-02T07:25:09.6519168Z ##[group]Fetching the repository
+2026-10-02T07:25:09.6526415Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +16c796e093bf8d8d68cce1c41037d8b559e020d4:refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.6804073Z From https://github.com/mytangyh/genui
+2026-10-02T07:25:10.6805932Z  * [new ref]         16c796e093bf8d8d68cce1c41037d8b559e020d4 -> origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.6815000Z [command]/usr/bin/git branch --list --remote origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.6842950Z   origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.6914667Z [command]/usr/bin/git rev-parse refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.6916719Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:10.6920952Z ##[endgroup]
+2026-10-02T07:25:10.6923054Z ##[group]Determining the checkout info
+2026-10-02T07:25:10.6925502Z ##[endgroup]
+2026-10-02T07:25:10.6926968Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T07:25:10.6943017Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T07:25:10.6974006Z ##[group]Checking out the ref
+2026-10-02T07:25:10.6977134Z [command]/usr/bin/git checkout --progress --force -B compat/flutter-3.27.4 refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:10.8757175Z Switched to a new branch 'compat/flutter-3.27.4'
+2026-10-02T07:25:10.8762576Z branch 'compat/flutter-3.27.4' set up to track 'origin/compat/flutter-3.27.4'.
+2026-10-02T07:25:10.8778519Z ##[endgroup]
+2026-10-02T07:25:10.8826378Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T07:25:10.8855143Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:10.8866465Z ##[group]Removing auth
+2026-10-02T07:25:10.8868483Z Removing SSH command configuration
+2026-10-02T07:25:10.8871764Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:10.8909803Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:10.9138550Z Removing HTTP extra header
+2026-10-02T07:25:10.9142823Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:10.9179643Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:10.9401257Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:10.9404628Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:10.9433767Z includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path
+2026-10-02T07:25:10.9436621Z includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:10.9439437Z includeif.gitdir:/github/workspace/genui/.git.path
+2026-10-02T07:25:10.9441553Z includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path
+2026-10-02T07:25:10.9446521Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path
+2026-10-02T07:25:10.9470499Z /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9482152Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9520346Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:10.9546132Z /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9558587Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9597267Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/genui/.git.path
+2026-10-02T07:25:10.9625024Z /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9636871Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/genui/.git.path /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9677744Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path
+2026-10-02T07:25:10.9701480Z /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9710247Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path /github/runner_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config
+2026-10-02T07:25:10.9747987Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:10.9969282Z Removing credentials config '/home/runner/work/_temp/git-credentials-3dd00838-b111-478f-8b08-cdad37a22dc1.config'
+2026-10-02T07:25:10.9977149Z ##[endgroup]
+2026-10-02T07:25:11.0378043Z ##[group]Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+2026-10-02T07:25:11.0380078Z with:
+2026-10-02T07:25:11.0380998Z   repository: mytangyh/dartantic_ai
+2026-10-02T07:25:11.0382257Z   ref: d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+2026-10-02T07:25:11.0383522Z   path: dependency
+2026-10-02T07:25:11.0384487Z   persist-credentials: false
+2026-10-02T07:25:11.0394821Z   token: ***
+2026-10-02T07:25:11.0395711Z   ssh-strict: true
+2026-10-02T07:25:11.0396631Z   ssh-user: git
+2026-10-02T07:25:11.0397508Z   clean: true
+2026-10-02T07:25:11.0398452Z   sparse-checkout-cone-mode: true
+2026-10-02T07:25:11.0399712Z   fetch-depth: 1
+2026-10-02T07:25:11.0400625Z   fetch-tags: false
+2026-10-02T07:25:11.0401553Z   show-progress: true
+2026-10-02T07:25:11.0402497Z   lfs: false
+2026-10-02T07:25:11.0403367Z   submodules: false
+2026-10-02T07:25:11.0404316Z   set-safe-directory: true
+2026-10-02T07:25:11.0405326Z ##[endgroup]
+2026-10-02T07:25:11.1293624Z Syncing repository: mytangyh/dartantic_ai
+2026-10-02T07:25:11.1298077Z ##[group]Getting Git version info
+2026-10-02T07:25:11.1300861Z Working directory is '/home/runner/work/genui/genui/dependency'
+2026-10-02T07:25:11.1344030Z [command]/usr/bin/git version
+2026-10-02T07:25:11.1386026Z git version 2.55.0
+2026-10-02T07:25:11.1410857Z ##[endgroup]
+2026-10-02T07:25:11.1425577Z Temporarily overriding HOME='/home/runner/work/_temp/cd70bff6-3ea0-47c8-abd0-af8d8674da4f' before making global git config changes
+2026-10-02T07:25:11.1431070Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:25:11.1436261Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/dependency
+2026-10-02T07:25:11.1463459Z ##[group]Determining repository object format
+2026-10-02T07:25:11.1466615Z ##[endgroup]
+2026-10-02T07:25:11.1469319Z ##[group]Initializing the repository
+2026-10-02T07:25:11.1471952Z [command]/usr/bin/git init /home/runner/work/genui/genui/dependency
+2026-10-02T07:25:11.1517113Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T07:25:11.1521352Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T07:25:11.1524805Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T07:25:11.1527740Z hint: call:
+2026-10-02T07:25:11.1529581Z hint:
+2026-10-02T07:25:11.1531464Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T07:25:11.1534000Z hint:
+2026-10-02T07:25:11.1536401Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T07:25:11.1540400Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T07:25:11.1543452Z hint:
+2026-10-02T07:25:11.1544973Z hint: 	git branch -m <name>
+2026-10-02T07:25:11.1547554Z hint:
+2026-10-02T07:25:11.1550257Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T07:25:11.1554499Z Initialized empty Git repository in /home/runner/work/genui/genui/dependency/.git/
+2026-10-02T07:25:11.1562032Z [command]/usr/bin/git remote add origin https://github.com/mytangyh/dartantic_ai
+2026-10-02T07:25:11.1581463Z ##[endgroup]
+2026-10-02T07:25:11.1583900Z ##[group]Disabling automatic garbage collection
+2026-10-02T07:25:11.1587372Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T07:25:11.1622511Z ##[endgroup]
+2026-10-02T07:25:11.1625128Z ##[group]Setting up auth
+2026-10-02T07:25:11.1627036Z Removing SSH command configuration
+2026-10-02T07:25:11.1630573Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:11.1669398Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:11.1904795Z Removing HTTP extra header
+2026-10-02T07:25:11.1913470Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:11.1954871Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:11.2201704Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:11.2205493Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:11.2244666Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:11.2494681Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:25:11.2536668Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/dependency/.git.path /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.2572726Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.2609663Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/dependency/.git.path /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.2647488Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/dependency/.git/worktrees/*.path /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.2684313Z ##[endgroup]
+2026-10-02T07:25:11.2686039Z ##[group]Fetching the repository
+2026-10-02T07:25:11.2691504Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+2026-10-02T07:25:11.6343688Z From https://github.com/mytangyh/dartantic_ai
+2026-10-02T07:25:11.6344214Z  * branch            d876bd640ba0afa05b2cd264e776d98b0aeaa21a -> FETCH_HEAD
+2026-10-02T07:25:11.6354988Z [command]/usr/bin/git rev-parse --verify --quiet d876bd640ba0afa05b2cd264e776d98b0aeaa21a^{object}
+2026-10-02T07:25:11.6382320Z d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+2026-10-02T07:25:11.6387168Z ##[endgroup]
+2026-10-02T07:25:11.6387760Z ##[group]Determining the checkout info
+2026-10-02T07:25:11.6389095Z ##[endgroup]
+2026-10-02T07:25:11.6393806Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T07:25:11.6436173Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T07:25:11.6467462Z ##[group]Checking out the ref
+2026-10-02T07:25:11.6471950Z [command]/usr/bin/git checkout --progress --force d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+2026-10-02T07:25:11.7079794Z Note: switching to 'd876bd640ba0afa05b2cd264e776d98b0aeaa21a'.
+2026-10-02T07:25:11.7080362Z 
+2026-10-02T07:25:11.7080731Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-02T07:25:11.7081878Z changes and commit them, and you can discard any commits you make in this
+2026-10-02T07:25:11.7082732Z state without impacting any branches by switching back to a branch.
+2026-10-02T07:25:11.7083238Z 
+2026-10-02T07:25:11.7083555Z If you want to create a new branch to retain commits you create, you may
+2026-10-02T07:25:11.7084325Z do so (now or later) by using -c with the switch command. Example:
+2026-10-02T07:25:11.7084782Z 
+2026-10-02T07:25:11.7084957Z   git switch -c <new-branch-name>
+2026-10-02T07:25:11.7085287Z 
+2026-10-02T07:25:11.7085454Z Or undo this operation with:
+2026-10-02T07:25:11.7085733Z 
+2026-10-02T07:25:11.7085873Z   git switch -
+2026-10-02T07:25:11.7086078Z 
+2026-10-02T07:25:11.7086457Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-02T07:25:11.7086770Z 
+2026-10-02T07:25:11.7086985Z HEAD is now at d876bd6 fix(compat): support Dart 3.6.2 with pinned fork sources
+2026-10-02T07:25:11.7089731Z ##[endgroup]
+2026-10-02T07:25:11.7131543Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T07:25:11.7158082Z d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+2026-10-02T07:25:11.7167883Z ##[group]Removing auth
+2026-10-02T07:25:11.7168319Z Removing SSH command configuration
+2026-10-02T07:25:11.7172044Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:11.7203695Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:11.7428149Z Removing HTTP extra header
+2026-10-02T07:25:11.7432125Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:11.7471077Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:11.7688290Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:11.7692675Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:11.7718825Z includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path
+2026-10-02T07:25:11.7720245Z includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path
+2026-10-02T07:25:11.7721218Z includeif.gitdir:/github/workspace/dependency/.git.path
+2026-10-02T07:25:11.7722160Z includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path
+2026-10-02T07:25:11.7729987Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path
+2026-10-02T07:25:11.7756174Z /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7766283Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7803287Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path
+2026-10-02T07:25:11.7827899Z /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7836467Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7873778Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/dependency/.git.path
+2026-10-02T07:25:11.7900512Z /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7910024Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/dependency/.git.path /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.7977644Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path
+2026-10-02T07:25:11.7999817Z /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.8006519Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path /github/runner_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config
+2026-10-02T07:25:11.8040616Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:11.8255556Z Removing credentials config '/home/runner/work/_temp/git-credentials-4e1ee163-1770-4ec4-af63-0ce4751bfa26.config'
+2026-10-02T07:25:11.8263854Z ##[endgroup]
+2026-10-02T07:25:11.8500527Z ##[group]Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+2026-10-02T07:25:11.8500953Z with:
+2026-10-02T07:25:11.8501157Z   flutter-version: 3.27.4
+2026-10-02T07:25:11.8501390Z   channel: stable
+2026-10-02T07:25:11.8501633Z   architecture: X64
+2026-10-02T07:25:11.8501833Z   cache: false
+2026-10-02T07:25:11.8502041Z   pub-cache-path: default
+2026-10-02T07:25:11.8502266Z   dry-run: false
+2026-10-02T07:25:11.8502534Z   git-source: https://github.com/flutter/flutter.git
+2026-10-02T07:25:11.8502846Z ##[endgroup]
+2026-10-02T07:25:11.8562167Z ##[start-action display=Make yq tool available on Windows runners;id=__subosito_flutter-action.__run]
+2026-10-02T07:25:11.8584137Z ##[end-action id=__subosito_flutter-action.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:11.8586282Z ##[start-action display=Make setup script executable;id=__subosito_flutter-action.__run_2]
+2026-10-02T07:25:11.8620330Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-10-02T07:25:11.8620782Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-10-02T07:25:11.8882205Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:11.8882574Z ##[endgroup]
+2026-10-02T07:25:11.9003008Z ##[end-action id=__subosito_flutter-action.__run_2;outcome=success;conclusion=success;duration_ms=41]
+2026-10-02T07:25:11.9005132Z ##[start-action display=Set action inputs;id=__subosito_flutter-action.flutter-action]
+2026-10-02T07:25:11.9058564Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2026-10-02T07:25:11.9059142Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2026-10-02T07:25:11.9059448Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:11.9059673Z [36;1m  -f '' \[0m
+2026-10-02T07:25:11.9059881Z [36;1m  -a 'X64' \[0m
+2026-10-02T07:25:11.9060086Z [36;1m  -k '' \[0m
+2026-10-02T07:25:11.9060279Z [36;1m  -c '' \[0m
+2026-10-02T07:25:11.9060465Z [36;1m  -l '' \[0m
+2026-10-02T07:25:11.9060662Z [36;1m  -d 'default' \[0m
+2026-10-02T07:25:11.9060982Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2026-10-02T07:25:11.9061316Z [36;1m  stable[0m
+2026-10-02T07:25:11.9119770Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:11.9120120Z ##[endgroup]
+2026-10-02T07:25:12.0762657Z ##[end-action id=__subosito_flutter-action.flutter-action;outcome=success;conclusion=success;duration_ms=175]
+2026-10-02T07:25:12.0767378Z ##[start-action display=Cache Flutter;id=__subosito_flutter-action.cache-flutter]
+2026-10-02T07:25:12.0772343Z ##[end-action id=__subosito_flutter-action.cache-flutter;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:12.0774331Z ##[start-action display=Cache pub dependencies;id=__subosito_flutter-action.cache-pub]
+2026-10-02T07:25:12.0786721Z ##[end-action id=__subosito_flutter-action.cache-pub;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:12.0788914Z ##[start-action display=Run setup script;id=__subosito_flutter-action.__run_3]
+2026-10-02T07:25:12.0821511Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-10-02T07:25:12.0821843Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-10-02T07:25:12.0822127Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:12.0822363Z [36;1m  -a 'x64' \[0m
+2026-10-02T07:25:12.0822679Z [36;1m  -c '/opt/hostedtoolcache/flutter/stable-3.27.4-x64' \[0m
+2026-10-02T07:25:12.0823200Z [36;1m  -d '/home/runner/.pub-cache' \[0m
+2026-10-02T07:25:12.0823474Z [36;1m  stable[0m
+2026-10-02T07:25:12.0888434Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:12.0889008Z ##[endgroup]
+2026-10-02T07:25:12.2390824Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-10-02T07:25:12.2396014Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-10-02T07:25:12.2396298Z 
+2026-10-02T07:25:12.9514333Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-10-02T07:25:13.9463316Z  28  731M   28  210M    0     0   295M      0  0:00:02 --:--:--  0:00:02  294M
+2026-10-02T07:25:14.1685678Z  86  731M   86  636M    0     0   372M      0  0:00:01  0:00:01 --:--:--  372M
+2026-10-02T07:25:14.1686501Z 100  731M  100  731M    0     0   379M      0  0:00:01  0:00:01 --:--:--  379M
+2026-10-02T07:25:44.8291789Z ##[end-action id=__subosito_flutter-action.__run_3;outcome=success;conclusion=success;duration_ms=32750]
+2026-10-02T07:25:44.8355562Z ##[group]Run ./genui/tool/compatibility/verify_dependency.ps1 -Repository $env:COMPAT_REPOSITORY -Checkout ./dependency -SystemSdk
+2026-10-02T07:25:44.8356522Z [36;1m./genui/tool/compatibility/verify_dependency.ps1 -Repository $env:COMPAT_REPOSITORY -Checkout ./dependency -SystemSdk[0m
+2026-10-02T07:25:44.8383557Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-10-02T07:25:44.8383841Z env:
+2026-10-02T07:25:44.8384134Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.27.4-x64/flutter
+2026-10-02T07:25:44.8384523Z   PUB_CACHE: /home/runner/.pub-cache
+2026-10-02T07:25:44.8384799Z   COMPAT_REPOSITORY: dartantic_ai
+2026-10-02T07:25:44.8385048Z ##[endgroup]
+2026-10-02T07:25:48.8548759Z Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+2026-10-02T07:25:48.8549525Z Framework • revision d8a9f9a52e (1 year, 8 months ago) • 2025-01-31 16:07:18 -0500
+2026-10-02T07:25:48.8563614Z Engine • revision 82bd5b7209
+2026-10-02T07:25:48.8564812Z Tools • Dart 3.6.2 • DevTools 2.40.3
+2026-10-02T07:25:49.0450507Z Resolving dependencies...
+2026-10-02T07:25:55.4152249Z Downloading packages...
+2026-10-02T07:25:59.6277954Z   _fe_analyzer_shared 85.0.0 (108.0.0 available)
+2026-10-02T07:25:59.6278862Z   analyzer 7.7.1 (14.4.0 available)
+2026-10-02T07:25:59.6280003Z ! anthropic_sdk_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/anthropic_sdk_dart (overridden)
+2026-10-02T07:25:59.6281177Z   checked_yaml 2.0.3 (2.0.4 available)
+2026-10-02T07:25:59.6281700Z   cli_launcher 0.3.2 (0.3.4 available)
+2026-10-02T07:25:59.6282210Z   cli_util 0.4.2 (0.6.0 available)
+2026-10-02T07:25:59.6282742Z   conventional_commit 0.6.1 (0.6.1+1 available)
+2026-10-02T07:25:59.6283329Z   cross_file 0.3.4+2 (0.4.0 available)
+2026-10-02T07:25:59.6284268Z ! genai_primitives 0.2.4 from git https://github.com/mytangyh/genui.git at 4f83e1 in packages/genai_primitives (overridden)
+2026-10-02T07:25:59.6286365Z ! google_cloud_ai_generativelanguage_v1beta 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_ai_generativelanguage_v1beta (overridden)
+2026-10-02T07:25:59.6288551Z ! google_cloud_longrunning 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_longrunning (overridden)
+2026-10-02T07:25:59.6290725Z ! google_cloud_protobuf 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_protobuf (overridden)
+2026-10-02T07:25:59.6292563Z ! google_cloud_rpc 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_rpc (overridden)
+2026-10-02T07:25:59.6294462Z ! google_cloud_type 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_type (overridden)
+2026-10-02T07:25:59.6295496Z   googleapis_auth 2.0.0 (2.3.4 available)
+2026-10-02T07:25:59.6296047Z   intl 0.19.0 (0.20.3 available)
+2026-10-02T07:25:59.6296834Z   js 0.7.1 (0.7.2 available)
+2026-10-02T07:25:59.6297323Z   json_annotation 4.9.0 (4.12.0 available)
+2026-10-02T07:25:59.6298420Z ! json_schema_builder 0.1.7 from git https://github.com/mytangyh/genui.git at 4f83e1 in packages/json_schema_builder (overridden)
+2026-10-02T07:25:59.6299746Z   matcher 0.12.17 (0.12.20 available)
+2026-10-02T07:25:59.6300247Z   melos 6.3.2 (8.9.0 available)
+2026-10-02T07:25:59.6301265Z ! mistralai_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/mistralai_dart (overridden)
+2026-10-02T07:25:59.6302353Z   mustache_template 2.0.0 (2.0.6 available)
+2026-10-02T07:25:59.6303429Z ! ollama_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/ollama_dart (overridden)
+2026-10-02T07:25:59.6304995Z ! openai_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/openai_dart (overridden)
+2026-10-02T07:25:59.6306065Z   package_config 2.2.0 (3.0.0 available)
+2026-10-02T07:25:59.6306617Z   platform 3.1.6 (3.2.0 available)
+2026-10-02T07:25:59.6307432Z   pub_updater 0.4.0 (0.6.0 available)
+2026-10-02T07:25:59.6307958Z   pubspec_parse 1.5.0 (1.6.0 available)
+2026-10-02T07:25:59.6308441Z   sse 4.1.8 (4.2.0 available)
+2026-10-02T07:25:59.6309453Z ! sse_channel 0.2.2 from git https://github.com/mytangyh/sse_channel.git at 1776f9 (overridden)
+2026-10-02T07:25:59.6310281Z   test 1.26.3 (1.32.0 available)
+2026-10-02T07:25:59.6310780Z   test_api 0.7.7 (0.7.14 available)
+2026-10-02T07:25:59.6311266Z   test_core 0.6.12 (0.6.20 available)
+2026-10-02T07:25:59.6311794Z Got dependencies!
+2026-10-02T07:25:59.6312431Z 22 packages have newer versions incompatible with dependency constraints.
+2026-10-02T07:25:59.6313231Z Try `dart pub outdated` for more information.
+2026-10-02T07:26:01.0073973Z Formatted 199 files (0 changed) in 1.23 seconds.
+2026-10-02T07:26:01.1256627Z Analyzing lib, lib, test...
+2026-10-02T07:26:10.0701374Z 
+2026-10-02T07:26:10.0743816Z    info - packages/dartantic_ai/lib/src/agent/orchestrators/default_streaming_orchestrator.dart:173:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+2026-10-02T07:26:10.0747127Z    info - packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:59:26 - Don't cast a nullable value to a non-nullable type. Try adding a not-null assertion ('!') to make the type non-nullable. - cast_nullable_to_non_nullable
+2026-10-02T07:26:10.0750169Z    info - packages/dartantic_ai/lib/src/providers/ollama_provider.dart:22:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+2026-10-02T07:26:10.0752698Z    info - packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart:33:20 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+2026-10-02T07:26:10.0755496Z    info - packages/dartantic_ai/test/provider_initialization_test.dart:96:21 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+2026-10-02T07:26:10.0757069Z 
+2026-10-02T07:26:10.0757418Z 5 issues found.
+2026-10-02T07:26:14.8430800Z 00:00 [32m+0[0m: [1m[90mloading packages/dartantic_ai/test/provider_initialization_test.dart[0m[0m
+2026-10-02T07:26:18.3520125Z 00:00 [32m+0[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Can access provider metadata without API keys[0m
+2026-10-02T07:26:18.3727056Z 00:00 [32m+1[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Can list all providers without API keys[0m
+2026-10-02T07:26:18.3779355Z 00:00 [32m+2[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Throws when creating model without required API key[0m
+2026-10-02T07:26:18.3852942Z 00:00 [32m+3[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Google provider propagates base URL to chat model[0m
+2026-10-02T07:26:18.3905686Z 00:00 [32m+4[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Google provider propagates base URL to embeddings model[0m
+2026-10-02T07:26:18.3928977Z 00:00 [32m+5[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Ollama provider works without API key[0m
+2026-10-02T07:26:18.3982088Z 00:00 [32m+6[0m: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Can use Agent with specific provider without others failing[0m
+2026-10-02T07:26:18.4130860Z 00:00 [32m+7[0m: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings API Key Resolution Falls back to Agent.environment[0m
+2026-10-02T07:26:18.4360037Z 00:00 [32m+8[0m: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings API Key Resolution Different providers use different API keys[0m
+2026-10-02T07:26:18.4383803Z 00:00 [32m+9[0m: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings Base URL Resolution Each provider has correct default base URL[0m
+2026-10-02T07:26:18.4480332Z 00:00 [32m+10[0m: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Error Handling Invalid provider name throws[0m
+2026-10-02T07:26:18.6070032Z 00:00 [32m+11[0m: packages/dartantic_ai/test/message_api_test.dart: Message API basic message construction creates simple text messages[0m
+2026-10-02T07:26:18.6238068Z 00:00 [32m+12[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6247798Z 00:00 [32m+13[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6257248Z 00:00 [32m+14[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6267825Z 00:00 [32m+15[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6279527Z 00:00 [32m+16[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6361236Z 00:00 [32m+17[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6373746Z 00:00 [32m+18[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName[0m
+2026-10-02T07:26:18.6380872Z 00:00 [32m+19[0m: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates complex multipart messages[0m
+2026-10-02T07:26:18.6387170Z 00:00 [32m+20[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName:chatModelName[0m
+2026-10-02T07:26:18.6400285Z 00:00 [32m+21[0m: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates data-only messages[0m
+2026-10-02T07:26:18.6410248Z 00:00 [32m+22[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName/chatModelName[0m
+2026-10-02T07:26:18.6413587Z 00:00 [32m+23[0m: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates link-only messages[0m
+2026-10-02T07:26:18.6430923Z 00:00 [32m+24[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName?chat=chatModelName[0m
+2026-10-02T07:26:18.6449387Z 00:00 [32m+25[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports various image mime types[0m
+2026-10-02T07:26:18.6451496Z 00:00 [32m+26[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports various image mime types[0m
+2026-10-02T07:26:18.6454218Z 00:00 [32m+27[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports various image mime types[0m
+2026-10-02T07:26:18.6455861Z 00:00 [32m+28[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName?media=mediaModelName[0m
+2026-10-02T07:26:18.6485573Z 00:00 [32m+29[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName?media=mediaModelName[0m
+2026-10-02T07:26:18.6487804Z 00:00 [32m+30[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles empty data[0m
+2026-10-02T07:26:18.6510305Z 00:00 [32m+31[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases empty string throws[0m
+2026-10-02T07:26:18.6514866Z 00:00 [32m+32[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently[0m
+2026-10-02T07:26:18.6550384Z 00:00 [32m+33[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently[0m
+2026-10-02T07:26:18.6559528Z 00:00 [32m+34[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently[0m
+2026-10-02T07:26:18.6567947Z 00:00 [32m+35[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently[0m
+2026-10-02T07:26:18.6583585Z 00:00 [32m+36[0m: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently[0m
+2026-10-02T07:26:18.6592462Z 00:00 [32m+37[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName:chat1/chat2[0m
+2026-10-02T07:26:18.6595222Z 00:00 [32m+38[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName?chat=chatModel&embeddings= (empty embeddings)[0m
+2026-10-02T07:26:18.6604617Z 00:00 [32m+39[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes[0m
+2026-10-02T07:26:18.6612914Z 00:00 [32m+40[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes[0m
+2026-10-02T07:26:18.6622491Z 00:00 [32m+41[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes[0m
+2026-10-02T07:26:18.6631747Z 00:00 [32m+42[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes[0m
+2026-10-02T07:26:18.6641136Z 00:00 [32m+43[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes[0m
+2026-10-02T07:26:18.6651149Z 00:00 [32m+44[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI chat model with plain slash[0m
+2026-10-02T07:26:18.6652407Z 00:00 [32m+45[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications handles URLs with query parameters[0m
+2026-10-02T07:26:18.6661474Z 00:00 [32m+46[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI chat model with colon[0m
+2026-10-02T07:26:18.6667250Z 00:00 [32m+47[0m: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications handles URLs with fragments[0m
+2026-10-02T07:26:18.6676451Z 00:00 [32m+48[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI media model with query parameter[0m
+2026-10-02T07:26:18.6677970Z 00:00 [32m+49[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool calls[0m
+2026-10-02T07:26:18.6686526Z 00:00 [32m+50[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI legacy other parameter maps to media[0m
+2026-10-02T07:26:18.6691001Z 00:00 [32m+51[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool results[0m
+2026-10-02T07:26:18.6701029Z 00:00 [32m+52[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool results[0m
+2026-10-02T07:26:18.6711997Z 00:00 [32m+53[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenRouter Models OpenRouter chat model with query parameter[0m
+2026-10-02T07:26:18.6722774Z 00:00 [32m+54[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with multiple tool results[0m
+2026-10-02T07:26:18.6733722Z 00:00 [32m+55[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with multiple tool results[0m
+2026-10-02T07:26:18.6736142Z 00:00 [32m+56[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenRouter Models OpenRouter embeddings model[0m
+2026-10-02T07:26:18.6746135Z 00:00 [32m+57[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages handles tool results with complex output[0m
+2026-10-02T07:26:18.6748405Z 00:00 [32m+58[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenRouter Models OpenRouter unrecognized format[0m
+2026-10-02T07:26:18.6756664Z 00:00 [32m+59[0m: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages distinguishes between tool calls and results[0m
+2026-10-02T07:26:18.6764374Z 00:00 [32m+60[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Mistral Models Mistral chat model with query parameter[0m
+2026-10-02T07:26:18.6767430Z 00:00 [32m+61[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation supports all message roles[0m
+2026-10-02T07:26:18.6776686Z 00:00 [32m+62[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation supports all message roles[0m
+2026-10-02T07:26:18.6779185Z 00:00 [32m+63[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Mistral Models Mistral other model (plain segment)[0m
+2026-10-02T07:26:18.6786435Z 00:00 [32m+64[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation system messages typically contain instructions[0m
+2026-10-02T07:26:18.6795594Z 00:00 [32m+65[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation system messages typically contain instructions[0m
+2026-10-02T07:26:18.6797131Z 00:00 [32m+66[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Google Models Google embeddings model[0m
+2026-10-02T07:26:18.6805979Z 00:00 [32m+67[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation user messages typically contain queries[0m
+2026-10-02T07:26:18.6807669Z 00:00 [32m+68[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Google Models Google chat model with slash throws (multiple segments)[0m
+2026-10-02T07:26:18.6816955Z 00:00 [32m+69[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation model messages typically contain responses[0m
+2026-10-02T07:26:18.6824290Z 00:00 [32m+70[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Empty string throws[0m
+2026-10-02T07:26:18.6826409Z 00:00 [32m+71[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying messages are immutable after creation[0m
+2026-10-02T07:26:18.6835086Z 00:00 [32m+72[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Whitespace string[0m
+2026-10-02T07:26:18.6841329Z 00:00 [32m+73[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying can create message variants[0m
+2026-10-02T07:26:18.6846500Z 00:00 [32m+74[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying can create message variants[0m
+2026-10-02T07:26:18.6848563Z 00:00 [32m+75[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Provider with empty embeddings model[0m
+2026-10-02T07:26:18.6855485Z 00:00 [32m+76[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying tool results are preserved in message copies[0m
+2026-10-02T07:26:18.6862167Z 00:00 [32m+77[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Multiple colons in chat model[0m
+2026-10-02T07:26:18.6864239Z 00:00 [32m+78[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns builds conversation history[0m
+2026-10-02T07:26:18.6873104Z 00:00 [32m+79[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns builds conversation history[0m
+2026-10-02T07:26:18.6875740Z 00:00 [32m+80[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Unrecognized prefix sets chat if null[0m
+2026-10-02T07:26:18.6891902Z 00:00 [32m+81[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns filters messages by role[0m
+2026-10-02T07:26:18.6894298Z 00:00 [32m+82[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Multiple query parameters[0m
+2026-10-02T07:26:18.6912344Z 00:00 [32m+83[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns extracts all tool results from conversation[0m
+2026-10-02T07:26:18.6919713Z 00:00 [32m+84[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Anthropic chat model[0m
+2026-10-02T07:26:18.6921702Z 00:00 [32m+85[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns counts parts by type across conversation[0m
+2026-10-02T07:26:18.6938263Z 00:00 [32m+86[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns counts parts by type across conversation[0m
+2026-10-02T07:26:18.6941142Z 00:00 [32m+87[0m: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns counts parts by type across conversation[0m
+2026-10-02T07:26:18.6947865Z 00:00 [32m+88[0m: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Together AI chat model with slash[0m
+2026-10-02T07:26:18.6950025Z 00:00 [32m+89[0m: packages/dartantic_ai/test/message_api_test.dart: Message API edge cases and validation handles very long text content[0m
+2026-10-02T07:26:18.7010378Z 00:00 [32m+90[0m: packages/dartantic_ai/test/message_api_test.dart: Message API edge cases and validation handles unicode and special characters[0m
+2026-10-02T07:26:18.7012516Z 00:00 [32m+91[0m: packages/dartantic_ai/test/message_api_test.dart: Message API edge cases and validation handles newlines and formatting[0m
+2026-10-02T07:26:18.7014575Z 00:00 [32m+92[0m: packages/dartantic_ai/test/message_api_test.dart: Message API edge cases and validation handles empty strings gracefully[0m
+2026-10-02T07:26:18.7016561Z 00:00 [32m+93[0m: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods text getter concatenates text parts[0m
+2026-10-02T07:26:18.7030334Z 00:00 [32m+94[0m: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods hasToolCalls and hasToolResults work correctly[0m
+2026-10-02T07:26:18.7032583Z 00:00 [32m+95[0m: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods factory constructors work correctly[0m
+2026-10-02T07:26:18.7047428Z 00:00 [32m+96[0m: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods userParts and modelParts factories work correctly[0m
+2026-10-02T07:26:18.8853467Z 00:00 [32m+97[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list[0m
+2026-10-02T07:26:18.9013825Z 00:00 [32m+98[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns single text part content[0m
+2026-10-02T07:26:18.9025548Z 00:00 [32m+99[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText concatenates multiple text parts without separator[0m
+2026-10-02T07:26:18.9036169Z 00:00 [32m+100[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText includes empty text parts in concatenation[0m
+2026-10-02T07:26:18.9045652Z 00:00 [32m+101[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText ignores non-text parts[0m
+2026-10-02T07:26:18.9112491Z 00:00 [32m+102[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText handles list with only non-text parts[0m
+2026-10-02T07:26:18.9126165Z 00:00 [32m+103[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText preserves whitespace and special characters[0m
+2026-10-02T07:26:18.9142276Z 00:00 [32m+104[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText handles unicode and emojis[0m
+2026-10-02T07:26:18.9145009Z 00:00 [32m+105[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls returns empty list for empty parts[0m
+2026-10-02T07:26:18.9158055Z 00:00 [32m+106[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls returns empty list when no tool calls present[0m
+2026-10-02T07:26:18.9168135Z 00:00 [32m+107[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls extracts single tool call[0m
+2026-10-02T07:26:18.9189867Z 00:00 [32m+108[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls extracts multiple tool calls[0m
+2026-10-02T07:26:18.9198497Z 00:00 [32m+109[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls handles tool calls with empty arguments[0m
+2026-10-02T07:26:18.9209993Z 00:00 [32m+110[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls handles tool calls with empty IDs[0m
+2026-10-02T07:26:18.9220656Z 00:00 [32m+111[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolResults returns empty list for empty parts[0m
+2026-10-02T07:26:18.9233378Z 00:00 [32m+112[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9242727Z 00:00 [32m+113[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9252470Z 00:00 [32m+114[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9264212Z 00:00 [32m+115[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9277734Z 00:00 [32m+116[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9294818Z 00:00 [32m+117[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9304214Z 00:00 [32m+118[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9337545Z 00:00 [32m+119[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9347575Z 00:00 [32m+120[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9356138Z 00:00 [32m+121[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9366596Z 00:00 [32m+122[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9374488Z 00:00 [32m+123[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9389649Z 00:00 [32m+124[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9397534Z 00:00 [32m+125[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9409305Z 00:00 [32m+126[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9425303Z 00:00 [32m+127[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9433713Z 00:00 [32m+128[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9442118Z 00:00 [32m+129[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9456068Z 00:00 [32m+130[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9464768Z 00:00 [32m+131[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment[0m
+2026-10-02T07:26:18.9471243Z 00:00 [32m+132[0m: packages/dartantic_ai/test/message_part_helpers_test.dart: ToolResultHelpers ensureMap handles empty map correctly[0m
+2026-10-02T07:26:18.9478979Z 00:00 [32m+133[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9482949Z 00:00 [32m+134[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9509836Z 00:00 [32m+135[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9518333Z 00:00 [32m+136[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9529964Z 00:00 [32m+137[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9543359Z 00:00 [32m+138[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9560011Z 00:00 [32m+139[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9580770Z 00:00 [32m+140[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results[0m
+2026-10-02T07:26:18.9627376Z 00:00 [32m+141[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata[0m
+2026-10-02T07:26:18.9972118Z 00:00 [32m+142[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper handles streaming image generation with ResponseOutputItemDone[0m
+2026-10-02T07:26:19.0045067Z 00:00 [32m+143[0m: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper handles multiple concurrent images at different indices[0m
+2026-10-02T07:26:19.1247872Z 00:00 [32m+144[0m: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper maps system and multimodal user messages into response items[0m
+2026-10-02T07:26:19.1550125Z 00:00 [32m+145[0m: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper respects session metadata when resuming conversations[0m
+2026-10-02T07:26:19.1712330Z 00:00 [32m+146[0m: All tests passed![0m
+2026-10-02T07:26:19.4066603Z Post job cleanup.
+2026-10-02T07:26:19.4141123Z Post job cleanup.
+2026-10-02T07:26:19.4988535Z [command]/usr/bin/git version
+2026-10-02T07:26:19.5034323Z git version 2.55.0
+2026-10-02T07:26:19.5076372Z Temporarily overriding HOME='/home/runner/work/_temp/45c38a60-bd05-467b-9298-02c299c34f9a' before making global git config changes
+2026-10-02T07:26:19.5077946Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:26:19.5082248Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/dependency
+2026-10-02T07:26:19.5114831Z Removing SSH command configuration
+2026-10-02T07:26:19.5122121Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:26:19.5165559Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:26:19.5399818Z Removing HTTP extra header
+2026-10-02T07:26:19.5402142Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:26:19.5461166Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:26:19.5715399Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:26:19.5722457Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:26:19.5760951Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:26:19.6201956Z Post job cleanup.
+2026-10-02T07:26:19.7053486Z [command]/usr/bin/git version
+2026-10-02T07:26:19.7094536Z git version 2.55.0
+2026-10-02T07:26:19.7167290Z Temporarily overriding HOME='/home/runner/work/_temp/2100ea57-3b5a-4bf8-b821-00a67d50c68a' before making global git config changes
+2026-10-02T07:26:19.7168857Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:26:19.7174043Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/genui
+2026-10-02T07:26:19.7205479Z Removing SSH command configuration
+2026-10-02T07:26:19.7212336Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:26:19.7254634Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:26:19.7500234Z Removing HTTP extra header
+2026-10-02T07:26:19.7505760Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:26:19.7541300Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:26:19.7783482Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:26:19.7791309Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:26:19.7837119Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:26:19.8262277Z Cleaning up orphan processes

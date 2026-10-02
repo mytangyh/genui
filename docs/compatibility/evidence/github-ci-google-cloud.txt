@@ -1,0 +1,606 @@
+﻿2026-10-02T07:25:08.5797169Z Current runner version: '2.337.0'
+2026-10-02T07:25:08.5819975Z ##[group]Runner Image Provisioner
+2026-10-02T07:25:08.5820743Z Hosted Compute Agent
+2026-10-02T07:25:08.5821212Z Version: 20260901.588
+2026-10-02T07:25:08.5821921Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-02T07:25:08.5822538Z Build Date: 2026-09-01T19:56:44Z
+2026-10-02T07:25:08.5823123Z Worker ID: {4eab6841-d51b-43e3-ad61-f968adfa33c0}
+2026-10-02T07:25:08.5823783Z Azure Region: westus3
+2026-10-02T07:25:08.5824243Z ##[endgroup]
+2026-10-02T07:25:08.5825503Z ##[group]Operating System
+2026-10-02T07:25:08.5826023Z Ubuntu
+2026-10-02T07:25:08.5826504Z 24.04.5
+2026-10-02T07:25:08.5826977Z LTS
+2026-10-02T07:25:08.5827402Z ##[endgroup]
+2026-10-02T07:25:08.5827895Z ##[group]Runner Image
+2026-10-02T07:25:08.5828391Z Image: ubuntu-24.04
+2026-10-02T07:25:08.5829133Z Version: 20260927.320.1
+2026-10-02T07:25:08.5830274Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-02T07:25:08.5831691Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-02T07:25:08.5832488Z ##[endgroup]
+2026-10-02T07:25:08.5833478Z ##[group]GITHUB_TOKEN Permissions
+2026-10-02T07:25:08.5835243Z Contents: read
+2026-10-02T07:25:08.5835795Z Metadata: read
+2026-10-02T07:25:08.5836355Z ##[endgroup]
+2026-10-02T07:25:08.5838034Z Secret source: Actions
+2026-10-02T07:25:08.5838886Z Cache mode: write
+2026-10-02T07:25:08.5839496Z Prepare workflow directory
+2026-10-02T07:25:08.6358363Z Prepare all required actions
+2026-10-02T07:25:08.6397676Z Getting action download info
+2026-10-02T07:25:08.9420159Z Download action repository 'actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10' (SHA:df4cb1c069e1874edd31b4311f1884172cec0e10)
+2026-10-02T07:25:09.0484655Z Download action repository 'subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2' (SHA:1a449444c387b1966244ae4d4f8c696479add0b2)
+2026-10-02T07:25:09.5312731Z Getting action download info
+2026-10-02T07:25:09.6550447Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-10-02T07:25:09.8358494Z Complete job name: dependencies (google-cloud-dart, mytangyh/google-cloud-dart, 45fa588f37c6f2356444ba43adf7c06b2831...
+2026-10-02T07:25:09.8971484Z ##[group]Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+2026-10-02T07:25:09.8972555Z with:
+2026-10-02T07:25:09.8972932Z   path: genui
+2026-10-02T07:25:09.8973309Z   persist-credentials: false
+2026-10-02T07:25:09.8973741Z   repository: mytangyh/genui
+2026-10-02T07:25:09.8976980Z   token: ***
+2026-10-02T07:25:09.8977355Z   ssh-strict: true
+2026-10-02T07:25:09.8977734Z   ssh-user: git
+2026-10-02T07:25:09.8978100Z   clean: true
+2026-10-02T07:25:09.8978484Z   sparse-checkout-cone-mode: true
+2026-10-02T07:25:09.8978928Z   fetch-depth: 1
+2026-10-02T07:25:09.8979289Z   fetch-tags: false
+2026-10-02T07:25:09.8979669Z   show-progress: true
+2026-10-02T07:25:09.8980061Z   lfs: false
+2026-10-02T07:25:09.8980450Z   submodules: false
+2026-10-02T07:25:09.8980872Z   set-safe-directory: true
+2026-10-02T07:25:09.8981433Z ##[endgroup]
+2026-10-02T07:25:09.9835682Z Syncing repository: mytangyh/genui
+2026-10-02T07:25:09.9837480Z ##[group]Getting Git version info
+2026-10-02T07:25:09.9838221Z Working directory is '/home/runner/work/genui/genui/genui'
+2026-10-02T07:25:09.9839070Z [command]/usr/bin/git version
+2026-10-02T07:25:09.9906260Z git version 2.55.0
+2026-10-02T07:25:09.9928590Z ##[endgroup]
+2026-10-02T07:25:09.9942199Z Temporarily overriding HOME='/home/runner/work/_temp/62247efc-92d0-4932-8fb4-2108763c56d3' before making global git config changes
+2026-10-02T07:25:09.9944373Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:25:09.9946809Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/genui
+2026-10-02T07:25:09.9993178Z ##[group]Determining repository object format
+2026-10-02T07:25:09.9994690Z ##[endgroup]
+2026-10-02T07:25:09.9995898Z ##[group]Initializing the repository
+2026-10-02T07:25:09.9999001Z [command]/usr/bin/git init /home/runner/work/genui/genui/genui
+2026-10-02T07:25:10.0116239Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T07:25:10.0119178Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T07:25:10.0120839Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T07:25:10.0122075Z hint: call:
+2026-10-02T07:25:10.0122630Z hint:
+2026-10-02T07:25:10.0123363Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T07:25:10.0124269Z hint:
+2026-10-02T07:25:10.0125075Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T07:25:10.0126394Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T07:25:10.0127418Z hint:
+2026-10-02T07:25:10.0127974Z hint: 	git branch -m <name>
+2026-10-02T07:25:10.0128808Z hint:
+2026-10-02T07:25:10.0129798Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T07:25:10.0131281Z Initialized empty Git repository in /home/runner/work/genui/genui/genui/.git/
+2026-10-02T07:25:10.0135560Z [command]/usr/bin/git remote add origin https://github.com/mytangyh/genui
+2026-10-02T07:25:10.0183797Z ##[endgroup]
+2026-10-02T07:25:10.0184877Z ##[group]Disabling automatic garbage collection
+2026-10-02T07:25:10.0187621Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T07:25:10.0220027Z ##[endgroup]
+2026-10-02T07:25:10.0221131Z ##[group]Setting up auth
+2026-10-02T07:25:10.0227076Z Removing SSH command configuration
+2026-10-02T07:25:10.0238009Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:10.0262297Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:10.0758182Z Removing HTTP extra header
+2026-10-02T07:25:10.0764217Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:10.0797785Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:10.0990282Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:10.0991346Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:10.1021286Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:10.1218916Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:25:10.1256163Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/genui/.git.path /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:10.1286197Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:10.1318740Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/genui/.git.path /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:10.1350010Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/genui/.git/worktrees/*.path /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:10.1383484Z ##[endgroup]
+2026-10-02T07:25:10.1384159Z ##[group]Fetching the repository
+2026-10-02T07:25:10.1391488Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +16c796e093bf8d8d68cce1c41037d8b559e020d4:refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.3589782Z From https://github.com/mytangyh/genui
+2026-10-02T07:25:12.3590581Z  * [new ref]         16c796e093bf8d8d68cce1c41037d8b559e020d4 -> origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.3598878Z [command]/usr/bin/git branch --list --remote origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.3624649Z   origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.3633179Z [command]/usr/bin/git rev-parse refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.3716003Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:12.3717773Z ##[endgroup]
+2026-10-02T07:25:12.3718481Z ##[group]Determining the checkout info
+2026-10-02T07:25:12.3719175Z ##[endgroup]
+2026-10-02T07:25:12.3719709Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T07:25:12.3725837Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T07:25:12.3746612Z ##[group]Checking out the ref
+2026-10-02T07:25:12.3750130Z [command]/usr/bin/git checkout --progress --force -B compat/flutter-3.27.4 refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:12.5230263Z Switched to a new branch 'compat/flutter-3.27.4'
+2026-10-02T07:25:12.5234073Z branch 'compat/flutter-3.27.4' set up to track 'origin/compat/flutter-3.27.4'.
+2026-10-02T07:25:12.5248355Z ##[endgroup]
+2026-10-02T07:25:12.5321060Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T07:25:12.5344758Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:12.5352294Z ##[group]Removing auth
+2026-10-02T07:25:12.5352698Z Removing SSH command configuration
+2026-10-02T07:25:12.5355509Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:12.5386294Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:12.5585524Z Removing HTTP extra header
+2026-10-02T07:25:12.5586056Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:12.5618310Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:12.5808250Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:12.5810981Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:12.5838258Z includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path
+2026-10-02T07:25:12.5838974Z includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:12.5839449Z includeif.gitdir:/github/workspace/genui/.git.path
+2026-10-02T07:25:12.5839880Z includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path
+2026-10-02T07:25:12.5846161Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path
+2026-10-02T07:25:12.5868236Z /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.5876357Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/genui/.git.path /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.5909391Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:12.5931730Z /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.5938780Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.5972241Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/genui/.git.path
+2026-10-02T07:25:12.6030057Z /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.6032810Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/genui/.git.path /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.6061737Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path
+2026-10-02T07:25:12.6082499Z /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.6087841Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/genui/.git/worktrees/*.path /github/runner_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config
+2026-10-02T07:25:12.6118510Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:12.6307773Z Removing credentials config '/home/runner/work/_temp/git-credentials-7cf5bd22-ba0c-423f-b82d-69214c4f2719.config'
+2026-10-02T07:25:12.6316154Z ##[endgroup]
+2026-10-02T07:25:12.6533595Z ##[group]Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+2026-10-02T07:25:12.6533958Z with:
+2026-10-02T07:25:12.6534177Z   repository: mytangyh/google-cloud-dart
+2026-10-02T07:25:12.6534460Z   ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+2026-10-02T07:25:12.6534729Z   path: dependency
+2026-10-02T07:25:12.6534949Z   persist-credentials: false
+2026-10-02T07:25:12.6537026Z   token: ***
+2026-10-02T07:25:12.6537242Z   ssh-strict: true
+2026-10-02T07:25:12.6537449Z   ssh-user: git
+2026-10-02T07:25:12.6537649Z   clean: true
+2026-10-02T07:25:12.6537862Z   sparse-checkout-cone-mode: true
+2026-10-02T07:25:12.6538107Z   fetch-depth: 1
+2026-10-02T07:25:12.6538320Z   fetch-tags: false
+2026-10-02T07:25:12.6538532Z   show-progress: true
+2026-10-02T07:25:12.6538742Z   lfs: false
+2026-10-02T07:25:12.6538941Z   submodules: false
+2026-10-02T07:25:12.6539153Z   set-safe-directory: true
+2026-10-02T07:25:12.6539387Z ##[endgroup]
+2026-10-02T07:25:12.7221394Z Syncing repository: mytangyh/google-cloud-dart
+2026-10-02T07:25:12.7234298Z ##[group]Getting Git version info
+2026-10-02T07:25:12.7240310Z Working directory is '/home/runner/work/genui/genui/dependency'
+2026-10-02T07:25:12.7257482Z [command]/usr/bin/git version
+2026-10-02T07:25:12.7292644Z git version 2.55.0
+2026-10-02T07:25:12.7312476Z ##[endgroup]
+2026-10-02T07:25:12.7321304Z Temporarily overriding HOME='/home/runner/work/_temp/01d1af62-c078-4a77-98e0-1742a34a9ac4' before making global git config changes
+2026-10-02T07:25:12.7322608Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:25:12.7325541Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/dependency
+2026-10-02T07:25:12.7356803Z ##[group]Determining repository object format
+2026-10-02T07:25:12.7358798Z ##[endgroup]
+2026-10-02T07:25:12.7359426Z ##[group]Initializing the repository
+2026-10-02T07:25:12.7363861Z [command]/usr/bin/git init /home/runner/work/genui/genui/dependency
+2026-10-02T07:25:12.7402403Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T07:25:12.7403465Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T07:25:12.7404531Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T07:25:12.7405347Z hint: call:
+2026-10-02T07:25:12.7406836Z hint:
+2026-10-02T07:25:12.7407419Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T07:25:12.7408035Z hint:
+2026-10-02T07:25:12.7408642Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T07:25:12.7409579Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T07:25:12.7410296Z hint:
+2026-10-02T07:25:12.7411340Z hint: 	git branch -m <name>
+2026-10-02T07:25:12.7412005Z hint:
+2026-10-02T07:25:12.7412666Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T07:25:12.7413781Z Initialized empty Git repository in /home/runner/work/genui/genui/dependency/.git/
+2026-10-02T07:25:12.7415601Z [command]/usr/bin/git remote add origin https://github.com/mytangyh/google-cloud-dart
+2026-10-02T07:25:12.7444837Z ##[endgroup]
+2026-10-02T07:25:12.7445456Z ##[group]Disabling automatic garbage collection
+2026-10-02T07:25:12.7452487Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T07:25:12.7478109Z ##[endgroup]
+2026-10-02T07:25:12.7478740Z ##[group]Setting up auth
+2026-10-02T07:25:12.7479227Z Removing SSH command configuration
+2026-10-02T07:25:12.7484609Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:12.7514420Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:12.7726718Z Removing HTTP extra header
+2026-10-02T07:25:12.7729216Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:12.7771525Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:12.7978743Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:12.7979690Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:12.8011764Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:12.8226536Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:25:12.8262713Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/dependency/.git.path /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:12.8293683Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:12.8324562Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/dependency/.git.path /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:12.8355538Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/dependency/.git/worktrees/*.path /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:12.8390418Z ##[endgroup]
+2026-10-02T07:25:12.8397416Z ##[group]Fetching the repository
+2026-10-02T07:25:12.8398395Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 45fa588f37c6f2356444ba43adf7c06b28315025
+2026-10-02T07:25:13.9290901Z From https://github.com/mytangyh/google-cloud-dart
+2026-10-02T07:25:13.9291377Z  * branch            45fa588f37c6f2356444ba43adf7c06b28315025 -> FETCH_HEAD
+2026-10-02T07:25:13.9300012Z [command]/usr/bin/git rev-parse --verify --quiet 45fa588f37c6f2356444ba43adf7c06b28315025^{object}
+2026-10-02T07:25:13.9324848Z 45fa588f37c6f2356444ba43adf7c06b28315025
+2026-10-02T07:25:13.9328468Z ##[endgroup]
+2026-10-02T07:25:13.9328940Z ##[group]Determining the checkout info
+2026-10-02T07:25:13.9329587Z ##[endgroup]
+2026-10-02T07:25:13.9333688Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T07:25:13.9371058Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T07:25:13.9398836Z ##[group]Checking out the ref
+2026-10-02T07:25:13.9402291Z [command]/usr/bin/git checkout --progress --force 45fa588f37c6f2356444ba43adf7c06b28315025
+2026-10-02T07:25:13.9714444Z Note: switching to '45fa588f37c6f2356444ba43adf7c06b28315025'.
+2026-10-02T07:25:13.9714824Z 
+2026-10-02T07:25:13.9715116Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-02T07:25:13.9716010Z changes and commit them, and you can discard any commits you make in this
+2026-10-02T07:25:13.9716590Z state without impacting any branches by switching back to a branch.
+2026-10-02T07:25:13.9716941Z 
+2026-10-02T07:25:13.9717165Z If you want to create a new branch to retain commits you create, you may
+2026-10-02T07:25:13.9717570Z do so (now or later) by using -c with the switch command. Example:
+2026-10-02T07:25:13.9717821Z 
+2026-10-02T07:25:13.9717960Z   git switch -c <new-branch-name>
+2026-10-02T07:25:13.9718196Z 
+2026-10-02T07:25:13.9718342Z Or undo this operation with:
+2026-10-02T07:25:13.9718523Z 
+2026-10-02T07:25:13.9718630Z   git switch -
+2026-10-02T07:25:13.9718764Z 
+2026-10-02T07:25:13.9719023Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-02T07:25:13.9719413Z 
+2026-10-02T07:25:13.9719658Z HEAD is now at 45fa588 fix(compat): support Dart 3.6.2 in generated Google clients
+2026-10-02T07:25:13.9721474Z ##[endgroup]
+2026-10-02T07:25:13.9760365Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T07:25:13.9783180Z 45fa588f37c6f2356444ba43adf7c06b28315025
+2026-10-02T07:25:13.9790870Z ##[group]Removing auth
+2026-10-02T07:25:13.9791193Z Removing SSH command configuration
+2026-10-02T07:25:13.9793735Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:13.9820486Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:14.0005393Z Removing HTTP extra header
+2026-10-02T07:25:14.0010931Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:14.0039510Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:14.0226343Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:14.0229665Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:14.0252334Z includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path
+2026-10-02T07:25:14.0253026Z includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path
+2026-10-02T07:25:14.0253700Z includeif.gitdir:/github/workspace/dependency/.git.path
+2026-10-02T07:25:14.0254273Z includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path
+2026-10-02T07:25:14.0261724Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path
+2026-10-02T07:25:14.0283707Z /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0291256Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/dependency/.git.path /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0322173Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path
+2026-10-02T07:25:14.0342995Z /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0350000Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/dependency/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0379967Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/dependency/.git.path
+2026-10-02T07:25:14.0402835Z /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0410128Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/dependency/.git.path /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0472350Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path
+2026-10-02T07:25:14.0493552Z /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0498730Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/dependency/.git/worktrees/*.path /github/runner_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config
+2026-10-02T07:25:14.0528768Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:14.0712063Z Removing credentials config '/home/runner/work/_temp/git-credentials-5846a5e8-240f-4a5c-a164-d7d88d78325e.config'
+2026-10-02T07:25:14.0719994Z ##[endgroup]
+2026-10-02T07:25:14.0939326Z ##[group]Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+2026-10-02T07:25:14.0939644Z with:
+2026-10-02T07:25:14.0939810Z   flutter-version: 3.27.4
+2026-10-02T07:25:14.0940016Z   channel: stable
+2026-10-02T07:25:14.0940188Z   architecture: X64
+2026-10-02T07:25:14.0940355Z   cache: false
+2026-10-02T07:25:14.0940524Z   pub-cache-path: default
+2026-10-02T07:25:14.0940710Z   dry-run: false
+2026-10-02T07:25:14.0940925Z   git-source: https://github.com/flutter/flutter.git
+2026-10-02T07:25:14.0941175Z ##[endgroup]
+2026-10-02T07:25:14.0988781Z ##[start-action display=Make yq tool available on Windows runners;id=__subosito_flutter-action.__run]
+2026-10-02T07:25:14.1005446Z ##[end-action id=__subosito_flutter-action.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:14.1007224Z ##[start-action display=Make setup script executable;id=__subosito_flutter-action.__run_2]
+2026-10-02T07:25:14.1035891Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-10-02T07:25:14.1036278Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-10-02T07:25:14.1936126Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:14.1936447Z ##[endgroup]
+2026-10-02T07:25:14.2054111Z ##[end-action id=__subosito_flutter-action.__run_2;outcome=success;conclusion=success;duration_ms=104]
+2026-10-02T07:25:14.2056327Z ##[start-action display=Set action inputs;id=__subosito_flutter-action.flutter-action]
+2026-10-02T07:25:14.2103010Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2026-10-02T07:25:14.2103334Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2026-10-02T07:25:14.2103568Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:14.2103759Z [36;1m  -f '' \[0m
+2026-10-02T07:25:14.2103926Z [36;1m  -a 'X64' \[0m
+2026-10-02T07:25:14.2104090Z [36;1m  -k '' \[0m
+2026-10-02T07:25:14.2104248Z [36;1m  -c '' \[0m
+2026-10-02T07:25:14.2104412Z [36;1m  -l '' \[0m
+2026-10-02T07:25:14.2104577Z [36;1m  -d 'default' \[0m
+2026-10-02T07:25:14.2104834Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2026-10-02T07:25:14.2105093Z [36;1m  stable[0m
+2026-10-02T07:25:14.2163362Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:14.2163642Z ##[endgroup]
+2026-10-02T07:25:14.5545142Z ##[end-action id=__subosito_flutter-action.flutter-action;outcome=success;conclusion=success;duration_ms=348]
+2026-10-02T07:25:14.5549194Z ##[start-action display=Cache Flutter;id=__subosito_flutter-action.cache-flutter]
+2026-10-02T07:25:14.5553892Z ##[end-action id=__subosito_flutter-action.cache-flutter;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:14.5555529Z ##[start-action display=Cache pub dependencies;id=__subosito_flutter-action.cache-pub]
+2026-10-02T07:25:14.5566205Z ##[end-action id=__subosito_flutter-action.cache-pub;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:14.5567732Z ##[start-action display=Run setup script;id=__subosito_flutter-action.__run_3]
+2026-10-02T07:25:14.5595663Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-10-02T07:25:14.5595944Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-10-02T07:25:14.5596174Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:14.5596376Z [36;1m  -a 'x64' \[0m
+2026-10-02T07:25:14.5596794Z [36;1m  -c '/opt/hostedtoolcache/flutter/stable-3.27.4-x64' \[0m
+2026-10-02T07:25:14.5597084Z [36;1m  -d '/home/runner/.pub-cache' \[0m
+2026-10-02T07:25:14.5597301Z [36;1m  stable[0m
+2026-10-02T07:25:14.5659150Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:14.5659439Z ##[endgroup]
+2026-10-02T07:25:14.7481782Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-10-02T07:25:14.7482531Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-10-02T07:25:14.7483499Z 
+2026-10-02T07:25:15.8383081Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-10-02T07:25:16.6108818Z  11  731M   11 86.0M    0     0  78.9M      0  0:00:09  0:00:01  0:00:08 78.9M
+2026-10-02T07:25:17.6109693Z  30  731M   30  226M    0     0   121M      0  0:00:06  0:00:01  0:00:05  121M
+2026-10-02T07:25:18.6113806Z  53  731M   53  390M    0     0   136M      0  0:00:05  0:00:02  0:00:03  136M
+2026-10-02T07:25:19.3109980Z  80  731M   80  586M    0     0   151M      0  0:00:04  0:00:03  0:00:01  151M
+2026-10-02T07:25:19.3110514Z 100  731M  100  731M    0     0   160M      0  0:00:04  0:00:04 --:--:--  160M
+2026-10-02T07:25:44.2371228Z ##[end-action id=__subosito_flutter-action.__run_3;outcome=success;conclusion=success;duration_ms=29680]
+2026-10-02T07:25:44.2424712Z ##[group]Run ./genui/tool/compatibility/verify_dependency.ps1 -Repository $env:COMPAT_REPOSITORY -Checkout ./dependency -SystemSdk
+2026-10-02T07:25:44.2425448Z [36;1m./genui/tool/compatibility/verify_dependency.ps1 -Repository $env:COMPAT_REPOSITORY -Checkout ./dependency -SystemSdk[0m
+2026-10-02T07:25:44.2448250Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-10-02T07:25:44.2448488Z env:
+2026-10-02T07:25:44.2448732Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.27.4-x64/flutter
+2026-10-02T07:25:44.2449039Z   PUB_CACHE: /home/runner/.pub-cache
+2026-10-02T07:25:44.2449263Z   COMPAT_REPOSITORY: google-cloud-dart
+2026-10-02T07:25:44.2449483Z ##[endgroup]
+2026-10-02T07:25:46.8995982Z Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+2026-10-02T07:25:46.8996528Z Framework • revision d8a9f9a52e (1 year, 8 months ago) • 2025-01-31 16:07:18 -0500
+2026-10-02T07:25:46.8996891Z Engine • revision 82bd5b7209
+2026-10-02T07:25:46.8997225Z Tools • Dart 3.6.2 • DevTools 2.40.3
+2026-10-02T07:25:47.0342546Z Resolving dependencies...
+2026-10-02T07:25:47.5897839Z Downloading packages...
+2026-10-02T07:25:49.8513480Z   _fe_analyzer_shared 85.0.0 (108.0.0 available)
+2026-10-02T07:25:49.8513843Z   analyzer 7.7.1 (14.4.0 available)
+2026-10-02T07:25:49.8514094Z   dart_flutter_team_lints 3.2.1 (3.5.2 available)
+2026-10-02T07:25:49.8514344Z   googleapis_auth 2.0.0 (2.3.4 available)
+2026-10-02T07:25:49.8514568Z   js 0.7.1 (0.7.2 available)
+2026-10-02T07:25:49.8514760Z   lints 5.1.1 (6.1.0 available)
+2026-10-02T07:25:49.8514960Z   matcher 0.12.17 (0.12.20 available)
+2026-10-02T07:25:49.8515169Z   package_config 2.2.0 (3.0.0 available)
+2026-10-02T07:25:49.8515429Z   test 1.26.3 (1.32.0 available)
+2026-10-02T07:25:49.8515631Z   test_api 0.7.7 (0.7.14 available)
+2026-10-02T07:25:49.8515834Z   test_core 0.6.12 (0.6.20 available)
+2026-10-02T07:25:49.8520826Z Got dependencies!
+2026-10-02T07:25:49.8530429Z 11 packages have newer versions incompatible with dependency constraints.
+2026-10-02T07:25:49.8531033Z Try `dart pub outdated` for more information.
+2026-10-02T07:25:50.7855011Z Formatted 45 files (0 changed) in 0.81 seconds.
+2026-10-02T07:25:50.8847542Z Analyzing google_cloud_protobuf, google_cloud_rpc, google_cloud_type, google_cloud_longrunning, google_cloud_ai_generativelanguage_v1beta, test_utils...
+2026-10-02T07:25:54.4420623Z 
+2026-10-02T07:25:54.4457624Z    info - test_utils/lib/src/insecure_proxy_http_client.dart:25:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+2026-10-02T07:25:54.4458966Z    info - test_utils/lib/src/proxy_http_client.dart:32:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+2026-10-02T07:25:54.4460797Z    info - test_utils/lib/src/recording_http_client.dart:50:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+2026-10-02T07:25:54.4462203Z    info - test_utils/lib/src/replay_http_client.dart:97:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+2026-10-02T07:25:54.4462845Z 
+2026-10-02T07:25:54.4463078Z 4 issues found.
+2026-10-02T07:25:58.2804734Z 00:00 [32m+0[0m: [1m[90mloading generated/google_cloud_protobuf/test/duration_test.dart[0m[0m
+2026-10-02T07:25:58.8070438Z 00:00 [32m+0[0m: generated/google_cloud_protobuf/test/duration_test.dart: test case 0s[0m
+2026-10-02T07:25:58.8208516Z 00:00 [32m+1[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from Duration[0m
+2026-10-02T07:25:58.8215687Z 00:00 [32m+2[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from Duration[0m
+2026-10-02T07:25:58.8225997Z 00:00 [32m+3[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from Duration[0m
+2026-10-02T07:25:58.8232474Z 00:00 [32m+4[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from Duration[0m
+2026-10-02T07:25:58.8236182Z 00:00 [32m+5[0m: generated/google_cloud_protobuf/test/duration_test.dart: test case 60.001s[0m
+2026-10-02T07:25:58.8240921Z 00:00 [32m+6[0m: generated/google_cloud_protobuf/test/any_test.dart: json round-tripping[0m
+2026-10-02T07:25:58.8246685Z 00:00 [32m+7[0m: generated/google_cloud_protobuf/test/duration_test.dart: test case 315576000000s[0m
+2026-10-02T07:25:58.8248195Z 00:00 [32m+8[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from FieldMask[0m
+2026-10-02T07:25:58.8255420Z 00:00 [32m+9[0m: generated/google_cloud_protobuf/test/any_test.dart: pack into and from FieldMask[0m
+2026-10-02T07:25:58.8263120Z 00:00 [32m+10[0m: generated/google_cloud_protobuf/test/duration_test.dart: test case -315576000000.999999999s[0m
+2026-10-02T07:25:58.8272633Z 00:00 [32m+11[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8282162Z 00:00 [32m+12[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8287894Z 00:00 [32m+13[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8294974Z 00:00 [32m+14[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8300289Z 00:00 [32m+15[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8306203Z 00:00 [32m+16[0m: generated/google_cloud_protobuf/test/any_test.dart: from JSON[0m
+2026-10-02T07:25:58.8313431Z 00:00 [32m+17[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip round positive seconds (12s)[0m
+2026-10-02T07:25:58.8314778Z 00:00 [32m+18[0m: generated/google_cloud_protobuf/test/any_test.dart: bad type prefix[0m
+2026-10-02T07:25:58.8322209Z 00:00 [32m+19[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip positive seconds and nanos (12.000000123s)[0m
+2026-10-02T07:25:58.8363438Z 00:00 [32m+20[0m: [1m[90mloading generated/google_cloud_protobuf/test/wrappers_test.dart[0m[0m
+2026-10-02T07:25:58.8366153Z 00:00 [32m+20[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip positive seconds and micros (12.000123s)[0m
+2026-10-02T07:25:58.8385330Z 00:00 [32m+21[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip positive seconds and millis (12.123s)[0m
+2026-10-02T07:25:58.8393887Z 00:00 [32m+22[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip positive seconds and full nanos (12.123456789s)[0m
+2026-10-02T07:25:58.8395483Z 00:00 [32m+23[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip round negative seconds (-12s)[0m
+2026-10-02T07:25:58.8397560Z 00:00 [32m+24[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip negative seconds and nanos (-12.000000123s)[0m
+2026-10-02T07:25:58.8408929Z 00:00 [32m+25[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip negative seconds and micros (-12.000123s)[0m
+2026-10-02T07:25:58.8415589Z 00:00 [32m+26[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip negative seconds and millis (-12.123s)[0m
+2026-10-02T07:25:58.8421023Z 00:00 [32m+27[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip negative seconds and full nanos (-12.123456789s)[0m
+2026-10-02T07:25:58.8428174Z 00:00 [32m+28[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip range edge start (-315576000000.999999999s)[0m
+2026-10-02T07:25:58.8433361Z 00:00 [32m+29[0m: generated/google_cloud_protobuf/test/duration_test.dart: round trip range edge end (315576000000.999999999s)[0m
+2026-10-02T07:25:58.8439673Z 00:00 [32m+30[0m: generated/google_cloud_protobuf/test/duration_test.dart: bad number[0m
+2026-10-02T07:25:58.8467443Z 00:00 [32m+31[0m: generated/google_cloud_protobuf/test/duration_test.dart: bad format[0m
+2026-10-02T07:25:58.8480036Z 00:00 [32m+32[0m: generated/google_cloud_protobuf/test/duration_test.dart: bad format - too many periods[0m
+2026-10-02T07:25:58.8485258Z 00:00 [32m+33[0m: generated/google_cloud_protobuf/test/duration_test.dart: too many positive nanoseconds[0m
+2026-10-02T07:25:58.8493280Z 00:00 [32m+34[0m: generated/google_cloud_protobuf/test/duration_test.dart: too many negative nanoseconds[0m
+2026-10-02T07:25:58.8500124Z 00:00 [32m+35[0m: generated/google_cloud_protobuf/test/duration_test.dart: mismatched sign case 1[0m
+2026-10-02T07:25:58.8506219Z 00:00 [32m+36[0m: generated/google_cloud_protobuf/test/duration_test.dart: mismatched sign case 2[0m
+2026-10-02T07:25:58.9171955Z 00:00 [32m+37[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: BoolValue[0m
+2026-10-02T07:25:58.9329412Z 00:00 [32m+38[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: FloatValue[0m
+2026-10-02T07:25:58.9372987Z 00:00 [32m+39[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: DoubleValue[0m
+2026-10-02T07:25:58.9382674Z 00:00 [32m+40[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: NaN and Infinity FloatValue[0m
+2026-10-02T07:25:58.9405471Z 00:00 [32m+41[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: NaN and Infinity DoubleValue[0m
+2026-10-02T07:25:58.9414526Z 00:00 [32m+42[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: Int64Value[0m
+2026-10-02T07:25:58.9439675Z 00:00 [32m+43[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: Uint64Value[0m
+2026-10-02T07:25:58.9487727Z 00:00 [32m+44[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: Int32Value[0m
+2026-10-02T07:25:58.9498159Z 00:00 [32m+45[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: StringValue[0m
+2026-10-02T07:25:58.9506130Z 00:00 [32m+46[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: BytesValue[0m
+2026-10-02T07:25:58.9554547Z 00:00 [32m+47[0m: generated/google_cloud_protobuf/test/wrappers_test.dart: Uint32Value[0m
+2026-10-02T07:25:58.9773527Z 00:00 [32m+48[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: encode empty[0m
+2026-10-02T07:25:58.9881100Z 00:00 [32m+49[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: encode single[0m
+2026-10-02T07:25:58.9887945Z 00:00 [32m+50[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: encode multiple[0m
+2026-10-02T07:25:58.9894229Z 00:00 [32m+51[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: decode empty[0m
+2026-10-02T07:25:58.9900325Z 00:00 [32m+52[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: decode single[0m
+2026-10-02T07:25:58.9905601Z 00:00 [32m+53[0m: generated/google_cloud_protobuf/test/fieldmask_test.dart: decode multiple[0m
+2026-10-02T07:25:59.1068857Z 00:00 [32m+54[0m: generated/google_cloud_protobuf/test/struct_test.dart: Struct[0m
+2026-10-02T07:25:59.1255570Z 00:00 [32m+55[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1276433Z 00:00 [32m+56[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1283491Z 00:00 [32m+57[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1291996Z 00:00 [32m+58[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1299479Z 00:00 [32m+59[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1306053Z 00:00 [32m+60[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1320672Z 00:00 [32m+61[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1330432Z 00:00 [32m+62[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: test zero seconds, zero nanos[0m
+2026-10-02T07:25:59.1403299Z 00:00 [32m+63[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: min seconds[0m
+2026-10-02T07:25:59.1411048Z 00:00 [32m+64[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: max seconds[0m
+2026-10-02T07:25:59.1423296Z 00:00 [32m+65[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 0001-01-01T00:00:00.123456789Z[0m
+2026-10-02T07:25:59.1440750Z 00:00 [32m+66[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 0001-01-01T00:00:00.123456Z[0m
+2026-10-02T07:25:59.1446710Z 00:00 [32m+67[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 0001-01-01T00:00:00.123Z[0m
+2026-10-02T07:25:59.1452443Z 00:00 [32m+68[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 0001-01-01T00:00:00Z[0m
+2026-10-02T07:25:59.1458175Z 00:00 [32m+69[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1960-01-01T00:00:00.123456789Z[0m
+2026-10-02T07:25:59.1464497Z 00:00 [32m+70[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1960-01-01T00:00:00.123456Z[0m
+2026-10-02T07:25:59.1475450Z 00:00 [32m+71[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1960-01-01T00:00:00.123Z[0m
+2026-10-02T07:25:59.1481011Z 00:00 [32m+72[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1960-01-01T00:00:00Z[0m
+2026-10-02T07:25:59.1487135Z 00:00 [32m+73[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1970-01-01T00:00:00.123456789Z[0m
+2026-10-02T07:25:59.1504505Z 00:00 [32m+74[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1970-01-01T00:00:00.123456Z[0m
+2026-10-02T07:25:59.1527270Z 00:00 [32m+75[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1970-01-01T00:00:00.123Z[0m
+2026-10-02T07:25:59.1529279Z 00:00 [32m+76[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 1970-01-01T00:00:00Z[0m
+2026-10-02T07:25:59.1530690Z 00:00 [32m+77[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 9999-12-31T23:59:59.999999999Z[0m
+2026-10-02T07:25:59.1534964Z 00:00 [32m+78[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 9999-12-31T23:59:59.123456789Z[0m
+2026-10-02T07:25:59.1540710Z 00:00 [32m+79[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 9999-12-31T23:59:59.123456Z[0m
+2026-10-02T07:25:59.1552566Z 00:00 [32m+80[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 9999-12-31T23:59:59.123Z[0m
+2026-10-02T07:25:59.1553971Z 00:00 [32m+81[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 2024-10-19T12:34:56Z[0m
+2026-10-02T07:25:59.1571345Z 00:00 [32m+82[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 2024-10-19T12:34:56.789Z[0m
+2026-10-02T07:25:59.1594723Z 00:00 [32m+83[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: round trip 2024-10-19T12:34:56.789123456Z[0m
+2026-10-02T07:25:59.1601836Z 00:00 [32m+84[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 0001-01-01T00:00:00.123456789Z[0m
+2026-10-02T07:25:59.1619335Z 00:00 [32m+85[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 0001-01-01T00:00:00.123456Z[0m
+2026-10-02T07:25:59.1625045Z 00:00 [32m+86[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 0001-01-01T00:00:00.123Z[0m
+2026-10-02T07:25:59.1636421Z 00:00 [32m+87[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 0001-01-01T00:00:00Z[0m
+2026-10-02T07:25:59.1638313Z 00:00 [32m+88[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 1970-01-01T00:00:00.123456789Z[0m
+2026-10-02T07:25:59.1650163Z 00:00 [32m+89[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 1970-01-01T00:00:00.123456Z[0m
+2026-10-02T07:25:59.1651977Z 00:00 [32m+90[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 1970-01-01T00:00:00.123Z[0m
+2026-10-02T07:25:59.1659018Z 00:00 [32m+91[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 1970-01-01T00:00:00Z[0m
+2026-10-02T07:25:59.1671386Z 00:00 [32m+92[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 9999-12-31T23:59:59.123456789Z[0m
+2026-10-02T07:25:59.1677112Z 00:00 [32m+93[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 9999-12-31T23:59:59.123456Z[0m
+2026-10-02T07:25:59.1682778Z 00:00 [32m+94[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 9999-12-31T23:59:59.123Z[0m
+2026-10-02T07:25:59.1684332Z 00:00 [32m+95[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: validate 9999-12-31T23:59:59Z[0m
+2026-10-02T07:25:59.1704520Z 00:00 [32m+96[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: bad format[0m
+2026-10-02T07:25:59.1706197Z 00:00 [32m+97[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: seconds below range[0m
+2026-10-02T07:25:59.1719705Z 00:00 [32m+98[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: seconds above range[0m
+2026-10-02T07:25:59.1721404Z 00:00 [32m+99[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: nanos below range[0m
+2026-10-02T07:25:59.1733545Z 00:00 [32m+100[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: nanos above range[0m
+2026-10-02T07:25:59.1735520Z 00:00 [32m+101[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime about now[0m
+2026-10-02T07:25:59.1749458Z 00:00 [32m+102[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime min[0m
+2026-10-02T07:25:59.1757173Z 00:00 [32m+103[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime max[0m
+2026-10-02T07:25:59.1764246Z 00:00 [32m+104[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime round past max[0m
+2026-10-02T07:25:59.1771895Z 00:00 [32m+105[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime with nanos[0m
+2026-10-02T07:25:59.1779865Z 00:00 [32m+106[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime toTimestamp about now[0m
+2026-10-02T07:25:59.1788409Z 00:00 [32m+107[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime toTimestamp min[0m
+2026-10-02T07:25:59.1795849Z 00:00 [32m+108[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime toTimestamp max[0m
+2026-10-02T07:25:59.1803106Z 00:00 [32m+109[0m: generated/google_cloud_protobuf/test/timestamp_test.dart: toDateTime toTimestamp not utc[0m
+2026-10-02T07:25:59.2354544Z 00:00 [32m+110[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBool true[0m
+2026-10-02T07:25:59.2465781Z 00:00 [32m+111[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBool false[0m
+2026-10-02T07:25:59.2472689Z 00:00 [32m+112[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBytes empty[0m
+2026-10-02T07:25:59.2484195Z 00:00 [32m+113[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBytes simple[0m
+2026-10-02T07:25:59.2520988Z 00:00 [32m+114[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble double[0m
+2026-10-02T07:25:59.2529685Z 00:00 [32m+115[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble int[0m
+2026-10-02T07:25:59.2537357Z 00:00 [32m+116[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble NaN[0m
+2026-10-02T07:25:59.2550999Z 00:00 [32m+117[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble Infinity[0m
+2026-10-02T07:25:59.2557877Z 00:00 [32m+118[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble -Infinity[0m
+2026-10-02T07:25:59.2564689Z 00:00 [32m+119[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeDouble string[0m
+2026-10-02T07:25:59.2577678Z 00:00 [32m+120[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeInt int[0m
+2026-10-02T07:25:59.2585276Z 00:00 [32m+121[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeInt string[0m
+2026-10-02T07:25:59.2606420Z 00:00 [32m+122[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeInt64 int[0m
+2026-10-02T07:25:59.2611055Z 00:00 [32m+123[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeInt64 string[0m
+2026-10-02T07:25:59.2612335Z 00:00 [32m+124[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeUint64 int[0m
+2026-10-02T07:25:59.2623226Z 00:00 [32m+125[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeUint64 string[0m
+2026-10-02T07:25:59.2660411Z 00:00 [32m+126[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBoolKey true[0m
+2026-10-02T07:25:59.2678545Z 00:00 [32m+127[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBoolKey false[0m
+2026-10-02T07:25:59.2684260Z 00:00 [32m+128[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeBoolKey invalid[0m
+2026-10-02T07:25:59.2691411Z 00:00 [32m+129[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeIntKey int[0m
+2026-10-02T07:25:59.2707756Z 00:00 [32m+130[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeIntKey invalid[0m
+2026-10-02T07:25:59.2719621Z 00:00 [32m+131[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeUint64Key int[0m
+2026-10-02T07:25:59.2726967Z 00:00 [32m+132[0m: generated/google_cloud_protobuf/test/encoding_test.dart: decodeUint64Key invalid[0m
+2026-10-02T07:25:59.2733392Z 00:00 [32m+133[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeBytes encode empty[0m
+2026-10-02T07:25:59.2748915Z 00:00 [32m+134[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeBytes encode simple[0m
+2026-10-02T07:25:59.2763708Z 00:00 [32m+135[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeDouble double[0m
+2026-10-02T07:25:59.2770352Z 00:00 [32m+136[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeDouble NaN[0m
+2026-10-02T07:25:59.2780560Z 00:00 [32m+137[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeDouble Infinity[0m
+2026-10-02T07:25:59.2785236Z 00:00 [32m+138[0m: generated/google_cloud_protobuf/test/encoding_test.dart: encodeDouble -Infinity[0m
+2026-10-02T07:25:59.4164364Z 00:00 [32m+139[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4324679Z 00:00 [32m+140[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4347221Z 00:00 [32m+141[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4369398Z 00:00 [32m+142[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4382343Z 00:00 [32m+143[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4391800Z 00:00 [32m+144[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4410029Z 00:00 [32m+145[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4417582Z 00:00 [32m+146[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4426466Z 00:00 [32m+147[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error other[0m
+2026-10-02T07:25:59.4427771Z 00:00 [32m+148[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 401[0m
+2026-10-02T07:25:59.4438375Z 00:00 [32m+149[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 401[0m
+2026-10-02T07:25:59.4447462Z 00:00 [32m+150[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 401[0m
+2026-10-02T07:25:59.4449919Z 00:00 [32m+151[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body POST[0m
+2026-10-02T07:25:59.4456456Z 00:00 [32m+152[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 403[0m
+2026-10-02T07:25:59.4458491Z 00:00 [32m+153[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests without body PUT[0m
+2026-10-02T07:25:59.4465411Z 00:00 [32m+154[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 404[0m
+2026-10-02T07:25:59.4467117Z 00:00 [32m+155[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4476997Z 00:00 [32m+156[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4485010Z 00:00 [32m+157[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4492998Z 00:00 [32m+158[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4500597Z 00:00 [32m+159[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4508616Z 00:00 [32m+160[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4516758Z 00:00 [32m+161[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4524366Z 00:00 [32m+162[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4536290Z 00:00 [32m+163[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4544375Z 00:00 [32m+164[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4547586Z 00:00 [32m+165[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 502[0m
+2026-10-02T07:25:59.4553243Z 00:00 [32m+166[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body POST[0m
+2026-10-02T07:25:59.4559045Z 00:00 [32m+167[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 503[0m
+2026-10-02T07:25:59.4567998Z 00:00 [32m+168[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming requests with body PUT[0m
+2026-10-02T07:25:59.4569163Z 00:00 [32m+169[0m: generated/google_cloud_rpc/test/exceptions_test.dart: fromHttpResponse valid error 504[0m
+2026-10-02T07:25:59.4574554Z 00:00 [32m+170[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming http client exception[0m
+2026-10-02T07:25:59.4648080Z 00:00 [32m+171[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming 500 response, no status, no response body[0m
+2026-10-02T07:25:59.4669987Z 00:00 [32m+172[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming 500 response, no status, with undecodable response body[0m
+2026-10-02T07:25:59.4702493Z 00:00 [32m+173[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming 400 response with status[0m
+2026-10-02T07:25:59.4761689Z 00:00 [32m+174[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming 400 response, JSON response without status[0m
+2026-10-02T07:25:59.4776056Z 00:00 [32m+175[0m: generated/google_cloud_rpc/test/client_test.dart: non-streaming 200 response, json response[0m
+2026-10-02T07:25:59.4791276Z 00:00 [32m+176[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests without body DELETE[0m
+2026-10-02T07:25:59.4840149Z 00:00 [32m+177[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests without body GET[0m
+2026-10-02T07:25:59.4849792Z 00:00 [32m+178[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests without body PATCH[0m
+2026-10-02T07:25:59.4861898Z 00:00 [32m+179[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests without body POST[0m
+2026-10-02T07:25:59.4874109Z 00:00 [32m+180[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests without body PUT[0m
+2026-10-02T07:25:59.4885084Z 00:00 [32m+181[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests with body PATCH[0m
+2026-10-02T07:25:59.4897423Z 00:00 [32m+182[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests with body POST[0m
+2026-10-02T07:25:59.4913583Z 00:00 [32m+183[0m: generated/google_cloud_rpc/test/client_test.dart: streaming requests with body PUT[0m
+2026-10-02T07:25:59.4917481Z 00:00 [32m+184[0m: generated/google_cloud_rpc/test/client_test.dart: streaming http client exception[0m
+2026-10-02T07:25:59.5055713Z 00:00 [32m+185[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 500 response, no status, no response body[0m
+2026-10-02T07:25:59.5068811Z 00:00 [32m+186[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 500 response, no status, with undecodable response body[0m
+2026-10-02T07:25:59.5080559Z 00:00 [32m+187[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 400 response with status[0m
+2026-10-02T07:25:59.5101204Z 00:00 [32m+188[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 400 response, JSON response without status[0m
+2026-10-02T07:25:59.5112541Z 00:00 [32m+189[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 200 response, empty response[0m
+2026-10-02T07:25:59.5121037Z 00:00 [32m+190[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 200 response, single data response[0m
+2026-10-02T07:25:59.5145485Z 00:00 [32m+191[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 200 response, two data response[0m
+2026-10-02T07:25:59.5163663Z 00:00 [32m+192[0m: generated/google_cloud_rpc/test/client_test.dart: streaming 200 response, non-data lines response[0m
+2026-10-02T07:25:59.5418424Z 00:00 [32m+193[0m: generated/google_cloud_rpc/test/status_test.dart: detailsAsMessages[0m
+2026-10-02T07:25:59.5533239Z 00:00 [32m+194[0m: generated/google_cloud_rpc/test/status_test.dart: errorInfo[0m
+2026-10-02T07:25:59.5543495Z 00:00 [32m+195[0m: generated/google_cloud_rpc/test/status_test.dart: localizedMessage[0m
+2026-10-02T07:25:59.6482061Z 00:00 [32m+196[0m: generated/google_cloud_longrunning/test/operation_test.dart: responseAsMessage[0m
+2026-10-02T07:25:59.6615473Z 00:00 [32m+197[0m: generated/google_cloud_longrunning/test/operation_test.dart: metadataAsMessage[0m
+2026-10-02T07:25:59.8439013Z 00:01 [32m+198[0m: generated/google_cloud_ai_generativelanguage_v1beta/test/generate_test.dart: generative streamed[0m
+2026-10-02T07:25:59.9219404Z 00:01 [32m+199[0m: generated/google_cloud_ai_generativelanguage_v1beta/test/generate_test.dart: generative streamed[0m
+2026-10-02T07:26:00.0162463Z 00:01 [32m+200[0m: generated/google_cloud_ai_generativelanguage_v1beta/test/embeddings_test.dart: embeddings embedContent[0m
+2026-10-02T07:26:00.0662321Z 00:01 [32m+201[0m: generated/google_cloud_ai_generativelanguage_v1beta/test/embeddings_test.dart: embeddings embedContent[0m
+2026-10-02T07:26:00.0957304Z 00:01 [32m+202[0m: All tests passed![0m
+2026-10-02T07:26:00.2158362Z Post job cleanup.
+2026-10-02T07:26:00.2213232Z Post job cleanup.
+2026-10-02T07:26:00.2972460Z [command]/usr/bin/git version
+2026-10-02T07:26:00.2998003Z git version 2.55.0
+2026-10-02T07:26:00.3033517Z Temporarily overriding HOME='/home/runner/work/_temp/cc04a069-11ea-40bf-83d2-2396588e6177' before making global git config changes
+2026-10-02T07:26:00.3034237Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:26:00.3038934Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/dependency
+2026-10-02T07:26:00.3067057Z Removing SSH command configuration
+2026-10-02T07:26:00.3073191Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:26:00.3104392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:26:00.3308636Z Removing HTTP extra header
+2026-10-02T07:26:00.3313765Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:26:00.3345521Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:26:00.3555439Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:26:00.3561940Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:26:00.3591985Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:26:00.3935268Z Post job cleanup.
+2026-10-02T07:26:00.4656236Z [command]/usr/bin/git version
+2026-10-02T07:26:00.4702273Z git version 2.55.0
+2026-10-02T07:26:00.4750451Z Temporarily overriding HOME='/home/runner/work/_temp/a10acd5b-6453-4205-aaa3-3de003d35fc8' before making global git config changes
+2026-10-02T07:26:00.4751864Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:26:00.4755382Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui/genui
+2026-10-02T07:26:00.4789136Z Removing SSH command configuration
+2026-10-02T07:26:00.4795603Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:26:00.4827898Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:26:00.5054023Z Removing HTTP extra header
+2026-10-02T07:26:00.5060084Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:26:00.5094914Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:26:00.5313715Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:26:00.5314365Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:26:00.5343498Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:26:00.5688303Z Cleaning up orphan processes

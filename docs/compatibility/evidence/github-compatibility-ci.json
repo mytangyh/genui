@@ -1,0 +1,364 @@
+{
+  "workflow": "Flutter 3.27.4 compatibility",
+  "codeCommit": "16c796e093bf8d8d68cce1c41037d8b559e020d4",
+  "branch": "compat/flutter-3.27.4",
+  "status": "completed",
+  "conclusion": "success",
+  "runUrl": "https://github.com/mytangyh/genui/actions/runs/36978425938",
+  "toolchain": {
+    "flutter": "3.27.4",
+    "dart": "3.6.2"
+  },
+  "cleanSourceValidation": "GitHub-hosted Ubuntu runners check out immutable dependency commits and pinned schema gitlinks; strict lockfiles and no path overrides",
+  "credentialsRequired": false,
+  "jobs": [
+    {
+      "id": 110747264823,
+      "name": "core",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747264823",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify fixed sources, schema generation and supported packages",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747265020,
+      "name": "dependency_matrix",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747265020",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Read fixed dependency fork commits",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747265083,
+      "name": "android",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747265083",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build the official example main entrypoint",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747308453,
+      "name": "dependencies (ai_clients_dart, mytangyh/ai_clients_dart, 076584840dfcf6978d79119a2a663d2ddfd1f043)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747308453",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check dependency source, format, analysis and offline upstream tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747308473,
+      "name": "dependencies (google-cloud-dart, mytangyh/google-cloud-dart, 45fa588f37c6f2356444ba43adf7c06b2831...",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747308473",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check dependency source, format, analysis and offline upstream tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747308474,
+      "name": "dependencies (dartantic_ai, mytangyh/dartantic_ai, d876bd640ba0afa05b2cd264e776d98b0aeaa21a)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747308474",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check dependency source, format, analysis and offline upstream tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 110747308487,
+      "name": "dependencies (sse_channel, mytangyh/sse_channel, 1776f9dfa82e9d3a1430f236c02a70a3ded38aee)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/mytangyh/genui/actions/runs/36978425938/job/110747308487",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check dependency source, format, analysis and offline upstream tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}

@@ -10,7 +10,8 @@
       "baseline": "40d4df6a90bcc74513d4278278f59c4903095c26",
       "branch": "compat/flutter-3.27.4",
       "coreCheckpoint": "4f83e1ce5ad1f1df71c15e0c8cd39c481c122c01",
-      "deliveryCommit": "git rev-parse HEAD of this checkout"
+      "deliveryCommit": "16c796e093bf8d8d68cce1c41037d8b559e020d4",
+      "documentationReference": "Later documentation-only commits on compat/flutter-3.27.4 do not change the validated code"
     },
     "dartantic_ai": {
       "url": "https://github.com/mytangyh/dartantic_ai.git",

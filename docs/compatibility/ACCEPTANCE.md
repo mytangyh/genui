@@ -1,6 +1,6 @@
 # 原始要求逐项验收
 
-核对日期：2026-10-02。用户最新要求仅验证 Android，并指定实际网关和 gpt-5.6-luna；此范围覆盖原先 Windows 默认运行要求。状态依据当前源码和执行证据；外部 Git 引用已固定；远程 CI 结果单独核对。源码、构建、原生运行及真实模型分别判断。
+核对日期：2026-10-02。用户最新要求仅验证 Android，并指定实际网关和 gpt-5.6-luna；此范围覆盖原先 Windows 默认运行要求。状态依据当前源码和执行证据；外部 Git 引用已固定；远程兼容 CI 七个任务全部通过。源码、构建、原生运行及真实模型分别判断。
 
 | 原始要求 | 当前结论 | 可检查证据或缺口 |
 | --- | --- | --- |
@@ -15,7 +15,7 @@
 | 每个改源码依赖维护对应 fork 分支；monorepo 共用 fork | 四个 mytangyh 依赖 fork 已创建并维护同名分支 | fork-creation.json；fork-references.json |
 | fork 基线、补丁、测试与实施顺序 | 各依赖的基线、补丁及测试记录随源码提交 | 各仓库 COMPATIBILITY.md；DEPENDENCIES.md |
 | 最终固定 commit/兼容版本，无临时 override、缓存修改或本机路径 | 已固定完整 SHA，无临时 override 或本机路径 | pubspec.yaml、pubspec.lock、fork-references.json；check_sources.dart |
-| 干净环境解析、保存 lockfile、核对实际来源 | 底层新缓存检查通过；固定 Git 来源另行严格验证 | clean-source-validation.json；fixed-git 验证日志；最终远程克隆证据单独记录 |
+| 干净环境解析、保存 lockfile、核对实际来源 | 固定 Git 的干净远程检出、严格锁定及来源核对通过 | github-compatibility-ci.json；github-ci-*.txt；fork-references.json |
 | 根据实际解析处理 SDK/依赖冲突 | 本地通过 | 目标 SDK 编译、分析与上游测试；没有仅降低 SDK 声明；[VALIDATION.md](VALIDATION.md) |
 | 新语法转换保持求值、null、异步及异常语义 | 本地测试通过 | PromptBuilder 求值/异常回归、HTTP 日期异常契约、SSE 重连、Dartantic accessor 测试；[VALIDATION.md](VALIDATION.md) |
 | Flutter API、生成工具、构建脚本、固定资源 | 本地通过已验证部分 | 滑轨几何回归；Schema 生成并格式化后稳定；两个固定且干净的 gitlink；Android 主入口构建 |
@@ -31,8 +31,8 @@
 | 音视频平台组件分别验收 | Android 真机通过；Windows 未验证 | [media-android-integration.txt](evidence/media-android-integration.txt)：Redmi 7A 62f1ca2e0906，音频及视频两项；独立媒体入口 |
 | 真实模型三模式交互闭环 | Android 真机通过 | [simple-chat-live-android.txt](evidence/simple-chat-live-android.txt)：gpt-5.6-luna，六次应用请求；攀岩工具实际调用一次，两个 UI action 后续回复均渲染 |
 | 不可用平台明确未验证 | 已记录 | [VALIDATION.md](VALIDATION.md)：iOS/macOS/Linux/Web 未构建或运行；Windows 原生未验证，以上平台均不作当前门槛 |
-| fork 可用、固定 SDK、无密钥关键 CI | 固定 SDK、无密钥关键 CI 已提交，远程结果单独核对 | flutter_3274.yaml 无 owner gate；兼容分支 GitHub Actions |
+| fork 可用、固定 SDK、无密钥关键 CI | 固定 SDK、无密钥关键 CI 七个任务全部通过 | flutter_3274.yaml 无 owner gate；兼容分支 GitHub Actions |
 | 交付代码、固定提交、运行/验证/限制/同步说明 | 代码、固定提交和说明随五仓库提交 | README.md、DEPENDENCIES.md、VALIDATION.md；最终提交与远程状态单独核对 |
 | 提交、fork、推送、发布遵循明确授权 | 用户 2026-10-02 明确授权本地提交并推送 | 推送目标为 mytangyh fork 的 compat/flutter-3.27.4；没有合并 PR 或发布 release |
 
-Android 离线、真实模型三种模式和媒体验收已通过。Git 来源已固定，临时 override 已移除；最终干净克隆和远程 CI 以相应执行证据判断。
+Android 离线、真实模型三种模式和媒体验收已通过。Git 来源已固定，临时 override 已移除；[远程兼容 CI](https://github.com/mytangyh/genui/actions/runs/36978425938) 的干净克隆、源码检查、测试及 Android 构建通过。交付清单见 DELIVERY.md。

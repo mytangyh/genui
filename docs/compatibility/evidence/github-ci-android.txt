@@ -1,0 +1,450 @@
+﻿2026-10-02T07:24:58.2737842Z Current runner version: '2.337.0'
+2026-10-02T07:24:58.2761449Z ##[group]Runner Image Provisioner
+2026-10-02T07:24:58.2762505Z Hosted Compute Agent
+2026-10-02T07:24:58.2763030Z Version: 20260901.588
+2026-10-02T07:24:58.2763606Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-10-02T07:24:58.2764215Z Build Date: 2026-09-01T19:56:44Z
+2026-10-02T07:24:58.2764793Z Worker ID: {8832dae8-faa3-443b-93a9-9b245e150a70}
+2026-10-02T07:24:58.2765466Z Azure Region: eastus
+2026-10-02T07:24:58.2766080Z ##[endgroup]
+2026-10-02T07:24:58.2767290Z ##[group]Operating System
+2026-10-02T07:24:58.2767807Z Ubuntu
+2026-10-02T07:24:58.2768241Z 24.04.5
+2026-10-02T07:24:58.2768738Z LTS
+2026-10-02T07:24:58.2769202Z ##[endgroup]
+2026-10-02T07:24:58.2769672Z ##[group]Runner Image
+2026-10-02T07:24:58.2770172Z Image: ubuntu-24.04
+2026-10-02T07:24:58.2770637Z Version: 20260927.320.1
+2026-10-02T07:24:58.2771743Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-02T07:24:58.2773269Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-10-02T07:24:58.2774053Z ##[endgroup]
+2026-10-02T07:24:58.2775350Z ##[group]GITHUB_TOKEN Permissions
+2026-10-02T07:24:58.2777106Z Contents: read
+2026-10-02T07:24:58.2777595Z Metadata: read
+2026-10-02T07:24:58.2778134Z ##[endgroup]
+2026-10-02T07:24:58.2779789Z Secret source: Actions
+2026-10-02T07:24:58.2780664Z Cache mode: write
+2026-10-02T07:24:58.2781427Z Prepare workflow directory
+2026-10-02T07:24:58.3039359Z Prepare all required actions
+2026-10-02T07:24:58.3077622Z Getting action download info
+2026-10-02T07:24:58.5155067Z Download action repository 'actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10' (SHA:df4cb1c069e1874edd31b4311f1884172cec0e10)
+2026-10-02T07:24:58.5949001Z Download action repository 'actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654' (SHA:be666c2fcd27ec809703dec50e508c2fdc7f6654)
+2026-10-02T07:24:58.8763690Z Download action repository 'subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2' (SHA:1a449444c387b1966244ae4d4f8c696479add0b2)
+2026-10-02T07:24:59.0617786Z Getting action download info
+2026-10-02T07:24:59.1302591Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-10-02T07:24:59.3248239Z Complete job name: android
+2026-10-02T07:24:59.3940201Z ##[group]Run actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+2026-10-02T07:24:59.3941570Z with:
+2026-10-02T07:24:59.3942354Z   submodules: recursive
+2026-10-02T07:24:59.3943088Z   persist-credentials: false
+2026-10-02T07:24:59.3943859Z   repository: mytangyh/genui
+2026-10-02T07:24:59.3949834Z   token: ***
+2026-10-02T07:24:59.3950471Z   ssh-strict: true
+2026-10-02T07:24:59.3951124Z   ssh-user: git
+2026-10-02T07:24:59.3951747Z   clean: true
+2026-10-02T07:24:59.3952692Z   sparse-checkout-cone-mode: true
+2026-10-02T07:24:59.3953477Z   fetch-depth: 1
+2026-10-02T07:24:59.3954118Z   fetch-tags: false
+2026-10-02T07:24:59.3954782Z   show-progress: true
+2026-10-02T07:24:59.3955497Z   lfs: false
+2026-10-02T07:24:59.3956142Z   set-safe-directory: true
+2026-10-02T07:24:59.3957150Z ##[endgroup]
+2026-10-02T07:24:59.4772992Z Syncing repository: mytangyh/genui
+2026-10-02T07:24:59.4775511Z ##[group]Getting Git version info
+2026-10-02T07:24:59.4776633Z Working directory is '/home/runner/work/genui/genui'
+2026-10-02T07:24:59.4778331Z [command]/usr/bin/git version
+2026-10-02T07:24:59.4833741Z git version 2.55.0
+2026-10-02T07:24:59.4864726Z ##[endgroup]
+2026-10-02T07:24:59.4874066Z Temporarily overriding HOME='/home/runner/work/_temp/8416abf0-8023-4f41-baab-7e1374572f42' before making global git config changes
+2026-10-02T07:24:59.4877256Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:24:59.4879652Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui
+2026-10-02T07:24:59.4921756Z Deleting the contents of '/home/runner/work/genui/genui'
+2026-10-02T07:24:59.4925045Z ##[group]Determining repository object format
+2026-10-02T07:24:59.4927144Z ##[endgroup]
+2026-10-02T07:24:59.4928566Z ##[group]Initializing the repository
+2026-10-02T07:24:59.4931337Z [command]/usr/bin/git init /home/runner/work/genui/genui
+2026-10-02T07:24:59.5028471Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-02T07:24:59.5030844Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-02T07:24:59.5033577Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-02T07:24:59.5035692Z hint: call:
+2026-10-02T07:24:59.5036891Z hint:
+2026-10-02T07:24:59.5038212Z hint: 	git config --global init.defaultBranch <name>
+2026-10-02T07:24:59.5040342Z hint:
+2026-10-02T07:24:59.5042183Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-02T07:24:59.5045017Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-02T07:24:59.5046956Z hint:
+2026-10-02T07:24:59.5048067Z hint: 	git branch -m <name>
+2026-10-02T07:24:59.5049599Z hint:
+2026-10-02T07:24:59.5050855Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-02T07:24:59.5052804Z Initialized empty Git repository in /home/runner/work/genui/genui/.git/
+2026-10-02T07:24:59.5055971Z [command]/usr/bin/git remote add origin https://github.com/mytangyh/genui
+2026-10-02T07:24:59.5096244Z ##[endgroup]
+2026-10-02T07:24:59.5098039Z ##[group]Disabling automatic garbage collection
+2026-10-02T07:24:59.5099576Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-02T07:24:59.5134125Z ##[endgroup]
+2026-10-02T07:24:59.5136207Z ##[group]Setting up auth
+2026-10-02T07:24:59.5137664Z Removing SSH command configuration
+2026-10-02T07:24:59.5140533Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:24:59.5174387Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:24:59.5807549Z Removing HTTP extra header
+2026-10-02T07:24:59.5813543Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:24:59.5844548Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:24:59.6025758Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:24:59.6030066Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:24:59.6059673Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:24:59.6252997Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:24:59.6286467Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/.git.path /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:24:59.6320615Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:24:59.6354703Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:24:59.6387733Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:24:59.6475938Z ##[endgroup]
+2026-10-02T07:24:59.6477575Z ##[group]Fetching the repository
+2026-10-02T07:24:59.6479788Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +16c796e093bf8d8d68cce1c41037d8b559e020d4:refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:00.8897898Z From https://github.com/mytangyh/genui
+2026-10-02T07:25:00.8898729Z  * [new ref]         16c796e093bf8d8d68cce1c41037d8b559e020d4 -> origin/compat/flutter-3.27.4
+2026-10-02T07:25:00.8906805Z [command]/usr/bin/git branch --list --remote origin/compat/flutter-3.27.4
+2026-10-02T07:25:00.8931317Z   origin/compat/flutter-3.27.4
+2026-10-02T07:25:00.8938016Z [command]/usr/bin/git rev-parse refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:00.8959976Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:00.8963267Z ##[endgroup]
+2026-10-02T07:25:00.8963890Z ##[group]Determining the checkout info
+2026-10-02T07:25:00.8964615Z ##[endgroup]
+2026-10-02T07:25:00.8968541Z [command]/usr/bin/git sparse-checkout disable
+2026-10-02T07:25:00.9016101Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-02T07:25:00.9042320Z ##[group]Checking out the ref
+2026-10-02T07:25:00.9045264Z [command]/usr/bin/git checkout --progress --force -B compat/flutter-3.27.4 refs/remotes/origin/compat/flutter-3.27.4
+2026-10-02T07:25:01.0529008Z Switched to a new branch 'compat/flutter-3.27.4'
+2026-10-02T07:25:01.0532237Z branch 'compat/flutter-3.27.4' set up to track 'origin/compat/flutter-3.27.4'.
+2026-10-02T07:25:01.0563316Z ##[endgroup]
+2026-10-02T07:25:01.0564038Z ##[group]Setting up auth for fetching submodules
+2026-10-02T07:25:01.0565360Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-02T07:25:01.0594478Z [command]/usr/bin/git config --global include.path /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:01.0624997Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2026-10-02T07:25:01.0654440Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2026-10-02T07:25:01.0688073Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-49863234@github.com:
+2026-10-02T07:25:01.0717614Z ##[endgroup]
+2026-10-02T07:25:01.0718573Z ##[group]Fetching submodules
+2026-10-02T07:25:01.0722898Z [command]/usr/bin/git submodule sync --recursive
+2026-10-02T07:25:01.0921774Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2026-10-02T07:25:01.1114845Z Submodule 'JSON-Schema-Test-Suite' (https://github.com/json-schema-org/JSON-Schema-Test-Suite.git) registered for path 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:25:01.1121447Z Submodule 'a2ui' (https://github.com/google/A2UI.git) registered for path 'submodules/a2ui'
+2026-10-02T07:25:01.1146033Z Cloning into '/home/runner/work/genui/genui/submodules/JSON-Schema-Test-Suite'...
+2026-10-02T07:25:01.7215433Z Cloning into '/home/runner/work/genui/genui/submodules/a2ui'...
+2026-10-02T07:25:05.3583185Z From https://github.com/json-schema-org/JSON-Schema-Test-Suite
+2026-10-02T07:25:05.3583801Z  * branch            15e4505bf689de5d30c29d50782bb48fa465c93f -> FETCH_HEAD
+2026-10-02T07:25:05.4027889Z Submodule path 'submodules/JSON-Schema-Test-Suite': checked out '15e4505bf689de5d30c29d50782bb48fa465c93f'
+2026-10-02T07:25:06.7555650Z From https://github.com/google/A2UI
+2026-10-02T07:25:06.7556253Z  * branch            39a26c1af38951840d1542103b99b00dc3a95bf1 -> FETCH_HEAD
+2026-10-02T07:25:07.0201154Z Submodule path 'submodules/a2ui': checked out '39a26c1af38951840d1542103b99b00dc3a95bf1'
+2026-10-02T07:25:07.0235971Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2026-10-02T07:25:07.0443324Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:25:07.0486750Z Entering 'submodules/a2ui'
+2026-10-02T07:25:07.0532600Z ##[endgroup]
+2026-10-02T07:25:07.0583382Z [command]/usr/bin/git log -1 --format=%H
+2026-10-02T07:25:07.0606352Z 16c796e093bf8d8d68cce1c41037d8b559e020d4
+2026-10-02T07:25:07.0619889Z ##[group]Removing auth
+2026-10-02T07:25:07.0620246Z Removing SSH command configuration
+2026-10-02T07:25:07.0620773Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:25:07.0668876Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:25:07.0856065Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:25:07.0893152Z Entering 'submodules/a2ui'
+2026-10-02T07:25:07.0938818Z Removing HTTP extra header
+2026-10-02T07:25:07.0950701Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:25:07.0978969Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:25:07.1160260Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:25:07.1197966Z Entering 'submodules/a2ui'
+2026-10-02T07:25:07.1243747Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:25:07.1247862Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:07.1274195Z includeif.gitdir:/home/runner/work/genui/genui/.git.path
+2026-10-02T07:25:07.1274763Z includeif.gitdir:/home/runner/work/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:07.1275090Z includeif.gitdir:/github/workspace/.git.path
+2026-10-02T07:25:07.1275382Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-02T07:25:07.1281625Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/.git.path
+2026-10-02T07:25:07.1304107Z /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.1312962Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/.git.path /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.2948097Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/genui/genui/.git/worktrees/*.path
+2026-10-02T07:25:07.2977938Z /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.2993914Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/genui/genui/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.5323641Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-10-02T07:25:07.5349052Z /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.5367380Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.5399889Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-10-02T07:25:07.5423419Z /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.5433032Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config
+2026-10-02T07:25:07.5629904Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:25:07.5870062Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:25:07.5895454Z file:/home/runner/work/genui/genui/.git/modules/JSON-Schema-Test-Suite/config	remote.origin.url
+2026-10-02T07:25:07.5912159Z Entering 'submodules/a2ui'
+2026-10-02T07:25:07.5931447Z file:/home/runner/work/genui/genui/.git/modules/a2ui/config	remote.origin.url
+2026-10-02T07:25:07.5969405Z [command]/usr/bin/git config --file /home/runner/work/genui/genui/.git/modules/JSON-Schema-Test-Suite/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:07.6000110Z [command]/usr/bin/git config --file /home/runner/work/genui/genui/.git/modules/a2ui/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:25:07.6048417Z Removing credentials config '/home/runner/work/_temp/git-credentials-64707519-bf5e-4643-aaa9-ee1a052c5175.config'
+2026-10-02T07:25:07.6056008Z ##[endgroup]
+2026-10-02T07:25:07.6339039Z ##[group]Run actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+2026-10-02T07:25:07.6339360Z with:
+2026-10-02T07:25:07.6339531Z   distribution: temurin
+2026-10-02T07:25:07.6339715Z   java-version: 17
+2026-10-02T07:25:07.6339887Z   java-package: jdk
+2026-10-02T07:25:07.6340061Z   check-latest: false
+2026-10-02T07:25:07.6340245Z   server-id: github
+2026-10-02T07:25:07.6340433Z   server-username: GITHUB_ACTOR
+2026-10-02T07:25:07.6340639Z   server-password: GITHUB_TOKEN
+2026-10-02T07:25:07.6340842Z   overwrite-settings: true
+2026-10-02T07:25:07.6341050Z   job-status: success
+2026-10-02T07:25:07.6343165Z   token: ***
+2026-10-02T07:25:07.6343332Z ##[endgroup]
+2026-10-02T07:25:07.7546199Z ##[group]Installed distributions
+2026-10-02T07:25:07.8525681Z Resolved Java 17.0.20+1 from tool-cache
+2026-10-02T07:25:07.8526099Z Setting Java 17.0.20+1 as the default
+2026-10-02T07:25:07.8535838Z Creating toolchains.xml for JDK version 17 from temurin
+2026-10-02T07:25:07.8593610Z Writing to /home/runner/.m2/toolchains.xml
+2026-10-02T07:25:07.8593914Z 
+2026-10-02T07:25:07.8594026Z Java configuration:
+2026-10-02T07:25:07.8594316Z   Distribution: temurin
+2026-10-02T07:25:07.8594598Z   Version: 17.0.20+1
+2026-10-02T07:25:07.8595000Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:07.8613167Z 
+2026-10-02T07:25:07.8615471Z ##[endgroup]
+2026-10-02T07:25:07.8636038Z Creating settings.xml with server-id: github
+2026-10-02T07:25:07.8636514Z Writing to /home/runner/.m2/settings.xml
+2026-10-02T07:25:07.8850063Z ##[group]Run subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+2026-10-02T07:25:07.8850572Z with:
+2026-10-02T07:25:07.8850813Z   flutter-version: 3.27.4
+2026-10-02T07:25:07.8851097Z   channel: stable
+2026-10-02T07:25:07.8851357Z   architecture: X64
+2026-10-02T07:25:07.8851635Z   cache: false
+2026-10-02T07:25:07.8852105Z   pub-cache-path: default
+2026-10-02T07:25:07.8852429Z   dry-run: false
+2026-10-02T07:25:07.8852804Z   git-source: https://github.com/flutter/flutter.git
+2026-10-02T07:25:07.8853214Z env:
+2026-10-02T07:25:07.8853599Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:07.8854213Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:07.8854681Z ##[endgroup]
+2026-10-02T07:25:07.8920261Z ##[start-action display=Make yq tool available on Windows runners;id=__subosito_flutter-action.__run]
+2026-10-02T07:25:07.8929367Z ##[end-action id=__subosito_flutter-action.__run;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:07.8931057Z ##[start-action display=Make setup script executable;id=__subosito_flutter-action.__run_2]
+2026-10-02T07:25:07.8961781Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-10-02T07:25:07.8962414Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-10-02T07:25:08.1035695Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:08.1035999Z env:
+2026-10-02T07:25:08.1036276Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.1036670Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.1036974Z ##[endgroup]
+2026-10-02T07:25:08.1155954Z ##[end-action id=__subosito_flutter-action.__run_2;outcome=success;conclusion=success;duration_ms=222]
+2026-10-02T07:25:08.1158166Z ##[start-action display=Set action inputs;id=__subosito_flutter-action.flutter-action]
+2026-10-02T07:25:08.1189610Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh -p \
+2026-10-02T07:25:08.1190081Z [36;1m$GITHUB_ACTION_PATH/setup.sh -p \[0m
+2026-10-02T07:25:08.1190319Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:08.1190507Z [36;1m  -f '' \[0m
+2026-10-02T07:25:08.1190674Z [36;1m  -a 'X64' \[0m
+2026-10-02T07:25:08.1190842Z [36;1m  -k '' \[0m
+2026-10-02T07:25:08.1190999Z [36;1m  -c '' \[0m
+2026-10-02T07:25:08.1191148Z [36;1m  -l '' \[0m
+2026-10-02T07:25:08.1191320Z [36;1m  -d 'default' \[0m
+2026-10-02T07:25:08.1191606Z [36;1m  -g 'https://github.com/flutter/flutter.git' \[0m
+2026-10-02T07:25:08.1192095Z [36;1m  stable[0m
+2026-10-02T07:25:08.1244988Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:08.1245264Z env:
+2026-10-02T07:25:08.1245516Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.1245904Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.1246198Z ##[endgroup]
+2026-10-02T07:25:08.2811478Z ##[end-action id=__subosito_flutter-action.flutter-action;outcome=success;conclusion=success;duration_ms=165]
+2026-10-02T07:25:08.2815949Z ##[start-action display=Cache Flutter;id=__subosito_flutter-action.cache-flutter]
+2026-10-02T07:25:08.2869585Z ##[end-action id=__subosito_flutter-action.cache-flutter;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:08.2871482Z ##[start-action display=Cache pub dependencies;id=__subosito_flutter-action.cache-pub]
+2026-10-02T07:25:08.2877275Z ##[end-action id=__subosito_flutter-action.cache-pub;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-10-02T07:25:08.2878756Z ##[start-action display=Run setup script;id=__subosito_flutter-action.__run_3]
+2026-10-02T07:25:08.2907645Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-10-02T07:25:08.2907928Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-10-02T07:25:08.2908157Z [36;1m  -n '3.27.4' \[0m
+2026-10-02T07:25:08.2908351Z [36;1m  -a 'x64' \[0m
+2026-10-02T07:25:08.2908602Z [36;1m  -c '/opt/hostedtoolcache/flutter/stable-3.27.4-x64' \[0m
+2026-10-02T07:25:08.2909050Z [36;1m  -d '/home/runner/.pub-cache' \[0m
+2026-10-02T07:25:08.2909276Z [36;1m  stable[0m
+2026-10-02T07:25:08.2967961Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-10-02T07:25:08.2968226Z env:
+2026-10-02T07:25:08.2968478Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.2968874Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:08.2969170Z ##[endgroup]
+2026-10-02T07:25:08.4289886Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-10-02T07:25:08.4290489Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-10-02T07:25:08.4291268Z 
+2026-10-02T07:25:09.2781036Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-10-02T07:25:10.2780607Z  28  731M   28  207M    0     0   244M      0  0:00:02 --:--:--  0:00:02  243M
+2026-10-02T07:25:10.8817945Z  71  731M   71  526M    0     0   284M      0  0:00:02  0:00:01  0:00:01  284M
+2026-10-02T07:25:10.8818420Z 100  731M  100  731M    0     0   298M      0  0:00:02  0:00:02 --:--:--  298M
+2026-10-02T07:25:35.4298809Z ##[end-action id=__subosito_flutter-action.__run_3;outcome=success;conclusion=success;duration_ms=27141]
+2026-10-02T07:25:35.4350428Z ##[group]Run ./tool/compatibility/verify.ps1 -Scope Android -SystemSdk
+2026-10-02T07:25:35.4350850Z [36;1m./tool/compatibility/verify.ps1 -Scope Android -SystemSdk[0m
+2026-10-02T07:25:35.4372345Z shell: /usr/bin/pwsh -command ". '{0}'"
+2026-10-02T07:25:35.4372572Z env:
+2026-10-02T07:25:35.4372822Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:35.4373216Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-10-02T07:25:35.4373587Z   FLUTTER_ROOT: /opt/hostedtoolcache/flutter/stable-3.27.4-x64/flutter
+2026-10-02T07:25:35.4373878Z   PUB_CACHE: /home/runner/.pub-cache
+2026-10-02T07:25:35.4374086Z ##[endgroup]
+2026-10-02T07:25:36.6148866Z Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+2026-10-02T07:25:36.6150136Z Framework • revision d8a9f9a52e (1 year, 8 months ago) • 2025-01-31 16:07:18 -0500
+2026-10-02T07:25:36.6150751Z Engine • revision 82bd5b7209
+2026-10-02T07:25:36.6151213Z Tools • Dart 3.6.2 • DevTools 2.40.3
+2026-10-02T07:25:36.6971585Z 
+2026-10-02T07:25:36.6980900Z   ╔════════════════════════════════════════════════════════════════════════════╗
+2026-10-02T07:25:36.6981695Z   ║                 Welcome to Flutter! - https://flutter.dev                  ║
+2026-10-02T07:25:36.6982426Z   ║                                                                            ║
+2026-10-02T07:25:36.6983047Z   ║ The Flutter tool uses Google Analytics to anonymously report feature usage ║
+2026-10-02T07:25:36.6983746Z   ║ statistics and basic crash reports. This data is used to help improve      ║
+2026-10-02T07:25:36.6984171Z   ║ Flutter tools over time.                                                   ║
+2026-10-02T07:25:36.6984532Z   ║                                                                            ║
+2026-10-02T07:25:36.6984948Z   ║ Flutter tool analytics are not sent on the very first run. To disable      ║
+2026-10-02T07:25:36.6985414Z   ║ reporting, type 'flutter config --no-analytics'. To display the current    ║
+2026-10-02T07:25:36.6985854Z   ║ setting, type 'flutter config'. If you opt out of analytics, an opt-out    ║
+2026-10-02T07:25:36.6986279Z   ║ event will be sent, and then no further information will be sent by the    ║
+2026-10-02T07:25:36.6986661Z   ║ Flutter tool.                                                              ║
+2026-10-02T07:25:36.6986996Z   ║                                                                            ║
+2026-10-02T07:25:36.6987363Z   ║ By downloading the Flutter SDK, you agree to the Google Terms of Service.  ║
+2026-10-02T07:25:36.6987795Z   ║ The Google Privacy Policy describes how data is handled in this service.   ║
+2026-10-02T07:25:36.6988161Z   ║                                                                            ║
+2026-10-02T07:25:36.6988569Z   ║ Moreover, Flutter includes the Dart SDK, which may send usage metrics and  ║
+2026-10-02T07:25:36.6989152Z   ║ crash reports to Google.                                                   ║
+2026-10-02T07:25:36.6989507Z   ║                                                                            ║
+2026-10-02T07:25:36.6989870Z   ║ Read about data we send with crash reports:                                ║
+2026-10-02T07:25:36.6990302Z   ║ https://flutter.dev/to/crash-reporting                                     ║
+2026-10-02T07:25:36.6990665Z   ║                                                                            ║
+2026-10-02T07:25:36.6991012Z   ║ See Google's privacy policy:                                               ║
+2026-10-02T07:25:36.6991417Z   ║ https://policies.google.com/privacy                                        ║
+2026-10-02T07:25:36.6991783Z   ║                                                                            ║
+2026-10-02T07:25:36.6992279Z   ║ To disable animations in this tool, use                                    ║
+2026-10-02T07:25:36.6992695Z   ║ 'flutter config --no-cli-animations'.                                      ║
+2026-10-02T07:25:36.6993388Z   ╚════════════════════════════════════════════════════════════════════════════╝
+2026-10-02T07:25:36.6993594Z 
+2026-10-02T07:25:40.5655038Z Resolving dependencies...
+2026-10-02T07:25:46.6215674Z Downloading packages...
+2026-10-02T07:25:50.4469599Z   _fe_analyzer_shared 76.0.0 (108.0.0 available)
+2026-10-02T07:25:50.4470079Z   analyzer 6.11.0 (14.4.0 available)
+2026-10-02T07:25:50.4470899Z ! anthropic_sdk_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/anthropic_sdk_dart (overridden)
+2026-10-02T07:25:50.4471688Z   async 2.11.0 (2.13.1 available)
+2026-10-02T07:25:50.4472217Z   audioplayers 6.6.0 (6.8.1 available)
+2026-10-02T07:25:50.4472597Z   audioplayers_android 5.2.1 (5.3.0 available)
+2026-10-02T07:25:50.4473001Z   audioplayers_darwin 6.4.0 (6.5.0 available)
+2026-10-02T07:25:50.4473719Z   audioplayers_linux 4.2.1 (4.3.0 available)
+2026-10-02T07:25:50.4474150Z   audioplayers_platform_interface 7.1.1 (7.2.0 available)
+2026-10-02T07:25:50.4474611Z   audioplayers_web 5.2.0 (5.3.0 available)
+2026-10-02T07:25:50.4475004Z   audioplayers_windows 4.3.0 (4.4.1 available)
+2026-10-02T07:25:50.4475399Z   boolean_selector 2.1.1 (2.1.2 available)
+2026-10-02T07:25:50.4475753Z   build 2.4.2 (4.0.11 available)
+2026-10-02T07:25:50.4476080Z   build_config 1.1.2 (1.3.3 available)
+2026-10-02T07:25:50.4476427Z   build_daemon 4.0.4 (4.1.6 available)
+2026-10-02T07:25:50.4476771Z   build_resolvers 2.4.4 (3.0.4 available)
+2026-10-02T07:25:50.4477118Z   build_runner 2.4.15 (2.16.1 available)
+2026-10-02T07:25:50.4477462Z   build_runner_core 8.0.0 (9.3.2 available)
+2026-10-02T07:25:50.4477823Z   built_collection 5.1.1 (5.1.2 available)
+2026-10-02T07:25:50.4478179Z   characters 1.3.0 (1.4.1 available)
+2026-10-02T07:25:50.4478516Z   checked_yaml 2.0.3 (2.0.4 available)
+2026-10-02T07:25:50.4478867Z   clock 1.1.1 (1.1.3 available)
+2026-10-02T07:25:50.4479231Z   code_builder 4.10.1 (4.12.0 available)
+2026-10-02T07:25:50.4479573Z   collection 1.19.0 (1.19.1 available)
+2026-10-02T07:25:50.4479921Z   cross_file 0.3.4+2 (0.4.0 available)
+2026-10-02T07:25:50.4480252Z   dart_style 3.0.1 (3.1.13 available)
+2026-10-02T07:25:50.4480829Z ! dartantic_ai 3.2.0 from git https://github.com/mytangyh/dartantic_ai.git at d876bd in packages/dartantic_ai (overridden)
+2026-10-02T07:25:50.4481486Z ! dartantic_interface 3.0.0 from git https://github.com/mytangyh/dartantic_ai.git at d876bd in packages/dartantic_interface (overridden)
+2026-10-02T07:25:50.4482127Z   fake_async 1.3.1 (1.3.3 available)
+2026-10-02T07:25:50.4482450Z   ffi 2.1.3 (2.2.0 available)
+2026-10-02T07:25:50.4482777Z   file 7.0.0 (7.0.1 available)
+2026-10-02T07:25:50.4483109Z   flutter_markdown_plus 1.0.3 (1.0.12 available)
+2026-10-02T07:25:50.4484098Z ! google_cloud_ai_generativelanguage_v1beta 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_ai_generativelanguage_v1beta (overridden)
+2026-10-02T07:25:50.4485537Z ! google_cloud_longrunning 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_longrunning (overridden)
+2026-10-02T07:25:50.4486761Z ! google_cloud_protobuf 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_protobuf (overridden)
+2026-10-02T07:25:50.4487912Z ! google_cloud_rpc 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_rpc (overridden)
+2026-10-02T07:25:50.4489027Z ! google_cloud_type 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_type (overridden)
+2026-10-02T07:25:50.4489490Z   googleapis_auth 2.0.0 (2.3.4 available)
+2026-10-02T07:25:50.4489711Z   intl 0.19.0 (0.20.3 available)
+2026-10-02T07:25:50.4489908Z   js 0.7.1 (0.7.2 available)
+2026-10-02T07:25:50.4490112Z   json_annotation 4.9.0 (4.12.0 available)
+2026-10-02T07:25:50.4490334Z   leak_tracker 10.0.7 (11.0.2 available)
+2026-10-02T07:25:50.4490579Z   leak_tracker_flutter_testing 3.0.8 (3.0.10 available)
+2026-10-02T07:25:50.4491036Z   leak_tracker_testing 3.0.1 (3.0.2 available)
+2026-10-02T07:25:50.4491276Z   lints 5.1.1 (6.1.0 available)
+2026-10-02T07:25:50.4491484Z   markdown 7.3.0 (7.3.1 available)
+2026-10-02T07:25:50.4491691Z   matcher 0.12.16+1 (0.12.20 available)
+2026-10-02T07:25:50.4492081Z   material_color_utilities 0.11.1 (0.13.1 available)
+2026-10-02T07:25:50.4492429Z   mcp_dart 2.1.1 (2.4.2 available)
+2026-10-02T07:25:50.4492628Z   meta 1.15.0 (1.19.0 available)
+2026-10-02T07:25:50.4493082Z ! mistralai_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/mistralai_dart (overridden)
+2026-10-02T07:25:50.4493520Z   mockito 5.4.5 (5.8.1 available)
+2026-10-02T07:25:50.4493919Z ! ollama_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/ollama_dart (overridden)
+2026-10-02T07:25:50.4494630Z ! openai_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/openai_dart (overridden)
+2026-10-02T07:25:50.4495042Z   package_config 2.2.0 (3.0.0 available)
+2026-10-02T07:25:50.4495261Z   path 1.9.0 (1.9.1 available)
+2026-10-02T07:25:50.4495460Z   path_provider 2.1.5 (2.1.6 available)
+2026-10-02T07:25:50.4495692Z   path_provider_android 2.2.17 (2.3.1 available)
+2026-10-02T07:25:50.4495948Z   path_provider_foundation 2.4.1 (2.6.0 available)
+2026-10-02T07:25:50.4496193Z   path_provider_linux 2.2.1 (2.2.2 available)
+2026-10-02T07:25:50.4496454Z   path_provider_platform_interface 2.1.2 (2.1.3 available)
+2026-10-02T07:25:50.4496754Z   platform 3.1.5 (3.2.0 available)
+2026-10-02T07:25:50.4497074Z   preact_signals 1.9.4 (7.0.0 available)
+2026-10-02T07:25:50.4497410Z   process 5.0.2 (5.0.6 available)
+2026-10-02T07:25:50.4497726Z   pubspec_parse 1.5.0 (1.6.0 available)
+2026-10-02T07:25:50.4498041Z   shelf_web_socket 2.0.1 (3.0.0 available)
+2026-10-02T07:25:50.4498299Z   source_gen 2.0.0 (4.3.0 available)
+2026-10-02T07:25:50.4498509Z   source_span 1.10.0 (1.10.2 available)
+2026-10-02T07:25:50.4498715Z   sse 4.1.8 (4.2.0 available)
+2026-10-02T07:25:50.4499036Z ! sse_channel 0.2.2 from git https://github.com/mytangyh/sse_channel.git at 1776f9 (overridden)
+2026-10-02T07:25:50.4499388Z   stack_trace 1.12.0 (1.12.2 available)
+2026-10-02T07:25:50.4499600Z   stream_channel 2.1.2 (2.1.4 available)
+2026-10-02T07:25:50.4499814Z   string_scanner 1.3.0 (1.4.1 available)
+2026-10-02T07:25:50.4500022Z   synchronized 3.3.0+3 (3.4.2 available)
+2026-10-02T07:25:50.4500229Z   term_glyph 1.2.1 (1.2.2 available)
+2026-10-02T07:25:50.4500433Z   test 1.25.8 (1.32.0 available)
+2026-10-02T07:25:50.4500631Z   test_api 0.7.3 (0.7.14 available)
+2026-10-02T07:25:50.4500835Z   test_core 0.6.5 (0.6.20 available)
+2026-10-02T07:25:50.4501053Z   url_launcher_android 6.3.17 (6.3.33 available)
+2026-10-02T07:25:50.4501296Z   url_launcher_ios 6.3.3 (6.4.2 available)
+2026-10-02T07:25:50.4501600Z   url_launcher_linux 3.2.1 (3.2.3 available)
+2026-10-02T07:25:50.4501979Z   url_launcher_macos 3.2.2 (3.2.6 available)
+2026-10-02T07:25:50.4502206Z   url_launcher_web 2.4.1 (2.4.3 available)
+2026-10-02T07:25:50.4502532Z   url_launcher_windows 3.1.4 (3.1.6 available)
+2026-10-02T07:25:50.4502890Z   vector_math 2.1.4 (2.4.3 available)
+2026-10-02T07:25:50.4503213Z   video_player 2.10.0 (2.14.0 available)
+2026-10-02T07:25:50.4503572Z   video_player_android 2.8.4 (2.12.2 available)
+2026-10-02T07:25:50.4503967Z   video_player_avfoundation 2.8.4 (2.12.0 available)
+2026-10-02T07:25:50.4504401Z   video_player_platform_interface 6.4.0 (6.9.0 available)
+2026-10-02T07:25:50.4504815Z   vm_service 14.3.0 (15.3.0 available)
+2026-10-02T07:25:50.4505142Z   webdriver 3.0.4 (3.2.0 available)
+2026-10-02T07:25:50.4505453Z Got dependencies!
+2026-10-02T07:25:50.4505852Z 79 packages have newer versions incompatible with dependency constraints.
+2026-10-02T07:25:50.4506374Z Try `flutter pub outdated` for more information.
+2026-10-02T07:25:51.4978379Z All modified dependency sources use fixed fork commits.
+2026-10-02T07:25:51.8006123Z 
+2026-10-02T07:25:51.8093253Z Support for Android x86 targets will be removed in the next stable release after 3.27. See https://github.com/flutter/flutter/issues/157543 for details.
+2026-10-02T07:28:06.9394414Z Running Gradle task 'assembleDebug'...                            135.1s
+2026-10-02T07:28:07.7067121Z ✓ Built build/app/outputs/flutter-apk/app-debug.apk
+2026-10-02T07:28:07.7849418Z Post job cleanup.
+2026-10-02T07:28:07.7901549Z Post job cleanup.
+2026-10-02T07:28:07.9198849Z Post job cleanup.
+2026-10-02T07:28:08.0024232Z [command]/usr/bin/git version
+2026-10-02T07:28:08.0062906Z git version 2.55.0
+2026-10-02T07:28:08.0107361Z Temporarily overriding HOME='/home/runner/work/_temp/30d9c42f-f768-49f0-91d6-ad356555c65b' before making global git config changes
+2026-10-02T07:28:08.0108419Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-02T07:28:08.0109396Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/genui/genui
+2026-10-02T07:28:08.0138716Z Removing SSH command configuration
+2026-10-02T07:28:08.0145757Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-02T07:28:08.0182963Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-02T07:28:08.0412644Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:28:08.0443789Z Entering 'submodules/a2ui'
+2026-10-02T07:28:08.0503345Z Removing HTTP extra header
+2026-10-02T07:28:08.0507738Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-02T07:28:08.0547470Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-02T07:28:08.0796724Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:28:08.0836006Z Entering 'submodules/a2ui'
+2026-10-02T07:28:08.0898639Z Removing includeIf entries pointing to credentials config files
+2026-10-02T07:28:08.0899291Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:28:08.0941978Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-02T07:28:08.1140918Z Entering 'submodules/JSON-Schema-Test-Suite'
+2026-10-02T07:28:08.1156387Z file:/home/runner/work/genui/genui/.git/modules/JSON-Schema-Test-Suite/config	remote.origin.url
+2026-10-02T07:28:08.1172695Z Entering 'submodules/a2ui'
+2026-10-02T07:28:08.1188427Z file:/home/runner/work/genui/genui/.git/modules/a2ui/config	remote.origin.url
+2026-10-02T07:28:08.1220641Z [command]/usr/bin/git config --file /home/runner/work/genui/genui/.git/modules/JSON-Schema-Test-Suite/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:28:08.1253174Z [command]/usr/bin/git config --file /home/runner/work/genui/genui/.git/modules/a2ui/config --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-02T07:28:08.1411769Z Cleaning up orphan processes
+2026-10-02T07:28:08.1695822Z Terminate orphan process: pid (3021) (java)
+2026-10-02T07:28:08.1725340Z Terminate orphan process: pid (3322) (java)

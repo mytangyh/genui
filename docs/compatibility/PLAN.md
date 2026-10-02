@@ -1,13 +1,13 @@
 # Flutter 3.27.4 compatibility implementation
 
-Status: compatibility code and Android acceptance passed; final fixed-source publication checks in progress.
+Status: complete for the user's Android-only acceptance scope; fixed forks published and all seven secret-free compatibility CI jobs passed.
 
 Current evidence (2026-10-02): supported core strict analysis is clean; upstream
 core suites pass (69 + 67 + 1321 + 375), AI SDK unit suites pass (2529 with 11
 upstream conditional skips), Google Cloud offline suite passes (202), and SSE
 suite passes (13). Android native media integration passes on Redmi 7A. Each
 compatibility repository now has its own FVM pin. CI and delivery source checks
-are authored locally, not yet executed remotely. See VALIDATION.md for the
+passed remotely on clean GitHub-hosted Ubuntu runners. See VALIDATION.md for the
 separate source, build, runtime and real-model evidence boundaries.
 
 Dartantic's minimal public accessor widening is implemented after explaining
@@ -27,8 +27,8 @@ for real-model acceptance.
 The three independent lower dependency repositories additionally pass complete
 offline profiles from exported source snapshots and a fresh temporary Pub cache.
 All five root lockfiles now use pub.dev, with unchanged package versions/archive
-hashes; strict resolution succeeds there. Final remote fixed-commit clones remain
-pending and are not inferred from these local checks.
+hashes; strict resolution succeeds there. Final remote fixed-commit clones and strict source checks passed
+in the compatibility CI, independently of the earlier local snapshot evidence.
 
 ## Fixed inputs and scope
 
@@ -59,3 +59,5 @@ On 2026-10-02 the user explicitly authorized local commits and pushes to mytangy
 ## Completion audit
 
 Every above step and every user acceptance item needs current authoritative evidence. Dependency resolution, build or starting a window alone is insufficient. Outstanding credentials, remote reference delivery, media runtime validation or actual model loops keep the overall goal incomplete. Keep unsupported tools/examples in the checkout with an explicit support table; they are not first-release gates.
+
+Delivery code commit: `16c796e093bf8d8d68cce1c41037d8b559e020d4`. Remote compatibility run: https://github.com/mytangyh/genui/actions/runs/36978425938. Documentation-only follow-ups retain this validated source. Upstream e2e workflow remains unchanged and its separate failure is recorded, not counted as compatibility evidence.

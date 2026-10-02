@@ -75,6 +75,8 @@ JDK 路径需按实际环境调整。离线和媒体测试不读取真实模型�
 
 ## CI 和上游同步
 
-[flutter_3274.yaml](../../.github/workflows/flutter_3274.yaml) 固定 3.27.4，覆盖来源审计、格式、严格分析、Schema 再生成、核心和示例测试、四个依赖 fork 的上游离线测试、flutter-tester 离线样例与三种模式检查、Android 主入口构建。按最新 Android 范围移除了本轮新增的 Windows job。它没有仓库所有者条件，也不读取模型密钥。上游 workflow 保留。来源审计检查完整 SHA、实际解析来源、无本机路径及 pub.dev 地址。远程运行结果以该兼容分支的 GitHub Actions 为准；本地 actionlint 已通过。
+[flutter_3274.yaml](../../.github/workflows/flutter_3274.yaml) 固定 3.27.4，覆盖来源审计、格式、严格分析、Schema 再生成、核心和示例测试、四个依赖 fork 的上游离线测试、flutter-tester 离线样例与三种模式检查、Android 主入口构建。按最新 Android 范围移除了本轮新增的 Windows job。它没有仓库所有者条件，也不读取模型密钥。上游 workflow 保留。来源审计检查完整 SHA、实际解析来源、无本机路径及 pub.dev 地址。代码提交 `16c796e093bf8d8d68cce1c41037d8b559e020d4` 的[远程兼容 CI](https://github.com/mytangyh/genui/actions/runs/36978425938) 七个任务全部通过；包括干净检出、固定依赖、严格检查与 Android 构建。完整记录见 [github-compatibility-ci.json](evidence/github-compatibility-ci.json)。
 
 同步上游时先另开评估分支，记录新基线 SHA，分别更新四个依赖仓库；保留兼容补丁，重新核对 archive 与发布版本以及固定 Schema 资源。按底层依赖、Dartantic、GenUI、simple_chat 的顺序检查。完成同 SDK 的测试和平台验收后，再更新固定引用和 lockfile；不要把 Git 分支名或最新 main 写入交付引用。
+
+交付代码与提交清单见 [DELIVERY.md](DELIVERY.md)。上游原有 e2e workflow 在 fork 中仍失败，该文件与固定基线完全相同；其真实模型评测不属于新增无密钥兼容 CI，未计为通过。
