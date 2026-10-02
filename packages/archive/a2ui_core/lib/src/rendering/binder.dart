@@ -64,9 +64,8 @@ class GenericBinder {
     _disposeSubscriptions();
 
     final Map<String, dynamic> props = context.componentModel.properties;
-    _resolvedProps.value =
-        _resolveAndBind(props, _behaviorTree, [], false)
-            as Map<String, dynamic>;
+    _resolvedProps.value = _resolveAndBind(props, _behaviorTree, [], false)
+        as Map<String, dynamic>;
   }
 
   void _disposeSubscriptions() {
@@ -86,8 +85,8 @@ class GenericBinder {
 
     switch (behavior.type) {
       case Behavior.dynamic:
-        final ReadonlySignal<Object?> sig = context.dataContext
-            .resolveListenable(value);
+        final ReadonlySignal<Object?> sig =
+            context.dataContext.resolveListenable(value);
         if (!isSync) {
           _subscriptions.add(
             sig.subscribe((newValue) {
@@ -118,8 +117,8 @@ class GenericBinder {
           final tpl = ChildListTemplate.fromJson(
             Map<String, dynamic>.from(value),
           );
-          final ReadonlySignal<Object?> sig = context.dataContext
-              .resolveListenable({'path': tpl.path});
+          final ReadonlySignal<Object?> sig =
+              context.dataContext.resolveListenable({'path': tpl.path});
 
           List<ChildNode> resolveChildren(Object? val) {
             final List<Object?> list = val is List ? val.cast<Object?>() : [];
@@ -159,7 +158,7 @@ class GenericBinder {
 
         void updateValidationState() {
           final errors = <String>[];
-          for (var i = 0; i < results.length; i++) {
+          for (int i = 0; i < results.length; i++) {
             if (!results[i]) errors.add(messages[i]);
           }
           final List<String> parentPath = path.sublist(0, path.length - 1);
@@ -167,11 +166,11 @@ class GenericBinder {
           _updateDeepValue([...parentPath, 'validationErrors'], errors);
         }
 
-        for (var i = 0; i < rules.length; i++) {
+        for (int i = 0; i < rules.length; i++) {
           final Object? condition =
               (rules[i] as Map<String, dynamic>)['condition'] ?? rules[i];
-          final ReadonlySignal<Object?> sig = context.dataContext
-              .resolveListenable(condition);
+          final ReadonlySignal<Object?> sig =
+              context.dataContext.resolveListenable(condition);
           results[i] = sig.value == true;
 
           if (!isSync) {
@@ -197,10 +196,14 @@ class GenericBinder {
           final key = entry.key as String;
           final BehaviorNode childBehavior =
               shape[key] ?? BehaviorNode(Behavior.static);
-          result[key] = _resolveAndBind(entry.value, childBehavior, [
-            ...path,
-            key,
-          ], isSync);
+          result[key] = _resolveAndBind(
+              entry.value,
+              childBehavior,
+              [
+                ...path,
+                key,
+              ],
+              isSync);
         }
 
         // Inject validation properties if 'checks' is present in shape
@@ -209,8 +212,8 @@ class GenericBinder {
               (value['checks'] as List?)?.cast<Object?>() ?? [];
           var isValid = true;
           final errors = <String>[];
-          final List<Map<String, dynamic>> typedRules = rules
-              .cast<Map<String, dynamic>>();
+          final List<Map<String, dynamic>> typedRules =
+              rules.cast<Map<String, dynamic>>();
           for (final rule in typedRules) {
             final Object? condition = rule['condition'] ?? rule;
             final Object? val = context.dataContext.resolveSync(condition);
@@ -246,10 +249,14 @@ class GenericBinder {
             .asMap()
             .entries
             .map(
-              (e) => _resolveAndBind(e.value, elementBehavior, [
-                ...path,
-                e.key.toString(),
-              ], isSync),
+              (e) => _resolveAndBind(
+                  e.value,
+                  elementBehavior,
+                  [
+                    ...path,
+                    e.key.toString(),
+                  ],
+                  isSync),
             )
             .toList();
 
@@ -276,22 +283,22 @@ class GenericBinder {
     final result = Map<String, dynamic>.from(map);
     Object? current = result;
 
-    for (var i = 0; i < path.length - 1; i++) {
+    for (int i = 0; i < path.length - 1; i++) {
       final String key = path[i];
       if (current is Map) {
         current[key] = current[key] is Map
             ? Map<String, dynamic>.from(current[key] as Map)
             : (current[key] is List
-                  ? List<Object?>.from(current[key] as Iterable)
-                  : <String, dynamic>{});
+                ? List<Object?>.from(current[key] as Iterable)
+                : <String, dynamic>{});
         current = current[key];
       } else if (current is List) {
         final int idx = int.parse(key);
         current[idx] = current[idx] is Map
             ? Map<String, dynamic>.from(current[idx] as Map)
             : (current[idx] is List
-                  ? List<Object?>.from(current[idx] as Iterable)
-                  : <String, dynamic>{});
+                ? List<Object?>.from(current[idx] as Iterable)
+                : <String, dynamic>{});
         current = current[idx];
       }
     }
@@ -362,7 +369,7 @@ class GenericBinder {
     if (hasStructural) return BehaviorNode(Behavior.structural);
 
     final Object? type = map['type'];
-    final Map<String, dynamic> allProperties = {};
+    final allProperties = <String, dynamic>{};
     for (final s in schemasToInspect) {
       if (s['properties'] is Map) {
         allProperties.addAll((s['properties'] as Map).cast<String, dynamic>());

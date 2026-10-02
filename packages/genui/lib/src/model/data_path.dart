@@ -11,10 +11,8 @@ final class DataPath {
   /// Creates a [DataPath] from a string representation.
   factory DataPath(String path) {
     if (path == _separator) return root;
-    final List<String> segments = path
-        .split(_separator)
-        .where((s) => s.isNotEmpty)
-        .toList();
+    final List<String> segments =
+        path.split(_separator).where((s) => s.isNotEmpty).toList();
     return DataPath._(segments, path.startsWith(_separator));
   }
 
@@ -59,7 +57,7 @@ final class DataPath {
     if (other.segments.length > segments.length) {
       return false;
     }
-    for (var i = 0; i < other.segments.length; i++) {
+    for (int i = 0; i < other.segments.length; i++) {
       if (segments[i] != other.segments[i]) {
         return false;
       }

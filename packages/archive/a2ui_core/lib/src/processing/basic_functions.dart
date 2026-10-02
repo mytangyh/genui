@@ -19,13 +19,13 @@ class FormatStringFunction extends FunctionImplementation {
 
   @override
   Schema get argumentSchema => Schema.object(
-    properties: {
-      'value': Schema.string(
-        description: 'The string template to interpolate.',
-      ),
-    },
-    required: ['value'],
-  );
+        properties: {
+          'value': Schema.string(
+            description: 'The string template to interpolate.',
+          ),
+        },
+        required: ['value'],
+      );
 
   @override
   Object? execute(

@@ -28,7 +28,7 @@ void main() {
                         'https://storage.googleapis.com/cms-storage-bucket/lockup_flutter_horizontal.c823e53b3a1a7b0d36a9.png',
                   },
                   id: 'test_image',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(InMemoryDataModel(), DataPath.root),
@@ -69,7 +69,7 @@ void main() {
                     'variant': 'avatar',
                   },
                   id: 'test_image_avatar',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(InMemoryDataModel(), DataPath.root),
@@ -117,7 +117,7 @@ void main() {
                     'variant': 'header',
                   },
                   id: 'test_image_header',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(InMemoryDataModel(), DataPath.root),
@@ -160,7 +160,7 @@ void main() {
                     'description': 'Chart of weekly usage',
                   },
                   id: 'test_image_description',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(InMemoryDataModel(), DataPath.root),
@@ -175,13 +175,12 @@ void main() {
         ),
       );
 
-      final SemanticsData data = tester
-          .getSemantics(find.byType(Image))
-          .getSemanticsData();
+      final SemanticsData data =
+          tester.getSemantics(find.byType(Image)).getSemanticsData();
       expect(data.label, 'Chart of weekly usage');
       // Without the image role a screen reader reads the name and gives no
       // hint that it belongs to a picture.
-      expect(data.flagsCollection.isImage, isTrue);
+      expect(data.hasFlag(SemanticsFlag.isImage), isTrue);
 
       handle.dispose();
     });
@@ -207,7 +206,7 @@ void main() {
                     'description': {'path': '/alt'},
                   },
                   id: 'test_image_bound_description',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(model, DataPath.root),
@@ -246,7 +245,7 @@ void main() {
                   type: 'Image',
                   data: {'url': 'https://example.com/plain.png'},
                   id: 'test_image_plain',
-                  buildChild: (_, [_]) => const SizedBox(),
+                  buildChild: (id, [dataContext]) => const SizedBox(),
                   dispatchEvent: (UiEvent event) {},
                   buildContext: context,
                   dataContext: DataContext(InMemoryDataModel(), DataPath.root),

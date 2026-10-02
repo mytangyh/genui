@@ -160,9 +160,8 @@ void main() {
     expect(find.text('Content 2'), findsOneWidget);
 
     // Verify data model updated
-    final DataModel dataModel = surfaceController
-        .contextFor(surfaceId)
-        .dataModel;
+    final DataModel dataModel =
+        surfaceController.contextFor(surfaceId).dataModel;
     expect(dataModel.getValue<num>(DataPath('currentTab')), 1);
   });
 }

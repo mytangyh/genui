@@ -26,8 +26,8 @@ void main() {
         CreateSurfaceMessage(surfaceId: 's1', catalogId: catalog.id),
       ]);
 
-      final SurfaceModel<ComponentApi>? surface = processor.groupModel
-          .getSurface('s1');
+      final SurfaceModel<ComponentApi>? surface =
+          processor.groupModel.getSurface('s1');
       expect(surface, isNotNull);
       expect(surface?.id, 's1');
       expect(surface?.catalog.id, catalog.id);
@@ -44,8 +44,8 @@ void main() {
         ),
       ]);
 
-      final SurfaceModel<ComponentApi>? surface = processor.groupModel
-          .getSurface('s1');
+      final SurfaceModel<ComponentApi>? surface =
+          processor.groupModel.getSurface('s1');
       final ComponentModel? root = surface?.componentsModel.get('root');
       expect(root, isNotNull);
       expect(root?.type, 'Text');
@@ -62,8 +62,8 @@ void main() {
         ),
       ]);
 
-      final SurfaceModel<ComponentApi>? surface = processor.groupModel
-          .getSurface('s1');
+      final SurfaceModel<ComponentApi>? surface =
+          processor.groupModel.getSurface('s1');
       expect(surface?.dataModel.get('/user/name'), 'Alice');
     });
 
@@ -101,8 +101,7 @@ void main() {
       expect(
         CommonSchemas.dynamicString.value['description'],
         equals(descBefore),
-        reason:
-            'CommonSchemas.dynamicString should not be mutated by '
+        reason: 'CommonSchemas.dynamicString should not be mutated by '
             'getClientCapabilities',
       );
     });

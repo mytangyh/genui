@@ -35,7 +35,7 @@ class FinishStatus {
   const FinishStatus.completed() : this(category: FinishCategory.completed);
 
   const FinishStatus.interrupted({String? details})
-    : this(category: FinishCategory.interrupted, details: details);
+      : this(category: FinishCategory.interrupted, details: details);
 
   /// Deserializes a [FinishStatus].
   factory FinishStatus.fromJson(Map<String, Object?> json) {
@@ -47,9 +47,9 @@ class FinishStatus {
 
   /// Serializes the [FinishStatus] to JSON.
   Map<String, Object?> toJson() => {
-    _Json.category: category.name,
-    if (details != null) _Json.details: details,
-  };
+        _Json.category: category.name,
+        if (details != null) _Json.details: details,
+      };
 
   @override
   bool operator ==(Object other) =>

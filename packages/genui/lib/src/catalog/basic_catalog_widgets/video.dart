@@ -11,6 +11,7 @@ import '../../model/a2ui_schemas.dart';
 import '../../model/catalog_item.dart';
 import '../../primitives/logging.dart';
 import '../../primitives/simple_items.dart';
+import '../../widgets/unpadded_slider_track_shape.dart';
 import '../../widgets/widget_utilities.dart';
 import 'format_duration.dart';
 
@@ -110,15 +111,13 @@ class _VideoPlayerWidgetState extends State<_VideoPlayerWidget> {
     }
 
     _controller = vp.VideoPlayerController.networkUrl(uri)
-      ..initialize()
-          .then((_) {
-            _controller?.setVolume(0.5);
-            if (mounted) setState(() {});
-          })
-          .catchError((Object error) {
-            genUiLogger.warning('Failed to initialize video player', error);
-            if (mounted) setState(() => _hasError = true);
-          });
+      ..initialize().then((_) {
+        _controller?.setVolume(0.5);
+        if (mounted) setState(() {});
+      }).catchError((Object error) {
+        genUiLogger.warning('Failed to initialize video player', error);
+        if (mounted) setState(() => _hasError = true);
+      });
   }
 
   void _disposeController() {
@@ -257,8 +256,8 @@ class _BottomControlBar extends StatelessWidget {
               child: Slider(
                 value: duration.inMilliseconds > 0
                     ? position.inMilliseconds
-                          .clamp(0, duration.inMilliseconds)
-                          .toDouble()
+                        .clamp(0, duration.inMilliseconds)
+                        .toDouble()
                     : 0,
                 max: duration.inMilliseconds > 0
                     ? duration.inMilliseconds.toDouble()
@@ -277,8 +276,8 @@ class _BottomControlBar extends StatelessWidget {
               volume == 0
                   ? Icons.volume_off
                   : volume < 0.5
-                  ? Icons.volume_down
-                  : Icons.volume_up,
+                      ? Icons.volume_down
+                      : Icons.volume_up,
               size: 20,
             ),
             SizedBox(
@@ -286,7 +285,7 @@ class _BottomControlBar extends StatelessWidget {
               child: SliderTheme(
                 data: SliderTheme.of(context).copyWith(
                   overlayShape: SliderComponentShape.noOverlay,
-                  padding: EdgeInsets.zero,
+                  trackShape: const UnpaddedSliderTrackShape(),
                 ),
                 child: Slider(value: volume, onChanged: controller.setVolume),
               ),

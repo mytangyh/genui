@@ -19,7 +19,7 @@ void main() {
       group.addSurface(surface);
 
       // Verify the forwarder works while surface is alive.
-      var actionCount = 0;
+      int actionCount = 0;
       group.onAction.addListener((_) => actionCount++);
 
       surface.dispatchAction({

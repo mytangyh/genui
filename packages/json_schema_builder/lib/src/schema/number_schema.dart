@@ -40,16 +40,17 @@ extension type NumberSchema.fromMap(Map<String, Object?> _value)
 
     /// The number must be a multiple of this number.
     num? multipleOf,
-  }) => NumberSchema.fromMap({
-    'type': JsonType.num.typeName,
-    'title': ?title,
-    'description': ?description,
-    'minimum': ?minimum,
-    'maximum': ?maximum,
-    'exclusiveMinimum': ?exclusiveMinimum,
-    'exclusiveMaximum': ?exclusiveMaximum,
-    'multipleOf': ?multipleOf,
-  });
+  }) =>
+      NumberSchema.fromMap({
+        'type': JsonType.num.typeName,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
+        if (minimum case final value?) 'minimum': value,
+        if (maximum case final value?) 'maximum': value,
+        if (exclusiveMinimum case final value?) 'exclusiveMinimum': value,
+        if (exclusiveMaximum case final value?) 'exclusiveMaximum': value,
+        if (multipleOf case final value?) 'multipleOf': value,
+      });
 
   /// The inclusive lower bound of the number.
   num? get minimum => _value['minimum'] as num?;

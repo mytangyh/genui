@@ -48,14 +48,15 @@ extension type _DateTimeInputData.fromMap(JsonMap _json) {
     String? max,
     Object? label,
     List<JsonMap>? checks,
-  }) => _DateTimeInputData.fromMap({
-    'value': value,
-    'variant': variant,
-    'min': min,
-    'max': max,
-    'label': label,
-    'checks': checks,
-  });
+  }) =>
+      _DateTimeInputData.fromMap({
+        'value': value,
+        'variant': variant,
+        'min': min,
+        'max': max,
+        'label': label,
+        'checks': checks,
+      });
 
   Object get value => _json['value'] as Object;
   String? get variant => _json['variant'] as String?;
@@ -143,15 +144,14 @@ class _DateTimeInputState extends State<_DateTimeInput> {
       return;
     }
 
-    _validationSubscription =
-        ValidationHelper.validateStream(
-          widget.checks,
-          widget.dataContext,
-        ).listen((String? newError) {
-          if (newError != _errorText && mounted) {
-            setState(() => _errorText = newError);
-          }
-        });
+    _validationSubscription = ValidationHelper.validateStream(
+      widget.checks,
+      widget.dataContext,
+    ).listen((String? newError) {
+      if (newError != _errorText && mounted) {
+        setState(() => _errorText = newError);
+      }
+    });
   }
 
   @override
@@ -161,8 +161,7 @@ class _DateTimeInputState extends State<_DateTimeInput> {
   }
 
   Future<void> _handleTap(BuildContext context) async {
-    final DateTime initialDate =
-        DateTime.tryParse(widget.value ?? '') ??
+    final DateTime initialDate = DateTime.tryParse(widget.value ?? '') ??
         DateTime.tryParse('1970-01-01T${widget.value}') ??
         DateTime.now();
 
@@ -222,8 +221,7 @@ class _DateTimeInputState extends State<_DateTimeInput> {
       return _getPlaceholderText();
     }
 
-    final DateTime? date =
-        DateTime.tryParse(widget.value!) ??
+    final DateTime? date = DateTime.tryParse(widget.value!) ??
         DateTime.tryParse('1970-01-01T${widget.value}');
 
     if (date == null) {
@@ -307,7 +305,7 @@ final dateTimeInput = CatalogItem(
       dataContext: itemContext.dataContext,
       value: {'path': path},
       builder: (context, value) {
-        var effectiveValue = value;
+        String? effectiveValue = value;
         if (effectiveValue == null) {
           final Object val = dateTimeInputData.value;
           if (val is! Map || !val.containsKey('path')) {

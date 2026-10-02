@@ -67,14 +67,15 @@ Future<SurfaceController> _pumpTextField(
 Future<SurfaceController> _pumpVariant(
   WidgetTester tester, {
   String? variant,
-}) => _pumpTextField(
-  tester,
-  properties: {
-    'label': 'Input',
-    'variant': ?variant,
-    'value': {'path': '/value'},
-  },
-);
+}) =>
+    _pumpTextField(
+      tester,
+      properties: {
+        'label': 'Input',
+        if (variant case final value?) 'variant': value,
+        'value': {'path': '/value'},
+      },
+    );
 
 Object? _value(SurfaceController controller) => controller
     .contextFor(_surfaceId)
@@ -120,7 +121,8 @@ class _RecordingFunction implements ClientFunction {
 }
 
 void main() {
-  testWidgets('TextField with no weight in Row defaults to weight: 1 '
+  testWidgets(
+      'TextField with no weight in Row defaults to weight: 1 '
       'and expands', (WidgetTester tester) async {
     final surfaceController = SurfaceController(
       catalogs: [BasicCatalogItems.asCatalog()],
@@ -450,9 +452,8 @@ void main() {
     expect(field.minLines, 3);
     expect(field.keyboardType, TextInputType.multiline);
 
-    final double singleLineHeight = tester
-        .getSize(find.byType(TextField))
-        .height;
+    final double singleLineHeight =
+        tester.getSize(find.byType(TextField)).height;
 
     await tester.enterText(
       find.byType(TextField),
@@ -538,7 +539,8 @@ void main() {
     expect(find.text('-'), findsOneWidget);
   });
 
-  testWidgets('TextField with variant "number" can be typed into one key at a '
+  testWidgets(
+      'TextField with variant "number" can be typed into one key at a '
       'time', (WidgetTester tester) async {
     final SurfaceController surfaceController = await _pumpVariant(
       tester,
@@ -827,7 +829,8 @@ void main() {
     expect(submissions, hasLength(1));
   });
 
-  testWidgets('TextField reports a value bound in from the data model that '
+  testWidgets(
+      'TextField reports a value bound in from the data model that '
       'fails its validationRegexp', (WidgetTester tester) async {
     final SurfaceController surfaceController = await _pumpTextField(
       tester,

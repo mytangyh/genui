@@ -27,7 +27,7 @@ class MessageProcessor<T extends ComponentApi> {
 
   /// Processes a list of messages.
   void processMessages(List<A2uiMessage> messages) {
-    for (final message in messages) {
+    for (final A2uiMessage message in messages) {
       _processMessage(message);
     }
   }
@@ -174,7 +174,7 @@ class MessageProcessor<T extends ComponentApi> {
       'catalogId': catalog.id,
       'components': components,
       if (functions.isNotEmpty) 'functions': functions,
-      'theme': ?theme,
+      if (theme case final value?) 'theme': value,
     };
   }
 

@@ -16,7 +16,7 @@ class DataPath {
       return DataPath([]);
     }
 
-    var normalized = path;
+    String normalized = path;
     if (path.startsWith('/')) {
       normalized = path.substring(1);
     }

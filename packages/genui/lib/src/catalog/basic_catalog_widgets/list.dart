@@ -27,11 +27,12 @@ extension type _ListData.fromMap(JsonMap _json) {
     required Object? children,
     String? direction,
     String? align,
-  }) => _ListData.fromMap({
-    'children': children,
-    'direction': direction,
-    'align': align,
-  });
+  }) =>
+      _ListData.fromMap({
+        'children': children,
+        'direction': direction,
+        'align': align,
+      });
 
   Object? get children => _json['children'];
   String? get direction => _json['direction'] as String?;
@@ -55,16 +56,15 @@ final list = CatalogItem(
   dataSchema: _schema,
   widgetBuilder: (itemContext) {
     final listData = _ListData.fromMap(itemContext.data as JsonMap);
-    final Axis direction = listData.direction == 'horizontal'
-        ? Axis.horizontal
-        : Axis.vertical;
+    final Axis direction =
+        listData.direction == 'horizontal' ? Axis.horizontal : Axis.vertical;
 
     final CrossAxisAlignment crossAxisAlignment = switch (listData.align) {
-      'start' => .start,
-      'center' => .center,
-      'end' => .end,
-      'stretch' => .stretch,
-      _ => .center,
+      'start' => CrossAxisAlignment.start,
+      'center' => CrossAxisAlignment.center,
+      'end' => CrossAxisAlignment.end,
+      'stretch' => CrossAxisAlignment.stretch,
+      _ => CrossAxisAlignment.center,
     };
 
     Widget buildList(List<Widget> children) {
@@ -93,37 +93,37 @@ final list = CatalogItem(
       },
       templateListWidgetBuilder:
           (context, Object? data, componentId, dataBinding) {
-            final List<Object?> values;
-            final List<String> keys;
+        final List<Object?> values;
+        final List<String> keys;
 
-            if (data is List) {
-              values = data;
-              keys = List.generate(data.length, (index) => index.toString());
-            } else if (data is Map) {
-              values = data.values.toList();
-              keys = data.keys.map((k) => k.toString()).toList();
-            } else {
-              genUiLogger.warning(
-                'List: invalid data type for template list: '
-                '${data.runtimeType}',
-              );
-              return const SizedBox.shrink();
-            }
+        if (data is List) {
+          values = data;
+          keys = List.generate(data.length, (index) => index.toString());
+        } else if (data is Map) {
+          values = data.values.toList();
+          keys = data.keys.map((k) => k.toString()).toList();
+        } else {
+          genUiLogger.warning(
+            'List: invalid data type for template list: '
+            '${data.runtimeType}',
+          );
+          return const SizedBox.shrink();
+        }
 
-            return buildList(
-              List.generate(values.length, (index) {
-                final nestedPath = '$dataBinding/${keys[index]}';
+        return buildList(
+          List.generate(values.length, (index) {
+            final nestedPath = '$dataBinding/${keys[index]}';
 
-                final DataContext itemDataContext = itemContext.dataContext
-                    .nested(DataPath(nestedPath));
-                final Widget child = itemContext.buildChild(
-                  componentId,
-                  itemDataContext,
-                );
-                return KeyedSubtree(key: ValueKey(keys[index]), child: child);
-              }),
+            final DataContext itemDataContext =
+                itemContext.dataContext.nested(DataPath(nestedPath));
+            final Widget child = itemContext.buildChild(
+              componentId,
+              itemDataContext,
             );
-          },
+            return KeyedSubtree(key: ValueKey(keys[index]), child: child);
+          }),
+        );
+      },
     );
   },
   exampleData: [

@@ -12,6 +12,7 @@ import '../../model/a2ui_schemas.dart';
 import '../../model/catalog_item.dart';
 import '../../primitives/logging.dart';
 import '../../primitives/simple_items.dart';
+import '../../widgets/unpadded_slider_track_shape.dart';
 import '../../widgets/widget_utilities.dart';
 import 'format_duration.dart';
 
@@ -197,8 +198,8 @@ class _AudioPlayerWidgetState extends State<_AudioPlayerWidget> {
                   child: Slider(
                     value: _duration.inMilliseconds > 0
                         ? _position.inMilliseconds
-                              .clamp(0, _duration.inMilliseconds)
-                              .toDouble()
+                            .clamp(0, _duration.inMilliseconds)
+                            .toDouble()
                         : 0,
                     max: _duration.inMilliseconds > 0
                         ? _duration.inMilliseconds.toDouble()
@@ -217,8 +218,8 @@ class _AudioPlayerWidgetState extends State<_AudioPlayerWidget> {
                   _volume == 0
                       ? Icons.volume_off
                       : _volume < 0.5
-                      ? Icons.volume_down
-                      : Icons.volume_up,
+                          ? Icons.volume_down
+                          : Icons.volume_up,
                   size: 20,
                 ),
                 SizedBox(
@@ -226,7 +227,7 @@ class _AudioPlayerWidgetState extends State<_AudioPlayerWidget> {
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       overlayShape: SliderComponentShape.noOverlay,
-                      padding: EdgeInsets.zero,
+                      trackShape: const UnpaddedSliderTrackShape(),
                     ),
                     child: Slider(
                       value: _volume,

@@ -62,6 +62,6 @@ class Catalog<T extends ComponentApi> {
     required List<T> components,
     List<FunctionImplementation> functions = const [],
     this.themeSchema,
-  }) : components = {for (var c in components) c.name: c},
-       functions = {for (var f in functions) f.name: f};
+  })  : components = {for (var c in components) c.name: c},
+        functions = {for (var f in functions) f.name: f};
 }

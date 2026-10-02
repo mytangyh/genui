@@ -53,16 +53,15 @@ class DataModel {
       } else {
         _data ??= <String, Object?>{};
         Object? current = _data;
-        for (var i = 0; i < dataPath.segments.length - 1; i++) {
+        for (int i = 0; i < dataPath.segments.length - 1; i++) {
           final String segment = dataPath.segments[i];
           final String nextSegment = dataPath.segments[i + 1];
           final isNextNumeric = int.tryParse(nextSegment) != null;
 
           if (current is Map<String, Object?>) {
             if (!current.containsKey(segment) || current[segment] == null) {
-              current[segment] = isNextNumeric
-                  ? <Object?>[]
-                  : <String, Object?>{};
+              current[segment] =
+                  isNextNumeric ? <Object?>[] : <String, Object?>{};
             }
             current = current[segment];
           } else if (current is List<Object?>) {
@@ -83,9 +82,8 @@ class DataModel {
               current.add(null);
             }
             if (current[index] == null) {
-              current[index] = isNextNumeric
-                  ? <Object?>[]
-                  : <String, Object?>{};
+              current[index] =
+                  isNextNumeric ? <Object?>[] : <String, Object?>{};
             }
             current = current[index];
           } else {

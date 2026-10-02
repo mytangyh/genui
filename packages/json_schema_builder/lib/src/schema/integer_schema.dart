@@ -39,16 +39,17 @@ extension type IntegerSchema.fromMap(Map<String, Object?> _value)
 
     /// The integer must be a multiple of this number.
     num? multipleOf,
-  }) => IntegerSchema.fromMap({
-    'type': JsonType.int.typeName,
-    'title': ?title,
-    'description': ?description,
-    'minimum': ?minimum,
-    'maximum': ?maximum,
-    'exclusiveMinimum': ?exclusiveMinimum,
-    'exclusiveMaximum': ?exclusiveMaximum,
-    'multipleOf': ?multipleOf,
-  });
+  }) =>
+      IntegerSchema.fromMap({
+        'type': JsonType.int.typeName,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
+        if (minimum case final value?) 'minimum': value,
+        if (maximum case final value?) 'maximum': value,
+        if (exclusiveMinimum case final value?) 'exclusiveMinimum': value,
+        if (exclusiveMaximum case final value?) 'exclusiveMaximum': value,
+        if (multipleOf case final value?) 'multipleOf': value,
+      });
 
   /// The inclusive lower bound of the integer.
   int? get minimum => _value['minimum'] as int?;

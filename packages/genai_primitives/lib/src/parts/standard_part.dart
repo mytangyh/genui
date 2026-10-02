@@ -29,12 +29,12 @@ const Map<String, JsonToPartConverter<Part>> defaultPartConverterRegistry =
 
 const _standardPartConverterRegistry =
     <String, JsonToPartConverter<StandardPart>>{
-      TextPart.type: PartConverter(TextPart.fromJson),
-      DataPart.type: PartConverter(DataPart.fromJson),
-      LinkPart.type: PartConverter(LinkPart.fromJson),
-      ToolPart.type: PartConverter(ToolPart.fromJson),
-      ThinkingPart.type: PartConverter(ThinkingPart.fromJson),
-    };
+  TextPart.type: PartConverter(TextPart.fromJson),
+  DataPart.type: PartConverter(DataPart.fromJson),
+  LinkPart.type: PartConverter(LinkPart.fromJson),
+  ToolPart.type: PartConverter(ToolPart.fromJson),
+  ThinkingPart.type: PartConverter(ThinkingPart.fromJson),
+};
 
 /// Base class for parts that became de-facto standard for AI messages.
 ///
@@ -102,7 +102,7 @@ final class DataPart extends StandardPart {
 
   /// Creates a new data part.
   DataPart(this.bytes, {required this.mimeType, String? name})
-    : name = name ?? nameFromMimeType(mimeType);
+      : name = name ?? nameFromMimeType(mimeType);
 
   /// Creates a data part from a JSON-compatible map.
   factory DataPart.fromJson(Map<String, Object?> json) {
@@ -120,8 +120,7 @@ final class DataPart extends StandardPart {
   static Future<DataPart> fromFile(XFile file) async {
     final Uint8List bytes = await file.readAsBytes();
     final String? name = _nameFromPath(file.path) ?? _emptyNull(file.name);
-    final String mimeType =
-        _emptyNull(file.mimeType) ??
+    final String mimeType = _emptyNull(file.mimeType) ??
         mimeTypeForFile(
           name ?? '',
           headerBytes: Uint8List.fromList(
@@ -155,13 +154,13 @@ final class DataPart extends StandardPart {
 
   @override
   Map<String, Object?> toJson() => {
-    Part.typeKey: type,
-    _Json.content: {
-      if (name != null) _Json.name: name,
-      _Json.mimeType: mimeType,
-      _Json.bytes: 'data:$mimeType;base64,${base64Encode(bytes)}',
-    },
-  };
+        Part.typeKey: type,
+        _Json.content: {
+          if (name != null) _Json.name: name,
+          _Json.mimeType: mimeType,
+          _Json.bytes: 'data:$mimeType;base64,${base64Encode(bytes)}',
+        },
+      };
 
   @override
   bool operator ==(Object other) {
@@ -239,13 +238,13 @@ final class LinkPart extends StandardPart {
 
   @override
   Map<String, Object?> toJson() => {
-    Part.typeKey: type,
-    _Json.content: {
-      if (name != null) _Json.name: name,
-      if (mimeType != null) _Json.mimeType: mimeType,
-      _Json.url: url.toString(),
-    },
-  };
+        Part.typeKey: type,
+        _Json.content: {
+          if (name != null) _Json.name: name,
+          if (mimeType != null) _Json.mimeType: mimeType,
+          _Json.url: url.toString(),
+        },
+      };
 
   @override
   bool operator ==(Object other) {
@@ -275,16 +274,16 @@ final class ToolPart extends StandardPart {
     required this.callId,
     required this.toolName,
     required this.arguments,
-  }) : kind = ToolPartKind.call,
-       result = null;
+  })  : kind = ToolPartKind.call,
+        result = null;
 
   /// Creates a tool result part.
   const ToolPart.result({
     required this.callId,
     required this.toolName,
     required this.result,
-  }) : kind = ToolPartKind.result,
-       arguments = null;
+  })  : kind = ToolPartKind.result,
+        arguments = null;
 
   /// The kind of tool interaction.
   final ToolPartKind kind;
@@ -324,14 +323,14 @@ final class ToolPart extends StandardPart {
 
   @override
   Map<String, Object?> toJson() => {
-    Part.typeKey: type,
-    _Json.content: {
-      _Json.id: callId,
-      _Json.name: toolName,
-      if (arguments != null) _Json.arguments: arguments,
-      if (result != null) _Json.result: result,
-    },
-  };
+        Part.typeKey: type,
+        _Json.content: {
+          _Json.id: callId,
+          _Json.name: toolName,
+          if (arguments != null) _Json.arguments: arguments,
+          if (result != null) _Json.result: result,
+        },
+      };
 
   @override
   bool operator ==(Object other) {
@@ -349,12 +348,12 @@ final class ToolPart extends StandardPart {
 
   @override
   int get hashCode => Object.hash(
-    kind,
-    callId,
-    toolName,
-    arguments != null ? Object.hashAll(arguments!.entries) : null,
-    result,
-  );
+        kind,
+        callId,
+        toolName,
+        arguments != null ? Object.hashAll(arguments!.entries) : null,
+        result,
+      );
 
   @override
   String toString() {

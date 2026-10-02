@@ -29,7 +29,7 @@ void validateCatalogExamples(
 
   for (final CatalogItem item in catalog.items) {
     group('CatalogItem ${item.name}', () {
-      for (var i = 0; i < item.exampleData.length; i++) {
+      for (int i = 0; i < item.exampleData.length; i++) {
         test('example $i is valid', () async {
           final String exampleJsonString = item.exampleData[i]();
           final List<Object?> exampleData;
@@ -41,9 +41,8 @@ void validateCatalogExamples(
             );
           }
 
-          final List<Component> components = exampleData
-              .map((e) => Component.fromJson(e as JsonMap))
-              .toList();
+          final List<Component> components =
+              exampleData.map((e) => Component.fromJson(e as JsonMap)).toList();
 
           expect(
             components.any((c) => c.id == 'root'),

@@ -25,7 +25,7 @@ class JsonBlockParser {
     final int firstBrace = text.indexOf('{');
     final int firstBracket = text.indexOf('[');
 
-    var start = -1;
+    int start = -1;
     if (firstBrace != -1 && firstBracket != -1) {
       start = firstBrace < firstBracket ? firstBrace : firstBracket;
     } else if (firstBrace != -1) {
@@ -61,16 +61,15 @@ class JsonBlockParser {
   static String? _extractBalancedJson(String input) {
     if (input.isEmpty) return null;
     final String startChar = input[0];
-    final String? endChar = startChar == '{'
-        ? '}'
-        : (startChar == '[' ? ']' : null);
+    final String? endChar =
+        startChar == '{' ? '}' : (startChar == '[' ? ']' : null);
     if (endChar == null) return null;
 
-    var balance = 0;
+    int balance = 0;
     var inString = false;
     var isEscaped = false;
 
-    for (var i = 0; i < input.length; i++) {
+    for (int i = 0; i < input.length; i++) {
       final String char = input[i];
 
       if (isEscaped) {

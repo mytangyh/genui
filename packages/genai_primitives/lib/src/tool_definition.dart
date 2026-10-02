@@ -17,12 +17,11 @@ class ToolDefinition<TInput extends Object> {
     required this.name,
     required this.description,
     Schema? inputSchema,
-  }) : inputSchema =
-           inputSchema ??
-           Schema.fromMap({
-             'type': 'object',
-             'properties': <String, Object?>{},
-           });
+  }) : inputSchema = inputSchema ??
+            Schema.fromMap({
+              'type': 'object',
+              'properties': <String, Object?>{},
+            });
 
   /// Deserializes a tool from a JSON map.
   factory ToolDefinition.fromJson(Map<String, Object?> json) {
@@ -37,10 +36,10 @@ class ToolDefinition<TInput extends Object> {
 
   /// Serializes the tool to a JSON map.
   Map<String, Object?> toJson() => {
-    _Json.name: name,
-    _Json.description: description,
-    _Json.inputSchema: inputSchema.value,
-  };
+        _Json.name: name,
+        _Json.description: description,
+        _Json.inputSchema: inputSchema.value,
+      };
 
   /// The unique name of the tool that clearly communicates its purpose.
   final String name;

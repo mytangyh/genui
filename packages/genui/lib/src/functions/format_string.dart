@@ -106,7 +106,7 @@ class ExpressionParser {
     }
 
     // 1. Resolve arguments
-    final Map<String, Object?> args = {};
+    final args = <String, Object?>{};
     final Object? argsJson = callDefinition['args'];
     var hasStreams = false;
 
@@ -173,8 +173,8 @@ class ExpressionParser {
     }).toList();
 
     return streams.combineLatestAll().switchMap((List<Object?> values) {
-      final Map<String, Object?> combinedArgs = {};
-      for (var i = 0; i < keys.length; i++) {
+      final combinedArgs = <String, Object?>{};
+      for (int i = 0; i < keys.length; i++) {
         combinedArgs[keys[i]] = values[i];
       }
       return func.execute(combinedArgs, context);
@@ -192,7 +192,7 @@ class ExpressionParser {
       );
     }
 
-    var i = 0;
+    int i = 0;
     final parts = <Object?>[];
 
     while (i < input.length) {
@@ -254,8 +254,8 @@ class ExpressionParser {
   }
 
   (String, int) _extractExpressionContent(String input, int start) {
-    var balance = 1;
-    var i = start;
+    int balance = 1;
+    int i = start;
     while (i < input.length) {
       if (input[i] == r'{') {
         balance++;
@@ -322,7 +322,7 @@ class ExpressionParser {
     Set<DataPath>? dependencies,
   ) {
     final args = <String, Object?>{};
-    var i = 0;
+    int i = 0;
 
     while (i < argsStr.length) {
       while (i < argsStr.length && argsStr[i].trim().isEmpty) {
@@ -414,7 +414,7 @@ class ExpressionParser {
       }
     }
 
-    var i = start;
+    int i = start;
     while (i < input.length) {
       final String c = input[i];
       if (c == ',' ||

@@ -40,7 +40,7 @@ void main() {
                     id: 'col1',
                     type: 'Column',
                     data: widgetData,
-                    buildChild: (_, [_]) =>
+                    buildChild: (id, [dataContext]) =>
                         const Text(''), // Mock child builder
                     dispatchEvent: (UiEvent event) {},
                     buildContext: context,
@@ -84,7 +84,7 @@ void main() {
                       id: 'text1',
                       type: 'unknown_widget',
                       data: data,
-                      buildChild: (_, [_]) => const SizedBox(),
+                      buildChild: (id, [dataContext]) => const SizedBox(),
                       dispatchEvent: (UiEvent event) {},
                       buildContext: context,
                       dataContext: DataContext(

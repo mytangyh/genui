@@ -285,7 +285,7 @@ class MockFunction implements ClientFunction {
   ClientFunctionReturnType get returnType => ClientFunctionReturnType.any;
 
   final Stream<Object?> Function(JsonMap args, ExecutionContext context)
-  onExecute;
+      onExecute;
 
   @override
   Schema get argumentSchema => Schema.object();

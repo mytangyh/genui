@@ -9,7 +9,7 @@ void main() {
   group('ComponentModel', () {
     test('onUpdated fires on every property update, not just the first', () {
       final comp = ComponentModel('c1', 'Text', {'text': 'hello'});
-      var updateCount = 0;
+      int updateCount = 0;
       comp.onUpdated.addListener((_) => updateCount++);
 
       comp.properties = {'text': 'world'};

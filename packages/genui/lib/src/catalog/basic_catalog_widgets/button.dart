@@ -40,12 +40,13 @@ extension type _ButtonData.fromMap(JsonMap _json) {
     required JsonMap action,
     String? variant,
     List<JsonMap>? checks,
-  }) => _ButtonData.fromMap({
-    'child': child,
-    'action': action,
-    'variant': variant,
-    'checks': checks,
-  });
+  }) =>
+      _ButtonData.fromMap({
+        'child': child,
+        'action': action,
+        'variant': variant,
+        'checks': checks,
+      });
 
   String get child {
     final Object? val = _json['child'];
@@ -83,25 +84,23 @@ final button = CatalogItem(
     final primary = variant == 'primary';
     final borderless = variant == 'borderless';
 
-    final TextStyle? textStyle = Theme.of(itemContext.buildContext)
-        .textTheme
-        .bodyLarge
-        ?.copyWith(
-          color: primary ? colorScheme.onPrimary : colorScheme.onSurface,
-        );
+    final TextStyle? textStyle =
+        Theme.of(itemContext.buildContext).textTheme.bodyLarge?.copyWith(
+              color: primary ? colorScheme.onPrimary : colorScheme.onSurface,
+            );
 
     final ButtonStyle style = switch (variant) {
       'primary' => ElevatedButton.styleFrom(
-        backgroundColor: colorScheme.primary,
-        foregroundColor: colorScheme.onPrimary,
-      ),
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+        ),
       'borderless' => TextButton.styleFrom(
-        foregroundColor: colorScheme.onSurface,
-      ),
+          foregroundColor: colorScheme.onSurface,
+        ),
       _ => ElevatedButton.styleFrom(
-        backgroundColor: colorScheme.surface,
-        foregroundColor: colorScheme.onSurface,
-      ),
+          backgroundColor: colorScheme.surface,
+          foregroundColor: colorScheme.onSurface,
+        ),
     };
 
     // Validate checks to determine if button is enabled
@@ -236,11 +235,11 @@ Future<void> _handlePress(
     final iterator = StreamIterator<Object?>(resultStream);
     try {
       await iterator.moveNext().timeout(
-        const Duration(seconds: 10),
-        onTimeout: () => throw TimeoutException(
-          'Function execution for $callName timed out',
-        ),
-      );
+            const Duration(seconds: 10),
+            onTimeout: () => throw TimeoutException(
+              'Function execution for $callName timed out',
+            ),
+          );
     } catch (exception, stackTrace) {
       genUiLogger.severe(
         'Error executing function call "$callName" on button press',

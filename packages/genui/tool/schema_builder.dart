@@ -12,8 +12,8 @@ Builder schemaBuilder(BuilderOptions options) => SchemaBuilder();
 class SchemaBuilder implements Builder {
   @override
   Map<String, List<String>> get buildExtensions => const {
-    'pubspec.yaml': ['lib/src/primitives/embedded_schemas.g.dart'],
-  };
+        'pubspec.yaml': ['lib/src/primitives/embedded_schemas.g.dart'],
+      };
 
   @override
   Future<void> build(BuildStep buildStep) async {
@@ -73,7 +73,8 @@ class SchemaBuilder implements Builder {
         throw StateError('Source file ${sourceFile.path} not found.');
       }
 
-      final content = sourceFile.readAsStringSync().trim();
+      final content =
+          sourceFile.readAsStringSync().replaceAll('\r\n', '\n').trim();
       buffer.writeln('/// Embedded schema contents of \'$filename\'.');
       buffer.writeln('const String $variableName = r\'\'\'');
       buffer.writeln(content);

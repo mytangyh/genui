@@ -53,22 +53,22 @@ extension type _RowData.fromMap(JsonMap _json) {
 
 MainAxisAlignment _parseMainAxisAlignment(String? alignment) =>
     switch (alignment) {
-      'start' => .start,
-      'center' => .center,
-      'end' => .end,
-      'spaceBetween' => .spaceBetween,
-      'spaceAround' => .spaceAround,
-      'spaceEvenly' => .spaceEvenly,
-      _ => .start,
+      'start' => MainAxisAlignment.start,
+      'center' => MainAxisAlignment.center,
+      'end' => MainAxisAlignment.end,
+      'spaceBetween' => MainAxisAlignment.spaceBetween,
+      'spaceAround' => MainAxisAlignment.spaceAround,
+      'spaceEvenly' => MainAxisAlignment.spaceEvenly,
+      _ => MainAxisAlignment.start,
     };
 
 CrossAxisAlignment _parseCrossAxisAlignment(String? alignment) =>
     switch (alignment) {
-      'start' => .start,
-      'center' => .center,
-      'end' => .end,
-      'stretch' => .stretch,
-      _ => .start,
+      'start' => CrossAxisAlignment.start,
+      'center' => CrossAxisAlignment.center,
+      'end' => CrossAxisAlignment.end,
+      'stretch' => CrossAxisAlignment.stretch,
+      _ => CrossAxisAlignment.start,
     };
 
 /// A layout widget that arranges its children in a horizontal sequence.
@@ -104,16 +104,14 @@ final row = CatalogItem(
           children: childIds.map((componentId) {
             final explicitWeight =
                 getComponent(componentId)?.properties['weight'] as int?;
-            final bool isImplicitlyFlexible =
-                itemContext
+            final bool isImplicitlyFlexible = itemContext
                     .getCatalogItem(getComponent(componentId)?.type ?? '')
                     ?.isImplicitlyFlexible ??
                 false;
             final int? weight =
                 explicitWeight ?? (isImplicitlyFlexible ? 1 : null);
-            final FlexFit fit = explicitWeight != null
-                ? FlexFit.tight
-                : FlexFit.loose;
+            final FlexFit fit =
+                explicitWeight != null ? FlexFit.tight : FlexFit.loose;
 
             return buildWeightedChild(
               componentId: componentId,
@@ -142,15 +140,13 @@ final row = CatalogItem(
         final Component? component = itemContext.getComponent(componentId);
         final explicitWeight = component?.properties['weight'] as int?;
 
-        final bool isImplicitlyFlexible =
-            itemContext
+        final bool isImplicitlyFlexible = itemContext
                 .getCatalogItem(component?.type ?? '')
                 ?.isImplicitlyFlexible ??
             false;
         final int? weight = explicitWeight ?? (isImplicitlyFlexible ? 1 : null);
-        final FlexFit fit = explicitWeight != null
-            ? FlexFit.tight
-            : FlexFit.loose;
+        final FlexFit fit =
+            explicitWeight != null ? FlexFit.tight : FlexFit.loose;
 
         return Row(
           mainAxisAlignment: _parseMainAxisAlignment(rowData.justify),

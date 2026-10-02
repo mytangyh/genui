@@ -109,14 +109,12 @@ abstract class BoundValueState<T, W extends BoundValue<T>> extends State<W> {
       );
     } else if (raw is Map && raw.containsKey('call')) {
       final notifier = ValueNotifier<Object?>(null);
-      _streamSubscription = widget.dataContext
-          .resolve(raw)
-          .listen(
-            (Object? value) => notifier.value = value,
-            onError: (Object error) {
-              genUiLogger.warning('Error in Bound stream', error);
-            },
-          );
+      _streamSubscription = widget.dataContext.resolve(raw).listen(
+        (Object? value) => notifier.value = value,
+        onError: (Object error) {
+          genUiLogger.warning('Error in Bound stream', error);
+        },
+      );
       _listenable = notifier;
     } else {
       _listenable = ValueNotifier<Object?>(raw);

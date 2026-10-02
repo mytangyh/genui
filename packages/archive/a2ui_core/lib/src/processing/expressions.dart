@@ -59,7 +59,7 @@ class ExpressionParser {
 
   String _extractInterpolationContent(_Scanner scanner) {
     final int start = scanner.pos;
-    var braceBalance = 1;
+    int braceBalance = 1;
 
     while (!scanner.isAtEnd && braceBalance > 0) {
       final String char = scanner.advance();

@@ -127,7 +127,8 @@ void main() {
         },
       );
 
-      test('returns true when absolute path starts with a relative path with '
+      test(
+          'returns true when absolute path starts with a relative path with '
           'matching segments', () {
         expect(DataPath('/a/b').startsWith(DataPath('a')), isTrue);
       });

@@ -423,7 +423,7 @@ extension SchemaValidation on Schema {
     List<Schema> dynamicScope, {
     AnnotationSet? initialAnnotations,
   }) {
-    var currentContext = context;
+    ValidationContext currentContext = context;
     if ($id != null) {
       // This is a heuristic to avoid re-resolving a relative path that has
       // already been applied to the base URI.
@@ -438,7 +438,7 @@ extension SchemaValidation on Schema {
       'Validating ${currentContext.sourceUri}#${currentPath.join('/')} '
       'with schema $value',
     );
-    final newDynamicScope = [...dynamicScope, this];
+    final List<Schema> newDynamicScope = [...dynamicScope, this];
     final errors = <ValidationError>[];
     AnnotationSet allAnnotations = initialAnnotations ?? AnnotationSet.empty();
 
@@ -502,14 +502,14 @@ extension SchemaValidation on Schema {
         siblingSchemaMap.remove(kDynamicRef);
         if (siblingSchemaMap.isNotEmpty) {
           final siblingSchema = Schema.fromMap(siblingSchemaMap);
-          final ValidationResult siblingResult = siblingSchema
-              ._validateSchemaSync(
-                data,
-                currentPath,
-                currentContext,
-                newDynamicScope,
-                initialAnnotations: allAnnotations,
-              );
+          final ValidationResult siblingResult =
+              siblingSchema._validateSchemaSync(
+            data,
+            currentPath,
+            currentContext,
+            newDynamicScope,
+            initialAnnotations: allAnnotations,
+          );
           errors.addAll(siblingResult.errors);
           allAnnotations = allAnnotations.merge(siblingResult.annotations);
         }
@@ -551,14 +551,14 @@ extension SchemaValidation on Schema {
         siblingSchemaMap.remove(kRef);
         if (siblingSchemaMap.isNotEmpty) {
           final siblingSchema = Schema.fromMap(siblingSchemaMap);
-          final ValidationResult siblingResult = siblingSchema
-              ._validateSchemaSync(
-                data,
-                currentPath,
-                currentContext,
-                newDynamicScope,
-                initialAnnotations: allAnnotations,
-              );
+          final ValidationResult siblingResult =
+              siblingSchema._validateSchemaSync(
+            data,
+            currentPath,
+            currentContext,
+            newDynamicScope,
+            initialAnnotations: allAnnotations,
+          );
           errors.addAll(siblingResult.errors);
           allAnnotations = allAnnotations.merge(siblingResult.annotations);
         }
@@ -635,7 +635,7 @@ extension SchemaValidation on Schema {
     }
 
     if (anyOf case final List<Object?> anyOfList) {
-      var passedCount = 0;
+      int passedCount = 0;
       final anyOfAnnotations = <AnnotationSet>[];
       final allAnyOfErrors = <ValidationError>[];
       for (final subSchema in anyOfList) {
@@ -662,7 +662,7 @@ extension SchemaValidation on Schema {
     }
 
     if (oneOf case final List<Object?> oneOfList) {
-      var passedCount = 0;
+      int passedCount = 0;
       AnnotationSet? oneOfAnnotations;
       for (final subSchema in oneOfList) {
         final ValidationResult result = _validateSubSchemaSync(
@@ -682,8 +682,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.oneOfNotMet,
             path: currentPath,
-            details:
-                'Expected to match exactly one schema, but matched '
+            details: 'Expected to match exactly one schema, but matched '
                 '$passedCount',
           ),
         );
@@ -756,7 +755,7 @@ extension SchemaValidation on Schema {
         final newlyEvaluatedKeys = <String>{};
         for (final String dataKey in data.keys) {
           if (!allAnnotations.evaluatedKeys.contains(dataKey)) {
-            final newPath = [...currentPath, dataKey];
+            final List<String> newPath = [...currentPath, dataKey];
             final ValidationResult result = _validateSubSchemaSync(
               up,
               data[dataKey],
@@ -776,9 +775,9 @@ extension SchemaValidation on Schema {
     } else if (data is List) {
       if (this[kUnevaluatedItems] case final ui?) {
         final newlyEvaluatedItems = <int>{};
-        for (var i = 0; i < data.length; i++) {
+        for (int i = 0; i < data.length; i++) {
           if (!allAnnotations.evaluatedItems.contains(i)) {
-            final newPath = [...currentPath, i.toString()];
+            final List<String> newPath = [...currentPath, i.toString()];
             final ValidationResult result = _validateSubSchemaSync(
               ui,
               data[i],
@@ -816,12 +815,11 @@ extension SchemaValidation on Schema {
     if (typeValue != null) {
       final List<JsonType> types = switch (typeValue) {
         String() => [
-          JsonType.values.firstWhere((t) => t.typeName == typeValue),
-        ],
-        List() =>
-          typeValue
-              .map((t) => JsonType.values.firstWhere((e) => e.typeName == t))
-              .toList(),
+            JsonType.values.firstWhere((t) => t.typeName == typeValue),
+          ],
+        List() => typeValue
+            .map((t) => JsonType.values.firstWhere((e) => e.typeName == t))
+            .toList(),
         _ => <JsonType>[],
       };
 
@@ -861,8 +859,8 @@ extension SchemaValidation on Schema {
         );
       case JsonType.string:
         {
-          if (context
-                  .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+          if (context.vocabularies[
+                  'https://json-schema.org/draft/2020-12/vocab/validation'] ==
               true) {
             final stringSchema = this as StringSchema;
             if (stringSchema.maxLength case final max?
@@ -871,8 +869,7 @@ extension SchemaValidation on Schema {
                 ValidationError(
                   ValidationErrorType.maxLengthExceeded,
                   path: currentPath,
-                  details:
-                      'String length ${data.characters.length} exceeds '
+                  details: 'String length ${data.characters.length} exceeds '
                       'maximum length of $max',
                 ),
               );
@@ -883,8 +880,7 @@ extension SchemaValidation on Schema {
                 ValidationError(
                   ValidationErrorType.minLengthNotMet,
                   path: currentPath,
-                  details:
-                      'String length ${data.characters.length} is less '
+                  details: 'String length ${data.characters.length} is less '
                       'than minimum of $min',
                 ),
               );
@@ -918,8 +914,8 @@ extension SchemaValidation on Schema {
       case JsonType.num:
       case JsonType.int:
         {
-          if (context
-                  .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+          if (context.vocabularies[
+                  'https://json-schema.org/draft/2020-12/vocab/validation'] ==
               true) {
             final numSchema = this as NumberSchema;
             final numData = data as num;
@@ -996,8 +992,8 @@ extension SchemaValidation on Schema {
     final errors = <ValidationError>[];
     var annotations = AnnotationSet.empty();
 
-    if (context
-            .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+    if (context.vocabularies[
+            'https://json-schema.org/draft/2020-12/vocab/validation'] ==
         true) {
       if (objectSchema.minProperties case final min?
           when data.keys.length < min) {
@@ -1005,8 +1001,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.minPropertiesNotMet,
             path: currentPath,
-            details:
-                'There should be at least $min properties. '
+            details: 'There should be at least $min properties. '
                 'Only ${data.keys.length} were found',
           ),
         );
@@ -1018,8 +1013,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.maxPropertiesExceeded,
             path: currentPath,
-            details:
-                'Exceeded maxProperties limit of $max '
+            details: 'Exceeded maxProperties limit of $max '
                 '(${data.keys.length})',
           ),
         );
@@ -1046,8 +1040,7 @@ extension SchemaValidation on Schema {
                   ValidationError(
                     ValidationErrorType.dependentRequiredMissing,
                     path: currentPath,
-                    details:
-                        'Property "$requiredProp" is required because '
+                    details: 'Property "$requiredProp" is required because '
                         'property "${entry.key}" is present.',
                   ),
                 );
@@ -1097,7 +1090,7 @@ extension SchemaValidation on Schema {
         final pattern = RegExp(entry.key);
         for (final String dataKey in data.keys) {
           if (pattern.hasMatch(dataKey)) {
-            final newPath = [...currentPath, dataKey];
+            final List<String> newPath = [...currentPath, dataKey];
             evaluatedKeys.add(dataKey);
             final ValidationResult result = entry.value._validateSchemaSync(
               data[dataKey],
@@ -1129,7 +1122,7 @@ extension SchemaValidation on Schema {
       if (evaluatedKeys.contains(dataKey)) continue;
 
       if (objectSchema.additionalProperties case final ap?) {
-        final newPath = [...currentPath, dataKey];
+        final List<String> newPath = [...currentPath, dataKey];
         final ValidationResult result = ap._validateSchemaSync(
           data[dataKey],
           newPath,
@@ -1167,16 +1160,15 @@ extension SchemaValidation on Schema {
     final errors = <ValidationError>[];
     final evaluatedItems = <int>{};
     final listSchema = this as ListSchema;
-    if (context
-            .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+    if (context.vocabularies[
+            'https://json-schema.org/draft/2020-12/vocab/validation'] ==
         true) {
       if (listSchema.minItems case final min? when data.length < min) {
         errors.add(
           ValidationError(
             ValidationErrorType.minItemsNotMet,
             path: currentPath,
-            details:
-                'List has ${data.length} items, but must have at '
+            details: 'List has ${data.length} items, but must have at '
                 'least $min',
           ),
         );
@@ -1187,8 +1179,7 @@ extension SchemaValidation on Schema {
           ValidationError(
             ValidationErrorType.maxItemsExceeded,
             path: currentPath,
-            details:
-                'List has ${data.length} items, but must have less '
+            details: 'List has ${data.length} items, but must have less '
                 'than $max',
           ),
         );
@@ -1199,7 +1190,7 @@ extension SchemaValidation on Schema {
           equals: deepEquals,
           hashCode: deepHashCode,
         );
-        for (final item in data) {
+        for (final Object? item in data) {
           if (!seenItems.add(item)) {
             errors.add(
               ValidationError(
@@ -1216,7 +1207,7 @@ extension SchemaValidation on Schema {
 
     if (listSchema.contains case final containsSchema?) {
       final matches = <int>[];
-      for (var i = 0; i < data.length; i++) {
+      for (int i = 0; i < data.length; i++) {
         final ValidationResult result = _validateSubSchemaSync(
           containsSchema,
           data[i],
@@ -1233,8 +1224,8 @@ extension SchemaValidation on Schema {
         evaluatedItems.add(index);
       }
 
-      if (context
-              .vocabularies['https://json-schema.org/draft/2020-12/vocab/validation'] ==
+      if (context.vocabularies[
+              'https://json-schema.org/draft/2020-12/vocab/validation'] ==
           true) {
         final int matchCount = matches.length;
         if (matchCount == 0 &&
@@ -1263,8 +1254,7 @@ extension SchemaValidation on Schema {
             ValidationError(
               ValidationErrorType.maxContainsExceeded,
               path: currentPath,
-              details:
-                  'Array must contain at most $max valid items, but found '
+              details: 'Array must contain at most $max valid items, but found '
                   '$matchCount',
             ),
           );
@@ -1273,9 +1263,9 @@ extension SchemaValidation on Schema {
     }
 
     if (listSchema.prefixItems case final pItems?) {
-      for (var i = 0; i < pItems.length && i < data.length; i++) {
+      for (int i = 0; i < pItems.length && i < data.length; i++) {
         evaluatedItems.add(i);
-        final newPath = [...currentPath, i.toString()];
+        final List<String> newPath = [...currentPath, i.toString()];
         final ValidationResult result = _validateSubSchemaSync(
           pItems[i],
           data[i],
@@ -1290,7 +1280,7 @@ extension SchemaValidation on Schema {
       final int startIndex = listSchema.prefixItems?.length ?? 0;
       for (var i = startIndex; i < data.length; i++) {
         evaluatedItems.add(i);
-        final newPath = [...currentPath, i.toString()];
+        final List<String> newPath = [...currentPath, i.toString()];
         final ValidationResult result = _validateSubSchemaSync(
           itemSchema,
           data[i],
@@ -1385,7 +1375,7 @@ extension SchemaValidation on Schema {
     // It has a dynamic anchor, so we need to search the dynamic scope.
     // The dynamic scope is a list where the first element is the outermost.
     // We should search from outermost to innermost.
-    for (final scopeSchema in dynamicScope) {
+    for (final Schema scopeSchema in dynamicScope) {
       if (scopeSchema.$id != null) {
         // This is a schema resource
         final Schema? found = _findDynamicAnchorInSchema(fragment, scopeSchema);

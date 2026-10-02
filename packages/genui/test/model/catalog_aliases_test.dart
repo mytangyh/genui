@@ -113,9 +113,10 @@ void main() {
 
     test('the basic catalog rules prompt advertises the canonical ID', () {
       expect(BasicCatalogItems.basicCatalogRules, contains(basicCatalogId));
-      // ignore: deprecated_member_use_from_same_package
       expect(
         BasicCatalogItems.basicCatalogRules,
+        // Verify that the supported legacy alias stays out of new prompts.
+        // ignore: deprecated_member_use_from_same_package
         isNot(contains(legacyBasicCatalogId)),
       );
     });

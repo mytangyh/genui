@@ -115,7 +115,8 @@ void main() {
       expect(error.containsKey('stackTrace'), isFalse);
     });
 
-    testWidgets('Button widget handles action VM throws by wrapping in '
+    testWidgets(
+        'Button widget handles action VM throws by wrapping in '
         'A2uiFunctionException', (WidgetTester tester) async {
       final mockFunction = MockFunction(
         name: 'crashFunc',

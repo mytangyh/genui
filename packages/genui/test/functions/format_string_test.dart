@@ -158,7 +158,8 @@ void main() {
           },
         );
 
-        test('rejects function call with raw function call as named argument '
+        test(
+            'rejects function call with raw function call as named argument '
             'value', () async {
           expect(
             await eval<String>(
@@ -186,8 +187,8 @@ void main() {
       group('Recursion Depth', () {
         // Testing via evaluateFunctionCall which calls private methods
         test('evaluateFunctionCall throws on exceeding max depth', () {
-          Map<String, Object?> expression = {'value': true};
-          for (var i = 0; i < 105; i++) {
+          var expression = <String, Object?>{'value': true};
+          for (int i = 0; i < 105; i++) {
             expression = {
               'call': 'not',
               'args': {'value': expression},

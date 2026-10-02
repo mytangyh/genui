@@ -14,7 +14,7 @@ import 'number_schema.dart';
 import 'object_schema.dart';
 import 'string_schema.dart';
 
-/// A shortcut typedef so that [Schema.object], etc. can be used as [S.object].
+/// A shortcut typedef so that [Schema.object], etc. can be used as `S.object`.
 typedef S = Schema;
 
 /// A JSON Schema object defining any kind of property.
@@ -178,30 +178,30 @@ extension type Schema.fromMap(Map<String, Object?> _value) {
       _ => null,
     };
     return Schema.fromMap({
-      'type': ?typeValue,
-      'enum': ?enumValues,
-      'const': ?constValue,
-      'title': ?title,
-      'description': ?description,
-      '\$comment': ?$comment,
-      'default': ?defaultValue,
-      'examples': ?examples,
-      'deprecated': ?deprecated,
-      'readOnly': ?readOnly,
-      'writeOnly': ?writeOnly,
-      kDefs: ?$defs,
-      kRef: ?$ref,
-      kDynamicAnchor: ?$dynamicAnchor,
-      '\$id': ?$id,
-      '\$schema': ?$schema,
-      'allOf': ?allOf,
-      'anyOf': ?anyOf,
-      'oneOf': ?oneOf,
-      'not': ?not,
-      'if': ?ifSchema,
-      'then': ?thenSchema,
-      'else': ?elseSchema,
-      'dependentSchemas': ?dependentSchemas,
+      if (typeValue case final value?) 'type': value,
+      if (enumValues case final value?) 'enum': value,
+      if (constValue case final value?) 'const': value,
+      if (title case final value?) 'title': value,
+      if (description case final value?) 'description': value,
+      if ($comment case final value?) '\$comment': value,
+      if (defaultValue case final value?) 'default': value,
+      if (examples case final value?) 'examples': value,
+      if (deprecated case final value?) 'deprecated': value,
+      if (readOnly case final value?) 'readOnly': value,
+      if (writeOnly case final value?) 'writeOnly': value,
+      if ($defs case final value?) kDefs: value,
+      if ($ref case final value?) kRef: value,
+      if ($dynamicAnchor case final value?) kDynamicAnchor: value,
+      if ($id case final value?) '\$id': value,
+      if ($schema case final value?) '\$schema': value,
+      if (allOf case final value?) 'allOf': value,
+      if (anyOf case final value?) 'anyOf': value,
+      if (oneOf case final value?) 'oneOf': value,
+      if (not case final value?) 'not': value,
+      if (ifSchema case final value?) 'if': value,
+      if (thenSchema case final value?) 'then': value,
+      if (elseSchema case final value?) 'else': value,
+      if (dependentSchemas case final value?) 'dependentSchemas': value,
     });
   }
 
@@ -306,8 +306,10 @@ extension type Schema.fromMap(Map<String, Object?> _value) {
   factory Schema.nil({String? title, String? description}) = NullSchema;
 
   /// Creates a JSON schema definition for any value.
-  factory Schema.any({String? title, String? description}) =>
-      Schema.fromMap({'title': ?title, 'description': ?description});
+  factory Schema.any({String? title, String? description}) => Schema.fromMap({
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value
+      });
 
   /// Creates a schema from a boolean value.
   ///

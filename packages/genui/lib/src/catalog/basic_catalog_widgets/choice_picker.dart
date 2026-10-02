@@ -225,7 +225,7 @@ class _ChoicePickerState extends State<_ChoicePicker> {
           dataContext: widget.itemContext.dataContext,
           value: {'path': widget.path},
           builder: (context, currentSelections) {
-            var effectiveSelections = currentSelections;
+            Object? effectiveSelections = currentSelections;
             if (effectiveSelections == null) {
               if (widget.valueRef is List) {
                 effectiveSelections = widget.valueRef;
@@ -235,8 +235,7 @@ class _ChoicePickerState extends State<_ChoicePicker> {
             } else if (effectiveSelections is! List) {
               effectiveSelections = [effectiveSelections];
             }
-            final List<String> currentStrings =
-                (effectiveSelections as List?)
+            final List<String> currentStrings = (effectiveSelections as List?)
                     ?.map((e) => e.toString())
                     .toList() ??
                 [];

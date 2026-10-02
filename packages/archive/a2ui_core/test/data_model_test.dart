@@ -35,7 +35,7 @@ void main() {
     test('notifies exact path changes', () {
       final model = DataModel();
       final ReadonlySignal<Object?> watch = model.watch('/foo');
-      var changeCount = 0;
+      int changeCount = 0;
       watch.subscribe((_) => changeCount++);
       changeCount = 0; // ignore initial subscribe callback
 
@@ -47,7 +47,7 @@ void main() {
     test('notifies ancestor changes (bubble)', () {
       final model = DataModel();
       final ReadonlySignal<Object?> watch = model.watch('/user');
-      var changeCount = 0;
+      int changeCount = 0;
       watch.subscribe((_) => changeCount++);
       changeCount = 0;
 
@@ -61,7 +61,7 @@ void main() {
       model.set('/user', {'name': 'Alice'});
 
       final ReadonlySignal<Object?> watch = model.watch('/user/name');
-      var changeCount = 0;
+      int changeCount = 0;
       watch.subscribe((_) => changeCount++);
       changeCount = 0;
 
@@ -73,7 +73,7 @@ void main() {
     test('notifies root watch on any change', () {
       final model = DataModel();
       final ReadonlySignal<Object?> watch = model.watch('/');
-      var changeCount = 0;
+      int changeCount = 0;
       watch.subscribe((_) => changeCount++);
       changeCount = 0;
 
@@ -88,8 +88,8 @@ void main() {
       });
       final ReadonlySignal<Object?> nameWatch = model.watch('/user/name');
       final ReadonlySignal<Object?> staleWatch = model.watch('/stale');
-      var nameChangeCount = 0;
-      var staleChangeCount = 0;
+      int nameChangeCount = 0;
+      int staleChangeCount = 0;
       nameWatch.subscribe((_) => nameChangeCount++);
       staleWatch.subscribe((_) => staleChangeCount++);
       nameChangeCount = 0;
@@ -108,7 +108,7 @@ void main() {
     test('notifies root watch on root set', () {
       final model = DataModel({'foo': 'bar'});
       final ReadonlySignal<Object?> rootWatch = model.watch('/');
-      var changeCount = 0;
+      int changeCount = 0;
       rootWatch.subscribe((_) => changeCount++);
       changeCount = 0;
 
@@ -120,7 +120,7 @@ void main() {
     test('does not notify unrelated paths', () {
       final model = DataModel({'a': 1, 'b': 2});
       final ReadonlySignal<Object?> bWatch = model.watch('/b');
-      var bChangeCount = 0;
+      int bChangeCount = 0;
       bWatch.subscribe((_) => bChangeCount++);
       bChangeCount = 0;
 
@@ -131,7 +131,7 @@ void main() {
     test('does not notify a sibling whose name shares a prefix', () {
       final model = DataModel({'foo': 1, 'foobar': 2});
       final ReadonlySignal<Object?> foobarWatch = model.watch('/foobar');
-      var foobarChangeCount = 0;
+      int foobarChangeCount = 0;
       foobarWatch.subscribe((_) => foobarChangeCount++);
       foobarChangeCount = 0;
 

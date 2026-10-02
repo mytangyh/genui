@@ -184,9 +184,8 @@ void main() {
         isEmpty,
       );
       expect(
-        schema
-            .validateSync({'name': ''}, schemaRegistry: registry)
-            .map((ValidationError e) => e.error),
+        schema.validateSync({'name': ''},
+            schemaRegistry: registry).map((ValidationError e) => e.error),
         contains(ValidationErrorType.minLengthNotMet),
       );
     });
@@ -224,7 +223,7 @@ void main() {
     );
 
     test('retries a fetch that a previous validation failed to make', () async {
-      var attempts = 0;
+      int attempts = 0;
       final client = MockClient((http.Request request) async {
         attempts++;
         if (attempts == 1) return http.Response('Not found', 404);
@@ -242,7 +241,8 @@ void main() {
         (await schema.validate(
           1,
           schemaRegistry: registry,
-        )).map((ValidationError e) => e.error),
+        ))
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.refResolutionError),
       );
       // The second validation retries the fetch rather than reusing the
@@ -251,7 +251,8 @@ void main() {
         (await schema.validate(
           1,
           schemaRegistry: registry,
-        )).map((ValidationError e) => e.error),
+        ))
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.typeMismatch),
       );
       expect(attempts, 2);
@@ -271,14 +272,15 @@ void main() {
         (await schema.validate(
           '',
           schemaRegistry: registry,
-        )).map((ValidationError e) => e.error),
+        ))
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.minLengthNotMet),
       );
     });
 
     test('fetches independent remote references in parallel', () async {
-      var inFlight = 0;
-      var mostInFlight = 0;
+      int inFlight = 0;
+      int mostInFlight = 0;
       final bothArrived = Completer<void>();
       final client = MockClient((http.Request request) async {
         inFlight++;
@@ -370,7 +372,8 @@ void main() {
           [],
           context,
           [],
-        )).isValid,
+        ))
+            .isValid,
         isTrue,
       );
       expect(
@@ -380,7 +383,8 @@ void main() {
           [],
           context,
           [],
-        )).isValid,
+        ))
+            .isValid,
         isFalse,
       );
       // A boolean schema accepts or rejects everything.
@@ -412,9 +416,15 @@ void main() {
         isTrue,
       );
       expect(
-        (await schema.validateSchema('', [], context, [
-          schema,
-        ])).errors.map((ValidationError e) => e.error),
+        (await schema.validateSchema(
+                '',
+                [],
+                context,
+                [
+                  schema,
+                ]))
+            .errors
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.minLengthNotMet),
       );
     });
@@ -426,15 +436,26 @@ void main() {
         final ValidationContext context = contextFor(schema);
 
         expect(
-          (await schema.validateTypeSpecificKeywords(5, [], context, [
-            schema,
-          ])).isValid,
+          (await schema.validateTypeSpecificKeywords(
+                  5,
+                  [],
+                  context,
+                  [
+                    schema,
+                  ]))
+              .isValid,
           isTrue,
         );
         expect(
-          (await schema.validateTypeSpecificKeywords(11, [], context, [
-            schema,
-          ])).errors.map((ValidationError e) => e.error),
+          (await schema.validateTypeSpecificKeywords(
+                  11,
+                  [],
+                  context,
+                  [
+                    schema,
+                  ]))
+              .errors
+              .map((ValidationError e) => e.error),
           contains(ValidationErrorType.maximumExceeded),
         );
       },
@@ -449,7 +470,8 @@ void main() {
           [],
           context,
           [personSchema],
-        )).isValid,
+        ))
+            .isValid,
         isTrue,
       );
       expect(
@@ -458,7 +480,9 @@ void main() {
           [],
           context,
           [personSchema],
-        )).errors.map((ValidationError e) => e.error),
+        ))
+            .errors
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.requiredPropertyMissing),
       );
     });
@@ -481,7 +505,9 @@ void main() {
           [],
           context,
           [schema],
-        )).errors.map((ValidationError e) => e.error),
+        ))
+            .errors
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.minItemsNotMet),
       );
     });
@@ -534,9 +560,12 @@ void main() {
       });
       final ValidationContext context = contextFor(schema);
 
-      final (Schema, Uri)? resolved = await schema.resolveDynamicRef('#item', [
-        schema,
-      ], context);
+      final (Schema, Uri)? resolved = await schema.resolveDynamicRef(
+          '#item',
+          [
+            schema,
+          ],
+          context);
       expect(resolved?.$1.value, {
         r'$dynamicAnchor': 'item',
         'type': 'integer',
@@ -556,7 +585,8 @@ void main() {
       expect(
         (await schema.validate(
           'anything',
-        )).map((ValidationError e) => e.toErrorString()),
+        ))
+            .map((ValidationError e) => e.toErrorString()),
         contains(contains('Failed to resolve dynamic reference')),
       );
     });
@@ -573,7 +603,8 @@ void main() {
         (await schema.validate(
           'Ada',
           schemaRegistry: registry,
-        )).map((ValidationError e) => e.toErrorString()),
+        ))
+            .map((ValidationError e) => e.toErrorString()),
         contains(contains('Failed to resolve meta schema')),
       );
     });
@@ -616,7 +647,8 @@ void main() {
         (await schema.validate(
           'Ada',
           schemaRegistry: registry,
-        )).map((ValidationError e) => e.error),
+        ))
+            .map((ValidationError e) => e.error),
         contains(ValidationErrorType.refResolutionError),
       );
     });
@@ -638,7 +670,8 @@ void main() {
       expect(
         (await registry.resolve(
           Uri.parse(r'https://example.com/root.json#/$defs/name'),
-        ))?.value,
+        ))
+            ?.value,
         {'type': 'string'},
       );
       expect(
@@ -658,7 +691,8 @@ void main() {
       expect(
         (await registry.resolve(
           Uri.parse('https://example.com/name.json'),
-        ))?.value,
+        ))
+            ?.value,
         {'type': 'string'},
       );
       // The schema is registered now, so the synchronous path can see it.

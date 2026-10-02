@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:a2ui_core/a2ui_core.dart' hide Catalog, DataContext;
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart' show internal;
 
 import '../model/ui_models.dart' as genui_model;
 import '../primitives/logging.dart';
@@ -38,7 +39,7 @@ class SurfaceUpdated extends RegistryEvent {
 class SurfaceRegistry {
   final Map<String, SurfaceModel> _surfaces = {};
   final Map<String, ValueNotifier<genui_model.SurfaceDefinition?>>
-  _definitions = {};
+      _definitions = {};
   final List<String> _surfaceOrder = [];
   final StreamController<RegistryEvent> _eventController =
       StreamController.broadcast();
@@ -107,8 +108,8 @@ class SurfaceRegistry {
   void removeSurface(String surfaceId) {
     if (_surfaces.remove(surfaceId) == null) return;
     genUiLogger.info('Deleting surface $surfaceId');
-    final ValueNotifier<genui_model.SurfaceDefinition?>? notifier = _definitions
-        .remove(surfaceId);
+    final ValueNotifier<genui_model.SurfaceDefinition?>? notifier =
+        _definitions.remove(surfaceId);
     if (notifier != null) {
       // watchSurface promises the value becomes null on removal, so notify
       // watchers before disposing.

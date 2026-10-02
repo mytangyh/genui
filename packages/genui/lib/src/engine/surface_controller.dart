@@ -78,14 +78,15 @@ interface class SurfaceController implements SurfaceHost, A2uiMessageSink {
 
   @override
   Stream<SurfaceUpdate> get surfaceUpdates => _registry.events.map(
-    (e) => switch (e) {
-      surface_reg.SurfaceAdded(:final surfaceId, :final surface) =>
-        SurfaceAdded.fromCore(surfaceId, surface),
-      surface_reg.SurfaceUpdated(:final surfaceId, :final surface) =>
-        ComponentsUpdated.fromCore(surfaceId, surface),
-      surface_reg.SurfaceRemoved(:final surfaceId) => SurfaceRemoved(surfaceId),
-    },
-  );
+        (e) => switch (e) {
+          surface_reg.SurfaceAdded(:final surfaceId, :final surface) =>
+            SurfaceAdded.fromCore(surfaceId, surface),
+          surface_reg.SurfaceUpdated(:final surfaceId, :final surface) =>
+            ComponentsUpdated.fromCore(surfaceId, surface),
+          surface_reg.SurfaceRemoved(:final surfaceId) =>
+            SurfaceRemoved(surfaceId),
+        },
+      );
 
   /// A stream of messages to be submitted to the AI service.
   Stream<ChatMessage> get onSubmit => _onSubmit.stream;
@@ -217,9 +218,8 @@ interface class SurfaceController implements SurfaceHost, A2uiMessageSink {
     }
 
     if (coreMessage is core.UpdateComponentsMessage) {
-      final core.SurfaceModel<core.ComponentApi>? surface = _processor
-          .groupModel
-          .getSurface(coreMessage.surfaceId);
+      final core.SurfaceModel<core.ComponentApi>? surface =
+          _processor.groupModel.getSurface(coreMessage.surfaceId);
       if (surface != null) {
         _registry.notifyUpdated(surface);
         // Validation does not roll back the mutation; we surface the error
@@ -267,12 +267,12 @@ interface class SurfaceController implements SurfaceHost, A2uiMessageSink {
   }
 
   String? _surfaceIdOf(core.A2uiMessage message) => switch (message) {
-    core.CreateSurfaceMessage(:final surfaceId) => surfaceId,
-    core.UpdateComponentsMessage(:final surfaceId) => surfaceId,
-    core.UpdateDataModelMessage(:final surfaceId) => surfaceId,
-    core.DeleteSurfaceMessage(:final surfaceId) => surfaceId,
-    _ => null,
-  };
+        core.CreateSurfaceMessage(:final surfaceId) => surfaceId,
+        core.UpdateComponentsMessage(:final surfaceId) => surfaceId,
+        core.UpdateDataModelMessage(:final surfaceId) => surfaceId,
+        core.DeleteSurfaceMessage(:final surfaceId) => surfaceId,
+        _ => null,
+      };
 
   void _onCoreSurfaceCreated(core.SurfaceModel<core.ComponentApi> surface) {
     _registry.addSurface(surface);
@@ -328,9 +328,9 @@ interface class SurfaceController implements SurfaceHost, A2uiMessageSink {
 
     return {
       'code': errorCode,
-      'surfaceId': ?surfaceId,
-      'path': ?path,
-      'functionName': ?functionName,
+      if (surfaceId case final value?) 'surfaceId': value,
+      if (path case final value?) 'path': value,
+      if (functionName case final value?) 'functionName': value,
       'message': message,
     };
   }
@@ -362,8 +362,8 @@ interface class SurfaceController implements SurfaceHost, A2uiMessageSink {
   }
 
   Catalog? _findCatalogForSurface(String surfaceId) {
-    final core.SurfaceModel<core.ComponentApi>? surface = _registry
-        .getLiveSurface(surfaceId);
+    final core.SurfaceModel<core.ComponentApi>? surface =
+        _registry.getLiveSurface(surfaceId);
     if (surface == null) return null;
     return catalogs.firstWhereOrNull((c) => c.matchesId(surface.catalog.id));
   }

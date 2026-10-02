@@ -32,9 +32,8 @@ abstract class A2uiMessage {
       'updateDataModel',
       'deleteSurface',
     };
-    final List<String> presentKeys = messageBodyKeys
-        .where(json.containsKey)
-        .toList();
+    final List<String> presentKeys =
+        messageBodyKeys.where(json.containsKey).toList();
     if (presentKeys.length > 1) {
       throw A2uiValidationError(
         'A2UI message must contain exactly one of '
@@ -108,14 +107,14 @@ class CreateSurfaceMessage extends A2uiMessage {
 
   @override
   Map<String, dynamic> toJson() => {
-    'version': version,
-    'createSurface': {
-      'surfaceId': surfaceId,
-      'catalogId': catalogId,
-      if (theme != null) 'theme': theme,
-      'sendDataModel': sendDataModel,
-    },
-  };
+        'version': version,
+        'createSurface': {
+          'surfaceId': surfaceId,
+          'catalogId': catalogId,
+          if (theme != null) 'theme': theme,
+          'sendDataModel': sendDataModel,
+        },
+      };
 }
 
 /// Updates a surface with a new set of components.
@@ -131,9 +130,9 @@ class UpdateComponentsMessage extends A2uiMessage {
 
   @override
   Map<String, dynamic> toJson() => {
-    'version': version,
-    'updateComponents': {'surfaceId': surfaceId, 'components': components},
-  };
+        'version': version,
+        'updateComponents': {'surfaceId': surfaceId, 'components': components},
+      };
 }
 
 /// Updates the data model for an existing surface.
@@ -151,13 +150,13 @@ class UpdateDataModelMessage extends A2uiMessage {
 
   @override
   Map<String, dynamic> toJson() => {
-    'version': version,
-    'updateDataModel': {
-      'surfaceId': surfaceId,
-      if (path != null) 'path': path,
-      if (value != null) 'value': value,
-    },
-  };
+        'version': version,
+        'updateDataModel': {
+          'surfaceId': surfaceId,
+          if (path != null) 'path': path,
+          if (value != null) 'value': value,
+        },
+      };
 }
 
 /// Signals the client to delete a surface.
@@ -168,9 +167,9 @@ class DeleteSurfaceMessage extends A2uiMessage {
 
   @override
   Map<String, dynamic> toJson() => {
-    'version': version,
-    'deleteSurface': {'surfaceId': surfaceId},
-  };
+        'version': version,
+        'deleteSurface': {'surfaceId': surfaceId},
+      };
 }
 
 /// Reports a user-initiated action from a component.
@@ -190,12 +189,12 @@ class A2uiClientAction {
   });
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'surfaceId': surfaceId,
-    'sourceComponentId': sourceComponentId,
-    'timestamp': timestamp.toIso8601String(),
-    'context': context,
-  };
+        'name': name,
+        'surfaceId': surfaceId,
+        'sourceComponentId': sourceComponentId,
+        'timestamp': timestamp.toIso8601String(),
+        'context': context,
+      };
 }
 
 /// Reports a client-side error.
@@ -213,9 +212,9 @@ class A2uiClientError {
   });
 
   Map<String, dynamic> toJson() => {
-    'code': code,
-    'surfaceId': surfaceId,
-    'message': message,
-    if (details != null) 'details': details,
-  };
+        'code': code,
+        'surfaceId': surfaceId,
+        'message': message,
+        if (details != null) 'details': details,
+      };
 }

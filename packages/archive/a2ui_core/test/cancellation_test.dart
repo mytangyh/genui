@@ -28,7 +28,7 @@ void main() {
 
     test('cancel is idempotent', () {
       final signal = CancellationSignal();
-      var callCount = 0;
+      int callCount = 0;
       signal.addListener(() => callCount++);
 
       signal.cancel();

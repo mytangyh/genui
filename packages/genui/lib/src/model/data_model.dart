@@ -6,6 +6,7 @@ import 'dart:async';
 
 import 'package:a2ui_core/a2ui_core.dart' as core;
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart' show internal;
 
 import '../primitives/logging.dart';
 import '../primitives/simple_items.dart';
@@ -24,9 +25,9 @@ class DataContext implements cf.ExecutionContext {
     this.path, {
     Iterable<cf.ClientFunction>? functions,
   }) : _functions = {
-         if (functions != null)
-           for (final f in functions) f.name: f,
-       };
+          if (functions != null)
+            for (final f in functions) f.name: f,
+        };
 
   DataContext._(this._dataModel, this.path, this._functions);
 
@@ -118,9 +119,8 @@ class DataContext implements cf.ExecutionContext {
     }
     if (value is List) {
       if (value.isEmpty) return Stream.value(<Object?>[]);
-      final List<Stream<Object?>> itemStreams = value
-          .map(_evaluateStream)
-          .toList();
+      final List<Stream<Object?>> itemStreams =
+          value.map(_evaluateStream).toList();
       return itemStreams.combineLatestAll();
     }
     if (value is Stream) return value.cast<Object?>();
@@ -142,7 +142,7 @@ class DataContext implements cf.ExecutionContext {
       return Stream.value(null);
     }
 
-    final Map<String, Object?> args = {};
+    final args = <String, Object?>{};
     final Object? argsJson = callDefinition['args'];
 
     if (argsJson is Map) {
@@ -203,13 +203,12 @@ class DataContext implements cf.ExecutionContext {
       return args[key]! as Stream<Object?>;
     }).toList();
 
-    final Stream<List<Object?>> combinedStream = streams.isEmpty
-        ? Stream.value([])
-        : streams.combineLatestAll();
+    final Stream<List<Object?>> combinedStream =
+        streams.isEmpty ? Stream.value([]) : streams.combineLatestAll();
 
     return combinedStream.switchMap((List<Object?> values) {
-      final Map<String, Object?> combinedArgs = {};
-      for (var i = 0; i < keys.length; i++) {
+      final combinedArgs = <String, Object?>{};
+      for (int i = 0; i < keys.length; i++) {
         combinedArgs[keys[i]] = values[i];
       }
       return func.execute(combinedArgs, this);
@@ -335,13 +334,15 @@ abstract interface class DataModel {
 /// `a2ui_core.DataModel`.
 class InMemoryDataModel implements DataModel {
   /// Creates an empty in-memory data model.
-  InMemoryDataModel() : _core = core.DataModel(), _ownsCore = true;
+  InMemoryDataModel()
+      : _core = core.DataModel(),
+        _ownsCore = true;
 
   /// Wraps an existing core data model.
   @internal
   InMemoryDataModel.wrap(core.DataModel coreDataModel)
-    : _core = coreDataModel,
-      _ownsCore = false;
+      : _core = coreDataModel,
+        _ownsCore = false;
 
   final core.DataModel _core;
   // True when this owns `_core` (created by the default constructor) and must
@@ -454,7 +455,7 @@ class InMemoryDataModel implements DataModel {
 /// [ValueNotifier].
 class _SignalNotifier<T> extends ValueNotifier<T?> {
   _SignalNotifier(this._signal, this._path)
-    : super(_cast<T>(_signal.peek(), _path)) {
+      : super(_cast<T>(_signal.peek(), _path)) {
     _disposeEffect = core.effect(() {
       final T? newValue = _cast<T>(_signal.value, _path);
       if (newValue == value) {

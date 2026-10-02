@@ -56,11 +56,11 @@ final class ChatMessage {
     Map<String, Object?> metadata = const {},
     FinishStatus? finishStatus,
   }) : this(
-         role: ChatMessageRole.system,
-         parts: _partsFromText(text, parts: parts),
-         metadata: metadata,
-         finishStatus: finishStatus,
-       );
+          role: ChatMessageRole.system,
+          parts: _partsFromText(text, parts: parts),
+          metadata: metadata,
+          finishStatus: finishStatus,
+        );
 
   /// Creates a user message.
   ///
@@ -75,11 +75,11 @@ final class ChatMessage {
     Map<String, Object?> metadata = const {},
     FinishStatus? finishStatus,
   }) : this(
-         role: ChatMessageRole.user,
-         parts: _partsFromText(text, parts: parts),
-         metadata: metadata,
-         finishStatus: finishStatus,
-       );
+          role: ChatMessageRole.user,
+          parts: _partsFromText(text, parts: parts),
+          metadata: metadata,
+          finishStatus: finishStatus,
+        );
 
   /// Creates a model message.
   ///
@@ -94,18 +94,17 @@ final class ChatMessage {
     Map<String, Object?> metadata = const {},
     FinishStatus? finishStatus,
   }) : this(
-         role: ChatMessageRole.model,
-         parts: _partsFromText(text, parts: parts),
-         metadata: metadata,
-         finishStatus: finishStatus,
-       );
+          role: ChatMessageRole.model,
+          parts: _partsFromText(text, parts: parts),
+          metadata: metadata,
+          finishStatus: finishStatus,
+        );
 
   /// Deserializes a message.
   ///
   /// The message is compatible with [toJson].
   factory ChatMessage.fromJson(Map<String, Object?> json) {
-    final List<StandardPart> parts =
-        (json[_Json.parts] as List<Object?>?)
+    final List<StandardPart> parts = (json[_Json.parts] as List<Object?>?)
             ?.map((e) => StandardPart.fromJson(e as Map<String, Object?>))
             .toList() ??
         const [];
@@ -124,11 +123,11 @@ final class ChatMessage {
 
   /// Serializes the message to JSON.
   Map<String, Object?> toJson() => {
-    _Json.parts: Parts(parts).toJson(),
-    _Json.metadata: metadata,
-    _Json.role: role.name,
-    if (finishStatus != null) _Json.finishStatus: finishStatus!.toJson(),
-  };
+        _Json.parts: Parts(parts).toJson(),
+        _Json.metadata: metadata,
+        _Json.role: role.name,
+        if (finishStatus != null) _Json.finishStatus: finishStatus!.toJson(),
+      };
 
   /// The role of the message author.
   final ChatMessageRole role;
@@ -211,12 +210,13 @@ final class ChatMessage {
     List<StandardPart>? parts,
     Map<String, Object?>? metadata,
     FinishStatus? finishStatus,
-  }) => ChatMessage(
-    role: role ?? this.role,
-    parts: parts ?? this.parts,
-    metadata: metadata ?? this.metadata,
-    finishStatus: finishStatus ?? this.finishStatus,
-  );
+  }) =>
+      ChatMessage(
+        role: role ?? this.role,
+        parts: parts ?? this.parts,
+        metadata: metadata ?? this.metadata,
+        finishStatus: finishStatus ?? this.finishStatus,
+      );
 
   @override
   int get hashCode => Object.hashAll([role, parts, metadata, finishStatus]);

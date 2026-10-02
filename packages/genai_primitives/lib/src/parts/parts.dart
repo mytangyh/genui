@@ -68,9 +68,8 @@ final class Parts extends ListBase<Part> {
   /// Extracts all tool call parts from the list.
   ///
   /// Returns only ToolPart instances where kind == ToolPartKind.call.
-  late final List<ToolPart> toolCalls = whereType<ToolPart>()
-      .where((p) => p.kind == ToolPartKind.call)
-      .toList();
+  late final List<ToolPart> toolCalls =
+      whereType<ToolPart>().where((p) => p.kind == ToolPartKind.call).toList();
 
   /// Extracts all tool result parts from the list.
   ///

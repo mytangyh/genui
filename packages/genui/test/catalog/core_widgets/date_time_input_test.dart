@@ -139,7 +139,8 @@ void main() {
   });
 
   group('date only mode', () {
-    testWidgets('updates immediately with date-only string after '
+    testWidgets(
+        'updates immediately with date-only string after '
         'date selection', (tester) async {
       final robot = DateTimeInputRobot(tester);
       final (SurfaceHost surfaceController, String surfaceId) = setup(

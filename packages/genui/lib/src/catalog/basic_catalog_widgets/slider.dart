@@ -32,12 +32,13 @@ extension type _SliderData.fromMap(JsonMap _json) {
     double? min,
     double? max,
     List<JsonMap>? checks,
-  }) => _SliderData.fromMap({
-    'value': value,
-    'min': min,
-    'max': max,
-    'checks': checks,
-  });
+  }) =>
+      _SliderData.fromMap({
+        'value': value,
+        'min': min,
+        'max': max,
+        'checks': checks,
+      });
 
   Object get value => _json['value'] as Object;
   double get min => (_json['min'] as num?)?.toDouble() ?? 0.0;
@@ -91,7 +92,7 @@ final slider = CatalogItem(
       builder: (context, value) {
         // If value is null (nothing in DataContext yet), fall back to
         // literal value if provided.
-        var effectiveValue = value;
+        num? effectiveValue = value;
         if (effectiveValue == null) {
           if (valueRef is num) {
             effectiveValue = valueRef;
@@ -101,9 +102,9 @@ final slider = CatalogItem(
         final double min = sliderData.min;
         final double max = sliderData.max < min ? min : sliderData.max;
         final double currentVal = (effectiveValue ?? min).toDouble().clamp(
-          min,
-          max,
-        );
+              min,
+              max,
+            );
 
         final Widget sliderWidget = Padding(
           padding: const EdgeInsetsDirectional.only(end: 16.0),

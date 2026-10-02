@@ -34,7 +34,8 @@ void main() {
       expect(multiManager.catalogs.length, 2);
     });
 
-    test('handleMessage adds a new surface and fires SurfaceAdded with '
+    test(
+        'handleMessage adds a new surface and fires SurfaceAdded with '
         'definition', () async {
       const surfaceId = 's1';
       final List<JsonMap> components = [
@@ -45,10 +46,8 @@ void main() {
         updateComponents(surfaceId: surfaceId, components: components),
       );
 
-      final Future<List<SurfaceUpdate>> futureUpdates = controller
-          .surfaceUpdates
-          .take(2)
-          .toList();
+      final Future<List<SurfaceUpdate>> futureUpdates =
+          controller.surfaceUpdates.take(2).toList();
       controller.handleMessage(
         createSurface(surfaceId: surfaceId, catalogId: 'test_catalog'),
       );
@@ -146,8 +145,8 @@ void main() {
         ),
       );
 
-      final ValueListenable<SurfaceDefinition?> watched = controller.registry
-          .watchSurface(surfaceId);
+      final ValueListenable<SurfaceDefinition?> watched =
+          controller.registry.watchSurface(surfaceId);
       expect(watched.value, isNotNull);
 
       var notified = false;
@@ -160,15 +159,16 @@ void main() {
     });
 
     test('surface() creates a new ValueNotifier if one does not exist', () {
-      final ValueListenable<SurfaceDefinition?> notifier1 = controller.registry
-          .watchSurface('s1');
-      final ValueListenable<SurfaceDefinition?> notifier2 = controller.registry
-          .watchSurface('s1');
+      final ValueListenable<SurfaceDefinition?> notifier1 =
+          controller.registry.watchSurface('s1');
+      final ValueListenable<SurfaceDefinition?> notifier2 =
+          controller.registry.watchSurface('s1');
       expect(notifier1, same(notifier2));
       expect(notifier1.value, isNull);
     });
 
-    test('public SurfaceAdded / ComponentsUpdated constructors are '
+    test(
+        'public SurfaceAdded / ComponentsUpdated constructors are '
         'definition-based', () {
       final def = SurfaceDefinition(surfaceId: 's1');
       final added = SurfaceAdded('s1', def);
@@ -184,8 +184,8 @@ void main() {
       'registry watchSurface/getSurface expose SurfaceDefinition snapshots',
       () {
         const surfaceId = 's1';
-        final ValueListenable<SurfaceDefinition?> notifier = controller.registry
-            .watchSurface(surfaceId);
+        final ValueListenable<SurfaceDefinition?> notifier =
+            controller.registry.watchSurface(surfaceId);
         expect(notifier.value, isNull);
         expect(controller.registry.getSurface(surfaceId), isNull);
 
@@ -383,10 +383,8 @@ void main() {
       await Future<void>.delayed(const Duration(milliseconds: 200));
 
       // 3. Create surface (but first setup listener)
-      final Future<List<SurfaceUpdate>> updatesFuture = shortTimeoutController
-          .surfaceUpdates
-          .take(1)
-          .toList();
+      final Future<List<SurfaceUpdate>> updatesFuture =
+          shortTimeoutController.surfaceUpdates.take(1).toList();
       shortTimeoutController.handleMessage(
         createSurface(surfaceId: surfaceId, catalogId: 'test_catalog'),
       );
@@ -404,9 +402,8 @@ void main() {
       // better.
       await Future<void>.delayed(Duration.zero);
 
-      final SurfaceDefinition? surface = shortTimeoutController.registry
-          .watchSurface(surfaceId)
-          .value;
+      final SurfaceDefinition? surface =
+          shortTimeoutController.registry.watchSurface(surfaceId).value;
       expect(surface, isNotNull);
       // Updates NOT applied, so components should be empty (or default)
       expect(surface!.components, isEmpty);
@@ -464,22 +461,22 @@ void main() {
     const legacyId = 'legacy_catalog';
 
     Catalog aliasedCatalog() => Catalog(
-      [
-        CatalogItem(
-          name: 'StrictWidget',
-          dataSchema: Schema.object(
-            properties: {
-              'component': Schema.string(enumValues: ['StrictWidget']),
-              'requiredProp': Schema.string(),
-            },
-            required: ['component', 'requiredProp'],
-          ),
-          widgetBuilder: _dummyBuilder,
-        ),
-      ],
-      catalogId: canonicalId,
-      catalogIdAliases: const [legacyId],
-    );
+          [
+            CatalogItem(
+              name: 'StrictWidget',
+              dataSchema: Schema.object(
+                properties: {
+                  'component': Schema.string(enumValues: ['StrictWidget']),
+                  'requiredProp': Schema.string(),
+                },
+                required: ['component', 'requiredProp'],
+              ),
+              widgetBuilder: _dummyBuilder,
+            ),
+          ],
+          catalogId: canonicalId,
+          catalogIdAliases: const [legacyId],
+        );
 
     test('a surface created with an alias resolves to the catalog', () {
       final Catalog catalog = aliasedCatalog();
@@ -555,14 +552,13 @@ void main() {
 
       const surfaceId = 'aliased';
       final updates = <SurfaceUpdate>[];
-      final StreamSubscription<SurfaceUpdate> updateSub = controller
-          .surfaceUpdates
-          .listen(updates.add);
+      final StreamSubscription<SurfaceUpdate> updateSub =
+          controller.surfaceUpdates.listen(updates.add);
       addTearDown(updateSub.cancel);
 
       final errors = <ChatMessage>[];
-      final StreamSubscription<ChatMessage> errorSub = controller.onSubmit
-          .listen(errors.add);
+      final StreamSubscription<ChatMessage> errorSub =
+          controller.onSubmit.listen(errors.add);
       addTearDown(errorSub.cancel);
 
       controller.handleMessage(

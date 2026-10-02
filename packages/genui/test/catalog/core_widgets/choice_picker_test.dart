@@ -35,24 +35,24 @@ void main() {
 
       final core.UpdateComponentsMessage updateComponentsMessage =
           updateComponents(
-            surfaceId: 'test',
-            components: [
-              component(
-                id: 'root',
-                type: 'ChoicePicker',
-                properties: {
-                  'label': 'Years of Experience',
-                  'variant': 'mutuallyExclusive',
-                  'options': [
-                    {'label': '0-1', 'value': '0-1'},
-                    {'label': '2-5', 'value': '2-5'},
-                    {'label': '5+', 'value': '5+'},
-                  ],
-                  'value': {'path': '/experience'},
-                },
-              ),
-            ],
-          );
+        surfaceId: 'test',
+        components: [
+          component(
+            id: 'root',
+            type: 'ChoicePicker',
+            properties: {
+              'label': 'Years of Experience',
+              'variant': 'mutuallyExclusive',
+              'options': [
+                {'label': '0-1', 'value': '0-1'},
+                {'label': '2-5', 'value': '2-5'},
+                {'label': '5+', 'value': '5+'},
+              ],
+              'value': {'path': '/experience'},
+            },
+          ),
+        ],
+      );
 
       controller.handleMessage(createSurfaceMessage);
       controller.handleMessage(updateData);
@@ -102,8 +102,8 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      final Iterable<Radio<String>> radiosAfter = tester
-          .widgetList<Radio<String>>(find.byType(Radio<String>));
+      final Iterable<Radio<String>> radiosAfter =
+          tester.widgetList<Radio<String>>(find.byType(Radio<String>));
       // ignore: deprecated_member_use
       expect(radiosAfter.elementAt(2).groupValue, '5+');
     },
@@ -129,24 +129,24 @@ void main() {
     );
     final core.UpdateComponentsMessage updateComponentsMessage =
         updateComponents(
-          surfaceId: 'test2',
-          components: [
-            component(
-              id: 'root',
-              type: 'ChoicePicker',
-              properties: {
-                'label': 'Multi',
-                'variant': 'multipleSelection',
-                'options': [
-                  {'label': 'A', 'value': 'A'},
-                  {'label': 'B', 'value': 'B'},
-                  {'label': 'C', 'value': 'C'},
-                ],
-                'value': {'path': '/selections'},
-              },
-            ),
-          ],
-        );
+      surfaceId: 'test2',
+      components: [
+        component(
+          id: 'root',
+          type: 'ChoicePicker',
+          properties: {
+            'label': 'Multi',
+            'variant': 'multipleSelection',
+            'options': [
+              {'label': 'A', 'value': 'A'},
+              {'label': 'B', 'value': 'B'},
+              {'label': 'C', 'value': 'C'},
+            ],
+            'value': {'path': '/selections'},
+          },
+        ),
+      ],
+    );
 
     controller.handleMessage(createSurfaceMessage);
     controller.handleMessage(updateData);
@@ -193,26 +193,26 @@ void main() {
     );
     final core.UpdateComponentsMessage updateComponentsMessage =
         updateComponents(
-          surfaceId: 'chipsTest',
-          components: [
-            component(
-              id: 'root',
-              type: 'ChoicePicker',
-              properties: {
-                'label': 'Tags',
-                'variant': 'multipleSelection',
-                'displayStyle': 'chips',
-                'filterable': true,
-                'options': [
-                  {'label': 'Flutter', 'value': 'flutter'},
-                  {'label': 'Dart', 'value': 'dart'},
-                  {'label': 'GenUI', 'value': 'genui'},
-                ],
-                'value': {'path': '/tags'},
-              },
-            ),
-          ],
-        );
+      surfaceId: 'chipsTest',
+      components: [
+        component(
+          id: 'root',
+          type: 'ChoicePicker',
+          properties: {
+            'label': 'Tags',
+            'variant': 'multipleSelection',
+            'displayStyle': 'chips',
+            'filterable': true,
+            'options': [
+              {'label': 'Flutter', 'value': 'flutter'},
+              {'label': 'Dart', 'value': 'dart'},
+              {'label': 'GenUI', 'value': 'genui'},
+            ],
+            'value': {'path': '/tags'},
+          },
+        ),
+      ],
+    );
 
     controller.handleMessage(createSurfaceMessage);
     controller.handleMessage(updateData);
@@ -266,23 +266,23 @@ void main() {
       // Note: We are NOT sending UpdateDataModel with the value initially.
       final core.UpdateComponentsMessage updateComponentsMessage =
           updateComponents(
-            surfaceId: 'nullTest',
-            components: [
-              component(
-                id: 'root',
-                type: 'ChoicePicker',
-                properties: {
-                  'label': 'Null Check',
-                  'variant': 'multipleSelection',
-                  'options': [
-                    {'label': 'A', 'value': 'A'},
-                  ],
-                  // Points to a path that doesn't exist yet
-                  'value': {'path': '/missing_path'},
-                },
-              ),
-            ],
-          );
+        surfaceId: 'nullTest',
+        components: [
+          component(
+            id: 'root',
+            type: 'ChoicePicker',
+            properties: {
+              'label': 'Null Check',
+              'variant': 'multipleSelection',
+              'options': [
+                {'label': 'A', 'value': 'A'},
+              ],
+              // Points to a path that doesn't exist yet
+              'value': {'path': '/missing_path'},
+            },
+          ),
+        ],
+      );
 
       controller.handleMessage(createSurfaceMessage);
       controller.handleMessage(updateComponentsMessage);

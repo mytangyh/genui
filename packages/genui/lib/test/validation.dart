@@ -51,7 +51,7 @@ Future<List<ExampleValidationError>> validateCatalogItemExamples(
   final Schema schema = A2uiSchemas.updateComponentsSchema(catalog);
   final errors = <ExampleValidationError>[];
 
-  for (var i = 0; i < item.exampleData.length; i++) {
+  for (int i = 0; i < item.exampleData.length; i++) {
     final String exampleJsonString = item.exampleData[i]();
     final List<Object?> exampleData;
     try {
@@ -63,10 +63,8 @@ Future<List<ExampleValidationError>> validateCatalogItemExamples(
       continue;
     }
 
-    final List<Map<String, Object?>> components = exampleData
-        .cast<JsonMap>()
-        .map(Map<String, Object?>.from)
-        .toList();
+    final List<Map<String, Object?>> components =
+        exampleData.cast<JsonMap>().map(Map<String, Object?>.from).toList();
 
     if (components.every((c) => c['id'] != 'root')) {
       errors.add(

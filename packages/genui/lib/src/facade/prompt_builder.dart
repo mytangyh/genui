@@ -22,11 +22,10 @@ abstract class PromptFragments {
   ///
   /// [prefix] is a prefix to be added to the prompt.
   /// Is useful when you want to emphasize the importance of this fragment.
-  static String acknowledgeUser({String prefix = ''}) =>
-      '''
+  static String acknowledgeUser({String prefix = ''}) => '''
 ${prefix}Your responses should contain acknowledgment of the user message.
 '''
-          .trim();
+      .trim();
 
   /// Requirement to include at least one submit element.
   ///
@@ -35,13 +34,12 @@ ${prefix}Your responses should contain acknowledgment of the user message.
   ///
   /// [prefix] is a prefix to be added to the prompt.
   /// Is useful when you want to emphasize the importance of this fragment.
-  static String requireAtLeastOneSubmitElement({String prefix = ''}) =>
-      '''
+  static String requireAtLeastOneSubmitElement({String prefix = ''}) => '''
 ${prefix}When you are asking for information from the user, you should always include
 at least one submit button of some kind or another submitting element so that
 the user can indicate that they are done providing information.
 '''
-          .trim();
+      .trim();
 
   /// Current date.
   ///
@@ -49,8 +47,7 @@ the user can indicate that they are done providing information.
   ///
   /// [prefix] is a prefix to be added to the prompt.
   /// Is useful when you want to emphasize the importance of this fragment.
-  static String currentDate({String prefix = ''}) =>
-      '${prefix}Current Date: '
+  static String currentDate({String prefix = ''}) => '${prefix}Current Date: '
       '${DateTime.now().toIso8601String().split('T').first}';
 
   /// Restriction on using tools or function calls for UI generation.
@@ -137,7 +134,8 @@ abstract class PromptBuilder {
   /// joined with the given section separator.
   String systemPromptJoined({
     String sectionSeparator = '\n-------------------------------------\n\n',
-  }) => systemPrompt().map((e) => '${e.trim()}\n').join(sectionSeparator);
+  }) =>
+      systemPrompt().map((e) => '${e.trim()}\n').join(sectionSeparator);
 }
 
 @visibleForTesting
@@ -261,17 +259,17 @@ final class SurfaceOperations {
     this.delete = false,
     this.dataModel = false,
   }) : assert(
-         create || update || delete,
-         'At least one operation must be enabled.',
-       );
+          create || update || delete,
+          'At least one operation must be enabled.',
+        );
   SurfaceOperations.createOnly({required bool dataModel})
-    : this(create: true, update: false, delete: false, dataModel: dataModel);
+      : this(create: true, update: false, delete: false, dataModel: dataModel);
   SurfaceOperations.updateOnly({required bool dataModel})
-    : this(create: false, update: true, delete: false, dataModel: dataModel);
+      : this(create: false, update: true, delete: false, dataModel: dataModel);
   SurfaceOperations.createAndUpdate({required bool dataModel})
-    : this(create: true, update: true, delete: false, dataModel: dataModel);
+      : this(create: true, update: true, delete: false, dataModel: dataModel);
   SurfaceOperations.all({required bool dataModel})
-    : this(create: true, update: true, delete: true, dataModel: dataModel);
+      : this(create: true, update: true, delete: true, dataModel: dataModel);
 
   final bool create;
   final bool update;
@@ -288,9 +286,8 @@ final class SurfaceOperations {
     if (dataModel) ProtocolMessages.updateDataModel,
   };
 
-  late final String _operationsFormatted = _operations
-      .map((e) => e.tickedName)
-      .join(', ');
+  late final String _operationsFormatted =
+      _operations.map((e) => e.tickedName).join(', ');
 
   late final String _controllingUI = [
     '''
@@ -404,7 +401,7 @@ final class _BasicPromptBuilder extends PromptBuilder {
       _fenced(cleanCommonTypes, sectionName: 'COMMON TYPES'),
       _fenced(catalogSchema, sectionName: 'CATALOG SCHEMA'),
       _fenced(cleanServerToClient, sectionName: 'MESSAGE SCHEMA'),
-      ?_encodedDataModel(clientDataModel),
+      if (_encodedDataModel(clientDataModel) case final dataModel?) dataModel,
     ];
 
     return _fragmentsToPrompt(fragments);

@@ -12,8 +12,8 @@ import 'ui_models.dart';
 typedef GetComponentCallback = Component? Function(String componentId);
 
 /// A callback that builds a child widget for a catalog item.
-typedef ChildBuilderCallback =
-    Widget Function(String id, [DataContext? dataContext]);
+typedef ChildBuilderCallback = Widget Function(String id,
+    [DataContext? dataContext]);
 
 /// A callback that builds an example of a catalog item.
 ///
@@ -106,7 +106,7 @@ final class CatalogItem {
     final Map<String, Object?> originalMap = _originalSchema.value;
     final Map<String, Object?> properties =
         originalMap['properties'] as Map<String, Object?>? ??
-        <String, Object?>{};
+            <String, Object?>{};
     final List<Object?> requiredProps =
         originalMap['required'] as List<Object?>? ?? <Object?>[];
 

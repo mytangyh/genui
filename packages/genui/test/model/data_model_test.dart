@@ -81,8 +81,8 @@ void main() {
       });
 
       test('notifies on child updates', () {
-        final ValueNotifier<Map<Object?, Object?>?> notifier = dataModel
-            .subscribe<Map<Object?, Object?>>(DataPath('/a'));
+        final ValueNotifier<Map<Object?, Object?>?> notifier =
+            dataModel.subscribe<Map<Object?, Object?>>(DataPath('/a'));
         Map<Object?, Object?>? value;
         notifier.addListener(() => value = notifier.value);
         dataModel.update(DataPath('/a/b'), 1);
@@ -402,7 +402,8 @@ void main() {
       expect(await stream.first, isTrue);
     });
 
-    test('evaluateConditionStream treats non-null non-bool objects as true '
+    test(
+        'evaluateConditionStream treats non-null non-bool objects as true '
         'only if truthy', () async {
       dataModel.update(DataPath('/str'), 'hello');
       final condition = {'path': '/str'};
@@ -435,7 +436,8 @@ void main() {
       );
     });
 
-    test('evaluateConditionStream treats unknown functions and invalid maps as '
+    test(
+        'evaluateConditionStream treats unknown functions and invalid maps as '
         'false and logs warnings', () async {
       final List<LogRecord> logs = [];
       final StreamSubscription<LogRecord> sub = genUiLogger.onRecord.listen(
@@ -468,7 +470,7 @@ void main() {
         isTrue,
       );
 
-      final JsonMap invalidMap = {'invalid': 'structure'};
+      final invalidMap = {'invalid': 'structure'};
       expect(await context.evaluateConditionStream(invalidMap).first, isFalse);
       expect(
         logs.any(
@@ -479,7 +481,7 @@ void main() {
         isTrue,
       );
 
-      final JsonMap invalidFc = {'functionCall': 'notAMap'};
+      final invalidFc = {'functionCall': 'notAMap'};
       expect(await context.evaluateConditionStream(invalidFc).first, isFalse);
       expect(
         logs.any(

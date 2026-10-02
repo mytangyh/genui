@@ -20,7 +20,7 @@ extension type BooleanSchema.fromMap(Map<String, Object?> _value)
   factory BooleanSchema({String? title, String? description}) =>
       BooleanSchema.fromMap({
         'type': JsonType.boolean.typeName,
-        'title': ?title,
-        'description': ?description,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
       });
 }

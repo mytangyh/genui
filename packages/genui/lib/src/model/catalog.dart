@@ -107,19 +107,16 @@ interface class Catalog {
   }) {
     List<CatalogItem> updatedItems = items.toList();
     if (itemsToRemove != null) {
-      final Set<String> namesToRemove = itemsToRemove
-          .map<String>((item) => item.name)
-          .toSet();
-      updatedItems = items
-          .where((item) => !namesToRemove.contains(item.name))
-          .toList();
+      final Set<String> namesToRemove =
+          itemsToRemove.map<String>((item) => item.name).toSet();
+      updatedItems =
+          items.where((item) => !namesToRemove.contains(item.name)).toList();
     }
 
     List<ClientFunction> updatedFunctions = functions.toList();
     if (functionsToRemove != null) {
-      final Set<String> namesToRemove = functionsToRemove
-          .map<String>((func) => func.name)
-          .toSet();
+      final Set<String> namesToRemove =
+          functionsToRemove.map<String>((func) => func.name).toSet();
       updatedFunctions = functions
           .where((func) => !namesToRemove.contains(func.name))
           .toList();
@@ -155,9 +152,9 @@ interface class Catalog {
           type: itemContext.type,
           buildChild: (String childId, [DataContext? childDataContext]) =>
               itemContext.buildChild(
-                childId,
-                childDataContext ?? itemContext.dataContext,
-              ),
+            childId,
+            childDataContext ?? itemContext.dataContext,
+          ),
           dispatchEvent: itemContext.dispatchEvent,
           buildContext: itemContext.buildContext,
           dataContext: itemContext.dataContext,
@@ -226,14 +223,12 @@ interface class Catalog {
 
     return S.object(
       title: 'A2UI Catalog Description Schema',
-      description:
-          'A schema for a custom Catalog Description including A2UI '
+      description: 'A schema for a custom Catalog Description including A2UI '
           'components and styles.',
       properties: {
         'components': S.object(
           title: 'A2UI Components',
-          description:
-              'A schema that defines a catalog of A2UI components. '
+          description: 'A schema that defines a catalog of A2UI components. '
               'Each key is a component name, and each value is the JSON '
               'schema for that component\'s properties.',
           properties: componentProperties,
@@ -319,8 +314,8 @@ interface class Catalog {
               'type': 'string',
               'description':
                   'A unique identifier for this component instance within '
-                  'the surface. This ID is used to refer to the component '
-                  'in layout children arrays or event handlers.',
+                      'the surface. This ID is used to refer to the component '
+                      'in layout children arrays or event handlers.',
             },
           },
           'required': ['id'],
@@ -332,9 +327,10 @@ interface class Catalog {
               'type': 'string',
               'description':
                   'The primary brand color used for highlights (e.g., '
-                  'primary buttons, active borders). Renderers may generate '
-                  'variants of this color for different contexts. Format: '
-                  "Hexadecimal code (e.g., '#00BFFF').",
+                      'primary buttons, active borders). Renderers may '
+                      'generate '
+                      'variants of this color for different contexts. Format: '
+                      "Hexadecimal code (e.g., '#00BFFF').",
               'pattern': r'^#[0-9a-fA-F]{6}$',
             },
             'iconUrl': {
@@ -342,13 +338,13 @@ interface class Catalog {
               'format': 'uri',
               'description':
                   'A URL for an image that identifies the agent or tool '
-                  'associated with the surface.',
+                      'associated with the surface.',
             },
             'agentDisplayName': {
               'type': 'string',
               'description':
                   'Text to be displayed next to the surface to identify '
-                  'the agent or tool that created it.',
+                      'the agent or tool that created it.',
             },
           },
           'additionalProperties': true,

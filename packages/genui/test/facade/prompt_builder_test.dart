@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:genui/genui.dart';
@@ -58,7 +60,7 @@ void main() {
       ),
     ];
 
-    final Map<String, SurfaceOperations> operationsUnderTheTest = {};
+    final operationsUnderTheTest = <String, SurfaceOperations>{};
     for (final dataModel in [false, true]) {
       operationsUnderTheTest['create_only_with_dataModel_$dataModel'] =
           SurfaceOperations.createOnly(dataModel: dataModel);
@@ -200,4 +202,52 @@ void main() {
       expect(prompt, isNot(contains('The active catalog ID is:')));
     });
   });
+
+  group('Client data model compatibility', () {
+    test('encodes side-effecting values once and retains null data', () {
+      int calls = 0;
+      final value = _EncodedValue(() {
+        calls++;
+        return {'name': 'climber', 'optional': null};
+      });
+      final String prompt = PromptBuilder.custom(
+        catalog: testCatalog,
+        allowedOperations: SurfaceOperations.all(dataModel: true),
+        clientDataModel: {'profile': value},
+      ).systemPromptJoined();
+      expect(calls, 1);
+      expect(prompt, contains('Client Data Model:'));
+      expect(prompt, contains('"optional": null'));
+    });
+
+    test('omits a missing model and preserves serialization failures', () {
+      final String prompt = PromptBuilder.custom(
+        catalog: testCatalog,
+        allowedOperations: SurfaceOperations.all(dataModel: true),
+      ).systemPromptJoined();
+      expect(prompt, isNot(contains('Client Data Model:')));
+      expect(
+        () => PromptBuilder.custom(
+          catalog: testCatalog,
+          allowedOperations: SurfaceOperations.all(dataModel: true),
+          clientDataModel: {
+            'invalid': _EncodedValue(() => throw StateError('cannot encode')),
+          },
+        ).systemPromptJoined(),
+        throwsA(
+          isA<JsonUnsupportedObjectError>().having(
+            (error) => error.cause,
+            'original failure',
+            isA<StateError>(),
+          ),
+        ),
+      );
+    });
+  });
+}
+
+class _EncodedValue {
+  _EncodedValue(this.encode);
+  final Object? Function() encode;
+  Object? toJson() => encode();
 }

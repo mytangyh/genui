@@ -22,7 +22,7 @@ Future<void> validateComponents({
   );
   if (allowedSchemas.isEmpty) return;
 
-  for (final component in components) {
+  for (final ({String id, JsonMap json, String type}) component in components) {
     var matched = false;
     final errors = <String>[];
 
@@ -83,7 +83,8 @@ List<Map<String, Object?>> _extractAllowedSchemas(
       return [items];
     }
     if (componentsProp.containsKey('properties')) {
-      return (componentsProp['properties'] as Map).values
+      return (componentsProp['properties'] as Map)
+          .values
           .cast<Map<String, Object?>>()
           .toList();
     }
@@ -92,9 +93,10 @@ List<Map<String, Object?>> _extractAllowedSchemas(
 }
 
 bool _schemaMatchesType(Map<String, Object?> schema, String type) {
-  if (schema case {
-    'properties': {'component': Map<String, Object?> compProp},
-  }) {
+  if (schema
+      case {
+        'properties': {'component': Map<String, Object?> compProp},
+      }) {
     return switch (compProp) {
       {'const': String constType} when constType == type => true,
       {'enum': List<Object?> enums} when enums.contains(type) => true,

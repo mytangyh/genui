@@ -19,8 +19,8 @@ void main() {
       final int? value = dataModel.getValue<int>(DataPath('/a/b/c'));
       expect(value, 1);
 
-      final Map<Object?, Object?>? mapA = dataModel
-          .getValue<Map<Object?, Object?>>(DataPath('/a'));
+      final Map<Object?, Object?>? mapA =
+          dataModel.getValue<Map<Object?, Object?>>(DataPath('/a'));
       expect(mapA, isA<Map<Object?, Object?>>());
       expect(mapA?['b'], isA<Map<Object?, Object?>>());
       expect((mapA?['b'] as Map<Object?, Object?>)['c'], 1);
@@ -118,13 +118,14 @@ void main() {
       dataModel.update(DataPath('/map'), {'a': 1, 'b': 2});
       dataModel.update(DataPath('/map/a'), null);
 
-      final Map<Object?, Object?>? map = dataModel
-          .getValue<Map<Object?, Object?>>(DataPath('/map'));
+      final Map<Object?, Object?>? map =
+          dataModel.getValue<Map<Object?, Object?>>(DataPath('/map'));
       expect(map?.containsKey('a'), isFalse);
       expect(map?['b'], 2);
     });
 
-    test('Null Handling: Setting list index to null sets it to null '
+    test(
+        'Null Handling: Setting list index to null sets it to null '
         '(does not remove)', () {
       dataModel.update(DataPath('/list/0'), 'a');
       dataModel.update(DataPath('/list/0'), null);

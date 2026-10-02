@@ -257,7 +257,8 @@ void main() {
     );
   });
 
-  group('Catalog and DataContext integration with Synchronous and Asynchronous '
+  group(
+      'Catalog and DataContext integration with Synchronous and Asynchronous '
       'functions', () {
     late DataModel dataModel;
     late DataContext context;

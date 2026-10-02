@@ -61,7 +61,7 @@ class _DebugCatalogViewState extends State<DebugCatalogView> {
     }
 
     for (final CatalogItem item in catalog.items) {
-      for (var i = 0; i < item.exampleData.length; i++) {
+      for (int i = 0; i < item.exampleData.length; i++) {
         final ExampleBuilderCallback exampleBuilder = item.exampleData[i];
         final indexPart = item.exampleData.length > 1 ? '-$i' : '';
         final surfaceId = '${item.name}$indexPart';
@@ -71,9 +71,8 @@ class _DebugCatalogViewState extends State<DebugCatalogView> {
         try {
           final exampleData = jsonDecode(exampleJsonString) as List<Object?>;
 
-          final List<JsonMap> components = exampleData
-              .map((e) => e as JsonMap)
-              .toList();
+          final List<JsonMap> components =
+              exampleData.map((e) => e as JsonMap).toList();
 
           if (!components.any((c) => c['id'] == 'root')) {
             genUiLogger.info(

@@ -271,15 +271,15 @@ abstract final class A2uiSchemas {
 
   /// Schema for a function call.
   static Schema functionCall() => S.object(
-    properties: {
-      'call': S.string(description: 'The name of the function to call.'),
-      'args': S.object(
-        description: 'Arguments to pass to the function.',
-        additionalProperties: true,
-      ),
-    },
-    required: ['call'],
-  );
+        properties: {
+          'call': S.string(description: 'The name of the function to call.'),
+          'args': S.object(
+            description: 'Arguments to pass to the function.',
+            additionalProperties: true,
+          ),
+        },
+        required: ['call'],
+      );
 
   /// Schema for a validation check, including logic and an error message.
   static Schema validationCheck({String? description}) {
@@ -391,57 +391,60 @@ abstract final class A2uiSchemas {
 
   /// Schema for a createSurface message.
   static Schema createSurfaceSchema() => S.object(
-    description:
-        'Signals the client to create a new surface and begin rendering it. '
-        "When this message is sent, the client will expect 'updateComponents' "
-        "and/or 'updateDataModel' messages for the same surfaceId that define "
-        'the component tree.',
-    properties: {
-      surfaceIdKey: S.string(description: 'The unique ID for the surface.'),
-      'catalogId': S.string(
-        description:
-            'A string that uniquely identifies this catalog. It is recommended '
-            'to prefix this with an internet domain that you own, to avoid '
-            "conflicts e.g. 'mycompany.com:somecatalog'.",
-      ),
-      'theme': S.object(
-        description: 'Theme parameters for the surface.',
-        additionalProperties: true,
-      ),
-      'sendDataModel': S.boolean(
-        description: 'Whether to send the data model to every client request.',
-      ),
-    },
-    required: [surfaceIdKey, 'catalogId'],
-  );
+        description: 'Signals the client to create a new surface '
+            'and begin rendering it. '
+            'When this message is sent, the client will expect '
+            "'updateComponents' and/or 'updateDataModel' messages for the "
+            'same surfaceId that define '
+            'the component tree.',
+        properties: {
+          surfaceIdKey: S.string(description: 'The unique ID for the surface.'),
+          'catalogId': S.string(
+            description: 'A string that uniquely identifies this catalog. '
+                'It is recommended '
+                'to prefix this with an internet domain that you own, to avoid '
+                "conflicts e.g. 'mycompany.com:somecatalog'.",
+          ),
+          'theme': S.object(
+            description: 'Theme parameters for the surface.',
+            additionalProperties: true,
+          ),
+          'sendDataModel': S.boolean(
+            description:
+                'Whether to send the data model to every client request.',
+          ),
+        },
+        required: [surfaceIdKey, 'catalogId'],
+      );
 
   /// Schema for a deleteSurface message.
   static Schema deleteSurfaceSchema() => S.object(
-    description:
-        "Signals the client to delete the surface identified by 'surfaceId'. "
-        'The createSurface message MUST have been previously sent with the '
-        "'catalogId' that is in this message.",
-    properties: {surfaceIdKey: S.string()},
-    required: [surfaceIdKey],
-  );
+        description: 'Signals the client to delete the surface identified by '
+            "'surfaceId'. "
+            'The createSurface message MUST have been previously sent with the '
+            "'catalogId' that is in this message.",
+        properties: {surfaceIdKey: S.string()},
+        required: [surfaceIdKey],
+      );
 
   /// Schema for a updateDataModel message.
   static Schema updateDataModelSchema() => S.object(
-    description:
-        'Updates the data model for an existing surface. This message can be '
-        'sent multiple times to update the data model. The createSurface '
-        "message MUST have been previously sent with the 'catalogId' that is "
-        'in this message.',
-    properties: {
-      surfaceIdKey: S.string(),
-      'path': S.combined(type: JsonType.string, defaultValue: '/'),
-      'value': S.any(
-        description:
-            'The new value to write to the data model. If null/omitted, the key is removed.',
-      ),
-    },
-    required: [surfaceIdKey],
-  );
+        description: 'Updates the data model for an existing surface. '
+            'This message can be '
+            'sent multiple times to update the data model. The createSurface '
+            'message MUST have been previously sent with the '
+            "'catalogId' that is "
+            'in this message.',
+        properties: {
+          surfaceIdKey: S.string(),
+          'path': S.combined(type: JsonType.string, defaultValue: '/'),
+          'value': S.any(
+            description: 'The new value to write to the data model. '
+                'If null/omitted, the key is removed.',
+          ),
+        },
+        required: [surfaceIdKey],
+      );
 
   /// Schema for a component reference (ID).
   static Schema componentReference({String? description}) {
@@ -452,9 +455,8 @@ abstract final class A2uiSchemas {
   static Schema updateComponentsSchema(Catalog catalog) {
     // Collect specific component schemas from the catalog.
     // We assume catalog items have updated schemas (flattened).
-    final List<Schema> componentSchemas = catalog.items
-        .map((item) => item.dataSchema)
-        .toList();
+    final List<Schema> componentSchemas =
+        catalog.items.map((item) => item.dataSchema).toList();
 
     return S.object(
       description:

@@ -18,7 +18,7 @@ class A2uiValidationError extends A2uiError {
   final Object? details;
 
   A2uiValidationError(String message, {this.details})
-    : super(message, 'VALIDATION_ERROR');
+      : super(message, 'VALIDATION_ERROR');
 }
 
 /// Thrown during DataModel mutations (invalid paths, type mismatches).
@@ -34,7 +34,7 @@ class A2uiExpressionError extends A2uiError {
   final Object? details;
 
   A2uiExpressionError(String message, {this.expression, this.details})
-    : super(message, 'EXPRESSION_ERROR');
+      : super(message, 'EXPRESSION_ERROR');
 }
 
 /// Thrown for structural issues in the UI tree (missing surfaces, duplicate

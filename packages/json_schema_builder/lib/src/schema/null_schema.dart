@@ -17,7 +17,7 @@ extension type NullSchema.fromMap(Map<String, Object?> _value)
   factory NullSchema({String? title, String? description}) =>
       NullSchema.fromMap({
         'type': JsonType.nil.typeName,
-        'title': ?title,
-        'description': ?description,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
       });
 }

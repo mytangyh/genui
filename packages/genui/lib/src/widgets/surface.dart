@@ -115,11 +115,11 @@ class _SurfaceState extends State<Surface> {
           type: data.type,
           buildChild: (String childId, [DataContext? childDataContext]) =>
               _buildWidget(
-                definition,
-                catalog,
-                childId,
-                childDataContext ?? dataContext,
-              ),
+            definition,
+            catalog,
+            childId,
+            childDataContext ?? dataContext,
+          ),
           dispatchEvent: _dispatchEvent,
           buildContext: context,
           dataContext: dataContext,
@@ -185,7 +185,7 @@ abstract interface class ActionDelegate {
     UiEvent event,
     SurfaceContext genUiContext,
     Widget Function(SurfaceDefinition, Catalog, String, DataContext)
-    buildWidget,
+        buildWidget,
   );
 }
 
@@ -200,7 +200,7 @@ class DefaultActionDelegate implements ActionDelegate {
     UiEvent event,
     SurfaceContext genUiContext,
     Widget Function(SurfaceDefinition, Catalog, String, DataContext)
-    buildWidget,
+        buildWidget,
   ) {
     return false;
   }

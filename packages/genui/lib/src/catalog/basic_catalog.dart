@@ -110,9 +110,10 @@ abstract final class BasicCatalogItems {
   /// This is useful for the app, that do not work with images, audio or video.
   static Catalog asNoAssetCatalog({
     List<String> systemPromptFragments = const [],
-  }) => asCatalog(
-    systemPromptFragments: systemPromptFragments,
-  ).copyWithout(itemsToRemove: [audioPlayer, image, video]);
+  }) =>
+      asCatalog(
+        systemPromptFragments: systemPromptFragments,
+      ).copyWithout(itemsToRemove: [audioPlayer, image, video]);
 
   /// Creates a catalog with all basic catalog items.
   ///
@@ -143,6 +144,8 @@ abstract final class BasicCatalogItems {
       ],
       functions: BasicFunctions.all,
       catalogId: basicCatalogId,
+      // Retain the documented alias for existing A2UI producers.
+      // ignore: deprecated_member_use_from_same_package
       catalogIdAliases: const [legacyBasicCatalogId],
       systemPromptFragments: [basicCatalogRules, ...systemPromptFragments],
     );

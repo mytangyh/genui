@@ -23,7 +23,8 @@ class SchemaRegistry {
   ///
   /// An optional [schemaCache] can be provided for fetching remote schemas.
   SchemaRegistry({SchemaCache? schemaCache, LoggingContext? loggingContext})
-    : _schemaCache = schemaCache ?? SchemaCache(loggingContext: loggingContext);
+      : _schemaCache =
+            schemaCache ?? SchemaCache(loggingContext: loggingContext);
 
   /// Adds a schema to the registry with a given [uri].
   ///
@@ -286,7 +287,7 @@ void _walkSchema(
   void Function(Schema schema, Uri baseUri) visit,
 ) {
   final String? id = schema.$id;
-  var currentBaseUri = baseUri;
+  Uri currentBaseUri = baseUri;
   if (id != null) {
     // This is a heuristic to avoid re-resolving a relative path that has
     // already been applied to the base URI.
@@ -301,7 +302,7 @@ void _walkSchema(
   }
 
   void recurseOnList(List<Object?> list) {
-    for (final item in list) {
+    for (final Object? item in list) {
       if (item is Map<String, Object?>) {
         recurseOnMap(item);
       }

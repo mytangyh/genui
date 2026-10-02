@@ -28,15 +28,15 @@ void setUpMockPackageAssets() {
 
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMessageHandler('flutter/assets', (ByteData? message) async {
-        final String key = utf8.decode(message!.buffer.asUint8List());
-        var relativePath = key;
-        if (key.startsWith('packages/genui/')) {
-          relativePath = key.substring('packages/genui/'.length);
-        }
-        final file = File('$packageRoot/$relativePath');
-        if (file.existsSync()) {
-          return ByteData.view(utf8.encode(file.readAsStringSync()).buffer);
-        }
-        return null;
-      });
+    final String key = utf8.decode(message!.buffer.asUint8List());
+    var relativePath = key;
+    if (key.startsWith('packages/genui/')) {
+      relativePath = key.substring('packages/genui/'.length);
+    }
+    final file = File('$packageRoot/$relativePath');
+    if (file.existsSync()) {
+      return ByteData.view(utf8.encode(file.readAsStringSync()).buffer);
+    }
+    return null;
+  });
 }

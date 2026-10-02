@@ -59,20 +59,23 @@ extension type ObjectSchema.fromMap(Map<String, Object?> _value)
 
     /// The maximum number of properties that the object can have.
     int? maxProperties,
-  }) => ObjectSchema.fromMap({
-    'type': JsonType.object.typeName,
-    'title': ?title,
-    'description': ?description,
-    'properties': ?properties,
-    'patternProperties': ?patternProperties,
-    'required': ?required,
-    'dependentRequired': ?dependentRequired,
-    'additionalProperties': ?additionalProperties,
-    'unevaluatedProperties': ?unevaluatedProperties,
-    'propertyNames': ?propertyNames,
-    'minProperties': ?minProperties,
-    'maxProperties': ?maxProperties,
-  });
+  }) =>
+      ObjectSchema.fromMap({
+        'type': JsonType.object.typeName,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
+        if (properties case final value?) 'properties': value,
+        if (patternProperties case final value?) 'patternProperties': value,
+        if (required case final value?) 'required': value,
+        if (dependentRequired case final value?) 'dependentRequired': value,
+        if (additionalProperties case final value?)
+          'additionalProperties': value,
+        if (unevaluatedProperties case final value?)
+          'unevaluatedProperties': value,
+        if (propertyNames case final value?) 'propertyNames': value,
+        if (minProperties case final value?) 'minProperties': value,
+        if (maxProperties case final value?) 'maxProperties': value,
+      });
 
   /// A map of property names to schemas.
   Map<String, Schema>? get properties => mapToSchemaOrBool(kProperties);

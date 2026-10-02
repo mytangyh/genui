@@ -32,17 +32,18 @@ extension type const StringSchema.fromMap(Map<String, Object?> _value)
     /// See https://json-schema.org/understanding-json-schema/reference/string.html#format
     /// for a list of supported formats.
     String? format,
-  }) => StringSchema.fromMap({
-    'type': JsonType.string.typeName,
-    'title': ?title,
-    'description': ?description,
-    'enum': ?enumValues,
-    'const': ?constValue,
-    'minLength': ?minLength,
-    'maxLength': ?maxLength,
-    'pattern': ?pattern,
-    'format': ?format,
-  });
+  }) =>
+      StringSchema.fromMap({
+        'type': JsonType.string.typeName,
+        if (title case final value?) 'title': value,
+        if (description case final value?) 'description': value,
+        if (enumValues case final value?) 'enum': value,
+        if (constValue case final value?) 'const': value,
+        if (minLength case final value?) 'minLength': value,
+        if (maxLength case final value?) 'maxLength': value,
+        if (pattern case final value?) 'pattern': value,
+        if (format case final value?) 'format': value,
+      });
 
   /// The minimum length of the string.
   int? get minLength => (_value[kMinLength] as num?)?.toInt();

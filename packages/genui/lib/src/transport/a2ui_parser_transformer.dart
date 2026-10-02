@@ -122,11 +122,10 @@ class _A2uiParserStream {
       final int markdownStart = _buffer.indexOf('```');
       final int braceStart = _buffer.indexOf('{');
 
-      var firstPotentialStart = -1;
+      int firstPotentialStart = -1;
       if (markdownStart != -1 && braceStart != -1) {
-        firstPotentialStart = markdownStart < braceStart
-            ? markdownStart
-            : braceStart;
+        firstPotentialStart =
+            markdownStart < braceStart ? markdownStart : braceStart;
       } else if (markdownStart != -1) {
         firstPotentialStart = markdownStart;
       } else {
@@ -173,9 +172,8 @@ class _A2uiParserStream {
   void _emitText(String text) {
     _wasLastEventA2ui = false;
     // Clean up protocol tags that might leak into text stream
-    final String cleanText = text
-        .replaceAll('<a2ui_message>', '')
-        .replaceAll('</a2ui_message>', '');
+    final String cleanText =
+        text.replaceAll('<a2ui_message>', '').replaceAll('</a2ui_message>', '');
 
     if (cleanText.isNotEmpty) {
       _controller.add(TextEvent(cleanText));
@@ -260,11 +258,11 @@ class _A2uiParserStream {
   _Match? _findBalancedJson(String input) {
     if (!input.startsWith('{')) return null;
 
-    var balance = 0;
+    int balance = 0;
     var inString = false;
     var isEscaped = false;
 
-    for (var i = 0; i < input.length; i++) {
+    for (int i = 0; i < input.length; i++) {
       final String char = input[i];
 
       if (isEscaped) {

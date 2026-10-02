@@ -71,14 +71,15 @@ extension type _TextFieldData.fromMap(JsonMap _json) {
     String? variant,
     String? validationRegexp,
     JsonMap? onSubmittedAction,
-  }) => _TextFieldData.fromMap({
-    _Fields.value: value,
-    _Fields.label: label,
-    _Fields.checks: checks,
-    _Fields.variant: variant,
-    _Fields.validationRegexp: validationRegexp,
-    _Fields.onSubmittedAction: onSubmittedAction,
-  });
+  }) =>
+      _TextFieldData.fromMap({
+        _Fields.value: value,
+        _Fields.label: label,
+        _Fields.checks: checks,
+        _Fields.variant: variant,
+        _Fields.validationRegexp: validationRegexp,
+        _Fields.onSubmittedAction: onSubmittedAction,
+      });
 
   Object? get value => _json[_Fields.value];
   Object? get label => _json[_Fields.label];
@@ -217,12 +218,12 @@ class _TextFieldState extends State<_TextField> {
 
     _validationSubscription =
         ValidationHelper.validateStream(widget.checks, widget.context).listen((
-          String? newError,
-        ) {
-          if (newError != _checkError && mounted) {
-            setState(() => _checkError = newError);
-          }
-        });
+      String? newError,
+    ) {
+      if (newError != _checkError && mounted) {
+        setState(() => _checkError = newError);
+      }
+    });
   }
 
   @override
@@ -253,11 +254,11 @@ class _TextFieldState extends State<_TextField> {
       minLines: isLongText ? 3 : null,
       keyboardType: switch (variant) {
         _Variant.number => const TextInputType.numberWithOptions(
-          signed: true,
-          decimal: true,
-        ),
-        _Variant.longText => .multiline,
-        _ => .text,
+            signed: true,
+            decimal: true,
+          ),
+        _Variant.longText => TextInputType.multiline,
+        _ => TextInputType.text,
       },
       // The keyboard type is only a hint, so numbers are also enforced here,
       // which is what stops non-numeric input on desktop and web.
@@ -306,8 +307,7 @@ final textField = CatalogItem(
   isImplicitlyFlexible: true,
   dataSchema: _schema,
   exampleData: [
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -317,8 +317,7 @@ final textField = CatalogItem(
         }
       ]
     ''',
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -328,8 +327,7 @@ final textField = CatalogItem(
         }
       ]
     ''',
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -340,8 +338,7 @@ final textField = CatalogItem(
         }
       ]
     ''',
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -351,8 +348,7 @@ final textField = CatalogItem(
         }
       ]
     ''',
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -365,8 +361,7 @@ final textField = CatalogItem(
     // A price, written with a dollar sign, greater than zero, and with at most
     // two decimals. Character classes keep the pattern free of backslashes,
     // which would have to be escaped again to survive JSON.
-    () =>
-        '''
+    () => '''
       [
         {
           "id": "root",
@@ -392,8 +387,7 @@ final textField = CatalogItem(
           dataContext: itemContext.dataContext,
           value: textFieldData.label,
           builder: (context, label) {
-            final String? effectiveValue =
-                currentValue?.toString() ??
+            final String? effectiveValue = currentValue?.toString() ??
                 (valueRef is String ? valueRef : null);
 
             return _TextField(
@@ -443,8 +437,8 @@ final textField = CatalogItem(
                     }
                     return;
                   }
-                  final Stream<Object?> resultStream = itemContext.dataContext
-                      .resolve(funcMap);
+                  final Stream<Object?> resultStream =
+                      itemContext.dataContext.resolve(funcMap);
                   await resultStream.first;
                 }
               },

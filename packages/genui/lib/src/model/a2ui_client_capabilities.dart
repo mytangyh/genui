@@ -50,7 +50,7 @@ class A2UiClientCapabilities {
     final supportedIds = <String>{};
     final inlineDefinitions = <JsonMap>[];
 
-    for (final catalog in catalogs) {
+    for (final Catalog catalog in catalogs) {
       if (inlineHandling == InlineCatalogHandling.all) {
         inlineDefinitions.add(catalog.toCapabilitiesJson());
         continue;

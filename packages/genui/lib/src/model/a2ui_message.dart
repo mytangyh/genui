@@ -14,8 +14,7 @@ import 'catalog.dart';
 Schema a2uiMessageSchema(Catalog catalog) {
   return S.combined(
     title: 'A2UI Message Schema',
-    description:
-        'Describes a JSON payload for an A2UI (Agent to UI) message, '
+    description: 'Describes a JSON payload for an A2UI (Agent to UI) message, '
         'which is used to dynamically construct and update user interfaces.',
     oneOf: [
       S.object(

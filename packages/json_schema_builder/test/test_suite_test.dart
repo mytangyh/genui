@@ -30,10 +30,16 @@ void main() {
       .where((entity) => entity is File && entity.path.endsWith('.json'))
       .cast<File>();
 
-  final Set<String> testFilePaths = testFiles.map((f) => f.path).toSet();
+  // Directory.listSync can preserve a mixture of '/' and '\\' on Windows.
+  // Compare canonical file URIs so the existing optional-suite boundary works
+  // on every host and register the remote fixtures under their actual URLs.
+  final Set<String> testFilePaths =
+      testFiles.map((f) => f.absolute.uri.normalizePath().toFilePath()).toSet();
   final Set<String> optionalTestFilePaths = optionalTestFiles
-      .map((f) => f.path)
+      .map((f) => f.absolute.uri.normalizePath().toFilePath())
       .toSet();
+
+  assert(optionalTestFilePaths.every(testFilePaths.contains));
 
   // Exclude optional tests from the main suite.
   testFilePaths.removeAll(optionalTestFilePaths);
@@ -48,9 +54,11 @@ void main() {
     final String content = file.readAsStringSync();
     final data = jsonDecode(content) as Map<String, Object?>;
     final schema = Schema.fromMap(data);
-    final Uri uri = Uri.parse(
-      'http://localhost:1234/${file.path.substring(file.path.indexOf('remotes/') + 8)}',
-    );
+    final String relativePath =
+        file.absolute.uri.normalizePath().path.substring(
+              remoteDir.absolute.uri.normalizePath().path.length,
+            );
+    final Uri uri = Uri.parse('http://localhost:1234/').resolve(relativePath);
     schemaRegistry.addSchema(uri, schema);
   }
 
@@ -107,16 +115,14 @@ void main() {
               expect(
                 errors,
                 isEmpty,
-                reason:
-                    'Expected data to be valid, but got errors: '
+                reason: 'Expected data to be valid, but got errors: '
                     '$errorString\nLog:\n${loggingContext.buffer}',
               );
             } else {
               expect(
                 errors,
                 isNotEmpty,
-                reason:
-                    'Expected data to be invalid, but it was valid.\n'
+                reason: 'Expected data to be invalid, but it was valid.\n'
                     'Log:\n${loggingContext.buffer}',
               );
             }
@@ -142,8 +148,7 @@ void main() {
             expect(
               syncErrors.map((ValidationError e) => e.toErrorString()),
               errors.map((ValidationError e) => e.toErrorString()),
-              reason:
-                  'Synchronous validation disagreed with asynchronous '
+              reason: 'Synchronous validation disagreed with asynchronous '
                   'validation.\nLog:\n${loggingContext.buffer}',
             );
           });

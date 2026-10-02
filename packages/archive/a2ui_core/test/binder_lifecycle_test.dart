@@ -38,9 +38,10 @@ void main() {
       );
     });
 
-    test('rebuilding bindings disposes old ComputedNotifiers '
+    test(
+        'rebuilding bindings disposes old ComputedNotifiers '
         'from function calls', () {
-      var callCount = 0;
+      int callCount = 0;
       final trackingCatalog = _TrackingCatalog(onExecute: () => callCount++);
       final trackingSurface = SurfaceModel<ComponentApi>(
         's1',
@@ -81,8 +82,7 @@ void main() {
       expect(
         callCount,
         1,
-        reason:
-            'Old ComputedNotifiers should be disposed '
+        reason: 'Old ComputedNotifiers should be disposed '
             'after rebuild, but function was called '
             '$callCount times',
       );
@@ -90,7 +90,7 @@ void main() {
       binder.dispose();
     });
     test('construction resolves function-call properties exactly once', () {
-      var callCount = 0;
+      int callCount = 0;
       final trackingCatalog = _TrackingCatalog(onExecute: () => callCount++);
       final trackingSurface = SurfaceModel<ComponentApi>(
         's1',
@@ -116,8 +116,7 @@ void main() {
       expect(
         callCount,
         1,
-        reason:
-            'Function should be evaluated once during '
+        reason: 'Function should be evaluated once during '
             'construction, not $callCount times',
       );
     });
@@ -144,9 +143,9 @@ class _TrackingFunction extends FunctionImplementation {
 
   @override
   Schema get argumentSchema => Schema.object(
-    properties: {'value': CommonSchemas.dynamicString},
-    required: ['value'],
-  );
+        properties: {'value': CommonSchemas.dynamicString},
+        required: ['value'],
+      );
 
   @override
   Object? execute(

@@ -32,21 +32,21 @@ class BasicFunctions {
 
   /// Returns a list of all basic functions.
   static List<ClientFunction> get all => [
-    requiredFunction,
-    regexFunction,
-    lengthFunction,
-    numericFunction,
-    emailFunction,
-    formatStringFunction,
-    openUrlFunction,
-    formatNumberFunction,
-    formatCurrencyFunction,
-    formatDateFunction,
-    pluralizeFunction,
-    andFunction,
-    orFunction,
-    notFunction,
-  ];
+        requiredFunction,
+        regexFunction,
+        lengthFunction,
+        numericFunction,
+        emailFunction,
+        formatStringFunction,
+        openUrlFunction,
+        formatNumberFunction,
+        formatCurrencyFunction,
+        formatDateFunction,
+        pluralizeFunction,
+        andFunction,
+        orFunction,
+        notFunction,
+      ];
 }
 
 /// Checks if all values in a list are truthy.
@@ -67,7 +67,7 @@ class AndFunction extends SynchronousClientFunction {
       S.object(properties: {'values': S.list(items: S.any())});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     if (!args.containsKey('values')) return false;
     final Object? values = args['values'];
     if (values is! List) return false;
@@ -97,7 +97,7 @@ class OrFunction extends SynchronousClientFunction {
       S.object(properties: {'values': S.list(items: S.any())});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     if (!args.containsKey('values')) return false;
     final Object? values = args['values'];
     if (values is! List) return false;
@@ -126,7 +126,7 @@ class NotFunction extends SynchronousClientFunction {
   Schema get argumentSchema => S.object(properties: {'value': S.any()});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     if (!args.containsKey('value')) return false;
     return !isTruthy(args['value']);
   }
@@ -150,7 +150,7 @@ class RequiredFunction extends SynchronousClientFunction {
   Schema get argumentSchema => S.object(properties: {'value': S.any()});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     if (!args.containsKey('value')) return false;
     final Object? value = args['value'];
     if (value == null) return false;
@@ -177,11 +177,14 @@ class RegexFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {'value': A2uiSchemas.stringReference(), 'pattern': S.string()},
-  );
+        properties: {
+          'value': A2uiSchemas.stringReference(),
+          'pattern': S.string()
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? value = args['value'];
     final Object? pattern = args['pattern'];
     if (value is! String || pattern is! String) return false;
@@ -208,13 +211,13 @@ class LengthFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {'value': S.any(), 'min': S.integer(), 'max': S.integer()},
-  );
+        properties: {'value': S.any(), 'min': S.integer(), 'max': S.integer()},
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? value = args['value'];
-    var length = 0;
+    int length = 0;
     if (value == null) {
       length = 0;
     } else if (value is String) {
@@ -258,15 +261,15 @@ class NumericFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {
-      'value': A2uiSchemas.numberReference(),
-      'min': S.number(),
-      'max': S.number(),
-    },
-  );
+        properties: {
+          'value': A2uiSchemas.numberReference(),
+          'min': S.number(),
+          'max': S.number(),
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? value = args['value'];
     if (value is! num) return false;
 
@@ -300,7 +303,7 @@ class EmailFunction extends SynchronousClientFunction {
       S.object(properties: {'value': A2uiSchemas.stringReference()});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? value = args['value'];
     if (value is! String) return false;
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
@@ -316,8 +319,7 @@ class OpenUrlFunction extends SynchronousClientFunction {
   String get name => 'openUrl';
 
   @override
-  String get description =>
-      'Opens the specified URL in a browser or handler. '
+  String get description => 'Opens the specified URL in a browser or handler. '
       'This function has no return value.';
 
   @override
@@ -328,7 +330,7 @@ class OpenUrlFunction extends SynchronousClientFunction {
       S.object(properties: {'url': A2uiSchemas.stringReference()});
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? urlStr = args['url'];
     if (urlStr is! String) return false;
     final Uri? uri = Uri.tryParse(urlStr);
@@ -358,15 +360,15 @@ class FormatNumberFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {
-      'value': A2uiSchemas.numberReference(),
-      'decimalPlaces': S.integer(),
-      'useGrouping': S.boolean(),
-    },
-  );
+        properties: {
+          'value': A2uiSchemas.numberReference(),
+          'decimalPlaces': S.integer(),
+          'useGrouping': S.boolean(),
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? number = args['value'];
     if (number is! num) return number?.toString() ?? '';
 
@@ -408,14 +410,14 @@ class FormatCurrencyFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {
-      'value': A2uiSchemas.numberReference(),
-      'currencyCode': S.string(),
-    },
-  );
+        properties: {
+          'value': A2uiSchemas.numberReference(),
+          'currencyCode': S.string(),
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? amount = args['value'];
     final Object? currencyCode = args['currencyCode'];
     if (amount is! num || currencyCode is! String) {
@@ -443,14 +445,14 @@ class FormatDateFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {
-      'value': S.any(), // String or int (millis)
-      'pattern': S.string(),
-    },
-  );
+        properties: {
+          'value': S.any(), // String or int (millis)
+          'pattern': S.string(),
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? dateVal = args['value'];
     final Object? pattern = args['pattern'];
 
@@ -489,19 +491,19 @@ class PluralizeFunction extends SynchronousClientFunction {
 
   @override
   Schema get argumentSchema => S.object(
-    properties: {
-      'value': A2uiSchemas.numberReference(),
-      'zero': S.string(),
-      'one': S.string(),
-      'two': S.string(),
-      'few': S.string(),
-      'many': S.string(),
-      'other': S.string(),
-    },
-  );
+        properties: {
+          'value': A2uiSchemas.numberReference(),
+          'zero': S.string(),
+          'one': S.string(),
+          'two': S.string(),
+          'few': S.string(),
+          'many': S.string(),
+          'other': S.string(),
+        },
+      );
 
   @override
-  Object? executeSync(JsonMap args, ExecutionContext _) {
+  Object? executeSync(JsonMap args, ExecutionContext context) {
     final Object? count = args['value'] ?? args['count'];
     if (count is! num) return '';
 

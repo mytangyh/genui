@@ -15,8 +15,8 @@ import '../primitives/simple_items.dart';
 import 'schema_validation.dart' as schema_validation;
 
 /// A callback that is called when events are sent.
-typedef SendEventsCallback =
-    void Function(String surfaceId, List<UiEvent> events);
+typedef SendEventsCallback = void Function(
+    String surfaceId, List<UiEvent> events);
 
 /// A callback that is called when an event is dispatched.
 typedef DispatchEventCallback = void Function(UiEvent event);
@@ -60,12 +60,12 @@ extension type UserActionEvent.fromMap(JsonMap _json) implements UiEvent {
     DateTime? timestamp,
     JsonMap? context,
   }) : _json = {
-         surfaceIdKey: ?surfaceId,
-         'name': name,
-         'sourceComponentId': sourceComponentId,
-         'timestamp': (timestamp ?? DateTime.now()).toIso8601String(),
-         'context': context ?? {},
-       };
+          if (surfaceId case final value?) surfaceIdKey: value,
+          'name': name,
+          'sourceComponentId': sourceComponentId,
+          'timestamp': (timestamp ?? DateTime.now()).toIso8601String(),
+          'context': context ?? {},
+        };
 
   /// The name of the action.
   String get name => _json['name'] as String;
@@ -101,8 +101,7 @@ class SurfaceDefinition {
     return SurfaceDefinition(
       surfaceId: json[surfaceIdKey] as String,
       catalogId: json[_Json.catalogId] as String? ?? basicCatalogId,
-      components:
-          (json[_Json.components] as Map<String, Object?>?)?.map(
+      components: (json[_Json.components] as Map<String, Object?>?)?.map(
             (key, value) => MapEntry(key, Component.fromJson(value as JsonMap)),
           ) ??
           const {},
@@ -158,7 +157,7 @@ class SurfaceDefinition {
       _Json.components: components.map(
         (key, value) => MapEntry(key, value.toJson()),
       ),
-      _Json.theme: ?theme,
+      if (theme case final value?) _Json.theme: value,
     };
   }
 
@@ -263,7 +262,7 @@ final class SurfaceAdded extends SurfaceUpdate {
   /// Internal: snapshots the definition from a live core surface.
   @internal
   SurfaceAdded.fromCore(super.surfaceId, core.SurfaceModel coreSurface)
-    : definition = SurfaceDefinition.fromCore(coreSurface);
+      : definition = SurfaceDefinition.fromCore(coreSurface);
 
   /// Snapshot definition for this surface.
   final SurfaceDefinition definition;
@@ -278,7 +277,7 @@ final class ComponentsUpdated extends SurfaceUpdate {
   /// Internal: snapshots the definition from a live core surface.
   @internal
   ComponentsUpdated.fromCore(super.surfaceId, core.SurfaceModel coreSurface)
-    : definition = SurfaceDefinition.fromCore(coreSurface);
+      : definition = SurfaceDefinition.fromCore(coreSurface);
 
   /// Snapshot definition for this surface.
   final SurfaceDefinition definition;

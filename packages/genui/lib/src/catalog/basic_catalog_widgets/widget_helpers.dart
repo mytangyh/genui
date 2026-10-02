@@ -14,26 +14,24 @@ import '../../widgets/widget_utilities.dart';
 ///
 /// This is used by [ComponentChildrenBuilder] when children are defined by a
 /// `template` which includes a `dataBinding` to a list in the [DataContext].
-typedef TemplateListWidgetBuilder =
-    Widget Function(
-      BuildContext context,
-      Object? data,
-      String componentId,
-      String path,
-    );
+typedef TemplateListWidgetBuilder = Widget Function(
+  BuildContext context,
+  Object? data,
+  String componentId,
+  String path,
+);
 
 /// Builder function for creating a parent widget given a list of pre-built
 /// [childIds].
 ///
 /// This is used by [ComponentChildrenBuilder] when children are defined as an
 /// explicit list of component IDs.
-typedef ExplicitListWidgetBuilder =
-    Widget Function(
-      List<String> childIds,
-      ChildBuilderCallback buildChild,
-      GetComponentCallback getComponent,
-      DataContext dataContext,
-    );
+typedef ExplicitListWidgetBuilder = Widget Function(
+  List<String> childIds,
+  ChildBuilderCallback buildChild,
+  GetComponentCallback getComponent,
+  DataContext dataContext,
+);
 
 /// A helper widget to build widgets from component data that contains a list
 /// of children.
