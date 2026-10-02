@@ -1,0 +1,142 @@
+Computing fixes in packages...
+Applying fixes...
+
+archive\a2ui_core\lib\src\core\data_model.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\lib\src\primitives\data_path.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\lib\src\processing\expressions.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\lib\src\processing\processor.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\lib\src\rendering\binder.dart
+  omit_obvious_local_variable_types - 1 fix
+  specify_nonobvious_local_variable_types - 3 fixes
+
+archive\a2ui_core\test\binder_lifecycle_test.dart
+  specify_nonobvious_local_variable_types - 2 fixes
+
+archive\a2ui_core\test\cancellation_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\test\component_model_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+archive\a2ui_core\test\data_model_test.dart
+  specify_nonobvious_local_variable_types - 9 fixes
+
+archive\a2ui_core\test\surface_model_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\catalog\basic_catalog_widgets\audio_player.dart
+  directives_ordering - 1 fix
+
+genui\lib\src\catalog\basic_catalog_widgets\choice_picker.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\catalog\basic_catalog_widgets\date_time_input.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\catalog\basic_catalog_widgets\slider.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\catalog\basic_catalog_widgets\video.dart
+  directives_ordering - 1 fix
+
+genui\lib\src\catalog\basic_functions.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\development_utilities\catalog_view.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\facade\conversation.dart
+  specify_nonobvious_local_variable_types - 5 fixes
+
+genui\lib\src\functions\format_string.dart
+  omit_obvious_local_variable_types - 2 fixes
+  specify_nonobvious_local_variable_types - 6 fixes
+
+genui\lib\src\model\a2ui_client_capabilities.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\model\data_model.dart
+  omit_obvious_local_variable_types - 2 fixes
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\model\data_path.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\model\schema_validation.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\lib\src\transport\a2ui_parser_transformer.dart
+  specify_nonobvious_local_variable_types - 3 fixes
+
+genui\lib\src\utils\json_block_parser.dart
+  specify_nonobvious_local_variable_types - 3 fixes
+
+genui\lib\test\validation.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\test\facade\prompt_builder_test.dart
+  omit_obvious_local_variable_types - 1 fix
+
+genui\test\functions\format_string_test.dart
+  omit_obvious_local_variable_types - 1 fix
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui\test\test_infra\validation_test_utils.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui_a2a\lib\src\a2a\client\a2a_client.dart
+  omit_obvious_local_variable_types - 2 fixes
+
+genui_a2a\lib\src\a2a\client\a2a_handler.dart
+  specify_nonobvious_local_variable_types - 2 fixes
+
+genui_a2a\lib\src\a2a\client\sse_parser.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+genui_a2a\lib\src\logging_utils.dart
+  omit_obvious_local_variable_types - 1 fix
+
+genui_a2a\test\a2a\example_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+json_schema_builder\lib\src\schema_registry.dart
+  specify_nonobvious_local_variable_types - 2 fixes
+
+json_schema_builder\lib\src\schema_validation.dart
+  specify_nonobvious_local_variable_types - 15 fixes
+
+json_schema_builder\lib\src\validation_result.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+json_schema_builder\test\sync_validation_test.dart
+  specify_nonobvious_local_variable_types - 3 fixes
+
+87 fixes made in 38 files.
+Computing fixes in genui...
+Applying fixes...
+
+test\catalog\core_widgets\text_test.dart
+  no_leading_underscores_for_local_identifiers - 10 fixes
+
+test\catalog_test.dart
+  no_leading_underscores_for_local_identifiers - 4 fixes
+
+test\image_test.dart
+  no_leading_underscores_for_local_identifiers - 12 fixes
+
+26 fixes made in 3 files.
+Computing fixes in genui...
+Applying fixes...
+
+test\facade\prompt_builder_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+1 fix made in 1 file.

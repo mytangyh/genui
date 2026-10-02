@@ -26,7 +26,7 @@ class A2AHandlerPipeline {
   Future<Map<String, Object?>> handleRequest(
     Map<String, Object?> request,
   ) async {
-    var currentRequest = request;
+    Map<String, Object?> currentRequest = request;
     for (final A2AHandler handler in handlers) {
       currentRequest = await handler.handleRequest(currentRequest);
     }
@@ -37,7 +37,7 @@ class A2AHandlerPipeline {
   Future<Map<String, Object?>> handleResponse(
     Map<String, Object?> response,
   ) async {
-    var currentResponse = response;
+    Map<String, Object?> currentResponse = response;
     for (final A2AHandler handler in handlers.reversed) {
       currentResponse = await handler.handleResponse(currentResponse);
     }

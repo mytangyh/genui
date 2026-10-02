@@ -8,7 +8,7 @@ import 'package:genui/genui.dart';
 
 class Message {
   Message({this.text, this.surfaceId, this.isUser = false})
-    : assert((surfaceId == null) != (text == null));
+      : assert((surfaceId == null) != (text == null));
 
   String? text;
   final String? surfaceId;

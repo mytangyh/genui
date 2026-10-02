@@ -1,0 +1,26 @@
+{
+  "validatedAt": "2026-10-02 05:02:13 UTC",
+  "entrypoint": "examples/simple_chat/lib/main.dart",
+  "platform": "Android",
+  "device": "Redmi 7A",
+  "serial": "62f1ca2e0906",
+  "package": "com.example.simple_chat",
+  "activity": "com.example.simple_chat/.MainActivity",
+  "model": "gpt-5.6-luna",
+  "provider": "OpenAI-compatible via Dartantic",
+  "installed": true,
+  "foreground": true,
+  "defaultPromptSent": true,
+  "streamCompleted": true,
+  "renderingErrorsObserved": false,
+  "providerErrorsObserved": false,
+  "visibleResult": "Climbing cards, image, location details and Learn more button rendered; screenshot shows Lone Mountain",
+  "evidence": [
+    "android-main-build-live.txt",
+    "android-main-live-log.txt",
+    "android-main-live.png",
+    "android-main-live-ui.xml"
+  ],
+  "separateAcceptance": "All three modes and both UI follow-ups are proven by live_model_test.dart, not inferred from launch",
+  "credentials": "Injected from ignored local JSON; credentialed APK remains ignored and is not the credential-free delivery artifact"
+}

@@ -102,7 +102,6 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ],
           ),
-
           body: SafeArea(
             child: Column(
               children: [
@@ -125,13 +124,11 @@ class _ChatScreenState extends State<ChatScreen> {
                     },
                   ),
                 ),
-
                 if (_chatSession.isProcessing)
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CircularProgressIndicator(),
                   ),
-
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -148,9 +145,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       ),
                       IconButton(
                         icon: const Icon(Icons.send),
-                        onPressed: _chatSession.isProcessing
-                            ? null
-                            : _sendMessage,
+                        onPressed:
+                            _chatSession.isProcessing ? null : _sendMessage,
                       ),
                     ],
                   ),

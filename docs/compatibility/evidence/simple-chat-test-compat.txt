@@ -1,0 +1,15 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:55:15: Error: The type 'String?' of the getter 'OpenAIResponsesEventMapper.containerId' is not a subtype of the type 'String' of the setter 'OpenAIResponsesEventMapper.containerId'.
+  String? get containerId => _state.containerId;
+              ^^^^^^^^^^^
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:56:7: Context: This is the declaration of the setter 'OpenAIResponsesEventMapper.containerId'.
+  set containerId(String containerId) {
+      ^^^^^^^^^^^
+../../../ai_clients_dart/packages/mistralai_dart/lib/src/utils/job_poller.dart:168:53: Error: This requires the experimental 'null-aware-elements' language feature to be enabled.
+Try passing the '--enable-experiment=null-aware-elements' command line option.
+          details: [for (final error in job.errors) ?error.message],
+                                                    ^
+00:00 +0 -1: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart [E]
+  Failed to load "C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart": Compilation failed for testPath=C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart
+00:00 +0 -1: Some tests failed.

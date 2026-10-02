@@ -27,7 +27,7 @@ class SseParser {
     var data = <String>[];
 
     try {
-      await for (final line in lines) {
+      await for (final String line in lines) {
         final String lineData = line.length < 300
             ? line
             : line.substring(0, 300);

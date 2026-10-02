@@ -2,14 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:logging/logging.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:simple_chat/main.dart';
+import 'package:simple_chat/primitives/app_mode.dart';
+import 'package:simple_chat/primitives/climbing/a2ui_components/climbing.dart';
 
 // Import from ../test via relative path since it is not in lib
 import '../test/fake_ai_client.dart';
@@ -24,6 +25,100 @@ void main() {
   });
 
   group('Simple Chat Integration Tests', () {
+    testWidgets('Text only preserves streamed replies and multi-turn history', (
+      tester,
+    ) async {
+      final client = FakeAiClient()
+        ..addResponse('First streamed reply.')
+        ..addResponse('Second streamed reply.');
+      await tester.pumpWidget(
+        MaterialApp(home: ChatScreen(aiClient: client)),
+      );
+      await _selectMode(tester, AppMode.textOnly);
+      await _sendText(tester, 'First turn');
+      expect(
+        find.textContaining('First streamed reply.', findRichText: true),
+        findsOneWidget,
+      );
+      await _sendText(tester, 'Second turn');
+      expect(
+        find.textContaining('Second streamed reply.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(client.receivedPrompts, ['First turn', 'Second turn']);
+      final Iterable<String> history =
+          client.receivedHistories.last.map((message) => message.text);
+      expect(history, contains('First turn'));
+      expect(history, contains('First streamed reply.'));
+      expect(history, contains('Second turn'));
+    });
+
+    testWidgets('Basic catalog returns actions and renders the follow-up', (
+      tester,
+    ) async {
+      final String fixture = await rootBundle.loadString(
+        'integration_test/samples/sample_2_button.json',
+      );
+      final client = FakeAiClient()
+        ..addResponse('```json\n$fixture\n```')
+        ..addResponse('Basic action follow-up.');
+      await tester.pumpWidget(
+        MaterialApp(home: ChatScreen(aiClient: client)),
+      );
+      await _selectMode(tester, AppMode.basicCatalog);
+      await _sendText(tester, 'Render a button');
+      await tester.tap(find.text('Click Me'));
+      await _pumpResponse(tester);
+      expect(client.receivedPrompts.last, contains('Button Clicked'));
+      expect(
+        find.textContaining('Basic action follow-up.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        client.receivedHistories.last.map((message) => message.text),
+        contains(contains('sample_2_button')),
+      );
+    });
+
+    testWidgets('Custom catalog renders climbing and returns Learn more', (
+      tester,
+    ) async {
+      const fixture = '''
+[
+  {"version":"v0.9","createSurface":{
+    "surfaceId":"compat_climbing",
+    "catalogId":"https://a2ui.org/specification/v0_9/basic_catalog.json"}},
+  {"version":"v0.9","updateComponents":{
+    "surfaceId":"compat_climbing","components":[
+      {"id":"root","component":"ClimbingLocation",
+       "identifier":"kraft_boulders"}]}}
+]
+''';
+      final client = FakeAiClient()
+        ..addResponse('```json\n$fixture\n```')
+        ..addResponse('Kraft details follow-up.');
+      await tester.pumpWidget(
+        MaterialApp(home: ChatScreen(aiClient: client)),
+      );
+      await _sendText(tester, 'Show Kraft Boulders');
+      expect(find.byType(ClimbingLocation), findsOneWidget);
+      expect(find.text('Kraft Boulders'), findsOneWidget);
+      await tester.ensureVisible(find.text('Learn more'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Learn more'));
+      await _pumpResponse(tester);
+      expect(client.receivedPrompts.last, contains('learnMoreAboutLocation'));
+      expect(client.receivedPrompts.last, contains('kraft_boulders'));
+      expect(
+        find.textContaining('Kraft details follow-up.', findRichText: true),
+        findsOneWidget,
+      );
+      expect(
+        client.receivedHistories.last.map((message) => message.text),
+        contains(contains('compat_climbing')),
+      );
+    });
+
     testWidgets('render hello world sample', (tester) async {
       await mockNetworkImagesFor(() async {
         await _runTestForSample(
@@ -91,17 +186,32 @@ void main() {
   });
 }
 
+Future<void> _selectMode(WidgetTester tester, AppMode mode) async {
+  await tester.tap(find.byType(DropdownButton<AppMode>));
+  await tester.pumpAndSettle();
+  await tester.tap(find.text(mode.displayName).last);
+  await tester.pumpAndSettle();
+}
+
+Future<void> _sendText(WidgetTester tester, String text) async {
+  await tester.enterText(find.byType(TextField), text);
+  await tester.tap(find.byIcon(Icons.send));
+  await _pumpResponse(tester);
+}
+
+Future<void> _pumpResponse(WidgetTester tester) async {
+  for (int i = 0; i < 30; i++) {
+    await tester.pump(const Duration(milliseconds: 100));
+  }
+}
+
 Future<void> _runTestForSample(
   WidgetTester tester,
   String samplePath,
   Future<void> Function(WidgetTester, FakeAiClient) verify,
 ) async {
-  // Read sample file
-  final file = File(samplePath);
-  if (!file.existsSync()) {
-    fail('Sample file not found: $samplePath');
-  }
-  final String jsonString = await file.readAsString();
+  // Bundle samples so the same upstream fixtures are available on devices.
+  final String jsonString = await rootBundle.loadString(samplePath);
 
   // Initialize FakeAiClient
   final fakeAiClient = FakeAiClient();
@@ -126,7 +236,7 @@ Future<void> _runTestForSample(
   // We can't use pumpAndSettle() because some catalog widgets (e.g. Image's
   // loadingBuilder shows a CircularProgressIndicator) have indeterminate
   // animations that is not handled by pumpAndSettle.
-  for (var i = 0; i < 30; i++) {
+  for (int i = 0; i < 30; i++) {
     await tester.pump(const Duration(milliseconds: 100));
   }
 

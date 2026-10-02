@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-01 20:11:48 UTC",
+  "method": "Authenticated GitHub connector get_repo, read-only",
+  "remoteMutations": false,
+  "repositories": [
+    {
+      "repository": "mytangyh/genui",
+      "result": "accessible",
+      "repositoryId": "1117650248",
+      "defaultBranch": "main",
+      "note": "Existing fork target accessible; technical push permission does not authorize a write"
+    },
+    {
+      "repository": "mytangyh/dartantic_ai",
+      "result": "NOT_FOUND",
+      "repositoryId": null,
+      "defaultBranch": null,
+      "note": "API returned 404; this does not exclude a differently named fork or unavailable private repository"
+    },
+    {
+      "repository": "mytangyh/ai_clients_dart",
+      "result": "NOT_FOUND",
+      "repositoryId": null,
+      "defaultBranch": null,
+      "note": "API returned 404; this does not exclude a differently named fork or unavailable private repository"
+    },
+    {
+      "repository": "mytangyh/google-cloud-dart",
+      "result": "NOT_FOUND",
+      "repositoryId": null,
+      "defaultBranch": null,
+      "note": "API returned 404; this does not exclude a differently named fork or unavailable private repository"
+    },
+    {
+      "repository": "mytangyh/sse_channel",
+      "result": "NOT_FOUND",
+      "repositoryId": null,
+      "defaultBranch": null,
+      "note": "API returned 404; this does not exclude a differently named fork or unavailable private repository"
+    }
+  ]
+}

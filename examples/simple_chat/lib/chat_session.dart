@@ -25,18 +25,15 @@ abstract final class Prompts {
   static const String summary =
       'You are a helpful assistant who chats with a user.';
 
-  static final String choicePicker =
-      '''
+  static final String choicePicker = '''
 When you need additional information from the user, try to use the component '${BasicCatalogItems.choicePicker.name}' to ask for it.
 ''';
 
-  static final String textFieldFallback =
-      '''
+  static final String textFieldFallback = '''
 If there is no way to itemize all the options, either use the component '${BasicCatalogItems.textField.name}' or add option 'Other' to the '${BasicCatalogItems.choicePicker.name}'.
 ''';
 
-  static final String climbingLocations =
-      '''
+  static final String climbingLocations = '''
 If the user is asking about climbing locations, use the 'listClimbingLocations' tool to get a list of climbing locations.
 Always use the component named '${climbingLocationItem.name}' to display the locations. The '${climbingLocationItem.name}' component already includes a 'Learn more' button; do not add any extra submit/confirmation buttons next to it.
 When the user clicks 'Learn more' on a '${climbingLocationItem.name}', a UI action named 'learnMoreAboutLocation' will be sent with the location's identifier and name in its context. Respond with detailed information about that specific location.
@@ -45,16 +42,15 @@ When user asks about climbing locations, never use other components.
 ''';
 }
 
-final Catalog _basicCatalog =
-    BasicCatalogItems.asCatalog(
-      systemPromptFragments: [Prompts.choicePicker, Prompts.textFieldFallback],
-    ).copyWithout(
-      itemsToRemove: [
-        BasicCatalogItems.audioPlayer,
-        BasicCatalogItems.image,
-        BasicCatalogItems.video,
-      ],
-    );
+final Catalog _basicCatalog = BasicCatalogItems.asCatalog(
+  systemPromptFragments: [Prompts.choicePicker, Prompts.textFieldFallback],
+).copyWithout(
+  itemsToRemove: [
+    BasicCatalogItems.audioPlayer,
+    BasicCatalogItems.image,
+    BasicCatalogItems.video,
+  ],
+);
 
 final Catalog _customCatalog = _basicCatalog.copyWith(
   systemPromptFragments: [
@@ -65,18 +61,18 @@ final Catalog _customCatalog = _basicCatalog.copyWith(
 );
 
 PromptBuilder _promptBuilderFor(Catalog catalog) => PromptBuilder.chat(
-  catalog: catalog,
-  systemPromptFragments: [
-    Prompts.summary,
-    PromptFragments.acknowledgeUser(),
-    PromptFragments.requireAtLeastOneSubmitElement(
-      prefix: PromptBuilder.defaultImportancePrefix,
-    ),
-    PromptFragments.uiGenerationRestriction(
-      prefix: PromptBuilder.defaultImportancePrefix,
-    ),
-  ],
-);
+      catalog: catalog,
+      systemPromptFragments: [
+        Prompts.summary,
+        PromptFragments.acknowledgeUser(),
+        PromptFragments.requireAtLeastOneSubmitElement(
+          prefix: PromptBuilder.defaultImportancePrefix,
+        ),
+        PromptFragments.uiGenerationRestriction(
+          prefix: PromptBuilder.defaultImportancePrefix,
+        ),
+      ],
+    );
 
 sealed class ChatSession extends ChangeNotifier {
   ChatSession._();
@@ -84,13 +80,13 @@ sealed class ChatSession extends ChangeNotifier {
   factory ChatSession({AiClient? aiClient, required AppMode mode}) {
     return switch (mode) {
       AppMode.customCatalog => A2uiChatSession(
-        aiClient: aiClient,
-        catalog: _customCatalog,
-      ),
+          aiClient: aiClient,
+          catalog: _customCatalog,
+        ),
       AppMode.basicCatalog => A2uiChatSession(
-        aiClient: aiClient,
-        catalog: _basicCatalog,
-      ),
+          aiClient: aiClient,
+          catalog: _basicCatalog,
+        ),
       AppMode.textOnly => TextOnlyChatSession(aiClient: aiClient),
     };
   }
@@ -187,8 +183,8 @@ class TextOnlyChatSession extends ChatSession {
 /// A chat session that supports generative UI.
 class A2uiChatSession extends ChatSession {
   A2uiChatSession({AiClient? aiClient, required Catalog catalog})
-    : _catalog = catalog,
-      super._() {
+      : _catalog = catalog,
+        super._() {
     _transport = SimpleChatA2aTransport(aiClient: aiClient);
     _surfaceController = SurfaceController(catalogs: [catalog]);
     _init();
@@ -223,9 +219,9 @@ class A2uiChatSession extends ChatSession {
 
   void _onSurfaceUpdate(SurfaceUpdate update) {
     switch (update) {
-      case SurfaceAdded(:final surfaceId):
+      case SurfaceAdded(:final String surfaceId):
         _addSurfaceMessage(surfaceId);
-      case SurfaceRemoved(:final surfaceId):
+      case SurfaceRemoved(:final String surfaceId):
         _reportError(
           'Surface $surfaceId removed, that should not happen in chat.',
           showInChat: false,

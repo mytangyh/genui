@@ -1,0 +1,12 @@
+{
+  "tool": "rhysd/actionlint",
+  "version": "1.7.12",
+  "versionOutput": "1.7.12\r\ninstalled by downloading from release page\r\nbuilt with go1.26.1 compiler for windows/amd64",
+  "release": "https://github.com/rhysd/actionlint/releases/tag/v1.7.12",
+  "archiveSha256": "6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9",
+  "upstreamChecksumMatched": true,
+  "workflow": ".github/workflows/flutter_3274.yaml",
+  "workflowSha256": "0e8191146080f398b3191a3dd10399ab4ff5ad3aa77c1740e42c90b1b76e937f",
+  "exitCode": 0,
+  "result": "passed Android-only static workflow validation; not a remote CI run"
+}

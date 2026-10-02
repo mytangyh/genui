@@ -29,9 +29,8 @@ void main() {
 
     // The first response arrived in a single bubble, rather than being split in
     // two by the second request clearing the current message mid-stream.
-    final List<Message> replies = session.messages
-        .where((message) => !message.isUser)
-        .toList();
+    final List<Message> replies =
+        session.messages.where((message) => !message.isUser).toList();
     expect(replies, hasLength(1));
     expect(
       replies.single.text,

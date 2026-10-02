@@ -1,0 +1,20 @@
+00:00 +0: loading test\io_sse_channel_test.dart
+00:00 +0 -1: loading test\io_sse_channel_test.dart [E]
+  Failed to load "test\io_sse_channel_test.dart":
+  lib/sse_channel.dart:4:1: Error: Error when reading 'lib/src/sse_channel.dart': 系统找不到指定的文件。
+  
+  export 'src/sse_channel.dart';
+  ^
+  test/io_sse_channel_test.dart:33:25: Error: Undefined name 'SseChannel'.
+          final channel = SseChannel.connect(serverUri);
+                          ^^^^^^^^^^
+  test/io_sse_channel_test.dart:61:23: Error: Undefined name 'SseChannel'.
+        final channel = SseChannel.connect(serverUri);
+                        ^^^^^^^^^^
+00:00 +0 -2: loading test\sse_channel_exception_test.dart [E]
+  Failed to load "test\sse_channel_exception_test.dart":
+  lib/sse_channel.dart:4:1: Error: Error when reading 'lib/src/sse_channel.dart': 系统找不到指定的文件。
+  
+  export 'src/sse_channel.dart';
+  ^
+00:00 +0 -2: Some tests failed.

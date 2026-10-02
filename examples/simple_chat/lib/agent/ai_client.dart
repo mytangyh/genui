@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:dartantic_ai/dartantic_ai.dart' as dartantic;
+import 'package:logging/logging.dart';
 
 import '../primitives/climbing/climbing_db.dart';
 import 'api_key/api_key.dart';
@@ -27,22 +28,39 @@ abstract interface class AiClient {
 /// An implementation of [AiClient] using `package:dartantic_ai`.
 class DartanticAiClient implements AiClient {
   DartanticAiClient({String? modelName}) {
-    final String key = apiKey();
-    _provider = dartantic.GoogleProvider(apiKey: key);
+    const configuredKey = String.fromEnvironment('GENUI_API_KEY');
+    final String key = configuredKey.isEmpty ? apiKey() : configuredKey;
+    const baseUrl = String.fromEnvironment('GENUI_BASE_URL');
+    const providerName = String.fromEnvironment(
+      'GENUI_PROVIDER',
+      defaultValue: 'google',
+    );
+    final Uri? endpoint = baseUrl.isEmpty ? null : Uri.parse(baseUrl);
+    final dartantic.Provider provider = switch (providerName) {
+      'google' => dartantic.GoogleProvider(apiKey: key, baseUrl: endpoint),
+      'openai' => dartantic.OpenAIProvider(apiKey: key, baseUrl: endpoint),
+      _ => throw ArgumentError.value(providerName, 'GENUI_PROVIDER'),
+    };
     _agent = dartantic.Agent.forProvider(
-      _provider,
-      chatModelName: modelName ?? 'gemini-3-flash-preview',
+      provider,
+      chatModelName: modelName ??
+          const String.fromEnvironment(
+            'GENUI_MODEL',
+            defaultValue: 'gemini-3-flash-preview',
+          ),
       tools: [
         dartantic.Tool(
           name: 'listClimbingLocations',
           description: 'Lists all available climbing locations.',
-          onCall: (args) => climbingLocations.map((e) => e.toJson()).toList(),
+          onCall: (args) {
+            Logger('SimpleChatTools').info('listClimbingLocations executed');
+            return climbingLocations.map((e) => e.toJson()).toList();
+          },
         ),
       ],
     );
   }
 
-  late final dartantic.GoogleProvider _provider;
   late final dartantic.Agent _agent;
 
   @override

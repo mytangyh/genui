@@ -14,7 +14,7 @@ typedef ChunkHandler = void Function(String chunk);
 
 class SimpleChatAgent {
   SimpleChatAgent({AiClient? aiClient, required this.onChunkFromAgent})
-    : aiClient = aiClient ?? DartanticAiClient();
+      : aiClient = aiClient ?? DartanticAiClient();
 
   final AiClient aiClient;
   final ChunkHandler onChunkFromAgent;

@@ -1,0 +1,136 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+00:00 +0: Simple Chat Integration Tests Text only preserves streamed replies and multi-turn history
+00:09 +1: Simple Chat Integration Tests Basic catalog returns actions and renders the follow-up
+00:11 +1: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:09.169963: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:09.176218: Created new surface sample_2_button
+INFO: 2026-10-02 03:29:09.178643: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:09.238707: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:09.242274: Building widget root
+INFO: 2026-10-02 03:29:09.243287: Building widget Column with id root
+FINEST: 2026-10-02 03:29:09.246284: Building widget the_button
+INFO: 2026-10-02 03:29:09.246284: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:09.247284: Building widget btn_label
+INFO: 2026-10-02 03:29:09.247284: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:09.247284: Building Button with child: btn_label
+FINE: 2026-10-02 03:29:11.786376: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:11.786376: Building widget root
+INFO: 2026-10-02 03:29:11.786376: Building widget Column with id root
+FINEST: 2026-10-02 03:29:11.786376: Building widget the_button
+INFO: 2026-10-02 03:29:11.786376: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:11.786376: Building widget btn_label
+INFO: 2026-10-02 03:29:11.786376: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:11.786376: Building Button with child: btn_label
+FINE: 2026-10-02 03:29:11.818542: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:11.818542: Building widget root
+INFO: 2026-10-02 03:29:11.818542: Building widget Column with id root
+FINEST: 2026-10-02 03:29:11.818542: Building widget the_button
+INFO: 2026-10-02 03:29:11.818542: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:11.818542: Building widget btn_label
+INFO: 2026-10-02 03:29:11.818542: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:11.818542: Building Button with child: btn_label
+FINE: 2026-10-02 03:29:11.852076: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:11.853088: Building widget root
+INFO: 2026-10-02 03:29:11.853088: Building widget Column with id root
+FINEST: 2026-10-02 03:29:11.853088: Building widget the_button
+INFO: 2026-10-02 03:29:11.853088: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:11.853088: Building widget btn_label
+INFO: 2026-10-02 03:29:11.853088: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:11.853088: Building Button with child: btn_label
+FINE: 2026-10-02 03:29:11.884892: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:11.884892: Building widget root
+INFO: 2026-10-02 03:29:11.884892: Building widget Column with id root
+FINEST: 2026-10-02 03:29:11.885891: Building widget the_button
+INFO: 2026-10-02 03:29:11.885891: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:11.885891: Building widget btn_label
+INFO: 2026-10-02 03:29:11.885891: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:11.885891: Building Button with child: btn_label
+00:17 +2: Simple Chat Integration Tests Custom catalog renders climbing and returns Learn more
+00:17 +2: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:15.780747: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:15.781759: Created new surface compat_climbing
+INFO: 2026-10-02 03:29:15.781759: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:15.835936: Building surface compat_climbing
+FINEST: 2026-10-02 03:29:15.835936: Building widget root
+INFO: 2026-10-02 03:29:15.835936: Building widget ClimbingLocation with id root
+FINE: 2026-10-02 03:29:19.068014: Building surface compat_climbing
+FINEST: 2026-10-02 03:29:19.068014: Building widget root
+INFO: 2026-10-02 03:29:19.068014: Building widget ClimbingLocation with id root
+FINE: 2026-10-02 03:29:19.111879: Building surface compat_climbing
+FINEST: 2026-10-02 03:29:19.113890: Building widget root
+INFO: 2026-10-02 03:29:19.113890: Building widget ClimbingLocation with id root
+FINE: 2026-10-02 03:29:19.154330: Building surface compat_climbing
+FINEST: 2026-10-02 03:29:19.155457: Building widget root
+INFO: 2026-10-02 03:29:19.155457: Building widget ClimbingLocation with id root
+FINE: 2026-10-02 03:29:19.186055: Building surface compat_climbing
+FINEST: 2026-10-02 03:29:19.187056: Building widget root
+INFO: 2026-10-02 03:29:19.187056: Building widget ClimbingLocation with id root
+00:24 +3: Simple Chat Integration Tests render hello world sample
+00:25 +3: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:23.239646: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:23.239646: Created new surface sample_1_hello
+INFO: 2026-10-02 03:29:23.239646: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:23.305440: Building surface sample_1_hello
+FINEST: 2026-10-02 03:29:23.306788: Building widget root
+INFO: 2026-10-02 03:29:23.306788: Building widget Text with id root
+00:28 +4: Simple Chat Integration Tests render button sample
+00:29 +4: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:27.331514: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:27.331514: Created new surface sample_2_button
+INFO: 2026-10-02 03:29:27.331514: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:27.387803: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:27.387803: Building widget root
+INFO: 2026-10-02 03:29:27.387803: Building widget Column with id root
+FINEST: 2026-10-02 03:29:27.387803: Building widget the_button
+INFO: 2026-10-02 03:29:27.387803: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:27.387803: Building widget btn_label
+INFO: 2026-10-02 03:29:27.387803: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:27.387803: Building Button with child: btn_label
+FINE: 2026-10-02 03:29:29.868590: Building surface sample_2_button
+FINEST: 2026-10-02 03:29:29.868590: Building widget root
+INFO: 2026-10-02 03:29:29.868590: Building widget Column with id root
+FINEST: 2026-10-02 03:29:29.869593: Building widget the_button
+INFO: 2026-10-02 03:29:29.869593: Building widget Button with id the_button
+FINEST: 2026-10-02 03:29:29.869593: Building widget btn_label
+INFO: 2026-10-02 03:29:29.869593: Building widget Text with id btn_label
+INFO: 2026-10-02 03:29:29.869593: Building Button with child: btn_label
+00:32 +5: Simple Chat Integration Tests render form sample
+00:33 +5: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:31.251870: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:31.251870: Created new surface sample_4_form
+INFO: 2026-10-02 03:29:31.252389: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:31.286367: Building surface sample_4_form
+FINEST: 2026-10-02 03:29:31.286367: Building widget root
+INFO: 2026-10-02 03:29:31.286367: Building widget Column with id root
+FINEST: 2026-10-02 03:29:31.286367: Building widget field_type
+INFO: 2026-10-02 03:29:31.286367: Building widget TextField with id field_type
+FINEST: 2026-10-02 03:29:31.287373: Building widget field_size
+INFO: 2026-10-02 03:29:31.287373: Building widget TextField with id field_size
+FINEST: 2026-10-02 03:29:31.287373: Building widget submit_btn
+INFO: 2026-10-02 03:29:31.287373: Building widget Button with id submit_btn
+FINEST: 2026-10-02 03:29:31.287373: Building widget btn_text
+INFO: 2026-10-02 03:29:31.287373: Building widget Text with id btn_text
+INFO: 2026-10-02 03:29:31.287373: Building Button with child: btn_text
+00:35 +6: Simple Chat Integration Tests render mixed sample
+00:37 +6: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/app_test.dart
+INFO: 2026-10-02 03:29:35.073149: SurfaceController.handleMessage received: CreateSurfaceMessage
+INFO: 2026-10-02 03:29:35.073149: Created new surface sample_5_mixed
+INFO: 2026-10-02 03:29:35.074156: SurfaceController.handleMessage received: UpdateComponentsMessage
+FINE: 2026-10-02 03:29:35.153159: Building surface sample_5_mixed
+FINEST: 2026-10-02 03:29:35.153159: Building widget root
+INFO: 2026-10-02 03:29:35.153159: Building widget Column with id root
+FINEST: 2026-10-02 03:29:35.153159: Building widget question
+INFO: 2026-10-02 03:29:35.153680: Building widget Text with id question
+FINEST: 2026-10-02 03:29:35.153680: Building widget btn_yes
+INFO: 2026-10-02 03:29:35.153680: Building widget Button with id btn_yes
+FINEST: 2026-10-02 03:29:35.153680: Building widget yes_text
+INFO: 2026-10-02 03:29:35.153680: Building widget Text with id yes_text
+INFO: 2026-10-02 03:29:35.153680: Building Button with child: yes_text
+FINEST: 2026-10-02 03:29:35.153680: Building widget btn_no
+INFO: 2026-10-02 03:29:35.153680: Building widget Button with id btn_no
+FINEST: 2026-10-02 03:29:35.153680: Building widget no_text
+INFO: 2026-10-02 03:29:35.153680: Building widget Text with id no_text
+INFO: 2026-10-02 03:29:35.153680: Building Button with child: no_text
+00:39 +7: (tearDownAll)
+00:39 +7: All tests passed!

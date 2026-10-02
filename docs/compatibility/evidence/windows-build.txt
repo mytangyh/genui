@@ -1,0 +1,4 @@
+Waiting for another flutter command to release the startup lock...
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+
+Unable to find suitable Visual Studio toolchain. Please run `flutter doctor` for more details.

@@ -1,0 +1,18 @@
+Fork references are still a development snapshot.
+./pubspec_overrides.yaml must be removed.
+anthropic_sdk_dart still resolves to a local path.
+dartantic_ai still resolves to a local path.
+dartantic_interface still resolves to a local path.
+google_cloud_ai_generativelanguage_v1beta still resolves to a local path.
+google_cloud_longrunning still resolves to a local path.
+google_cloud_protobuf still resolves to a local path.
+google_cloud_rpc still resolves to a local path.
+google_cloud_type still resolves to a local path.
+mistralai_dart still resolves to a local path.
+ollama_dart still resolves to a local path.
+openai_dart still resolves to a local path.
+sse_channel still resolves to a local path.
+dartantic_ai has no approved delivery commit.
+ai_clients_dart has no approved delivery commit.
+google-cloud-dart has no approved delivery commit.
+sse_channel has no approved delivery commit.

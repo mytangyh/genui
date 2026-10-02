@@ -1,0 +1,89 @@
+{
+  "purpose": "Verify immutable fetched library sources match the local code used in Android live/offline/media acceptance",
+  "packages": [
+    {
+      "package": "dartantic_interface",
+      "commit": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+      "filesCompared": 22,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "68d8e20d51b0718c895be552dae9e4de97d9bee6604e710c8794e2cfe3951661"
+    },
+    {
+      "package": "dartantic_ai",
+      "commit": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+      "filesCompared": 120,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "320bd04ac5c0f9fa1deb9f670b056eadd6d7a1466dfbe2c84601cfdd33da4946"
+    },
+    {
+      "package": "anthropic_sdk_dart",
+      "commit": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+      "filesCompared": 78,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "a050c7b73195b93a9acff56c8168bdabeafad10cb804924d8d0fc90f15cecd30"
+    },
+    {
+      "package": "mistralai_dart",
+      "commit": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+      "filesCompared": 142,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "e130a3d6be4f26abb26c5df0b6c7f86068555180c3cb451146f375222f829cbd"
+    },
+    {
+      "package": "ollama_dart",
+      "commit": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+      "filesCompared": 68,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "a6a72dac6d3dacdc354529058b19491a5168a25f1a0d2721047829a1a158b1db"
+    },
+    {
+      "package": "openai_dart",
+      "commit": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+      "filesCompared": 214,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "4ecd16b180752f20dfe5aa9e58dff608a96cc96d5edbf23cf215751aacbf832e"
+    },
+    {
+      "package": "google_cloud_protobuf",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "filesCompared": 3,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "9fd29ebc3c307f7f1615254c6c77bd0ba9a281cf1cef8db02f47ec2e1b46d975"
+    },
+    {
+      "package": "google_cloud_rpc",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "filesCompared": 8,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "dc56c0662feed6a5708f1a6bb6f778b45d48d880ce3760830b8ef14f7ccd8b6e"
+    },
+    {
+      "package": "google_cloud_type",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "filesCompared": 1,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "a7356b019db9c72d526bedb7a65c80871aabe423944a8ab9ed83c56d122c49fd"
+    },
+    {
+      "package": "google_cloud_longrunning",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "filesCompared": 2,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "f81805621487dd99d65ea0c30f84091615d5762fb5aa83624c84e2357a9a5e57"
+    },
+    {
+      "package": "google_cloud_ai_generativelanguage_v1beta",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "filesCompared": 1,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "7deba54645040a23500122756f7b92326f8f5fb34842373714ef2a940e7f05c1"
+    },
+    {
+      "package": "sse_channel",
+      "commit": "1776f9dfa82e9d3a1430f236c02a70a3ded38aee",
+      "filesCompared": 4,
+      "equalAfterNewlineNormalization": true,
+      "aggregateSha256": "8d23e102590b269ff1ba0438502754e6e5455498b887549816297c3948a628ac"
+    }
+  ]
+}

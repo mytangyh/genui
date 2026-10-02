@@ -1,0 +1,341 @@
+--------- beginning of main
+10-02 12:58:00.868 10697 24875 I flutter : FINE: 2026-10-02 12:57:53.959565: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.868 10697 24875 I flutter : FINE: 2026-10-02 12:57:53.978287: Received OpenAI stream chunk 400
+10-02 12:58:00.868 10697 24875 I flutter : FINE: 2026-10-02 12:57:53.978925: Streaming chunk: text=5 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.868 10697 24875 I flutter : FINE: 2026-10-02 12:57:53.979575: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:53.979779: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.009241: Received OpenAI stream chunk 401
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.010367: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.011570: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.012021: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.257713: Received OpenAI stream chunk 402
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.258491: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.259220: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.259488: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.261148: Received OpenAI stream chunk 403
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.261930: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.262936: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.263202: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.263775: Received OpenAI stream chunk 404
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.264244: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.264857: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.265072: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.266872: Received OpenAI stream chunk 405
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.267640: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.268396: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.268641: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.284253: Received OpenAI stream chunk 406
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.285084: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.285867: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.286121: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.287644: Received OpenAI stream chunk 407
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.288341: Streaming chunk: text=4 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.289067: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.289298: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.301808: Received OpenAI stream chunk 408
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.302560: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.304188: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.304526: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.314290: Received OpenAI stream chunk 409
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.315047: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.315938: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.316279: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.318018: Received OpenAI stream chunk 410
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.318665: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.319307: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.319508: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.320739: Received OpenAI stream chunk 411
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.321279: Streaming chunk: text=4 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.321891: Accumulating message chunk: 1 parts
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.322085: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.323387: Received OpenAI stream chunk 412
+10-02 12:58:00.869 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.324149: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.324855: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.325079: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.326328: Received OpenAI stream chunk 413
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.326883: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.327515: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.327714: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.328981: Received OpenAI stream chunk 414
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.329547: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.330171: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.330366: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.331620: Received OpenAI stream chunk 415
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.332241: Streaming chunk: text=9 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.332893: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.333087: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.340751: Received OpenAI stream chunk 416
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.341581: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.342791: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.343222: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.516080: Received OpenAI stream chunk 417
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.516983: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.517888: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.518138: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.518638: Received OpenAI stream chunk 418
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.519013: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.519756: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.519975: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.529871: Received OpenAI stream chunk 419
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.530947: Streaming chunk: text=6 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.532118: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.532411: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.534533: Received OpenAI stream chunk 420
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.535297: Streaming chunk: text=8 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.536193: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.536467: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.538115: Received OpenAI stream chunk 421
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.538809: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.539692: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.539945: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.541566: Received OpenAI stream chunk 422
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.542242: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.543132: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.543393: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.564559: Received OpenAI stream chunk 423
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.565446: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.566354: Accumulating message chunk: 1 parts
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.566630: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.567206: Received OpenAI stream chunk 424
+10-02 12:58:00.870 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.567882: Streaming chunk: text=10 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.568764: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.569060: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.569696: Received OpenAI stream chunk 425
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.570158: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.570941: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.571165: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.580920: Received OpenAI stream chunk 426
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.581917: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.583039: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.583424: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.696801: Received OpenAI stream chunk 427
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.697784: Streaming chunk: text=4 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.698547: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.698796: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.700390: Received OpenAI stream chunk 428
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.701107: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.701871: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.702132: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.703977: Received OpenAI stream chunk 429
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.704747: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.705484: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.705732: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.713890: Received OpenAI stream chunk 430
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.714847: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.715784: Accumulating message chunk: 1 parts
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.716073: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:00.871 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.716614: Received OpenAI stream chunk 431
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.717099: Streaming chunk: text=4 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.717772: Accumulating message chunk: 1 parts
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.717990: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.718477: Received OpenAI stream chunk 432
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.718863: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.872 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.719476: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.719729: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.722171: Received OpenAI stream chunk 433
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.722920: Streaming chunk: text=5 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.723829: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.724126: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.725608: Received OpenAI stream chunk 434
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.726270: Streaming chunk: text=4 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.726947: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.727166: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.728503: Received OpenAI stream chunk 435
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.729249: Streaming chunk: text=5 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.729989: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.730231: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.730707: Received OpenAI stream chunk 436
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.731067: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.731661: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.731883: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.732264: Received OpenAI stream chunk 437
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.732588: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.733155: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.733303: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.741879: Received OpenAI stream chunk 438
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.742710: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.743748: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.744210: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.746949: Received OpenAI stream chunk 439
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.747701: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.748475: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.748717: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.750306: Received OpenAI stream chunk 440
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.751237: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.752152: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.752547: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.762271: Received OpenAI stream chunk 441
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.763296: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.764548: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.764912: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.767623: Received OpenAI stream chunk 442
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.768497: Streaming chunk: text=1 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.769398: Accumulating message chunk: 1 parts
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.769775: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.781314: Received OpenAI stream chunk 443
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.782178: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.873 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.782976: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.783284: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.783948: Received OpenAI stream chunk 444
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.784448: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.785258: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.785554: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.800246: Received OpenAI stream chunk 445
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.801126: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.802001: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.802329: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.830441: Received OpenAI stream chunk 446
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.831294: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.832628: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.833100: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.844050: Received OpenAI stream chunk 447
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.844877: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.845668: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.845960: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.893517: Received OpenAI stream chunk 448
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.894547: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.895354: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:54.895623: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.083492: Received OpenAI stream chunk 449
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.084464: Streaming chunk: text=9 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.085416: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.085690: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.087394: Received OpenAI stream chunk 450
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.088124: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.089015: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.089305: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.089838: Received OpenAI stream chunk 451
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.090233: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.091012: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.091198: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.100871: Received OpenAI stream chunk 452
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.101806: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.102956: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.103409: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.112264: Received OpenAI stream chunk 453
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.113099: Streaming chunk: text=6 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.114046: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.114322: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.116217: Received OpenAI stream chunk 454
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.117056: Streaming chunk: text=8 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.118072: Accumulating message chunk: 1 parts
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.118544: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.120100: Received OpenAI stream chunk 455
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.120751: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.874 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.121491: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.121719: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.129958: Received OpenAI stream chunk 456
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.130781: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.131685: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.132021: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.132541: Received OpenAI stream chunk 457
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.132978: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.133695: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.133866: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.135674: Received OpenAI stream chunk 458
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.136291: Streaming chunk: text=10 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.136977: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.137199: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.234210: Received OpenAI stream chunk 459
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.235176: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.236185: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.236469: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.245498: Received OpenAI stream chunk 460
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.246304: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.247306: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.247687: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.619982: Received OpenAI stream chunk 461
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.620826: Streaming chunk: text=1 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.621772: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.622042: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.623804: Received OpenAI stream chunk 462
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.624607: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.625629: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.625986: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.636558: Received OpenAI stream chunk 463
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.637550: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.638688: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.639165: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.641107: Received OpenAI stream chunk 464
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.641959: Streaming chunk: text=7 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.643018: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.643398: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.659994: Received OpenAI stream chunk 465
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.660784: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.661687: Accumulating message chunk: 1 parts
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.662007: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.665033: Received OpenAI stream chunk 466
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.665811: Streaming chunk: text=5 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:01.875 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.666831: Accumulating message chunk: 1 parts
+10-02 12:58:02.877 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.667241: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.877 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.669184: Received OpenAI stream chunk 467
+10-02 12:58:02.877 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.669989: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.877 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.670735: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.670953: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.671354: Received OpenAI stream chunk 468
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.671678: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.672217: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.672389: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.673873: Received OpenAI stream chunk 469
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.674525: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.675191: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.675389: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.675753: Received OpenAI stream chunk 470
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.676046: Streaming chunk: text=1 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.676583: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.676748: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.677073: Received OpenAI stream chunk 471
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.677312: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.677824: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.677947: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.678261: Received OpenAI stream chunk 472
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.678488: Streaming chunk: text=2 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.678991: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.679125: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.679404: Received OpenAI stream chunk 473
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.679622: Streaming chunk: text=3 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.681108: SurfaceController.handleMessage received: UpdateComponentsMessage
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.794210: Accumulating message chunk: 1 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.794546: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.797704: Received OpenAI stream chunk 474
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:55.800045: Building surface las_vegas_beginner_climbing_01
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.808185: Building widget root
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.812484: Building widget Column with id root
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.823829: Building widget origin_climbing_fitness
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.824059: Building widget ClimbingLocation with id origin_climbing_fitness
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.827262: Building widget red_rock_climbing_center
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.827412: Building widget ClimbingLocation with id red_rock_climbing_center
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.827526: Building widget the_refuge_climbing_center
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.827592: Building widget ClimbingLocation with id the_refuge_climbing_center
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.827676: Building widget kraft_boulders
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.827740: Building widget ClimbingLocation with id kraft_boulders
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.827816: Building widget calico_hills_i
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.827883: Building widget ClimbingLocation with id calico_hills_i
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.827958: Building widget willow_springs
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.828021: Building widget ClimbingLocation with id willow_springs
+10-02 12:58:02.878 10697 24875 I flutter : FINEST: 2026-10-02 12:57:55.828102: Building widget lone_mountain
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:55.828165: Building widget ClimbingLocation with id lone_mountain
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.863110: Streaming chunk: text=0 chars, metadata=(created, model, system_fingerprint), thinking=0 chars
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.863519: Accumulating message chunk: 0 parts
+10-02 12:58:02.878 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.864072: Merging metadata; accumulated keys=(), new keys=()
+10-02 12:58:02.878 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.864175: OpenAI chat stream completed after 474 chunks
+10-02 12:58:02.879 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.864273: Consolidating accumulated message: 473 parts
+10-02 12:58:02.879 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.864359: Consolidated metadata keys: ()
+10-02 12:58:02.879 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.868361: Finalizing streaming orchestrator
+10-02 12:58:02.879 10697 24875 I flutter : FINE: 2026-10-02 12:57:56.930997: Building surface las_vegas_beginner_climbing_01
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.931316: Building widget root
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.931410: Building widget Column with id root
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.931852: Building widget origin_climbing_fitness
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.931931: Building widget ClimbingLocation with id origin_climbing_fitness
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932045: Building widget red_rock_climbing_center
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932112: Building widget ClimbingLocation with id red_rock_climbing_center
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932200: Building widget the_refuge_climbing_center
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932264: Building widget ClimbingLocation with id the_refuge_climbing_center
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932344: Building widget kraft_boulders
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932408: Building widget ClimbingLocation with id kraft_boulders
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932487: Building widget calico_hills_i
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932551: Building widget ClimbingLocation with id calico_hills_i
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932639: Building widget willow_springs
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932738: Building widget ClimbingLocation with id willow_springs
+10-02 12:58:02.879 10697 24875 I flutter : FINEST: 2026-10-02 12:57:56.932817: Building widget lone_mountain
+10-02 12:58:02.879 10697 24875 I flutter : INFO: 2026-10-02 12:57:56.932881: Building widget ClimbingLocation with id lone_mountain

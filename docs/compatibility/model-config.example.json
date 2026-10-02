@@ -1,0 +1,7 @@
+{
+  "GEMINI_API_KEY": "",
+  "GENUI_PROVIDER": "google",
+  "GENUI_API_KEY": "",
+  "GENUI_MODEL": "gemini-3-flash-preview",
+  "GENUI_BASE_URL": ""
+}

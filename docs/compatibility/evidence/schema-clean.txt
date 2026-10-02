@@ -1,0 +1,9 @@
+[WARNING] Deleting cache and generated source files.
+This shouldn't be necessary for most applications, unless you have made intentional edits to generated files (i.e. for testing). Consider filing a bug at https://github.com/dart-lang/build/issues/new if you are using this to work around an apparent (and reproducible) bug.
+[INFO] Cleaning up source outputs...
+[WARNING] No asset graph found. Skipping cleanup of generated files in source directories.
+[INFO] Cleaning up source outputs completed, took 0ms
+
+[INFO] Cleaning up cache directory...
+[INFO] Cleaning up cache directory completed, took 6ms
+

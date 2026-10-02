@@ -1,0 +1,29 @@
+[
+  {
+    "repository": "sse_channel",
+    "baseline": "90ec12606e33e067dba1e4f18bd6869d419dbf7c",
+    "source": "Git baseline plus current tracked changes and new files; no commit created",
+    "pubCache": "Fresh temporary cache, shared only across these three independent source snapshots",
+    "overrides": false,
+    "result": "enforced lockfile, format, analysis and offline upstream tests passed",
+    "evidence": "sse_channel-clean-source-tests.txt"
+  },
+  {
+    "repository": "google-cloud-dart",
+    "baseline": "2c44ec5b4e2d865fc4130fd42b8b5a43b5a831ed",
+    "source": "Git baseline plus current tracked changes and new files; no commit created",
+    "pubCache": "Fresh temporary cache, shared only across these three independent source snapshots",
+    "overrides": false,
+    "result": "enforced lockfile, format, analysis and offline upstream tests passed",
+    "evidence": "google-cloud-dart-clean-source-tests.txt"
+  },
+  {
+    "repository": "ai_clients_dart",
+    "baseline": "a46c9cb73a8cd9625af9b570e8cae619b29d045a",
+    "source": "Git baseline plus current tracked changes and new files; no commit created",
+    "pubCache": "Fresh temporary cache, shared only across these three independent source snapshots",
+    "overrides": false,
+    "result": "enforced lockfile, format, analysis and offline upstream tests passed",
+    "evidence": "ai_clients_dart-clean-source-tests.txt"
+  }
+]

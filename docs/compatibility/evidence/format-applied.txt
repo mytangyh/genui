@@ -1,0 +1,2 @@
+Formatted packages\genui\lib\src\model\a2ui_schemas.dart
+Formatted 135 files (1 changed) in 0.85 seconds.

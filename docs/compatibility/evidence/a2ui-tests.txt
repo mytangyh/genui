@@ -1,0 +1,71 @@
+00:00 +0: loading test\binder_lifecycle_test.dart
+00:00 +0: test\binder_lifecycle_test.dart: GenericBinder lifecycle dispose stops reacting to data model changes
+00:00 +1: test\binder_test.dart: GenericBinder resolves dynamic properties
+00:00 +2: test\cancellation_test.dart: CancellationSignal notifies listeners on cancel
+00:00 +3: test\binder_lifecycle_test.dart: GenericBinder lifecycle rebuilding bindings disposes old ComputedNotifiers from function calls
+00:00 +4: test\binder_lifecycle_test.dart: GenericBinder lifecycle rebuilding bindings disposes old ComputedNotifiers from function calls
+00:00 +5: test\binder_lifecycle_test.dart: GenericBinder lifecycle rebuilding bindings disposes old ComputedNotifiers from function calls
+00:00 +6: test\binder_lifecycle_test.dart: GenericBinder lifecycle rebuilding bindings disposes old ComputedNotifiers from function calls
+00:00 +7: test\binder_lifecycle_test.dart: GenericBinder lifecycle rebuilding bindings disposes old ComputedNotifiers from function calls
+00:00 +8: test\binder_test.dart: GenericBinder resolves structural children
+00:00 +9: test\binder_test.dart: GenericBinder resolves structural children
+00:00 +10: test\component_model_test.dart: ComponentModel onUpdated fires on every property update, not just the first
+00:00 +11: test\component_model_test.dart: ComponentModel onUpdated fires on every property update, not just the first
+00:00 +12: test\binder_test.dart: GenericBinder resolves checkable validation
+00:00 +13: test\data_model_test.dart: DataModel gets and sets root data
+00:00 +14: test\data_model_test.dart: DataModel gets and sets nested data
+00:00 +15: test\data_model_test.dart: DataModel auto-vivifies maps and lists
+00:00 +16: test\data_path_test.dart: DataPath parses root path
+00:00 +17: test\data_path_test.dart: DataPath parses root path
+00:00 +18: test\data_path_test.dart: DataPath parses root path
+00:00 +19: test\data_path_test.dart: DataPath parses root path
+00:00 +20: test\data_model_test.dart: DataModel notifies root watch on any change
+00:00 +21: test\data_path_test.dart: DataPath parses simple path
+00:00 +22: test\data_path_test.dart: DataPath parses simple path
+00:00 +23: test\data_model_test.dart: DataModel notifies root watch on root set
+00:00 +24: test\data_path_test.dart: DataPath parses escaped segments
+00:00 +25: test\data_model_test.dart: DataModel does not notify unrelated paths
+00:00 +26: test\data_path_test.dart: DataPath appends segments
+00:00 +27: test\data_model_test.dart: DataModel does not notify a sibling whose name shares a prefix
+00:00 +28: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +29: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +30: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +31: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +32: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +33: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +34: test\expressions_test.dart: ExpressionParser parses literals
+00:00 +35: test\expressions_test.dart: ExpressionParser parses simple interpolation
+00:00 +36: test\expressions_test.dart: ExpressionParser parses absolute paths
+00:00 +37: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +38: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +39: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +40: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +41: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +42: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +43: test\messages_test.dart: A2uiMessage.fromJson parses createSurface
+00:00 +44: test\messages_test.dart: A2uiMessage.fromJson parses createSurface with defaults
+00:00 +45: test\messages_test.dart: A2uiMessage.fromJson parses updateComponents
+00:00 +46: test\messages_test.dart: A2uiMessage.fromJson parses updateDataModel
+00:00 +47: test\messages_test.dart: A2uiMessage.fromJson parses updateDataModel without path or value
+00:00 +48: test\messages_test.dart: A2uiMessage.fromJson parses deleteSurface
+00:00 +49: test\messages_test.dart: A2uiMessage.fromJson throws on unknown message type
+00:00 +50: test\messages_test.dart: A2uiMessage.fromJson throws when version field is missing
+00:00 +51: test\messages_test.dart: A2uiMessage.fromJson throws when version is not v0.9
+00:00 +52: test\messages_test.dart: A2uiMessage.fromJson throws when version is not a string
+00:00 +53: test\messages_test.dart: A2uiMessage.fromJson throws when more than one message type is present
+00:00 +54: test\messages_test.dart: A2uiMessage.fromJson roundtrips through toJson/fromJson
+00:00 +55: test\processor_test.dart: MessageProcessor creates surface
+00:00 +56: test\reactivity_test.dart: Reactivity Signal notifies subscribers on change
+00:00 +57: test\reactivity_test.dart: Reactivity Signal notifies subscribers on change
+00:00 +58: test\reactivity_test.dart: Reactivity Signal notifies subscribers on change
+00:00 +59: test\reactivity_test.dart: Reactivity Signal notifies subscribers on change
+00:00 +60: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +61: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +62: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +63: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +64: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +65: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +66: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +67: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +68: test\surface_model_test.dart: SurfaceGroupModel removes action forwarder listener when surface is deleted
+00:00 +69: All tests passed!

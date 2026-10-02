@@ -1,0 +1,99 @@
+{
+  "status": "delivery",
+  "repositories": [
+    {
+      "name": "dartantic_ai",
+      "repository": "mytangyh/dartantic_ai",
+      "upstream": "csells/dartantic",
+      "baseline": "557f1584f26a302bbb00ac6d98df1f5e3e1de812",
+      "branch": "compat/flutter-3.27.4",
+      "commit": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+      "packages": [
+        {
+          "name": "dartantic_interface",
+          "path": "packages/dartantic_interface"
+        },
+        {
+          "name": "dartantic_ai",
+          "path": "packages/dartantic_ai"
+        }
+      ],
+      "upstreamAlias": "csells/dartantic_ai"
+    },
+    {
+      "name": "ai_clients_dart",
+      "repository": "mytangyh/ai_clients_dart",
+      "upstream": "davidmigloz/ai_clients_dart",
+      "baseline": "a46c9cb73a8cd9625af9b570e8cae619b29d045a",
+      "branch": "compat/flutter-3.27.4",
+      "commit": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+      "packages": [
+        {
+          "name": "anthropic_sdk_dart",
+          "path": "packages/anthropic_sdk_dart"
+        },
+        {
+          "name": "mistralai_dart",
+          "path": "packages/mistralai_dart"
+        },
+        {
+          "name": "ollama_dart",
+          "path": "packages/ollama_dart"
+        },
+        {
+          "name": "openai_dart",
+          "path": "packages/openai_dart"
+        }
+      ]
+    },
+    {
+      "name": "google-cloud-dart",
+      "repository": "mytangyh/google-cloud-dart",
+      "upstream": "googleapis/google-cloud-dart",
+      "baseline": "2c44ec5b4e2d865fc4130fd42b8b5a43b5a831ed",
+      "branch": "compat/flutter-3.27.4",
+      "commit": "45fa588f37c6f2356444ba43adf7c06b28315025",
+      "packages": [
+        {
+          "name": "google_cloud_protobuf",
+          "path": "generated/google_cloud_protobuf"
+        },
+        {
+          "name": "google_cloud_rpc",
+          "path": "generated/google_cloud_rpc"
+        },
+        {
+          "name": "google_cloud_type",
+          "path": "generated/google_cloud_type"
+        },
+        {
+          "name": "google_cloud_longrunning",
+          "path": "generated/google_cloud_longrunning"
+        },
+        {
+          "name": "google_cloud_ai_generativelanguage_v1beta",
+          "path": "generated/google_cloud_ai_generativelanguage_v1beta"
+        }
+      ]
+    },
+    {
+      "name": "sse_channel",
+      "repository": "mytangyh/sse_channel",
+      "upstream": "jamiewest/sse_channel",
+      "baseline": "90ec12606e33e067dba1e4f18bd6869d419dbf7c",
+      "branch": "compat/flutter-3.27.4",
+      "commit": "1776f9dfa82e9d3a1430f236c02a70a3ded38aee",
+      "packages": [
+        {
+          "name": "sse_channel",
+          "path": "."
+        }
+      ]
+    }
+  ],
+  "coreCheckpoint": {
+    "repository": "mytangyh/genui",
+    "commit": "4f83e1ce5ad1f1df71c15e0c8cd39c481c122c01",
+    "purpose": "Dartantic standalone core dependencies; final GenUI workspace uses its own packages"
+  }
+}

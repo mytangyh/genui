@@ -1,0 +1,13 @@
+{
+  "flutter": "3.27.4",
+  "dart": "3.6.2",
+  "entrypoint": "examples/simple_chat/lib/main.dart",
+  "configuration": "debug",
+  "artifactPath": "examples/simple_chat/build/compatibility/app-debug-no-credentials.apk",
+  "modelCredentialsInjected": false,
+  "bytes": 99164327,
+  "sha256": "505fc5ea63d0c539d892ec62597bd516c5e98d549ed12ef54deda761434cb2f7",
+  "runtime": "Credential-free delivery artifact; credentialed main app is built separately for Android verification",
+  "dependencySources": "Four compatibility forks pinned to full Git commits; no temporary path overrides",
+  "buildEvidence": "evidence/android-main-build-fixed-git.txt"
+}

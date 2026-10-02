@@ -1,0 +1,52 @@
+[
+  {
+    "repository": "genui",
+    "hostedEntries": 130,
+    "registry": "https://pub.dev",
+    "toolchain": "Flutter 3.27.4 / Dart 3.6.2",
+    "command": "pub get --enforce-lockfile",
+    "result": "passed",
+    "localPathDependencies": true,
+    "evidence": "genui-canonical-pub-get.txt"
+  },
+  {
+    "repository": "dartantic_ai",
+    "hostedEntries": 82,
+    "registry": "https://pub.dev",
+    "toolchain": "Flutter 3.27.4 / Dart 3.6.2",
+    "command": "pub get --enforce-lockfile",
+    "result": "passed",
+    "localPathDependencies": true,
+    "evidence": "dartantic_ai-canonical-pub-get.txt"
+  },
+  {
+    "repository": "ai_clients_dart",
+    "hostedEntries": 68,
+    "registry": "https://pub.dev",
+    "toolchain": "Flutter 3.27.4 / Dart 3.6.2",
+    "command": "pub get --enforce-lockfile",
+    "result": "passed",
+    "localPathDependencies": false,
+    "evidence": "ai_clients_dart-canonical-pub-get.txt"
+  },
+  {
+    "repository": "google-cloud-dart",
+    "hostedEntries": 53,
+    "registry": "https://pub.dev",
+    "toolchain": "Flutter 3.27.4 / Dart 3.6.2",
+    "command": "pub get --enforce-lockfile",
+    "result": "passed",
+    "localPathDependencies": false,
+    "evidence": "google-cloud-dart-canonical-pub-get.txt"
+  },
+  {
+    "repository": "sse_channel",
+    "hostedEntries": 53,
+    "registry": "https://pub.dev",
+    "toolchain": "Flutter 3.27.4 / Dart 3.6.2",
+    "command": "pub get --enforce-lockfile",
+    "result": "passed",
+    "localPathDependencies": false,
+    "evidence": "sse_channel-canonical-pub-get.txt"
+  }
+]

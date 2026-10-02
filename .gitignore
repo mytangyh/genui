@@ -66,6 +66,7 @@ migrate_working_dir/
 **/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins-dependencies
+.flutter-plugins
 .pub-cache/
 .pub/
 /build/
@@ -86,3 +87,7 @@ app.*.map.json
 .vscode/settings.json
 
 **/devtools_options.yaml
+# Compatibility SDK and local model credentials.
+.fvm/
+.compat-local/
+!/pubspec.lock

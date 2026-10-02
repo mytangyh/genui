@@ -1,0 +1,37 @@
+[
+  {
+    "repository": "genui",
+    "source": "https://pub.flutter-io.cn",
+    "target": "https://pub.dev",
+    "replacedEntries": 130,
+    "versionsAndHashesChanged": false
+  },
+  {
+    "repository": "dartantic_ai",
+    "source": "https://pub.flutter-io.cn",
+    "target": "https://pub.dev",
+    "replacedEntries": 82,
+    "versionsAndHashesChanged": false
+  },
+  {
+    "repository": "ai_clients_dart",
+    "source": "https://pub.flutter-io.cn",
+    "target": "https://pub.dev",
+    "replacedEntries": 68,
+    "versionsAndHashesChanged": false
+  },
+  {
+    "repository": "google-cloud-dart",
+    "source": "https://pub.flutter-io.cn",
+    "target": "https://pub.dev",
+    "replacedEntries": 53,
+    "versionsAndHashesChanged": false
+  },
+  {
+    "repository": "sse_channel",
+    "source": "https://pub.flutter-io.cn",
+    "target": "https://pub.dev",
+    "replacedEntries": 53,
+    "versionsAndHashesChanged": false
+  }
+]

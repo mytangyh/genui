@@ -1,0 +1,201 @@
+Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision d8a9f9a52e (1 year, 8 months ago) • 2025-01-31 16:07:18 -0500
+Engine • revision 82bd5b7209
+Tools • Dart 3.6.2 • DevTools 2.40.3
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (108.0.0 available)
+  analyzer 7.7.1 (14.4.0 available)
+! anthropic_sdk_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/anthropic_sdk_dart (overridden)
+  checked_yaml 2.0.3 (2.0.4 available)
+  cli_launcher 0.3.2 (0.3.4 available)
+  cli_util 0.4.2 (0.6.0 available)
+  conventional_commit 0.6.1 (0.6.1+1 available)
+  cross_file 0.3.4+2 (0.4.0 available)
+! genai_primitives 0.2.4 from git https://github.com/mytangyh/genui.git at 4f83e1 in packages/genai_primitives (overridden)
+! google_cloud_ai_generativelanguage_v1beta 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_ai_generativelanguage_v1beta (overridden)
+! google_cloud_longrunning 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_longrunning (overridden)
+! google_cloud_protobuf 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_protobuf (overridden)
+! google_cloud_rpc 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_rpc (overridden)
+! google_cloud_type 0.5.0 from git https://github.com/mytangyh/google-cloud-dart.git at 45fa58 in generated/google_cloud_type (overridden)
+  googleapis_auth 2.0.0 (2.3.4 available)
+  intl 0.19.0 (0.20.3 available)
+  js 0.7.1 (0.7.2 available)
+  json_annotation 4.9.0 (4.12.0 available)
+! json_schema_builder 0.1.7 from git https://github.com/mytangyh/genui.git at 4f83e1 in packages/json_schema_builder (overridden)
+  matcher 0.12.17 (0.12.20 available)
+  melos 6.3.2 (8.9.0 available)
+! mistralai_dart 1.2.1 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/mistralai_dart (overridden)
+  mustache_template 2.0.0 (2.0.6 available)
+! ollama_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/ollama_dart (overridden)
+! openai_dart 1.3.0 from git https://github.com/mytangyh/ai_clients_dart.git at 076584 in packages/openai_dart (overridden)
+  package_config 2.2.0 (3.0.0 available)
+  platform 3.1.6 (3.2.0 available)
+  pub_updater 0.4.0 (0.6.0 available)
+  pubspec_parse 1.5.0 (1.6.0 available)
+  sse 4.1.8 (4.2.0 available)
+! sse_channel 0.2.2 from git https://github.com/mytangyh/sse_channel.git at 1776f9 (overridden)
+  test 1.26.3 (1.32.0 available)
+  test_api 0.7.7 (0.7.14 available)
+  test_core 0.6.12 (0.6.20 available)
+Got dependencies!
+22 packages have newer versions incompatible with dependency constraints.
+Try `dart pub outdated` for more information.
+Formatted 199 files (0 changed) in 1.60 seconds.
+Analyzing lib, lib, test...
+
+   info - packages\dartantic_ai\lib\src\agent\orchestrators\default_streaming_orchestrator.dart:173:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - packages\dartantic_ai\lib\src\chat_models\openai_responses\openai_responses_event_mapper.dart:59:26 - Don't cast a nullable value to a non-nullable type. Try adding a not-null assertion ('!') to make the type non-nullable. - cast_nullable_to_non_nullable
+   info - packages\dartantic_ai\lib\src\providers\ollama_provider.dart:22:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - packages\dartantic_ai\test\openai_responses\openai_responses_event_mapper_test.dart:33:20 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - packages\dartantic_ai\test\provider_initialization_test.dart:96:21 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+
+5 issues found.
+00:00 +0: loading packages/dartantic_ai/test/provider_initialization_test.dart
+00:00 +0: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Can access provider metadata without API keys
+00:00 +1: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Can list all providers without API keys
+00:00 +2: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Throws when creating model without required API key
+00:00 +3: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Google provider propagates base URL to chat model
+00:00 +4: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Google provider propagates base URL to embeddings model
+00:00 +5: packages/dartantic_ai/test/provider_initialization_test.dart: Provider Initialization Ollama provider works without API key
+00:00 +6: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings API Key Resolution Falls back to Agent.environment
+00:00 +7: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings API Key Resolution Falls back to Agent.environment
+00:00 +8: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings API Key Resolution Different providers use different API keys
+00:00 +9: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Provider Embeddings Base URL Resolution Each provider has correct default base URL
+00:00 +10: packages/dartantic_ai/test/embeddings_config_test.dart: Embeddings Configuration Tests Error Handling Invalid provider name throws
+00:00 +11: packages/dartantic_ai/test/message_api_test.dart: Message API basic message construction creates simple text messages
+00:00 +12: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName
+00:00 +13: packages/dartantic_ai/test/message_api_test.dart: Message API basic message construction creates system messages
+00:00 +14: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName:chatModelName
+00:00 +15: packages/dartantic_ai/test/message_api_test.dart: Message API basic message construction creates model response messages
+00:00 +16: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName/chatModelName
+00:00 +17: packages/dartantic_ai/test/message_api_test.dart: Message API basic message construction creates empty messages
+00:00 +18: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName?chat=chatModelName
+00:00 +19: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Happy Paths providerName?chat=chatModelName
+00:00 +20: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates text and data combination
+00:00 +21: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates text and data combination
+00:00 +22: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates text and data combination
+00:00 +23: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates text and data combination
+00:00 +24: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates text and data combination
+00:00 +25: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases whitespace string
+00:00 +26: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases whitespace string
+00:00 +27: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases whitespace string
+00:00 +28: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates data-only messages
+00:00 +29: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates data-only messages
+00:00 +30: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName:chat1/chat2
+00:00 +31: packages/dartantic_ai/test/message_api_test.dart: Message API multipart messages creates link-only messages
+00:00 +32: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName//segment throws (empty segment)
+00:00 +33: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports various image mime types
+00:00 +34: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports various image mime types
+00:00 +35: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName?chat=chatModel&embeddings= (empty embeddings)
+00:00 +36: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports document mime types
+00:00 +37: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications supports document mime types
+00:00 +38: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Edge Cases providerName with slash in name
+00:00 +39: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles empty data
+00:00 +40: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI chat model with query parameter
+00:00 +41: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +42: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +43: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +44: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +45: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +46: packages/dartantic_ai/test/message_api_test.dart: Message API data part specifications handles large data efficiently
+00:00 +47: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenAI Models OpenAI chat model with multiple query parameters
+00:00 +48: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes
+00:00 +49: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes
+00:00 +50: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes
+00:00 +51: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications supports various URL schemes
+00:00 +52: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - OpenRouter Models OpenRouter unrecognized format
+00:00 +53: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications handles URLs with query parameters
+00:00 +54: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Mistral Models Mistral chat model with query parameter
+00:00 +55: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications handles URLs with fragments
+00:00 +56: packages/dartantic_ai/test/message_api_test.dart: Message API link part specifications handles URLs with fragments
+00:00 +57: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Mistral Models Mistral other model (plain segment)
+00:00 +58: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool calls
+00:00 +59: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Google Models Google chat model with query parameter
+00:00 +60: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool results
+00:00 +61: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with tool results
+00:00 +62: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Google Models Google chat model with slash throws (multiple segments)
+00:00 +63: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with multiple tool results
+00:00 +64: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages creates messages with multiple tool results
+00:00 +65: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Whitespace string
+00:00 +66: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages handles tool results with complex output
+00:00 +67: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Provider with empty chat model
+00:00 +68: packages/dartantic_ai/test/message_api_test.dart: Message API tool integration in messages distinguishes between tool calls and results
+00:00 +69: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Provider with empty embeddings model
+00:00 +70: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation supports all message roles
+00:00 +71: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Multiple colons in chat model
+00:00 +72: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation system messages typically contain instructions
+00:00 +73: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation system messages typically contain instructions
+00:00 +74: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Unrecognized prefix sets chat if null
+00:00 +75: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation user messages typically contain queries
+00:00 +76: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - More Edge Cases Multiple query parameters
+00:00 +77: packages/dartantic_ai/test/message_api_test.dart: Message API message role validation model messages typically contain responses
+00:00 +78: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Anthropic chat model
+00:00 +79: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying messages are immutable after creation
+00:00 +80: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Cohere embeddings model
+00:00 +81: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying can create message variants
+00:00 +82: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Ollama chat model with colon in model name
+00:00 +83: packages/dartantic_ai/test/message_api_test.dart: Message API message immutability and copying tool results are preserved in message copies
+00:00 +84: packages/dartantic_ai/test/model_string_parser_test.dart: ModelStringParser - Other Providers Together AI chat model with slash
+00:00 +85: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns builds conversation history
+00:00 +86: packages/dartantic_ai/test/message_api_test.dart: Message API message collection patterns filters messages by role
+00:00 +87: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +88: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +89: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +90: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +91: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +92: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +93: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +94: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +95: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns empty string for empty list
+00:00 +96: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods factory constructors work correctly
+00:00 +97: packages/dartantic_ai/test/message_api_test.dart: Message API convenience methods userParts and modelParts factories work correctly
+00:00 +98: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText returns single text part content
+00:00 +99: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText concatenates multiple text parts without separator
+00:00 +100: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText includes empty text parts in concatenation
+00:00 +101: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText ignores non-text parts
+00:00 +102: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText handles list with only non-text parts
+00:00 +103: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText preserves whitespace and special characters
+00:00 +104: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractText handles unicode and emojis
+00:00 +105: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls returns empty list for empty parts
+00:00 +106: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls returns empty list when no tool calls present
+00:00 +107: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls extracts single tool call
+00:00 +108: packages/dartantic_ai/test/message_part_helpers_test.dart: MessagePartHelpers extractToolCalls extracts multiple tool calls
+00:00 +109: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +110: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +111: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +112: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +113: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +114: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +115: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +116: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +117: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +118: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +119: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +120: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +121: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +122: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +123: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +124: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper container ID preserves initial null and rejects null assignment
+00:00 +125: packages/dartantic_ai/test/message_part_helpers_test.dart: ToolResultHelpers serialize handles unicode in JSON encoding
+00:00 +126: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +127: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +128: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +129: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +130: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +131: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +132: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +133: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +134: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper streams text deltas as chat results
+00:00 +135: packages/dartantic_ai/test/message_part_helpers_test.dart: ToolResultHelpers ensureMap wraps complex objects
+00:00 +136: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +137: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +138: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +139: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +140: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +141: packages/dartantic_ai/test/openai_responses/openai_responses_event_mapper_test.dart: OpenAIResponsesEventMapper builds final chat result with telemetry and session metadata
+00:00 +142: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper maps system and multimodal user messages into response items
+00:00 +143: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper maps system and multimodal user messages into response items
+00:00 +144: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper maps system and multimodal user messages into response items
+00:00 +145: packages/dartantic_ai/test/openai_responses/openai_responses_message_mapper_test.dart: OpenAIResponsesMessageMapper respects session metadata when resuming conversations
+00:00 +146: All tests passed!

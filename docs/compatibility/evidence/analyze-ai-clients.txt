@@ -1,0 +1,56 @@
+Analyzing lib, test, lib, test, lib, test, lib, test...
+
+   info - packages\anthropic_sdk_dart\lib\src\interceptors\interceptor.dart:43:27 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\anthropic_sdk_dart\test\mocks\mock_http_client.dart:47:30 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\anthropic_sdk_dart\test\unit\client\retry_wrapper_test.dart:243:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\client\retry_wrapper_test.dart:318:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\client\retry_wrapper_test.dart:357:36 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\resources\messages_resource_test.dart:181:31 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\resources\messages_resource_test.dart:200:31 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\resources\messages_resource_test.dart:219:31 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\anthropic_sdk_dart\test\unit\resources\streaming_resource_test.dart:88:25 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\interceptors\interceptor.dart:43:27 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\files\files_resource_io.dart:235:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\files\files_resource_stub.dart:126:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\files\files_resource_web.dart:200:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\fine_tuning\fine_tuning_models_resource.dart:61:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\libraries\libraries_resource.dart:74:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\libraries\libraries_resource.dart:140:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\lib\src\resources\libraries\libraries_resource.dart:346:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\mistralai_dart\test\integration\chat_test.dart:330:28 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\mistralai_dart\test\unit\client\retry_wrapper_test.dart:243:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\mistralai_dart\test\unit\client\retry_wrapper_test.dart:318:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\mistralai_dart\test\unit\client\retry_wrapper_test.dart:357:36 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\lib\src\interceptors\interceptor.dart:43:27 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\ollama_dart\lib\src\models\chat\chat_message.dart:96:33 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\ollama_dart\lib\src\models\chat\chat_response.dart:148:56 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\ollama_dart\lib\src\models\tools\tool_call.dart:89:57 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\ollama_dart\test\integration\models_test.dart:133:49 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\ollama_dart\test\unit\client\retry_wrapper_test.dart:243:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\client\retry_wrapper_test.dart:318:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\client\retry_wrapper_test.dart:357:36 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\resources\streaming_resource_test.dart:249:32 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\resources\streaming_resource_test.dart:253:26 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\resources\streaming_resource_test.dart:271:32 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\ollama_dart\test\unit\resources\streaming_resource_test.dart:275:26 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\lib\src\interceptors\interceptor.dart:65:27 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\lib\src\models\chat\content_part.dart:141:9 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\lib\src\resources\input_tokens_resource.dart:123:39 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - packages\openai_dart\lib\src\resources\realtime_resource.dart:270:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\lib\src\resources\realtime_resource.dart:282:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\lib\src\resources\realtime_resource.dart:414:5 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\lib\src\resources\realtime_resource.dart:438:24 - Missing a required trailing comma. Try adding a trailing comma. - require_trailing_commas
+   info - packages\openai_dart\test\integration\containers_test.dart:603:36 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\integration\evals_test.dart:649:31 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\integration\videos_test.dart:523:32 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\integration\videos_test.dart:539:32 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\client\retry_wrapper_test.dart:243:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\client\retry_wrapper_test.dart:290:19 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\client\retry_wrapper_test.dart:324:36 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\client\timeout_test.dart:29:39 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\client\timeout_test.dart:132:28 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\resources\multipart_headers_test.dart:172:28 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\resources\skills_resource_test.dart:193:34 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+   info - packages\openai_dart\test\unit\resources\skills_resource_test.dart:202:38 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+
+52 issues found.

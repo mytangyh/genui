@@ -1,0 +1,4178 @@
+{
+  "toolchain": {
+    "flutter": "3.27.4",
+    "dart": "3.6.2"
+  },
+  "status": "delivery; modified external dependencies pinned to full Git commits",
+  "repositories": {
+    "genui": {
+      "url": "https://github.com/mytangyh/genui.git",
+      "baseline": "40d4df6a90bcc74513d4278278f59c4903095c26",
+      "branch": "compat/flutter-3.27.4",
+      "coreCheckpoint": "4f83e1ce5ad1f1df71c15e0c8cd39c481c122c01",
+      "deliveryCommit": "git rev-parse HEAD of this checkout"
+    },
+    "dartantic_ai": {
+      "url": "https://github.com/mytangyh/dartantic_ai.git",
+      "upstream": "https://github.com/csells/dartantic.git",
+      "baseline": "557f1584f26a302bbb00ac6d98df1f5e3e1de812",
+      "branch": "compat/flutter-3.27.4",
+      "deliveryCommit": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a"
+    },
+    "google-cloud-dart": {
+      "url": "https://github.com/mytangyh/google-cloud-dart.git",
+      "upstream": "https://github.com/googleapis/google-cloud-dart.git",
+      "baseline": "2c44ec5b4e2d865fc4130fd42b8b5a43b5a831ed",
+      "branch": "compat/flutter-3.27.4",
+      "deliveryCommit": "45fa588f37c6f2356444ba43adf7c06b28315025"
+    },
+    "ai_clients_dart": {
+      "url": "https://github.com/mytangyh/ai_clients_dart.git",
+      "upstream": "https://github.com/davidmigloz/ai_clients_dart.git",
+      "baseline": "a46c9cb73a8cd9625af9b570e8cae619b29d045a",
+      "branch": "compat/flutter-3.27.4",
+      "deliveryCommit": "076584840dfcf6978d79119a2a663d2ddfd1f043"
+    },
+    "sse_channel": {
+      "url": "https://github.com/mytangyh/sse_channel.git",
+      "upstream": "https://github.com/jamiewest/sse_channel.git",
+      "baseline": "90ec12606e33e067dba1e4f18bd6869d419dbf7c",
+      "branch": "compat/flutter-3.27.4",
+      "deliveryCommit": "1776f9dfa82e9d3a1430f236c02a70a3ded38aee"
+    }
+  },
+  "packages": [
+    {
+      "name": "_fe_analyzer_shared",
+      "version": "76.0.0",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/_fe_analyzer_shared",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "_fe_analyzer_shared",
+        "sha256": "16e298750b6d0af7ce8a3ba7c18c69c3785d11b15ec83f6dcd0ad2a0009b3cab",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "16e298750b6d0af7ce8a3ba7c18c69c3785d11b15ec83f6dcd0ad2a0009b3cab",
+      "dependencies": {
+        "meta": "^1.9.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "_macros",
+      "version": "0.3.3",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/_macros",
+      "sdkConstraint": {
+        "sdk": "^3.4.0-256.0.dev"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "dart",
+      "archiveSha256": null,
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "a2ui_core",
+      "version": "0.1.0",
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": "packages/archive/a2ui_core",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {
+        "collection": "^1.18.0",
+        "json_schema_builder": "^0.1.3",
+        "meta": "^1.15.0",
+        "preact_signals": "^1.9.4"
+      },
+      "validation": "69 upstream tests passed"
+    },
+    {
+      "name": "analyzer",
+      "version": "6.11.0",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/analyzer",
+      "sdkConstraint": {
+        "sdk": ">=3.3.0 <4.0.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "analyzer",
+        "sha256": "1f14db053a8c23e260789e9b0980fa27f2680dd640932cae5e1137cce0e46e1e",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "1f14db053a8c23e260789e9b0980fa27f2680dd640932cae5e1137cce0e46e1e",
+      "dependencies": {
+        "_fe_analyzer_shared": "^76.0.0",
+        "collection": "^1.19.0",
+        "convert": "^3.0.0",
+        "crypto": "^3.0.0",
+        "glob": "^2.0.0",
+        "macros": ">=0.1.3-main.0 <0.1.4",
+        "meta": "^1.15.0",
+        "package_config": "^2.0.0",
+        "path": "^1.9.0",
+        "pub_semver": "^2.1.4",
+        "source_span": "^1.8.0",
+        "watcher": "^1.1.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "anthropic_sdk_dart",
+      "version": "1.2.1",
+      "sourceRepository": "https://github.com/mytangyh/ai_clients_dart.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "ai_clients_dart",
+      "repositoryPath": "packages/anthropic_sdk_dart",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/anthropic_sdk_dart",
+        "ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "resolved-ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "url": "https://github.com/mytangyh/ai_clients_dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "http": "^1.6.0",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0"
+      },
+      "validation": "2529 combined upstream unit tests passed, 11 upstream conditional skips; live API tests unverified"
+    },
+    {
+      "name": "args",
+      "version": "2.7.0",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/args",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "args",
+        "sha256": "d0481093c50b1da8910eb0bb301626d4d8eb7284aa739614d2b394ee09e3ea04",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "d0481093c50b1da8910eb0bb301626d4d8eb7284aa739614d2b394ee09e3ea04",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "async",
+      "version": "2.11.0",
+      "sourceRepository": "https://github.com/dart-lang/async",
+      "sdkConstraint": {
+        "sdk": ">=2.18.0 <3.0.0"
+      },
+      "languageVersion": "2.18",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "async",
+        "sha256": "947bfcf187f74dbc5e146c9eb9c0f10c9f8b30743e341481c1e2ed3ecc18c20c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "947bfcf187f74dbc5e146c9eb9c0f10c9f8b30743e341481c1e2ed3ecc18c20c",
+      "dependencies": {
+        "collection": "^1.15.0",
+        "meta": "^1.1.7"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers",
+      "version": "6.6.0",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers",
+        "sha256": "a72dd459d1a48f61a6fb9c0134dba26597c9236af40639ff0eb70eb4e0baab70",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "a72dd459d1a48f61a6fb9c0134dba26597c9236af40639ff0eb70eb4e0baab70",
+      "dependencies": {
+        "audioplayers_android": "^5.2.1",
+        "audioplayers_darwin": "^6.4.0",
+        "audioplayers_linux": "^4.2.1",
+        "audioplayers_platform_interface": "^7.1.1",
+        "audioplayers_web": "^5.2.0",
+        "audioplayers_windows": "^4.3.0",
+        "file": ">=6.1.0 <8.0.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "http": ">=0.13.1 <2.0.0",
+        "meta": "^1.7.0",
+        "path_provider": "^2.0.12",
+        "synchronized": "^3.0.0",
+        "uuid": ">=3.0.7 <5.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_android",
+      "version": "5.2.1",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_android",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_android",
+        "sha256": "60a6728277228413a85755bd3ffd6fab98f6555608923813ce383b190a360605",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "60a6728277228413a85755bd3ffd6fab98f6555608923813ce383b190a360605",
+      "dependencies": {
+        "audioplayers_platform_interface": "^7.1.1",
+        "flutter": {
+          "sdk": "flutter"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_darwin",
+      "version": "6.4.0",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_darwin",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_darwin",
+        "sha256": "c994b3bb3a921e4904ac40e013fbc94488e824fd7c1de6326f549943b0b44a91",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c994b3bb3a921e4904ac40e013fbc94488e824fd7c1de6326f549943b0b44a91",
+      "dependencies": {
+        "audioplayers_platform_interface": "^7.1.1",
+        "flutter": {
+          "sdk": "flutter"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_linux",
+      "version": "4.2.1",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_linux",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_linux",
+        "sha256": "f75bce1ce864170ef5e6a2c6a61cd3339e1a17ce11e99a25bae4474ea491d001",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f75bce1ce864170ef5e6a2c6a61cd3339e1a17ce11e99a25bae4474ea491d001",
+      "dependencies": {
+        "audioplayers_platform_interface": "^7.1.1",
+        "flutter": {
+          "sdk": "flutter"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_platform_interface",
+      "version": "7.1.1",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_platform_interface",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_platform_interface",
+        "sha256": "0e2f6a919ab56d0fec272e801abc07b26ae7f31980f912f24af4748763e5a656",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "0e2f6a919ab56d0fec272e801abc07b26ae7f31980f912f24af4748763e5a656",
+      "dependencies": {
+        "collection": "^1.17.1",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "meta": "^1.7.0",
+        "plugin_platform_interface": "^2.0.2"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_web",
+      "version": "5.2.0",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_web",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_web",
+        "sha256": "faa8fa6587f996a6f604433b53af44c57a1407d4fe8dff5766cf63d6875e8de9",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "faa8fa6587f996a6f604433b53af44c57a1407d4fe8dff5766cf63d6875e8de9",
+      "dependencies": {
+        "audioplayers_platform_interface": "^7.1.1",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_web_plugins": {
+          "sdk": "flutter"
+        },
+        "web": ">=0.5.1 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "audioplayers_windows",
+      "version": "4.3.0",
+      "sourceRepository": "https://github.com/bluefireteam/audioplayers/tree/master/packages/audioplayers_windows",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "audioplayers_windows",
+        "sha256": "bafff2b38b6f6d331887558ba6e0a01c9c208d9dbb3ad0005234db065122a734",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "bafff2b38b6f6d331887558ba6e0a01c9c208d9dbb3ad0005234db065122a734",
+      "dependencies": {
+        "audioplayers_platform_interface": "^7.1.1",
+        "flutter": {
+          "sdk": "flutter"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "boolean_selector",
+      "version": "2.1.1",
+      "sourceRepository": "https://github.com/dart-lang/boolean_selector",
+      "sdkConstraint": {
+        "sdk": ">=2.17.0 <3.0.0"
+      },
+      "languageVersion": "2.17",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "boolean_selector",
+        "sha256": "6cfb5af12253eaf2b368f07bacc5a80d1301a071c73360d746b7f2e32d762c66",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "6cfb5af12253eaf2b368f07bacc5a80d1301a071c73360d746b7f2e32d762c66",
+      "dependencies": {
+        "source_span": "^1.8.0",
+        "string_scanner": "^1.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build",
+      "version": "2.4.2",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build",
+        "sha256": "cef23f1eda9b57566c81e2133d196f8e3df48f244b317368d65c5943d91148f0",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "cef23f1eda9b57566c81e2133d196f8e3df48f244b317368d65c5943d91148f0",
+      "dependencies": {
+        "analyzer": ">=6.9.0 <8.0.0",
+        "async": "^2.5.0",
+        "convert": "^3.0.0",
+        "crypto": "^3.0.0",
+        "glob": "^2.0.0",
+        "logging": "^1.0.0",
+        "meta": "^1.3.0",
+        "package_config": "^2.1.0",
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build_config",
+      "version": "1.1.2",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build_config",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build_config",
+        "sha256": "4ae2de3e1e67ea270081eaee972e1bd8f027d459f249e0f1186730784c2e7e33",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4ae2de3e1e67ea270081eaee972e1bd8f027d459f249e0f1186730784c2e7e33",
+      "dependencies": {
+        "checked_yaml": "^2.0.0",
+        "json_annotation": "^4.8.0",
+        "path": "^1.8.0",
+        "pubspec_parse": "^1.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build_daemon",
+      "version": "4.0.4",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build_daemon",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build_daemon",
+        "sha256": "8e928697a82be082206edb0b9c99c5a4ad6bc31c9e9b8b2f291ae65cd4a25daa",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "8e928697a82be082206edb0b9c99c5a4ad6bc31c9e9b8b2f291ae65cd4a25daa",
+      "dependencies": {
+        "built_collection": "^5.0.0",
+        "built_value": "^8.1.0",
+        "crypto": "^3.0.3",
+        "http_multi_server": "^3.0.0",
+        "logging": "^1.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "shelf": "^1.0.0",
+        "shelf_web_socket": ">=1.0.0 <4.0.0",
+        "stream_transform": "^2.0.0",
+        "watcher": "^1.0.0",
+        "web_socket_channel": ">=2.3.0 <4.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build_resolvers",
+      "version": "2.4.4",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build_resolvers",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build_resolvers",
+        "sha256": "b9e4fda21d846e192628e7a4f6deda6888c36b5b69ba02ff291a01fd529140f0",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "b9e4fda21d846e192628e7a4f6deda6888c36b5b69ba02ff291a01fd529140f0",
+      "dependencies": {
+        "analyzer": ">=6.9.0 <8.0.0",
+        "async": "^2.5.0",
+        "build": "^2.0.0",
+        "collection": "^1.17.0",
+        "convert": "^3.1.1",
+        "crypto": "^3.0.0",
+        "graphs": ">=1.0.0 <3.0.0",
+        "logging": "^1.0.0",
+        "package_config": "^2.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "pub_semver": "^2.0.0",
+        "stream_transform": "^2.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build_runner",
+      "version": "2.4.15",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build_runner",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build_runner",
+        "sha256": "058fe9dce1de7d69c4b84fada934df3e0153dd000758c4d65964d0166779aa99",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "058fe9dce1de7d69c4b84fada934df3e0153dd000758c4d65964d0166779aa99",
+      "dependencies": {
+        "analyzer": ">=4.4.0 <8.0.0",
+        "args": "^2.0.0",
+        "async": "^2.5.0",
+        "build": ">=2.1.0 <2.5.0",
+        "build_config": ">=1.1.0 <1.2.0",
+        "build_daemon": "^4.0.0",
+        "build_resolvers": "^2.4.4",
+        "build_runner_core": "^8.0.0",
+        "code_builder": "^4.2.0",
+        "collection": "^1.15.0",
+        "crypto": "^3.0.0",
+        "dart_style": ">=2.3.7 <4.0.0",
+        "frontend_server_client": ">=3.0.0 <5.0.0",
+        "glob": "^2.0.0",
+        "graphs": "^2.2.0",
+        "http": "^1.2.2",
+        "http_multi_server": "^3.0.0",
+        "io": "^1.0.0",
+        "js": ">=0.6.3 <0.8.0",
+        "logging": "^1.0.0",
+        "meta": "^1.3.0",
+        "mime": ">=1.0.0 <3.0.0",
+        "package_config": "^2.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "pub_semver": "^2.0.0",
+        "pubspec_parse": "^1.0.0",
+        "shelf": "^1.0.0",
+        "shelf_web_socket": ">=1.0.0 <4.0.0",
+        "stack_trace": "^1.10.0",
+        "stream_transform": "^2.0.0",
+        "timing": "^1.0.0",
+        "watcher": "^1.0.0",
+        "web": "^1.1.0",
+        "web_socket_channel": ">=2.3.0 <4.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "build_runner_core",
+      "version": "8.0.0",
+      "sourceRepository": "https://github.com/dart-lang/build/tree/master/build_runner_core",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "build_runner_core",
+        "sha256": "22e3aa1c80e0ada3722fe5b63fd43d9c8990759d0a2cf489c8c5d7b2bdebc021",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "22e3aa1c80e0ada3722fe5b63fd43d9c8990759d0a2cf489c8c5d7b2bdebc021",
+      "dependencies": {
+        "async": "^2.5.0",
+        "build": "^2.4.0",
+        "build_config": "^1.0.0",
+        "build_resolvers": "^2.4.0",
+        "collection": "^1.15.0",
+        "convert": "^3.0.0",
+        "crypto": "^3.0.0",
+        "glob": "^2.0.0",
+        "graphs": "^2.0.0",
+        "json_annotation": "^4.8.1",
+        "logging": "^1.2.0",
+        "meta": "^1.3.0",
+        "package_config": "^2.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "timing": "^1.0.0",
+        "watcher": "^1.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "built_collection",
+      "version": "5.1.1",
+      "sourceRepository": "https://github.com/google/built_collection.dart",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0-0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "built_collection",
+        "sha256": "376e3dd27b51ea877c28d525560790aee2e6fbb5f20e2f85d5081027d94e2100",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "376e3dd27b51ea877c28d525560790aee2e6fbb5f20e2f85d5081027d94e2100",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "built_value",
+      "version": "8.13.0",
+      "sourceRepository": "https://github.com/google/built_value.dart/tree/master/built_value",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "built_value",
+        "sha256": "f87ea98192116f7093cb214551ce1929caae0681fdba282b3d8b4462adee7bb7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f87ea98192116f7093cb214551ce1929caae0681fdba282b3d8b4462adee7bb7",
+      "dependencies": {
+        "built_collection": "^5.0.0",
+        "collection": "^1.15.0",
+        "fixnum": "^1.0.0",
+        "meta": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "characters",
+      "version": "1.3.0",
+      "sourceRepository": "https://github.com/dart-lang/characters",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <4.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "characters",
+        "sha256": "04a925763edad70e8443c99234dc3328f442e811f1d8fd1a72f1c8ad0f69a605",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "04a925763edad70e8443c99234dc3328f442e811f1d8fd1a72f1c8ad0f69a605",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "checked_yaml",
+      "version": "2.0.3",
+      "sourceRepository": "https://github.com/google/json_serializable.dart/tree/master/checked_yaml",
+      "sdkConstraint": {
+        "sdk": ">=2.19.0 <3.0.0"
+      },
+      "languageVersion": "2.19",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "checked_yaml",
+        "sha256": "feb6bed21949061731a7a75fc5d2aa727cf160b91af9a3e464c5e3a32e28b5ff",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "feb6bed21949061731a7a75fc5d2aa727cf160b91af9a3e464c5e3a32e28b5ff",
+      "dependencies": {
+        "json_annotation": "^4.3.0",
+        "source_span": "^1.8.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "cli_config",
+      "version": "0.2.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/cli_config",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "cli_config",
+        "sha256": "ac20a183a07002b700f0c25e61b7ee46b23c309d76ab7b7640a028f18e4d99ec",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "ac20a183a07002b700f0c25e61b7ee46b23c309d76ab7b7640a028f18e4d99ec",
+      "dependencies": {
+        "args": "^2.4.0",
+        "yaml": "^3.1.1"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "clock",
+      "version": "1.1.1",
+      "sourceRepository": "https://github.com/dart-lang/clock",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "clock",
+        "sha256": "cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "cb6d7f03e1de671e34607e909a7213e31d7752be4fb66a86d29fe1eb14bfb5cf",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "code_builder",
+      "version": "4.10.1",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/code_builder",
+      "sdkConstraint": {
+        "sdk": "^3.5.0"
+      },
+      "languageVersion": "3.5",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "code_builder",
+        "sha256": "0ec10bf4a89e4c613960bf1e8b42c64127021740fb21640c29c909826a5eea3e",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "0ec10bf4a89e4c613960bf1e8b42c64127021740fb21640c29c909826a5eea3e",
+      "dependencies": {
+        "built_collection": "^5.0.0",
+        "built_value": "^8.0.0",
+        "collection": "^1.15.0",
+        "matcher": "^0.12.10",
+        "meta": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "collection",
+      "version": "1.19.0",
+      "sourceRepository": "https://github.com/dart-lang/collection",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "collection",
+        "sha256": "a1ace0a119f20aabc852d165077c036cd864315bd99b7eaa10a60100341941bf",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "a1ace0a119f20aabc852d165077c036cd864315bd99b7eaa10a60100341941bf",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "convert",
+      "version": "3.1.2",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/convert",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "convert",
+        "sha256": "b30acd5944035672bc15c6b7a8b47d773e41e2f17de064350988c5d02adb1c68",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "b30acd5944035672bc15c6b7a8b47d773e41e2f17de064350988c5d02adb1c68",
+      "dependencies": {
+        "typed_data": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "coverage",
+      "version": "1.15.1",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/coverage",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "coverage",
+        "sha256": "956a3de0725ca232ad353565a8290d3357592bf4250f6f298a185e2d949c5d3d",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "956a3de0725ca232ad353565a8290d3357592bf4250f6f298a185e2d949c5d3d",
+      "dependencies": {
+        "args": "^2.0.0",
+        "cli_config": "^0.2.0",
+        "glob": "^2.1.2",
+        "logging": "^1.0.0",
+        "meta": "^1.0.2",
+        "package_config": ">=2.0.0 <4.0.0",
+        "path": "^1.8.0",
+        "source_maps": "^0.10.10",
+        "stack_trace": "^1.10.0",
+        "vm_service": ">=12.0.0 <16.0.0",
+        "yaml": "^3.1.3"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "cross_file",
+      "version": "0.3.4+2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/cross_file",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "cross_file",
+        "sha256": "7caf6a750a0c04effbb52a676dce9a4a592e10ad35c34d6d2d0e4811160d5670",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "7caf6a750a0c04effbb52a676dce9a4a592e10ad35c34d6d2d0e4811160d5670",
+      "dependencies": {
+        "meta": "^1.3.0",
+        "web": ">=0.5.1 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "crypto",
+      "version": "3.0.7",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/crypto",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "crypto",
+        "sha256": "c8ea0233063ba03258fbcf2ca4d6dadfefe14f02fab57702265467a19f27fadf",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c8ea0233063ba03258fbcf2ca4d6dadfefe14f02fab57702265467a19f27fadf",
+      "dependencies": {
+        "typed_data": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "csslib",
+      "version": "1.0.2",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/csslib",
+      "sdkConstraint": {
+        "sdk": "^3.1.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "csslib",
+        "sha256": "09bad715f418841f976c77db72d5398dc1253c21fb9c0c7f0b0b985860b2d58e",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "09bad715f418841f976c77db72d5398dc1253c21fb9c0c7f0b0b985860b2d58e",
+      "dependencies": {
+        "source_span": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "dart_style",
+      "version": "3.0.1",
+      "sourceRepository": "https://github.com/dart-lang/dart_style",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "dart_style",
+        "sha256": "27eb0ae77836989a3bc541ce55595e8ceee0992807f14511552a898ddd0d88ac",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "27eb0ae77836989a3bc541ce55595e8ceee0992807f14511552a898ddd0d88ac",
+      "dependencies": {
+        "analyzer": ">=6.5.0 <8.0.0",
+        "args": ">=1.0.0 <3.0.0",
+        "collection": "^1.17.0",
+        "package_config": "^2.1.0",
+        "path": "^1.0.0",
+        "pub_semver": ">=1.4.4 <3.0.0",
+        "source_span": "^1.4.0",
+        "yaml": "^3.1.2"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "dartantic_ai",
+      "version": "3.2.0",
+      "sourceRepository": "https://github.com/mytangyh/dartantic_ai.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "dartantic_ai",
+      "repositoryPath": "packages/dartantic_ai",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/dartantic_ai",
+        "ref": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+        "resolved-ref": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+        "url": "https://github.com/mytangyh/dartantic_ai.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "anthropic_sdk_dart": "^1.2.0",
+        "collection": "^1.19.0",
+        "dartantic_interface": "^3.0.0",
+        "google_cloud_ai_generativelanguage_v1beta": "^0.5.0",
+        "google_cloud_protobuf": "^0.5.0",
+        "html": "^0.15.6",
+        "http": "^1.6.0",
+        "logging": "^1.3.0",
+        "mcp_dart": "^2.0.0",
+        "meta": "^1.15.0",
+        "mime": "^2.0.0",
+        "mistralai_dart": "^1.2.0",
+        "ollama_dart": "^1.2.0",
+        "openai_dart": "^1.1.0",
+        "rxdart": "^0.28.0",
+        "sse_channel": "^0.2.2",
+        "uuid": "^4.5.2"
+      },
+      "validation": "146 offline tests passed including nullable setter/TypeError regression; real OpenAI-compatible streaming/history/tools verified through Android simple_chat with gpt-5.6-luna; other live providers unverified"
+    },
+    {
+      "name": "dartantic_interface",
+      "version": "3.0.0",
+      "sourceRepository": "https://github.com/mytangyh/dartantic_ai.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "dartantic_ai",
+      "repositoryPath": "packages/dartantic_interface",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/dartantic_interface",
+        "ref": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+        "resolved-ref": "d876bd640ba0afa05b2cd264e776d98b0aeaa21a",
+        "url": "https://github.com/mytangyh/dartantic_ai.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "genai_primitives": "^0.2.0",
+        "json_schema_builder": "^0.1.0",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0",
+        "mime": "^2.0.0",
+        "uuid": "^4.5.2"
+      },
+      "validation": "target SDK compile and Dartantic group offline tests passed"
+    },
+    {
+      "name": "decimal",
+      "version": "3.2.6",
+      "sourceRepository": "https://github.com/a14n/dart-decimal",
+      "sdkConstraint": {
+        "sdk": ">=3.3.0 <4.0.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "decimal",
+        "sha256": "2c3c8b74f2948066d3f42585477aec9cfc48fefd7a723a4d4274a6c71a5c0df7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "2c3c8b74f2948066d3f42585477aec9cfc48fefd7a723a4d4274a6c71a5c0df7",
+      "dependencies": {
+        "intl": ">=0.19.0 <0.21.0",
+        "rational": "^2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "email_validator",
+      "version": "3.0.0",
+      "sourceRepository": "https://github.com/fredeil/email-validator.dart",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <4.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "email_validator",
+        "sha256": "b19aa5d92fdd76fbc65112060c94d45ba855105a28bb6e462de7ff03b12fa1fb",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "b19aa5d92fdd76fbc65112060c94d45ba855105a28bb6e462de7ff03b12fa1fb",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "fake_async",
+      "version": "1.3.1",
+      "sourceRepository": "https://github.com/dart-lang/fake_async",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "fake_async",
+        "sha256": "511392330127add0b769b75a987850d136345d9227c6b94c96a04cf4a391bf78",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "511392330127add0b769b75a987850d136345d9227c6b94c96a04cf4a391bf78",
+      "dependencies": {
+        "clock": "^1.1.0",
+        "collection": "^1.15.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "ffi",
+      "version": "2.1.3",
+      "sourceRepository": "https://github.com/dart-lang/native/tree/main/pkgs/ffi",
+      "sdkConstraint": {
+        "sdk": ">=3.3.0 <4.0.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "ffi",
+        "sha256": "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "file",
+      "version": "7.0.0",
+      "sourceRepository": "https://github.com/google/file.dart/tree/master/packages/file",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "file",
+        "sha256": "5fc22d7c25582e38ad9a8515372cd9a93834027aacf1801cf01164dac0ffa08c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "5fc22d7c25582e38ad9a8515372cd9a93834027aacf1801cf01164dac0ffa08c",
+      "dependencies": {
+        "meta": "^1.9.1",
+        "path": "^1.8.3"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "fixnum",
+      "version": "1.1.1",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/fixnum",
+      "sdkConstraint": {
+        "sdk": "^3.1.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "fixnum",
+        "sha256": "b6dc7065e46c974bc7c5f143080a6764ec7a4be6da1285ececdc37be96de53be",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "b6dc7065e46c974bc7c5f143080a6764ec7a4be6da1285ececdc37be96de53be",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "flutter",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.3.0-0 <4.0.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "characters": "1.3.0",
+        "collection": "1.19.0",
+        "material_color_utilities": "0.11.1",
+        "meta": "1.15.0",
+        "vector_math": "2.1.4",
+        "sky_engine": {
+          "sdk": "flutter"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "flutter_driver",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.2.0-0 <4.0.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "file": "7.0.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_test": {
+          "sdk": "flutter"
+        },
+        "fuchsia_remote_debug_protocol": {
+          "sdk": "flutter"
+        },
+        "path": "1.9.0",
+        "meta": "1.15.0",
+        "vm_service": "14.3.0",
+        "webdriver": "3.0.4",
+        "async": "2.11.0",
+        "boolean_selector": "2.1.1",
+        "characters": "1.3.0",
+        "clock": "1.1.1",
+        "collection": "1.19.0",
+        "leak_tracker": "10.0.7",
+        "leak_tracker_flutter_testing": "3.0.8",
+        "leak_tracker_testing": "3.0.1",
+        "matcher": "0.12.16+1",
+        "material_color_utilities": "0.11.1",
+        "platform": "3.1.5",
+        "process": "5.0.2",
+        "source_span": "1.10.0",
+        "stack_trace": "1.12.0",
+        "stream_channel": "2.1.2",
+        "string_scanner": "1.3.0",
+        "sync_http": "0.3.1",
+        "term_glyph": "1.2.1",
+        "test_api": "0.7.3",
+        "vector_math": "2.1.4"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "flutter_markdown_plus",
+      "version": "1.0.3",
+      "sourceRepository": "https://github.com/foresightmobile/flutter_markdown_plus",
+      "sdkConstraint": {
+        "sdk": "^3.4.0",
+        "flutter": ">=3.27.1"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "flutter_markdown_plus",
+        "sha256": "fe74214c5ac2f850d93efda290dcde3f18006e90a87caa9e3e6c13222a5db4de",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "fe74214c5ac2f850d93efda290dcde3f18006e90a87caa9e3e6c13222a5db4de",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "markdown": "^7.3.0",
+        "meta": "^1.15.0",
+        "path": "^1.9.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "flutter_test",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.3.0-0 <4.0.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "test_api": "0.7.3",
+        "matcher": "0.12.16+1",
+        "path": "1.9.0",
+        "fake_async": "1.3.1",
+        "clock": "1.1.1",
+        "stack_trace": "1.12.0",
+        "vector_math": "2.1.4",
+        "leak_tracker_flutter_testing": "3.0.8",
+        "async": "2.11.0",
+        "boolean_selector": "2.1.1",
+        "characters": "1.3.0",
+        "collection": "1.19.0",
+        "leak_tracker": "10.0.7",
+        "leak_tracker_testing": "3.0.1",
+        "material_color_utilities": "0.11.1",
+        "meta": "1.15.0",
+        "source_span": "1.10.0",
+        "stream_channel": "2.1.2",
+        "string_scanner": "1.3.0",
+        "term_glyph": "1.2.1",
+        "vm_service": "14.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.2.0-0 <4.0.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "characters": "1.3.0",
+        "collection": "1.19.0",
+        "material_color_utilities": "0.11.1",
+        "meta": "1.15.0",
+        "vector_math": "2.1.4"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "frontend_server_client",
+      "version": "4.0.0",
+      "sourceRepository": "https://github.com/dart-lang/webdev/tree/master/frontend_server_client",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "frontend_server_client",
+        "sha256": "f64a0333a82f30b0cca061bc3d143813a486dc086b574bfb233b7c1372427694",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f64a0333a82f30b0cca061bc3d143813a486dc086b574bfb233b7c1372427694",
+      "dependencies": {
+        "async": "^2.5.0",
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "fuchsia_remote_debug_protocol",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.2.0-0 <4.0.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "process": "5.0.2",
+        "vm_service": "14.3.0",
+        "file": "7.0.0",
+        "meta": "1.15.0",
+        "path": "1.9.0",
+        "platform": "3.1.5"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "genai_primitives",
+      "version": "0.2.4",
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": "packages/genai_primitives",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {
+        "collection": "^1.19.0",
+        "cross_file": "^0.3.4+2",
+        "json_schema_builder": "^0.1.3",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0",
+        "mime": "^2.0.0",
+        "path": "^1.9.0"
+      },
+      "validation": "67 upstream tests passed"
+    },
+    {
+      "name": "genui",
+      "version": "0.10.7",
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0",
+        "flutter": ">=3.27.4"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": "packages/genui",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {
+        "a2ui_core": "^0.1.0",
+        "audioplayers": "^6.6.0",
+        "collection": "^1.19.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_markdown_plus": "1.0.3",
+        "genai_primitives": "^0.2.3",
+        "intl": "^0.19.0",
+        "json_schema_builder": "^0.1.3",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0",
+        "stream_transform": "^2.1.1",
+        "url_launcher": "^6.3.2",
+        "uuid": "^4.4.0",
+        "video_player": "2.10.0",
+        "video_player_win": "^3.2.2"
+      },
+      "validation": "375 upstream and compatibility regression tests passed"
+    },
+    {
+      "name": "genui_monorepo",
+      "version": null,
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0",
+        "flutter": ">=3.27.4 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": ".",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "glob",
+      "version": "2.2.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/glob",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "glob",
+        "sha256": "218aeb56050c714f62a3182775320dfa04602b55074873e24e31bbd39bda96fb",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "218aeb56050c714f62a3182775320dfa04602b55074873e24e31bbd39bda96fb",
+      "dependencies": {
+        "async": "^2.5.0",
+        "collection": "^1.15.0",
+        "file": ">=6.1.3 <8.0.0",
+        "path": "^1.8.0",
+        "string_scanner": "^1.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "google_cloud_ai_generativelanguage_v1beta",
+      "version": "0.5.0",
+      "sourceRepository": "https://github.com/mytangyh/google-cloud-dart.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "google-cloud-dart",
+      "repositoryPath": "generated/google_cloud_ai_generativelanguage_v1beta",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "generated/google_cloud_ai_generativelanguage_v1beta",
+        "ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "resolved-ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "url": "https://github.com/mytangyh/google-cloud-dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "google_cloud_longrunning": "^0.5.0",
+        "google_cloud_protobuf": "^0.5.0",
+        "google_cloud_rpc": "^0.5.0",
+        "google_cloud_type": "^0.5.0",
+        "http": "^1.3.0"
+      },
+      "validation": "202 combined offline/replay and regression tests passed; live APIs unverified"
+    },
+    {
+      "name": "google_cloud_longrunning",
+      "version": "0.5.0",
+      "sourceRepository": "https://github.com/mytangyh/google-cloud-dart.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "google-cloud-dart",
+      "repositoryPath": "generated/google_cloud_longrunning",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "generated/google_cloud_longrunning",
+        "ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "resolved-ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "url": "https://github.com/mytangyh/google-cloud-dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "google_cloud_protobuf": "^0.5.0",
+        "google_cloud_rpc": "^0.5.0",
+        "http": "^1.3.0"
+      },
+      "validation": "202 combined offline/replay and regression tests passed; live APIs unverified"
+    },
+    {
+      "name": "google_cloud_protobuf",
+      "version": "0.5.0",
+      "sourceRepository": "https://github.com/mytangyh/google-cloud-dart.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "google-cloud-dart",
+      "repositoryPath": "generated/google_cloud_protobuf",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "generated/google_cloud_protobuf",
+        "ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "resolved-ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "url": "https://github.com/mytangyh/google-cloud-dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {},
+      "validation": "202 combined offline/replay and regression tests passed; live APIs unverified"
+    },
+    {
+      "name": "google_cloud_rpc",
+      "version": "0.5.0",
+      "sourceRepository": "https://github.com/mytangyh/google-cloud-dart.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "google-cloud-dart",
+      "repositoryPath": "generated/google_cloud_rpc",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "generated/google_cloud_rpc",
+        "ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "resolved-ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "url": "https://github.com/mytangyh/google-cloud-dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "google_cloud_protobuf": "^0.5.0",
+        "googleapis_auth": "^2.0.0",
+        "http": "^1.3.0"
+      },
+      "validation": "202 combined offline/replay and regression tests passed; live APIs unverified"
+    },
+    {
+      "name": "google_cloud_type",
+      "version": "0.5.0",
+      "sourceRepository": "https://github.com/mytangyh/google-cloud-dart.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "google-cloud-dart",
+      "repositoryPath": "generated/google_cloud_type",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "generated/google_cloud_type",
+        "ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "resolved-ref": "45fa588f37c6f2356444ba43adf7c06b28315025",
+        "url": "https://github.com/mytangyh/google-cloud-dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "google_cloud_protobuf": "^0.5.0"
+      },
+      "validation": "202 combined offline/replay and regression tests passed; live APIs unverified"
+    },
+    {
+      "name": "google_identity_services_web",
+      "version": "0.3.3+1",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/google_identity_services_web",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "google_identity_services_web",
+        "sha256": "5d187c46dc59e02646e10fe82665fc3884a9b71bc1c90c2b8b749316d33ee454",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "5d187c46dc59e02646e10fe82665fc3884a9b71bc1c90c2b8b749316d33ee454",
+      "dependencies": {
+        "meta": "^1.3.0",
+        "web": ">=0.5.1 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "googleapis_auth",
+      "version": "2.0.0",
+      "sourceRepository": "https://github.com/google/googleapis.dart/tree/master/googleapis_auth",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "googleapis_auth",
+        "sha256": "b81fe352cc4a330b3710d2b7ad258d9bcef6f909bb759b306bf42973a7d046db",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "b81fe352cc4a330b3710d2b7ad258d9bcef6f909bb759b306bf42973a7d046db",
+      "dependencies": {
+        "args": "^2.3.1",
+        "crypto": "^3.0.0",
+        "google_identity_services_web": "^0.3.3",
+        "http": "^1.0.0",
+        "http_parser": "^4.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "graphs",
+      "version": "2.3.2",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/graphs",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "graphs",
+        "sha256": "741bbf84165310a68ff28fe9e727332eef1407342fca52759cb21ad8177bb8d0",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "741bbf84165310a68ff28fe9e727332eef1407342fca52759cb21ad8177bb8d0",
+      "dependencies": {
+        "collection": "^1.15.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "html",
+      "version": "0.15.7",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/html",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "html",
+        "sha256": "43b67b8f43321ab066817dfac5619596c98bb1b61624e77203bb4351785f9699",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "43b67b8f43321ab066817dfac5619596c98bb1b61624e77203bb4351785f9699",
+      "dependencies": {
+        "csslib": "^1.0.0",
+        "source_span": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "http",
+      "version": "1.6.0",
+      "sourceRepository": "https://github.com/dart-lang/http/tree/master/pkgs/http",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "http",
+        "sha256": "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412",
+      "dependencies": {
+        "async": "^2.5.0",
+        "http_parser": "^4.0.0",
+        "meta": "^1.3.0",
+        "web": ">=0.5.0 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "http_multi_server",
+      "version": "3.2.2",
+      "sourceRepository": "https://github.com/dart-lang/http/tree/master/pkgs/http_multi_server",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "http_multi_server",
+        "sha256": "aa6199f908078bb1c5efb8d8638d4ae191aac11b311132c3ef48ce352fb52ef8",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "aa6199f908078bb1c5efb8d8638d4ae191aac11b311132c3ef48ce352fb52ef8",
+      "dependencies": {
+        "async": "^2.5.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "sourceRepository": "https://github.com/dart-lang/http/tree/master/pkgs/http_parser",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "http_parser",
+        "sha256": "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571",
+      "dependencies": {
+        "collection": "^1.19.0",
+        "source_span": "^1.8.0",
+        "string_scanner": "^1.1.0",
+        "typed_data": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "integration_test",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/flutter.git",
+      "sdkConstraint": {
+        "sdk": ">=3.2.0-0 <4.0.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_driver": {
+          "sdk": "flutter"
+        },
+        "flutter_test": {
+          "sdk": "flutter"
+        },
+        "path": "1.9.0",
+        "vm_service": "14.3.0",
+        "async": "2.11.0",
+        "boolean_selector": "2.1.1",
+        "characters": "1.3.0",
+        "clock": "1.1.1",
+        "collection": "1.19.0",
+        "fake_async": "1.3.1",
+        "file": "7.0.0",
+        "leak_tracker": "10.0.7",
+        "leak_tracker_flutter_testing": "3.0.8",
+        "leak_tracker_testing": "3.0.1",
+        "matcher": "0.12.16+1",
+        "material_color_utilities": "0.11.1",
+        "meta": "1.15.0",
+        "source_span": "1.10.0",
+        "stack_trace": "1.12.0",
+        "stream_channel": "2.1.2",
+        "string_scanner": "1.3.0",
+        "sync_http": "0.3.1",
+        "term_glyph": "1.2.1",
+        "test_api": "0.7.3",
+        "vector_math": "2.1.4",
+        "webdriver": "3.0.4"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "intl",
+      "version": "0.19.0",
+      "sourceRepository": "https://github.com/dart-lang/i18n/tree/main/pkgs/intl",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "intl",
+        "sha256": "d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf",
+      "dependencies": {
+        "clock": "^1.1.0",
+        "meta": "^1.0.2",
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "io",
+      "version": "1.1.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/io",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "io",
+        "sha256": "2635216ca6a737e60de577ffa1a48a0bec76ca8a62917cfc1bb88c14c570646f",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "2635216ca6a737e60de577ffa1a48a0bec76ca8a62917cfc1bb88c14c570646f",
+      "dependencies": {
+        "meta": "^1.3.0",
+        "path": "^1.8.0",
+        "string_scanner": "^1.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "js",
+      "version": "0.7.1",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/js",
+      "sdkConstraint": {
+        "sdk": "^3.1.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "js",
+        "sha256": "c1b2e9b5ea78c45e1a0788d29606ba27dc5f71f019f32ca5140f61ef071838cf",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c1b2e9b5ea78c45e1a0788d29606ba27dc5f71f019f32ca5140f61ef071838cf",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "json_annotation",
+      "version": "4.9.0",
+      "sourceRepository": "https://github.com/google/json_serializable.dart/tree/master/json_annotation",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "json_annotation",
+        "sha256": "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1",
+      "dependencies": {
+        "meta": "^1.4.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "json_schema_builder",
+      "version": "0.1.7",
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": "packages/json_schema_builder",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {
+        "args": "^2.7.0",
+        "characters": "^1.3.0",
+        "collection": "^1.19.0",
+        "decimal": "^3.2.4",
+        "email_validator": "^3.0.0",
+        "http": "^1.6.0",
+        "logging": "^1.3.0"
+      },
+      "validation": "1321 upstream and official required schema tests passed"
+    },
+    {
+      "name": "leak_tracker",
+      "version": "10.0.7",
+      "sourceRepository": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "leak_tracker",
+        "sha256": "7bb2830ebd849694d1ec25bf1f44582d6ac531a57a365a803a6034ff751d2d06",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "7bb2830ebd849694d1ec25bf1f44582d6ac531a57a365a803a6034ff751d2d06",
+      "dependencies": {
+        "clock": "^1.1.1",
+        "collection": "^1.15.0",
+        "meta": "^1.8.0",
+        "path": "^1.8.3",
+        "vm_service": ">=11.10.0 <15.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "leak_tracker_flutter_testing",
+      "version": "3.0.8",
+      "sourceRepository": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_flutter_testing",
+      "sdkConstraint": {
+        "sdk": "^3.2.0",
+        "flutter": ">=3.18.0-18.0.pre.54"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "leak_tracker_flutter_testing",
+        "sha256": "9491a714cca3667b60b5c420da8217e6de0d1ba7a5ec322fab01758f6998f379",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9491a714cca3667b60b5c420da8217e6de0d1ba7a5ec322fab01758f6998f379",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "leak_tracker": ">=10.0.7 <11.0.0",
+        "leak_tracker_testing": ">=3.0.1 <4.0.0",
+        "matcher": "^0.12.16",
+        "meta": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "leak_tracker_testing",
+      "version": "3.0.1",
+      "sourceRepository": "https://github.com/dart-lang/leak_tracker/tree/main/pkgs/leak_tracker_testing",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "leak_tracker_testing",
+        "sha256": "6ba465d5d76e67ddf503e1161d1f4a6bc42306f9d66ca1e8f079a47290fb06d3",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "6ba465d5d76e67ddf503e1161d1f4a6bc42306f9d66ca1e8f079a47290fb06d3",
+      "dependencies": {
+        "leak_tracker": ">=9.0.0 <11.0.0",
+        "matcher": "^0.12.16",
+        "meta": "^1.11.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "lints",
+      "version": "5.1.1",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/lints",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "lints",
+        "sha256": "c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "logging",
+      "version": "1.3.0",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/logging",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "logging",
+        "sha256": "c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "macros",
+      "version": "0.1.3-main.0",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/macros",
+      "sdkConstraint": {
+        "sdk": "^3.4.0-256.0.dev"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "macros",
+        "sha256": "1d9e801cd66f7ea3663c45fc708450db1fa57f988142c64289142c9b7ee80656",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "1d9e801cd66f7ea3663c45fc708450db1fa57f988142c64289142c9b7ee80656",
+      "dependencies": {
+        "_macros": {
+          "sdk": "dart",
+          "version": "0.3.3"
+        }
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "markdown",
+      "version": "7.3.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/markdown",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "markdown",
+        "sha256": "935e23e1ff3bc02d390bad4d4be001208ee92cc217cb5b5a6c19bc14aaa318c1",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "935e23e1ff3bc02d390bad4d4be001208ee92cc217cb5b5a6c19bc14aaa318c1",
+      "dependencies": {
+        "args": "^2.0.0",
+        "meta": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "matcher",
+      "version": "0.12.16+1",
+      "sourceRepository": "https://github.com/dart-lang/matcher",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "matcher",
+        "sha256": "d2323aa2060500f906aa31a895b4030b6da3ebdcc5619d14ce1aada65cd161cb",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "d2323aa2060500f906aa31a895b4030b6da3ebdcc5619d14ce1aada65cd161cb",
+      "dependencies": {
+        "async": "^2.10.0",
+        "meta": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "term_glyph": "^1.2.0",
+        "test_api": ">=0.5.0 <0.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "material_color_utilities",
+      "version": "0.11.1",
+      "sourceRepository": "https://github.com/material-foundation/material-color-utilities/tree/main/dart",
+      "sdkConstraint": {
+        "sdk": ">=2.17.0 <4.0.0"
+      },
+      "languageVersion": "2.17",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "material_color_utilities",
+        "sha256": "f7142bb1154231d7ea5f96bc7bde4bda2a0945d2806bb11670e30b850d56bdec",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f7142bb1154231d7ea5f96bc7bde4bda2a0945d2806bb11670e30b850d56bdec",
+      "dependencies": {
+        "collection": "^1.15.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "mcp_dart",
+      "version": "2.1.1",
+      "sourceRepository": "https://github.com/leehack/mcp_dart",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "mcp_dart",
+        "sha256": "9c40e0f3de0ceffcfde9a0a8741088c07d7c5ef221a24e37059623a87c8d5927",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9c40e0f3de0ceffcfde9a0a8741088c07d7c5ef221a24e37059623a87c8d5927",
+      "dependencies": {
+        "http": "^1.4.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "meta",
+      "version": "1.15.0",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/meta",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <4.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "meta",
+        "sha256": "bdb68674043280c3428e9ec998512fb681678676b3c54e773629ffe74419f8c7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "bdb68674043280c3428e9ec998512fb681678676b3c54e773629ffe74419f8c7",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "mime",
+      "version": "2.1.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/mime",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "mime",
+        "sha256": "bd47de35f07e27267e69c8c8b22edf9473bfee170a60d60fcc93730c5144b7f6",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "bd47de35f07e27267e69c8c8b22edf9473bfee170a60d60fcc93730c5144b7f6",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "mistralai_dart",
+      "version": "1.2.1",
+      "sourceRepository": "https://github.com/mytangyh/ai_clients_dart.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "ai_clients_dart",
+      "repositoryPath": "packages/mistralai_dart",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/mistralai_dart",
+        "ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "resolved-ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "url": "https://github.com/mytangyh/ai_clients_dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "http": "^1.6.0",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0"
+      },
+      "validation": "2529 combined upstream unit tests passed, 11 upstream conditional skips; live API tests unverified"
+    },
+    {
+      "name": "mockito",
+      "version": "5.4.5",
+      "sourceRepository": "https://github.com/dart-lang/mockito",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "mockito",
+        "sha256": "f99d8d072e249f719a5531735d146d8cf04c580d93920b04de75bef6dfb2daf6",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f99d8d072e249f719a5531735d146d8cf04c580d93920b04de75bef6dfb2daf6",
+      "dependencies": {
+        "analyzer": ">=6.9.0 <8.0.0",
+        "build": "^2.4.1",
+        "code_builder": "^4.5.0",
+        "collection": "^1.19.0",
+        "dart_style": ">=2.3.7 <4.0.0",
+        "matcher": "^0.12.16",
+        "meta": "^1.15.0",
+        "path": "^1.9.0",
+        "source_gen": ">=1.4.0 <3.0.0",
+        "test_api": ">=0.6.1 <0.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "network_image_mock",
+      "version": "2.1.1",
+      "sourceRepository": "https://github.com/stelynx/network_image_mock",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "network_image_mock",
+        "sha256": "855cdd01d42440e0cffee0d6c2370909fc31b3bcba308a59829f24f64be42db7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "855cdd01d42440e0cffee0d6c2370909fc31b3bcba308a59829f24f64be42db7",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "mockito": "^5.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "node_preamble",
+      "version": "2.0.2",
+      "sourceRepository": "https://github.com/mbullington/node_preamble.dart",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0-0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "node_preamble",
+        "sha256": "6e7eac89047ab8a8d26cf16127b5ed26de65209847630400f9aefd7cd5c730db",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "6e7eac89047ab8a8d26cf16127b5ed26de65209847630400f9aefd7cd5c730db",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "ollama_dart",
+      "version": "1.3.0",
+      "sourceRepository": "https://github.com/mytangyh/ai_clients_dart.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "ai_clients_dart",
+      "repositoryPath": "packages/ollama_dart",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/ollama_dart",
+        "ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "resolved-ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "url": "https://github.com/mytangyh/ai_clients_dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "http": "^1.6.0",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0"
+      },
+      "validation": "2529 combined upstream unit tests passed, 11 upstream conditional skips; live API tests unverified"
+    },
+    {
+      "name": "openai_dart",
+      "version": "1.3.0",
+      "sourceRepository": "https://github.com/mytangyh/ai_clients_dart.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "ai_clients_dart",
+      "repositoryPath": "packages/openai_dart",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": "packages/openai_dart",
+        "ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "resolved-ref": "076584840dfcf6978d79119a2a663d2ddfd1f043",
+        "url": "https://github.com/mytangyh/ai_clients_dart.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "http": "^1.6.0",
+        "logging": "^1.3.0",
+        "meta": "^1.15.0",
+        "web_socket": "^1.0.1"
+      },
+      "validation": "2529 combined AI SDK unit tests passed, 11 upstream conditional skips; OpenAI-compatible Chat Completions streaming and tools verified via Android simple_chat; separate upstream live API suites unverified"
+    },
+    {
+      "name": "package_config",
+      "version": "2.2.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/package_config",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "package_config",
+        "sha256": "f096c55ebb7deb7e384101542bfba8c52696c1b56fca2eb62827989ef2353bbc",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f096c55ebb7deb7e384101542bfba8c52696c1b56fca2eb62827989ef2353bbc",
+      "dependencies": {
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path",
+      "version": "1.9.0",
+      "sourceRepository": "https://github.com/dart-lang/path",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path",
+        "sha256": "087ce49c3f0dc39180befefc60fdb4acd8f8620e5682fe2476afd0b3688bb4af",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "087ce49c3f0dc39180befefc60fdb4acd8f8620e5682fe2476afd0b3688bb4af",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider",
+      "version": "2.1.5",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider",
+      "sdkConstraint": {
+        "sdk": "^3.4.0",
+        "flutter": ">=3.22.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider",
+        "sha256": "50c5dd5b6e1aaf6fb3a78b33f6aa3afca52bf903a8a5298f53101fdaee55bbcd",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "50c5dd5b6e1aaf6fb3a78b33f6aa3afca52bf903a8a5298f53101fdaee55bbcd",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "path_provider_android": "^2.2.5",
+        "path_provider_foundation": "^2.3.2",
+        "path_provider_linux": "^2.2.0",
+        "path_provider_platform_interface": "^2.1.0",
+        "path_provider_windows": "^2.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider_android",
+      "version": "2.2.17",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_android",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider_android",
+        "sha256": "d0d310befe2c8ab9e7f393288ccbb11b60c019c6b5afc21973eeee4dda2b35e9",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "d0d310befe2c8ab9e7f393288ccbb11b60c019c6b5afc21973eeee4dda2b35e9",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "path_provider_platform_interface": "^2.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider_foundation",
+      "version": "2.4.1",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_foundation",
+      "sdkConstraint": {
+        "sdk": "^3.3.0",
+        "flutter": ">=3.19.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider_foundation",
+        "sha256": "4843174df4d288f5e29185bd6e72a6fbdf5a4a4602717eed565497429f179942",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4843174df4d288f5e29185bd6e72a6fbdf5a4a4602717eed565497429f179942",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "path_provider_platform_interface": "^2.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider_linux",
+      "version": "2.2.1",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_linux",
+      "sdkConstraint": {
+        "sdk": ">=2.19.0 <4.0.0",
+        "flutter": ">=3.7.0"
+      },
+      "languageVersion": "2.19",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider_linux",
+        "sha256": "f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22e241a8b301bf5cac3279",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22e241a8b301bf5cac3279",
+      "dependencies": {
+        "ffi": ">=1.1.2 <3.0.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "path": "^1.8.0",
+        "path_provider_platform_interface": "^2.1.0",
+        "xdg_directories": ">=0.2.0 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "version": "2.1.2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_platform_interface",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0",
+        "flutter": ">=3.10.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider_platform_interface",
+        "sha256": "88f5779f72ba699763fa3a3b06aa4bf6de76c8e5de842cf6f29e2e06476c2334",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "88f5779f72ba699763fa3a3b06aa4bf6de76c8e5de842cf6f29e2e06476c2334",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "platform": "^3.0.0",
+        "plugin_platform_interface": "^2.1.7"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "path_provider_windows",
+      "version": "2.3.0",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/path_provider/path_provider_windows",
+      "sdkConstraint": {
+        "sdk": "^3.2.0",
+        "flutter": ">=3.16.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "path_provider_windows",
+        "sha256": "bd6f00dbd873bfb70d0761682da2b3a2c2fccc2b9e84c495821639601d81afe7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "bd6f00dbd873bfb70d0761682da2b3a2c2fccc2b9e84c495821639601d81afe7",
+      "dependencies": {
+        "ffi": "^2.0.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "path": "^1.8.0",
+        "path_provider_platform_interface": "^2.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "platform",
+      "version": "3.1.5",
+      "sourceRepository": "https://github.com/dart-lang/platform",
+      "sdkConstraint": {
+        "sdk": "^3.2.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "platform",
+        "sha256": "9b71283fc13df574056616011fb138fd3b793ea47cc509c189a6c3fa5f8a1a65",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9b71283fc13df574056616011fb138fd3b793ea47cc509c189a6c3fa5f8a1a65",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "plugin_platform_interface",
+      "version": "2.1.8",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/plugin_platform_interface",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "plugin_platform_interface",
+        "sha256": "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02",
+      "dependencies": {
+        "meta": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "pool",
+      "version": "1.5.3",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/pool",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "pool",
+        "sha256": "4177f68c237ea2128d1bee66ac17b2ce05ba3dbaafcbdd54c5d40a39d0b6b11c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4177f68c237ea2128d1bee66ac17b2ce05ba3dbaafcbdd54c5d40a39d0b6b11c",
+      "dependencies": {
+        "async": "^2.5.0",
+        "stack_trace": "^1.10.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "preact_signals",
+      "version": "1.9.4",
+      "sourceRepository": "https://github.com/rodydavis/signals.dart",
+      "sdkConstraint": {
+        "sdk": "^3.5.0"
+      },
+      "languageVersion": "3.5",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "preact_signals",
+        "sha256": "ad45313c86b2228536a16d3dfc86da8263705d4acb4136c42907378de6910d8c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "ad45313c86b2228536a16d3dfc86da8263705d4acb4136c42907378de6910d8c",
+      "dependencies": {
+        "meta": "^1.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "process",
+      "version": "5.0.2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/process",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "process",
+        "sha256": "21e54fd2faf1b5bdd5102afd25012184a6793927648ea81eea80552ac9405b32",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "21e54fd2faf1b5bdd5102afd25012184a6793927648ea81eea80552ac9405b32",
+      "dependencies": {
+        "file": ">=6.0.0 <8.0.0",
+        "path": "^1.8.0",
+        "platform": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "pub_semver",
+      "version": "2.2.1",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/pub_semver",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "pub_semver",
+        "sha256": "261236774e8b1d69cfc6b9eabbc96c40f25e7a2d6b171f3385d4f65d5734fb24",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "261236774e8b1d69cfc6b9eabbc96c40f25e7a2d6b171f3385d4f65d5734fb24",
+      "dependencies": {
+        "collection": "^1.15.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "pubspec_parse",
+      "version": "1.5.0",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/pubspec_parse",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "pubspec_parse",
+        "sha256": "0560ba233314abbed0a48a2956f7f022cce7c3e1e73df540277da7544cad4082",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "0560ba233314abbed0a48a2956f7f022cce7c3e1e73df540277da7544cad4082",
+      "dependencies": {
+        "checked_yaml": "^2.0.1",
+        "collection": "^1.19.0",
+        "json_annotation": "^4.9.0",
+        "pub_semver": "^2.1.4",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "rational",
+      "version": "2.2.3",
+      "sourceRepository": "https://github.com/a14n/dart-rational",
+      "sdkConstraint": {
+        "sdk": ">=2.14.0 <4.0.0"
+      },
+      "languageVersion": "2.14",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "rational",
+        "sha256": "cb808fb6f1a839e6fc5f7d8cb3b0a10e1db48b3be102de73938c627f0b636336",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "cb808fb6f1a839e6fc5f7d8cb3b0a10e1db48b3be102de73938c627f0b636336",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "rxdart",
+      "version": "0.28.0",
+      "sourceRepository": "https://github.com/ReactiveX/rxdart",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <4.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "rxdart",
+        "sha256": "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "shelf",
+      "version": "1.4.2",
+      "sourceRepository": "https://github.com/dart-lang/shelf/tree/master/pkgs/shelf",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "shelf",
+        "sha256": "e7dd780a7ffb623c57850b33f43309312fc863fb6aa3d276a754bb299839ef12",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "e7dd780a7ffb623c57850b33f43309312fc863fb6aa3d276a754bb299839ef12",
+      "dependencies": {
+        "async": "^2.5.0",
+        "collection": "^1.15.0",
+        "http_parser": "^4.1.0",
+        "path": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "stream_channel": "^2.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "shelf_packages_handler",
+      "version": "3.0.2",
+      "sourceRepository": "https://github.com/dart-lang/shelf/tree/master/pkgs/shelf_packages_handler",
+      "sdkConstraint": {
+        "sdk": ">=2.17.0 <3.0.0"
+      },
+      "languageVersion": "2.17",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "shelf_packages_handler",
+        "sha256": "89f967eca29607c933ba9571d838be31d67f53f6e4ee15147d5dc2934fee1b1e",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "89f967eca29607c933ba9571d838be31d67f53f6e4ee15147d5dc2934fee1b1e",
+      "dependencies": {
+        "path": "^1.8.0",
+        "shelf": "^1.0.0",
+        "shelf_static": "^1.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "shelf_static",
+      "version": "1.1.3",
+      "sourceRepository": "https://github.com/dart-lang/shelf/tree/master/pkgs/shelf_static",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "shelf_static",
+        "sha256": "c87c3875f91262785dade62d135760c2c69cb217ac759485334c5857ad89f6e3",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c87c3875f91262785dade62d135760c2c69cb217ac759485334c5857ad89f6e3",
+      "dependencies": {
+        "convert": "^3.0.0",
+        "http_parser": "^4.0.0",
+        "mime": ">=1.0.0 <3.0.0",
+        "path": "^1.8.0",
+        "shelf": "^1.1.2"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "shelf_web_socket",
+      "version": "2.0.1",
+      "sourceRepository": "https://github.com/dart-lang/shelf/tree/master/pkgs/shelf_web_socket",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "shelf_web_socket",
+        "sha256": "cc36c297b52866d203dbf9332263c94becc2fe0ceaa9681d07b6ef9807023b67",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "cc36c297b52866d203dbf9332263c94becc2fe0ceaa9681d07b6ef9807023b67",
+      "dependencies": {
+        "shelf": "^1.1.0",
+        "stream_channel": "^2.1.0",
+        "web_socket_channel": ">=2.0.0 <4.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "simple_chat",
+      "version": null,
+      "sourceRepository": "https://github.com/mytangyh/genui.git",
+      "sdkConstraint": {
+        "sdk": ">=3.6.2 <4.0.0",
+        "flutter": ">=3.27.4 <4.0.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "same-repository adaptation",
+      "forkGroup": "genui",
+      "repositoryPath": "examples/simple_chat",
+      "lockedSource": "workspace",
+      "lockedDescription": null,
+      "archiveSha256": null,
+      "dependencies": {
+        "a2ui_core": "^0.1.0",
+        "audioplayers": "^6.6.0",
+        "dartantic_ai": "^3.2.0",
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_markdown_plus": "1.0.3",
+        "genui": "^0.10.0",
+        "json_schema_builder": "^0.1.3",
+        "logging": "^1.3.0",
+        "video_player": "2.10.0"
+      },
+      "validation": "3 unit, 7 flutter-tester and 7 Android offline tests passed; 3 real gpt-5.6-luna Android mode loops passed; main APK built and run; Windows outside current acceptance"
+    },
+    {
+      "name": "sky_engine",
+      "version": "0.0.0",
+      "sourceRepository": "https://github.com/flutter/engine.git",
+      "sdkConstraint": {
+        "sdk": ">=3.2.0-0 <4.0.0"
+      },
+      "languageVersion": "3.2",
+      "adaptation": "sdk",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "sdk",
+      "lockedDescription": "flutter",
+      "archiveSha256": null,
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "source_gen",
+      "version": "2.0.0",
+      "sourceRepository": "https://github.com/dart-lang/source_gen/tree/master/source_gen",
+      "sdkConstraint": {
+        "sdk": "^3.6.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "source_gen",
+        "sha256": "35c8150ece9e8c8d263337a265153c3329667640850b9304861faea59fc98f6b",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "35c8150ece9e8c8d263337a265153c3329667640850b9304861faea59fc98f6b",
+      "dependencies": {
+        "analyzer": ">=6.9.0 <8.0.0",
+        "async": "^2.5.0",
+        "build": "^2.1.0",
+        "dart_style": ">=2.3.7 <4.0.0",
+        "glob": "^2.0.0",
+        "path": "^1.8.0",
+        "pub_semver": "^2.1.4",
+        "source_span": "^1.8.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "source_map_stack_trace",
+      "version": "2.1.2",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/source_map_stack_trace",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "source_map_stack_trace",
+        "sha256": "c0713a43e323c3302c2abe2a1cc89aa057a387101ebd280371d6a6c9fa68516b",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "c0713a43e323c3302c2abe2a1cc89aa057a387101ebd280371d6a6c9fa68516b",
+      "dependencies": {
+        "path": "^1.8.0",
+        "source_maps": "^0.10.10",
+        "stack_trace": "^1.10.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "source_maps",
+      "version": "0.10.14",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/source_maps",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "source_maps",
+        "sha256": "14c2945847669b44089bb1222f66873d7ff7103c58911917f2a63c5a62327898",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "14c2945847669b44089bb1222f66873d7ff7103c58911917f2a63c5a62327898",
+      "dependencies": {
+        "source_span": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "source_span",
+      "version": "1.10.0",
+      "sourceRepository": "https://github.com/dart-lang/source_span",
+      "sdkConstraint": {
+        "sdk": ">=2.18.0 <3.0.0"
+      },
+      "languageVersion": "2.18",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "source_span",
+        "sha256": "53e943d4206a5e30df338fd4c6e7a077e02254531b138a15aec3bd143c1a8b3c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "53e943d4206a5e30df338fd4c6e7a077e02254531b138a15aec3bd143c1a8b3c",
+      "dependencies": {
+        "collection": "^1.15.0",
+        "path": "^1.8.0",
+        "term_glyph": "^1.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "sse",
+      "version": "4.1.8",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/sse",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "sse",
+        "sha256": "fcc97470240bb37377f298e2bd816f09fd7216c07928641c0560719f50603643",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "fcc97470240bb37377f298e2bd816f09fd7216c07928641c0560719f50603643",
+      "dependencies": {
+        "async": "^2.0.8",
+        "collection": "^1.0.0",
+        "logging": "^1.0.0",
+        "pool": "^1.5.0",
+        "shelf": "^1.1.0",
+        "stream_channel": "^2.0.0",
+        "web": ">=0.5.0 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "sse_channel",
+      "version": "0.2.2",
+      "sourceRepository": "https://github.com/mytangyh/sse_channel.git",
+      "sdkConstraint": {
+        "sdk": "^3.6.2"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "fixed Git fork adaptation",
+      "forkGroup": "sse_channel",
+      "repositoryPath": ".",
+      "lockedSource": "git",
+      "lockedDescription": {
+        "path": ".",
+        "ref": "1776f9dfa82e9d3a1430f236c02a70a3ded38aee",
+        "resolved-ref": "1776f9dfa82e9d3a1430f236c02a70a3ded38aee",
+        "url": "https://github.com/mytangyh/sse_channel.git"
+      },
+      "archiveSha256": null,
+      "dependencies": {
+        "async": "^2.11.0",
+        "http": "^1.5.0",
+        "logging": "^1.3.0",
+        "pool": "^1.5.2",
+        "sse": "^4.1.6",
+        "stream_channel": "^2.1.2",
+        "uuid": "^4.5.1",
+        "web": "^1.1.1"
+      },
+      "validation": "13 upstream tests passed, including local HTTP SSE integration"
+    },
+    {
+      "name": "stack_trace",
+      "version": "1.12.0",
+      "sourceRepository": "https://github.com/dart-lang/stack_trace",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "stack_trace",
+        "sha256": "9f47fd3630d76be3ab26f0ee06d213679aa425996925ff3feffdec504931c377",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9f47fd3630d76be3ab26f0ee06d213679aa425996925ff3feffdec504931c377",
+      "dependencies": {
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "stream_channel",
+      "version": "2.1.2",
+      "sourceRepository": "https://github.com/dart-lang/stream_channel",
+      "sdkConstraint": {
+        "sdk": ">=2.19.0 <3.0.0"
+      },
+      "languageVersion": "2.19",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "stream_channel",
+        "sha256": "ba2aa5d8cc609d96bbb2899c28934f9e1af5cddbd60a827822ea467161eb54e7",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "ba2aa5d8cc609d96bbb2899c28934f9e1af5cddbd60a827822ea467161eb54e7",
+      "dependencies": {
+        "async": "^2.5.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "stream_transform",
+      "version": "2.1.2",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/stream_transform",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "stream_transform",
+        "sha256": "a00e5f18bffc764f923e7dec1038527f7fe7a1791361a7117f0358193f13d53a",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "a00e5f18bffc764f923e7dec1038527f7fe7a1791361a7117f0358193f13d53a",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "string_scanner",
+      "version": "1.3.0",
+      "sourceRepository": "https://github.com/dart-lang/string_scanner",
+      "sdkConstraint": {
+        "sdk": "^3.1.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "string_scanner",
+        "sha256": "688af5ed3402a4bde5b3a6c15fd768dbf2621a614950b17f04626c431ab3c4c3",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "688af5ed3402a4bde5b3a6c15fd768dbf2621a614950b17f04626c431ab3c4c3",
+      "dependencies": {
+        "source_span": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "sync_http",
+      "version": "0.3.1",
+      "sourceRepository": "https://github.com/google/sync_http.dart",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "sync_http",
+        "sha256": "7f0cd72eca000d2e026bcd6f990b81d0ca06022ef4e32fb257b30d3d1014a961",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "7f0cd72eca000d2e026bcd6f990b81d0ca06022ef4e32fb257b30d3d1014a961",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "synchronized",
+      "version": "3.3.0+3",
+      "sourceRepository": "https://github.com/tekartik/synchronized.dart/tree/master/synchronized",
+      "sdkConstraint": {
+        "sdk": "^3.5.0"
+      },
+      "languageVersion": "3.5",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "synchronized",
+        "sha256": "69fe30f3a8b04a0be0c15ae6490fc859a78ef4c43ae2dd5e8a623d45bfcf9225",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "69fe30f3a8b04a0be0c15ae6490fc859a78ef4c43ae2dd5e8a623d45bfcf9225",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "term_glyph",
+      "version": "1.2.1",
+      "sourceRepository": "https://github.com/dart-lang/term_glyph",
+      "sdkConstraint": {
+        "sdk": ">=2.12.0 <3.0.0"
+      },
+      "languageVersion": "2.12",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "term_glyph",
+        "sha256": "a29248a84fbb7c79282b40b8c72a1209db169a2e0542bce341da992fe1bc7e84",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "a29248a84fbb7c79282b40b8c72a1209db169a2e0542bce341da992fe1bc7e84",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "test",
+      "version": "1.25.8",
+      "sourceRepository": "https://github.com/dart-lang/test/tree/master/pkgs/test",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "test",
+        "sha256": "713a8789d62f3233c46b4a90b174737b2c04cb6ae4500f2aa8b1be8f03f5e67f",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "713a8789d62f3233c46b4a90b174737b2c04cb6ae4500f2aa8b1be8f03f5e67f",
+      "dependencies": {
+        "analyzer": ">=5.12.0 <7.0.0",
+        "async": "^2.5.0",
+        "boolean_selector": "^2.1.0",
+        "collection": "^1.15.0",
+        "coverage": "^1.0.1",
+        "http_multi_server": "^3.0.0",
+        "io": "^1.0.0",
+        "js": ">=0.6.4 <0.8.0",
+        "matcher": ">=0.12.16 <0.12.17",
+        "node_preamble": "^2.0.0",
+        "package_config": "^2.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "shelf": "^1.0.0",
+        "shelf_packages_handler": "^3.0.0",
+        "shelf_static": "^1.0.0",
+        "shelf_web_socket": ">=1.0.0 <3.0.0",
+        "source_span": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "stream_channel": "^2.1.0",
+        "test_api": "0.7.3",
+        "test_core": "0.6.5",
+        "typed_data": "^1.3.0",
+        "web_socket_channel": ">=2.0.0 <4.0.0",
+        "webkit_inspection_protocol": "^1.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "test_api",
+      "version": "0.7.3",
+      "sourceRepository": "https://github.com/dart-lang/test/tree/master/pkgs/test_api",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "test_api",
+        "sha256": "664d3a9a64782fcdeb83ce9c6b39e78fd2971d4e37827b9b06c3aa1edc5e760c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "664d3a9a64782fcdeb83ce9c6b39e78fd2971d4e37827b9b06c3aa1edc5e760c",
+      "dependencies": {
+        "async": "^2.5.0",
+        "boolean_selector": "^2.1.0",
+        "collection": "^1.15.0",
+        "meta": "^1.14.0",
+        "source_span": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "stream_channel": "^2.1.0",
+        "string_scanner": "^1.1.0",
+        "term_glyph": "^1.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "test_core",
+      "version": "0.6.5",
+      "sourceRepository": "https://github.com/dart-lang/test/tree/master/pkgs/test_core",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "test_core",
+        "sha256": "12391302411737c176b0b5d6491f466b0dd56d4763e347b6714efbaa74d7953d",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "12391302411737c176b0b5d6491f466b0dd56d4763e347b6714efbaa74d7953d",
+      "dependencies": {
+        "analyzer": ">=3.3.0 <7.0.0",
+        "args": "^2.0.0",
+        "async": "^2.5.0",
+        "boolean_selector": "^2.1.0",
+        "collection": "^1.15.0",
+        "coverage": "^1.0.0",
+        "frontend_server_client": ">=3.2.0 <5.0.0",
+        "glob": "^2.0.0",
+        "io": "^1.0.0",
+        "meta": "^1.3.0",
+        "package_config": "^2.0.0",
+        "path": "^1.8.0",
+        "pool": "^1.5.0",
+        "source_map_stack_trace": "^2.1.0",
+        "source_maps": "^0.10.10",
+        "source_span": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "stream_channel": "^2.1.0",
+        "test_api": "0.7.3",
+        "vm_service": ">=6.0.0 <15.0.0",
+        "yaml": "^3.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "timing",
+      "version": "1.0.2",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/timing",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "timing",
+        "sha256": "62ee18aca144e4a9f29d212f5a4c6a053be252b895ab14b5821996cff4ed90fe",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "62ee18aca144e4a9f29d212f5a4c6a053be252b895ab14b5821996cff4ed90fe",
+      "dependencies": {
+        "json_annotation": "^4.9.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "typed_data",
+      "version": "1.4.0",
+      "sourceRepository": "https://github.com/dart-lang/core/tree/main/pkgs/typed_data",
+      "sdkConstraint": {
+        "sdk": "^3.5.0"
+      },
+      "languageVersion": "3.5",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "typed_data",
+        "sha256": "f9049c039ebfeb4cf7a7104a675823cd72dba8297f264b6637062516699fa006",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f9049c039ebfeb4cf7a7104a675823cd72dba8297f264b6637062516699fa006",
+      "dependencies": {
+        "collection": "^1.15.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher",
+      "version": "6.3.2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher",
+        "sha256": "f6a7e5c4835bb4e3026a04793a4199ca2d14c739ec378fdfe23fc8075d0439f8",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f6a7e5c4835bb4e3026a04793a4199ca2d14c739ec378fdfe23fc8075d0439f8",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_android": "^6.3.0",
+        "url_launcher_ios": "^6.2.4",
+        "url_launcher_linux": "^3.1.0",
+        "url_launcher_macos": "^3.1.0",
+        "url_launcher_platform_interface": "^2.3.0",
+        "url_launcher_web": "^2.2.0",
+        "url_launcher_windows": "^3.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_android",
+      "version": "6.3.17",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_android",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_android",
+        "sha256": "0aedad096a85b49df2e4725fa32118f9fa580f3b14af7a2d2221896a02cd5656",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "0aedad096a85b49df2e4725fa32118f9fa580f3b14af7a2d2221896a02cd5656",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.3.1"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_ios",
+      "version": "6.3.3",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_ios",
+      "sdkConstraint": {
+        "sdk": "^3.4.0",
+        "flutter": ">=3.22.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_ios",
+        "sha256": "7f2022359d4c099eea7df3fdf739f7d3d3b9faf3166fb1dd390775176e0b76cb",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "7f2022359d4c099eea7df3fdf739f7d3d3b9faf3166fb1dd390775176e0b76cb",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_linux",
+      "version": "3.2.1",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_linux",
+      "sdkConstraint": {
+        "sdk": "^3.3.0",
+        "flutter": ">=3.19.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_linux",
+        "sha256": "4e9ba368772369e3e08f231d2301b4ef72b9ff87c31192ef471b380ef29a4935",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4e9ba368772369e3e08f231d2301b4ef72b9ff87c31192ef471b380ef29a4935",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_macos",
+      "version": "3.2.2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_macos",
+      "sdkConstraint": {
+        "sdk": "^3.3.0",
+        "flutter": ">=3.19.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_macos",
+        "sha256": "17ba2000b847f334f16626a574c702b196723af2a289e7a93ffcb79acff855c2",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "17ba2000b847f334f16626a574c702b196723af2a289e7a93ffcb79acff855c2",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "version": "2.3.2",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_platform_interface",
+      "sdkConstraint": {
+        "sdk": "^3.1.0",
+        "flutter": ">=3.13.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_platform_interface",
+        "sha256": "552f8a1e663569be95a8190206a38187b531910283c3e982193e4f2733f01029",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "552f8a1e663569be95a8190206a38187b531910283c3e982193e4f2733f01029",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "plugin_platform_interface": "^2.1.7"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_web",
+      "version": "2.4.1",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_web",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_web",
+        "sha256": "4bd2b7b4dc4d4d0b94e5babfffbca8eac1a126c7f3d6ecbc1a11013faa3abba2",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "4bd2b7b4dc4d4d0b94e5babfffbca8eac1a126c7f3d6ecbc1a11013faa3abba2",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_web_plugins": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.2.0",
+        "web": ">=0.5.1 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "url_launcher_windows",
+      "version": "3.1.4",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_windows",
+      "sdkConstraint": {
+        "sdk": "^3.4.0",
+        "flutter": ">=3.22.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "url_launcher_windows",
+        "sha256": "3284b6d2ac454cf34f114e1d3319866fdd1e19cdc329999057e44ffe936cfa77",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "3284b6d2ac454cf34f114e1d3319866fdd1e19cdc329999057e44ffe936cfa77",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "url_launcher_platform_interface": "^2.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "uuid",
+      "version": "4.6.0",
+      "sourceRepository": "https://github.com/Daegalus/dart-uuid",
+      "sdkConstraint": {
+        "sdk": ">=3.0.0 <4.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "uuid",
+        "sha256": "9b129329f58692f6e6578329498a8fe9fbe98f090beb764ffbb8ee2eadd01dcd",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9b129329f58692f6e6578329498a8fe9fbe98f090beb764ffbb8ee2eadd01dcd",
+      "dependencies": {
+        "crypto": "^3.0.0",
+        "fixnum": "^1.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "vector_math",
+      "version": "2.1.4",
+      "sourceRepository": "https://github.com/google/vector_math.dart",
+      "sdkConstraint": {
+        "sdk": ">=2.14.0 <3.0.0"
+      },
+      "languageVersion": "2.14",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "vector_math",
+        "sha256": "80b3257d1492ce4d091729e3a67a60407d227c27241d6927be0130c98e741803",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "80b3257d1492ce4d091729e3a67a60407d227c27241d6927be0130c98e741803",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player",
+      "version": "2.10.0",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/video_player/video_player",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player",
+        "sha256": "0d55b1f1a31e5ad4c4967bfaa8ade0240b07d20ee4af1dfef5f531056512961a",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "0d55b1f1a31e5ad4c4967bfaa8ade0240b07d20ee4af1dfef5f531056512961a",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "html": "^0.15.0",
+        "video_player_android": "^2.8.1",
+        "video_player_avfoundation": "^2.7.0",
+        "video_player_platform_interface": "^6.3.0",
+        "video_player_web": "^2.1.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player_android",
+      "version": "2.8.4",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/video_player/video_player_android",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player_android",
+        "sha256": "28dcc4122079f40f93a0965b3679aff1a5f4251cf79611bd8011f937eb6b69de",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "28dcc4122079f40f93a0965b3679aff1a5f4251cf79611bd8011f937eb6b69de",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "video_player_platform_interface": "^6.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player_avfoundation",
+      "version": "2.8.4",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/video_player/video_player_avfoundation",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player_avfoundation",
+        "sha256": "f9a780aac57802b2892f93787e5ea53b5f43cc57dc107bee9436458365be71cd",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f9a780aac57802b2892f93787e5ea53b5f43cc57dc107bee9436458365be71cd",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "video_player_platform_interface": "^6.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player_platform_interface",
+      "version": "6.4.0",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/video_player/video_player_platform_interface",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player_platform_interface",
+        "sha256": "cf2a1d29a284db648fd66cbd18aacc157f9862d77d2cc790f6f9678a46c1db5a",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "cf2a1d29a284db648fd66cbd18aacc157f9862d77d2cc790f6f9678a46c1db5a",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "plugin_platform_interface": "^2.1.7"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player_web",
+      "version": "2.4.0",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/video_player/video_player_web",
+      "sdkConstraint": {
+        "sdk": "^3.6.0",
+        "flutter": ">=3.27.0"
+      },
+      "languageVersion": "3.6",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player_web",
+        "sha256": "9f3c00be2ef9b76a95d94ac5119fb843dca6f2c69e6c9968f6f2b6c9e7afbdeb",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "9f3c00be2ef9b76a95d94ac5119fb843dca6f2c69e6c9968f6f2b6c9e7afbdeb",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "flutter_web_plugins": {
+          "sdk": "flutter"
+        },
+        "video_player_platform_interface": "^6.4.0",
+        "web": ">=0.5.1 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "video_player_win",
+      "version": "3.3.0",
+      "sourceRepository": "https://github.com/jakky1/video_player_win",
+      "sdkConstraint": {
+        "sdk": "^2.17.0",
+        "flutter": "^2.10.0"
+      },
+      "languageVersion": "2.17",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "video_player_win",
+        "sha256": "df03760c1498ee0c0efe2688b302c331acf46489e9821761d1adb137148502f1",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "df03760c1498ee0c0efe2688b302c331acf46489e9821761d1adb137148502f1",
+      "dependencies": {
+        "flutter": {
+          "sdk": "flutter"
+        },
+        "plugin_platform_interface": "^2.0.2",
+        "video_player_platform_interface": "^6.2.1"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "vm_service",
+      "version": "14.3.0",
+      "sourceRepository": "https://github.com/dart-lang/sdk/tree/main/pkg/vm_service",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "vm_service",
+        "sha256": "f6be3ed8bd01289b34d679c2b62226f63c0e69f9fd2e50a6b3c1c729a961041b",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f6be3ed8bd01289b34d679c2b62226f63c0e69f9fd2e50a6b3c1c729a961041b",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "watcher",
+      "version": "1.2.1",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/watcher",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "watcher",
+        "sha256": "1398c9f081a753f9226febe8900fce8f7d0a67163334e1c94a2438339d79d635",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "1398c9f081a753f9226febe8900fce8f7d0a67163334e1c94a2438339d79d635",
+      "dependencies": {
+        "async": "^2.5.0",
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "web",
+      "version": "1.1.1",
+      "sourceRepository": "https://github.com/dart-lang/web",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "web",
+        "sha256": "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a",
+      "dependencies": {},
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "web_socket",
+      "version": "1.0.1",
+      "sourceRepository": "https://github.com/dart-lang/http/tree/master/pkgs/web_socket",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "web_socket",
+        "sha256": "34d64019aa8e36bf9842ac014bb5d2f5586ca73df5e4d9bf5c936975cae6982c",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "34d64019aa8e36bf9842ac014bb5d2f5586ca73df5e4d9bf5c936975cae6982c",
+      "dependencies": {
+        "web": ">=0.5.0 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "web_socket_channel",
+      "version": "3.0.3",
+      "sourceRepository": "https://github.com/dart-lang/http/tree/master/pkgs/web_socket_channel",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "web_socket_channel",
+        "sha256": "d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "d645757fb0f4773d602444000a8131ff5d48c9e47adfe9772652dd1a4f2d45c8",
+      "dependencies": {
+        "async": "^2.5.0",
+        "crypto": "^3.0.0",
+        "stream_channel": "^2.1.0",
+        "web": ">=0.5.0 <2.0.0",
+        "web_socket": ">=0.1.5 <2.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "webdriver",
+      "version": "3.0.4",
+      "sourceRepository": "https://github.com/google/webdriver.dart",
+      "sdkConstraint": {
+        "sdk": "^3.1.0"
+      },
+      "languageVersion": "3.1",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "webdriver",
+        "sha256": "3d773670966f02a646319410766d3b5e1037efb7f07cc68f844d5e06cd4d61c8",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "3d773670966f02a646319410766d3b5e1037efb7f07cc68f844d5e06cd4d61c8",
+      "dependencies": {
+        "matcher": "^0.12.10",
+        "path": "^1.8.0",
+        "stack_trace": "^1.10.0",
+        "sync_http": "^0.3.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "webkit_inspection_protocol",
+      "version": "1.2.1",
+      "sourceRepository": "https://github.com/google/webkit_inspection_protocol.dart",
+      "sdkConstraint": {
+        "sdk": "^3.0.0"
+      },
+      "languageVersion": "3.0",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "webkit_inspection_protocol",
+        "sha256": "87d3f2333bb240704cd3f1c6b5b7acd8a10e7f0bc28c28dcf14e782014f4a572",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "87d3f2333bb240704cd3f1c6b5b7acd8a10e7f0bc28c28dcf14e782014f4a572",
+      "dependencies": {
+        "logging": "^1.0.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "xdg_directories",
+      "version": "1.1.0",
+      "sourceRepository": "https://github.com/flutter/packages/tree/main/packages/xdg_directories",
+      "sdkConstraint": {
+        "sdk": "^3.3.0"
+      },
+      "languageVersion": "3.3",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "xdg_directories",
+        "sha256": "7a3f37b05d989967cdddcbb571f1ea834867ae2faa29725fd085180e0883aa15",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "7a3f37b05d989967cdddcbb571f1ea834867ae2faa29725fd085180e0883aa15",
+      "dependencies": {
+        "meta": "^1.3.0",
+        "path": "^1.8.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    },
+    {
+      "name": "yaml",
+      "version": "3.1.4",
+      "sourceRepository": "https://github.com/dart-lang/tools/tree/main/pkgs/yaml",
+      "sdkConstraint": {
+        "sdk": "^3.4.0"
+      },
+      "languageVersion": "3.4",
+      "adaptation": "hosted",
+      "forkGroup": null,
+      "repositoryPath": null,
+      "lockedSource": "hosted",
+      "lockedDescription": {
+        "name": "yaml",
+        "sha256": "f67cdd8e07d3c6329146aaef1ba043542b3134c12489f553ca9a7435d1068aea",
+        "url": "https://pub.dev"
+      },
+      "archiveSha256": "f67cdd8e07d3c6329146aaef1ba043542b3134c12489f553ca9a7435d1068aea",
+      "dependencies": {
+        "collection": "^1.15.0",
+        "source_span": "^1.8.0",
+        "string_scanner": "^1.2.0"
+      },
+      "validation": "resolved; runtime status follows VALIDATION.md"
+    }
+  ]
+}

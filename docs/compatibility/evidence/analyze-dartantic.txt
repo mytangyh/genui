@@ -1,0 +1,9 @@
+Analyzing lib, lib, test...
+
+   info - packages\dartantic_ai\lib\src\agent\orchestrators\default_streaming_orchestrator.dart:173:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - packages\dartantic_ai\lib\src\chat_models\openai_responses\openai_responses_event_mapper.dart:59:26 - Don't cast a nullable value to a non-nullable type. Try adding a not-null assertion ('!') to make the type non-nullable. - cast_nullable_to_non_nullable
+   info - packages\dartantic_ai\lib\src\providers\ollama_provider.dart:22:81 - The line length exceeds the 80-character limit. Try breaking the line across multiple lines. - lines_longer_than_80_chars
+   info - packages\dartantic_ai\test\openai_responses\openai_responses_event_mapper_test.dart:33:20 - Method invocation or property access on a 'dynamic' target. Try giving the target a type. - avoid_dynamic_calls
+   info - packages\dartantic_ai\test\provider_initialization_test.dart:96:21 - Asynchronous function invoked in a non-'async' function. Try converting the enclosing function to be 'async' and then 'await' the future. - discarded_futures
+
+5 issues found.

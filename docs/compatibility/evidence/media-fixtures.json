@@ -1,0 +1,8 @@
+{
+  "generator": "imageio-ffmpeg 0.6.0; PCM 16-bit mono 22050 Hz; 2 seconds",
+  "description": "Locally generated test tone and 64x64 blue H264 video; no external resources",
+  "sha256": {
+    "blue.mp4": "c89489c15364e1090d90ed57ef756fb5cdb6deabf1fca7a0070c18e304e4591a",
+    "tone.wav": "50e7360b59cb3766bda6288eb4be21006ecb6743eb453573e786bd83aa38bc7a"
+  }
+}

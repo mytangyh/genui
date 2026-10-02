@@ -1,0 +1,69 @@
+00:00 +0: loading test\custom_part_test.dart
+00:00 +0: test\custom_part_test.dart: Custom Part Serialization round trip serialization with custom type
+00:00 +1: test\example_test.dart: runExample
+00:00 +2: test\example_test.dart: runExample
+00:00 +3: test\example_test.dart: runExample
+00:00 +4: test\genai_primitives_test.dart: Part mimeType helper
+00:00 +5: test\genai_primitives_test.dart: Part nameFromMimeType helper
+00:00 +6: test\genai_primitives_test.dart: Part extensionFromMimeType helper
+00:00 +7: test\genai_primitives_test.dart: Part defaultMimeType helper
+00:00 +8: test\genai_primitives_test.dart: Part uses defaultMimeType when unknown
+00:00 +9: test\genai_primitives_test.dart: Part fromJson throws on unknown type
+00:00 +10: test\genai_primitives_test.dart: MessagePart TextPart creation
+00:00 +11: test\genai_primitives_test.dart: MessagePart TextPart equality
+00:00 +12: test\genai_primitives_test.dart: MessagePart TextPart JSON serialization
+00:00 +13: test\genai_primitives_test.dart: MessagePart DataPart creation
+00:00 +14: test\genai_primitives_test.dart: MessagePart DataPart equality
+00:00 +15: test\genai_primitives_test.dart: MessagePart DataPart JSON serialization
+00:00 +16: test\genai_primitives_test.dart: MessagePart DataPart fromFile creation
+00:00 +17: test\genai_primitives_test.dart: MessagePart DataPart fromFile with unknown MIME type detection
+00:00 +18: test\genai_primitives_test.dart: MessagePart LinkPart creation
+00:00 +19: test\genai_primitives_test.dart: MessagePart LinkPart equality
+00:00 +20: test\genai_primitives_test.dart: MessagePart LinkPart JSON serialization
+00:00 +21: test\genai_primitives_test.dart: MessagePart ToolPart Call creation
+00:00 +22: test\genai_primitives_test.dart: MessagePart ToolPart Call JSON serialization
+00:00 +23: test\genai_primitives_test.dart: MessagePart ToolPart Call toString
+00:00 +24: test\genai_primitives_test.dart: MessagePart ToolPart Call argumentsRaw
+00:00 +25: test\genai_primitives_test.dart: MessagePart ToolPart Result creation
+00:00 +26: test\genai_primitives_test.dart: MessagePart ToolPart Result toString
+00:00 +27: test\genai_primitives_test.dart: MessagePart ToolPart Result JSON serialization
+00:00 +28: test\genai_primitives_test.dart: Message fromParts
+00:00 +29: test\genai_primitives_test.dart: Message Named constructors system
+00:00 +30: test\genai_primitives_test.dart: Message Named constructors user
+00:00 +31: test\genai_primitives_test.dart: Message Named constructors model
+00:00 +32: test\genai_primitives_test.dart: Message default constructor
+00:00 +33: test\genai_primitives_test.dart: Message helpers
+00:00 +34: test\genai_primitives_test.dart: Message metadata
+00:00 +35: test\genai_primitives_test.dart: Message JSON serialization
+00:00 +36: test\genai_primitives_test.dart: Message mixed content JSON round-trip
+00:00 +37: test\genai_primitives_test.dart: Message equality and hashCode
+00:00 +38: test\genai_primitives_test.dart: Message text concatenation
+00:00 +39: test\genai_primitives_test.dart: Message toString
+00:00 +40: test\genai_primitives_test.dart: Message concatenate combines parts and text from both messages
+00:00 +41: test\genai_primitives_test.dart: Message concatenate falls back to second finishStatus when first is null
+00:00 +42: test\genai_primitives_test.dart: Message concatenate finishStatus is null when both are null
+00:00 +43: test\genai_primitives_test.dart: Message concatenate same finishStatus on both is preserved
+00:00 +44: test\genai_primitives_test.dart: Message concatenate equal metadata is preserved
+00:00 +45: test\genai_primitives_test.dart: Message concatenate preserves non-text parts
+00:00 +46: test\genai_primitives_test.dart: Message concatenate throws on role mismatch
+00:00 +47: test\genai_primitives_test.dart: Message concatenate throws on conflicting finish statuses
+00:00 +48: test\genai_primitives_test.dart: Message concatenate throws when metadata values differ for same key
+00:00 +49: test\genai_primitives_test.dart: Message concatenate throws when metadata have different keys
+00:00 +50: test\genai_primitives_test.dart: Message copyWith no arguments returns equal copy
+00:00 +51: test\genai_primitives_test.dart: Message copyWith replaces role
+00:00 +52: test\genai_primitives_test.dart: Message copyWith replaces parts
+00:00 +53: test\genai_primitives_test.dart: Message copyWith replaces metadata
+00:00 +54: test\genai_primitives_test.dart: Message copyWith replaces finishStatus
+00:00 +55: test\genai_primitives_test.dart: Message copyWith replaces multiple fields at once
+00:00 +56: test\genai_primitives_test.dart: Parts fromText
+00:00 +57: test\genai_primitives_test.dart: Parts fromText with empty text
+00:00 +58: test\genai_primitives_test.dart: Parts helpers
+00:00 +59: test\genai_primitives_test.dart: Parts immutability
+00:00 +60: test\genai_primitives_test.dart: Parts equality
+00:00 +61: test\genai_primitives_test.dart: Parts JSON serialization
+00:00 +62: test\genai_primitives_test.dart: ToolDefinition creation and serialization
+00:00 +63: test\genai_primitives_test.dart: FinishStatus equality
+00:00 +64: test\genai_primitives_test.dart: FinishStatus JSON serialization
+00:00 +65: test\genai_primitives_test.dart: ChatMessage Extended finishStatus serialization
+00:00 +66: test\genai_primitives_test.dart: ChatMessage Extended role and finishStatus equality
+00:00 +67: All tests passed!

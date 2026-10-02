@@ -1,0 +1,16 @@
+Formatted generated\google_cloud_protobuf\lib\protobuf.dart
+Formatted generated\google_cloud_protobuf\lib\src\encoding.dart
+Formatted generated\google_cloud_protobuf\lib\src\protobuf.p.dart
+Formatted generated\google_cloud_rpc\lib\rpc.dart
+Formatted generated\google_cloud_rpc\lib\service_client.dart
+Formatted generated\google_cloud_rpc\lib\src\exceptions.dart
+Formatted generated\google_cloud_rpc\lib\src\rpc.p.dart
+Formatted generated\google_cloud_rpc\lib\src\vm.dart
+Formatted generated\google_cloud_type\lib\type.dart
+Formatted generated\google_cloud_longrunning\lib\longrunning.dart
+Formatted generated\google_cloud_longrunning\lib\src\longrunning.p.dart
+Formatted generated\google_cloud_ai_generativelanguage_v1beta\lib\generativelanguage.dart
+Formatted test_utils\lib\src\insecure_proxy_http_client.dart
+Formatted test_utils\lib\src\model.dart
+Formatted test_utils\lib\src\test_http_client.dart
+Formatted 45 files (15 changed) in 0.85 seconds.

@@ -1,0 +1,6 @@
+{
+  "result": "passed: noncanonical hosted URL rejected",
+  "exitCode": 1,
+  "probe": "Isolated temporary manifest; real lockfiles unchanged",
+  "otherErrors": "Expected development status, local paths and unset fork SHAs still reported"
+}

@@ -1,0 +1,20 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+package:genui_monorepo has `uses-material-design: true` set but the primary pubspec contains `uses-material-design: false`. If the application needs material icons, then `uses-material-design`  must be set to true.
+package:simple_chat has `uses-material-design: true` set but the primary pubspec contains `uses-material-design: false`. If the application needs material icons, then `uses-material-design`  must be set to true.
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/facade/prompt_builder_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: Chat prompt is equivalent to custom prompt with create only operations
+00:00 +1: Custom prompt create_only_with_dataModel_false
+00:00 +2: Custom prompt update_only_with_dataModel_false
+00:00 +3: Custom prompt create_and_update_with_dataModel_false
+00:00 +4: Custom prompt all_operations_with_dataModel_false
+00:00 +5: Custom prompt create_only_with_dataModel_true
+00:00 +6: Custom prompt update_only_with_dataModel_true
+00:00 +7: Custom prompt create_and_update_with_dataModel_true
+00:00 +8: Custom prompt all_operations_with_dataModel_true
+00:00 +9: Prompt with functions includes functions when catalog has functions
+00:00 +10: Prompt with custom components includes custom component schema in prompt
+00:00 +11: Catalog ID is surfaced in system prompt when provided
+00:00 +12: Catalog ID is not surfaced in system prompt when not provided
+00:00 +13: (tearDownAll)
+00:00 +13: All tests passed!

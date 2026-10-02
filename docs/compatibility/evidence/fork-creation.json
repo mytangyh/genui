@@ -1,0 +1,42 @@
+[
+  {
+    "localRepository": "dartantic_ai",
+    "repository": "mytangyh/dartantic_ai",
+    "repositoryId": 1401275759,
+    "upstream": "csells/dartantic",
+    "operation": "created fork with full upstream branch history",
+    "originalOrigin": "https://github.com/csells/dartantic_ai.git",
+    "origin": "https://github.com/mytangyh/dartantic_ai.git",
+    "branch": "compat/flutter-3.27.4"
+  },
+  {
+    "localRepository": "ai_clients_dart",
+    "repository": "mytangyh/ai_clients_dart",
+    "repositoryId": 1401275811,
+    "upstream": "davidmigloz/ai_clients_dart",
+    "operation": "created fork with full upstream branch history",
+    "originalOrigin": "https://github.com/davidmigloz/ai_clients_dart.git",
+    "origin": "https://github.com/mytangyh/ai_clients_dart.git",
+    "branch": "compat/flutter-3.27.4"
+  },
+  {
+    "localRepository": "google-cloud-dart",
+    "repository": "mytangyh/google-cloud-dart",
+    "repositoryId": 1401275851,
+    "upstream": "googleapis/google-cloud-dart",
+    "operation": "created fork with full upstream branch history",
+    "originalOrigin": "https://github.com/googleapis/google-cloud-dart.git",
+    "origin": "https://github.com/mytangyh/google-cloud-dart.git",
+    "branch": "compat/flutter-3.27.4"
+  },
+  {
+    "localRepository": "sse_channel",
+    "repository": "mytangyh/sse_channel",
+    "repositoryId": 1401275908,
+    "upstream": "jamiewest/sse_channel",
+    "operation": "created fork with full upstream branch history",
+    "originalOrigin": "https://github.com/jamiewest/sse_channel.git",
+    "origin": "https://github.com/mytangyh/sse_channel.git",
+    "branch": "compat/flutter-3.27.4"
+  }
+]

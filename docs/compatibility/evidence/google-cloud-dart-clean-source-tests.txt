@@ -1,0 +1,233 @@
+Flutter 3.27.4 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision d8a9f9a52e (1 year, 8 months ago) • 2025-01-31 16:07:18 -0500
+Engine • revision 82bd5b7209
+Tools • Dart 3.6.2 • DevTools 2.40.3
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 85.0.0 (108.0.0 available)
+  analyzer 7.7.1 (14.4.0 available)
+  dart_flutter_team_lints 3.2.1 (3.5.2 available)
+  googleapis_auth 2.0.0 (2.3.4 available)
+  js 0.7.1 (0.7.2 available)
+  lints 5.1.1 (6.1.0 available)
+  matcher 0.12.17 (0.12.20 available)
+  package_config 2.2.0 (3.0.0 available)
+  test 1.26.3 (1.32.0 available)
+  test_api 0.7.7 (0.7.14 available)
+  test_core 0.6.12 (0.6.20 available)
+Got dependencies!
+11 packages have newer versions incompatible with dependency constraints.
+Try `dart pub outdated` for more information.
+Formatted 45 files (0 changed) in 0.69 seconds.
+Analyzing google_cloud_protobuf, google_cloud_rpc, google_cloud_type, google_cloud_longrunning, google_cloud_ai_generativelanguage_v1beta, test_utils...
+
+   info - test_utils\lib\src\insecure_proxy_http_client.dart:25:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+   info - test_utils\lib\src\proxy_http_client.dart:32:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+   info - test_utils\lib\src\recording_http_client.dart:50:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+   info - test_utils\lib\src\replay_http_client.dart:97:45 - The parameter name 'originalRequest' doesn't match the name 'request' in the overridden method. Try changing the name to 'request'. - avoid_renaming_method_parameters
+
+4 issues found.
+00:00 +0: loading generated/google_cloud_protobuf/test\any_test.dart
+00:00 +0: generated/google_cloud_protobuf/test\any_test.dart: pack into and from Duration
+00:00 +1: generated/google_cloud_protobuf/test\duration_test.dart: test case 0s
+00:00 +2: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +3: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +4: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +5: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +6: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +7: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +8: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +9: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +10: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +11: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool true
+00:00 +12: generated/google_cloud_protobuf/test\fieldmask_test.dart: encode empty
+00:00 +13: generated/google_cloud_protobuf/test\fieldmask_test.dart: encode empty
+00:00 +14: generated/google_cloud_protobuf/test\fieldmask_test.dart: encode empty
+00:00 +15: generated/google_cloud_protobuf/test\fieldmask_test.dart: encode empty
+00:00 +16: generated/google_cloud_protobuf/test\encoding_test.dart: decodeBool false
+00:00 +17: generated/google_cloud_protobuf/test\duration_test.dart: test case -0.999999999s
+00:00 +18: generated/google_cloud_protobuf/test\fieldmask_test.dart: encode single
+00:00 +19: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +20: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +21: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +22: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +23: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +24: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +25: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +26: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +27: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +28: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +29: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +30: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +31: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +32: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +33: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +34: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +35: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +36: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +37: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +38: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +39: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +40: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +41: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +42: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +43: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +44: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +45: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +46: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +47: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +48: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +49: generated/google_cloud_protobuf/test\struct_test.dart: Struct
+00:00 +50: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +51: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +52: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +53: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +54: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +55: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +56: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +57: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +58: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +59: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +60: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +61: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +62: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +63: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +64: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +65: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +66: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +67: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +68: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +69: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +70: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +71: generated/google_cloud_protobuf/test\timestamp_test.dart: test zero seconds, zero nanos
+00:00 +72: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +73: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +74: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +75: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +76: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +77: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +78: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +79: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +80: generated/google_cloud_protobuf/test\wrappers_test.dart: BoolValue
+00:00 +81: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 0001-01-01T00:00:00.123Z
+00:00 +82: generated/google_cloud_protobuf/test\encoding_test.dart: encodeBytes encode simple
+00:00 +83: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 0001-01-01T00:00:00Z
+00:00 +84: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +85: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +86: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +87: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +88: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +89: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +90: generated/google_cloud_protobuf/test\wrappers_test.dart: FloatValue
+00:00 +91: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 1960-01-01T00:00:00Z
+00:00 +92: generated/google_cloud_protobuf/test\encoding_test.dart: encodeDouble -Infinity
+00:00 +93: generated/google_cloud_protobuf/test\wrappers_test.dart: DoubleValue
+00:00 +94: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 1970-01-01T00:00:00.123456789Z
+00:00 +95: generated/google_cloud_protobuf/test\wrappers_test.dart: NaN and Infinity FloatValue
+00:00 +96: generated/google_cloud_protobuf/test\wrappers_test.dart: NaN and Infinity FloatValue
+00:00 +97: generated/google_cloud_protobuf/test\wrappers_test.dart: NaN and Infinity FloatValue
+00:00 +98: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 1970-01-01T00:00:00Z
+00:00 +99: generated/google_cloud_protobuf/test\wrappers_test.dart: NaN and Infinity DoubleValue
+00:00 +100: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 9999-12-31T23:59:59.999999999Z
+00:00 +101: generated/google_cloud_protobuf/test\wrappers_test.dart: Int64Value
+00:00 +102: generated/google_cloud_protobuf/test\wrappers_test.dart: Int64Value
+00:00 +103: generated/google_cloud_protobuf/test\wrappers_test.dart: Int64Value
+00:00 +104: generated/google_cloud_protobuf/test\timestamp_test.dart: round trip 9999-12-31T23:59:59.123Z
+00:00 +105: generated/google_cloud_protobuf/test\wrappers_test.dart: Uint64Value
+00:00 +106: generated/google_cloud_protobuf/test\wrappers_test.dart: Uint64Value
+00:00 +107: generated/google_cloud_protobuf/test\wrappers_test.dart: Uint64Value
+00:00 +108: generated/google_cloud_protobuf/test\wrappers_test.dart: Uint64Value
+00:00 +109: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 0001-01-01T00:00:00.123456789Z
+00:00 +110: generated/google_cloud_protobuf/test\wrappers_test.dart: Int32Value
+00:00 +111: generated/google_cloud_protobuf/test\wrappers_test.dart: Int32Value
+00:00 +112: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 0001-01-01T00:00:00.123Z
+00:00 +113: generated/google_cloud_protobuf/test\wrappers_test.dart: StringValue
+00:00 +114: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 0001-01-01T00:00:00Z
+00:00 +115: generated/google_cloud_protobuf/test\wrappers_test.dart: BytesValue
+00:00 +116: generated/google_cloud_protobuf/test\wrappers_test.dart: BytesValue
+00:00 +117: generated/google_cloud_protobuf/test\wrappers_test.dart: BytesValue
+00:00 +118: generated/google_cloud_protobuf/test\wrappers_test.dart: BytesValue
+00:00 +119: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 1970-01-01T00:00:00Z
+00:00 +120: generated/google_cloud_protobuf/test\wrappers_test.dart: Uint32Value
+00:00 +121: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 9999-12-31T23:59:59.123456789Z
+00:00 +122: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 9999-12-31T23:59:59.123456Z
+00:00 +123: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 9999-12-31T23:59:59.123Z
+00:00 +124: generated/google_cloud_protobuf/test\timestamp_test.dart: validate 9999-12-31T23:59:59Z
+00:00 +125: generated/google_cloud_protobuf/test\timestamp_test.dart: bad format
+00:00 +126: generated/google_cloud_protobuf/test\timestamp_test.dart: seconds below range
+00:00 +127: generated/google_cloud_protobuf/test\timestamp_test.dart: seconds above range
+00:00 +128: generated/google_cloud_protobuf/test\timestamp_test.dart: nanos below range
+00:00 +129: generated/google_cloud_protobuf/test\timestamp_test.dart: nanos above range
+00:00 +130: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime about now
+00:00 +131: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime min
+00:00 +132: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime max
+00:00 +133: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime round past max
+00:00 +134: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime with nanos
+00:00 +135: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime toTimestamp about now
+00:00 +136: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime toTimestamp min
+00:00 +137: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime toTimestamp max
+00:00 +138: generated/google_cloud_protobuf/test\timestamp_test.dart: toDateTime toTimestamp not utc
+00:00 +139: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests without body DELETE
+00:00 +140: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests without body DELETE
+00:00 +141: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests without body DELETE
+00:00 +142: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +143: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +144: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +145: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +146: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +147: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +148: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +149: generated/google_cloud_rpc/test\status_test.dart: detailsAsMessages
+00:00 +150: generated/google_cloud_rpc/test\exceptions_test.dart: fromHttpResponse valid error 400
+00:00 +151: generated/google_cloud_rpc/test\exceptions_test.dart: fromHttpResponse valid error 400
+00:00 +152: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests with body PATCH
+00:00 +153: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests with body PATCH
+00:00 +154: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests with body PATCH
+00:00 +155: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests with body PATCH
+00:00 +156: generated/google_cloud_rpc/test\client_test.dart: non-streaming requests with body PATCH
+00:00 +157: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +158: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +159: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +160: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +161: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +162: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +163: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +164: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +165: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +166: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +167: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +168: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +169: generated/google_cloud_longrunning/test\operation_test.dart: responseAsMessage
+00:00 +170: generated/google_cloud_rpc/test\client_test.dart: non-streaming 500 response, no status, no response body
+00:00 +171: generated/google_cloud_rpc/test\exceptions_test.dart: fromHttpResponse valid error 500
+00:00 +172: generated/google_cloud_longrunning/test\operation_test.dart: metadataAsMessage
+00:00 +173: generated/google_cloud_longrunning/test\operation_test.dart: metadataAsMessage
+00:00 +174: generated/google_cloud_rpc/test\client_test.dart: non-streaming 500 response, no status, with undecodable response body
+00:00 +175: generated/google_cloud_rpc/test\client_test.dart: non-streaming 500 response, no status, with undecodable response body
+00:00 +176: generated/google_cloud_rpc/test\client_test.dart: non-streaming 500 response, no status, with undecodable response body
+00:00 +177: generated/google_cloud_rpc/test\exceptions_test.dart: fromHttpResponse valid error 504
+00:00 +178: generated/google_cloud_rpc/test\client_test.dart: non-streaming 400 response with status
+00:00 +179: generated/google_cloud_rpc/test\client_test.dart: non-streaming 400 response, JSON response without status
+00:00 +180: generated/google_cloud_rpc/test\client_test.dart: non-streaming 200 response, json response
+00:00 +181: generated/google_cloud_rpc/test\client_test.dart: streaming requests without body DELETE
+00:00 +182: generated/google_cloud_rpc/test\client_test.dart: streaming requests without body GET
+00:00 +183: generated/google_cloud_rpc/test\client_test.dart: streaming requests without body PATCH
+00:00 +184: generated/google_cloud_rpc/test\client_test.dart: streaming requests without body POST
+00:00 +185: generated/google_cloud_rpc/test\client_test.dart: streaming requests without body PUT
+00:00 +186: generated/google_cloud_rpc/test\client_test.dart: streaming requests with body PATCH
+00:00 +187: generated/google_cloud_rpc/test\client_test.dart: streaming requests with body POST
+00:00 +188: generated/google_cloud_rpc/test\client_test.dart: streaming requests with body PUT
+00:00 +189: generated/google_cloud_rpc/test\client_test.dart: streaming http client exception
+00:00 +190: generated/google_cloud_rpc/test\client_test.dart: streaming 500 response, no status, no response body
+00:00 +191: generated/google_cloud_rpc/test\client_test.dart: streaming 500 response, no status, with undecodable response body
+00:00 +192: generated/google_cloud_rpc/test\client_test.dart: streaming 400 response with status
+00:00 +193: generated/google_cloud_rpc/test\client_test.dart: streaming 400 response, JSON response without status
+00:00 +194: generated/google_cloud_rpc/test\client_test.dart: streaming 200 response, empty response
+00:00 +195: generated/google_cloud_rpc/test\client_test.dart: streaming 200 response, single data response
+00:00 +196: generated/google_cloud_rpc/test\client_test.dart: streaming 200 response, two data response
+00:00 +197: generated/google_cloud_rpc/test\client_test.dart: streaming 200 response, non-data lines response
+00:00 +198: generated/google_cloud_ai_generativelanguage_v1beta/test\embeddings_test.dart: embeddings embedContent
+00:00 +199: generated/google_cloud_ai_generativelanguage_v1beta/test\embeddings_test.dart: embeddings embedContent
+00:00 +200: generated/google_cloud_ai_generativelanguage_v1beta/test\generate_test.dart: generative streamed
+00:00 +201: generated/google_cloud_ai_generativelanguage_v1beta/test\generate_test.dart: generative streamed
+00:00 +202: All tests passed!

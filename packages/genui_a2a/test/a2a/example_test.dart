@@ -59,7 +59,7 @@ void main() {
       ),
     );
 
-    for (var i = 10; i >= 0; i--) {
+    for (int i = 10; i >= 0; i--) {
       transport.addEvent(
         Event.artifactUpdate(
           taskId: 'task-123',

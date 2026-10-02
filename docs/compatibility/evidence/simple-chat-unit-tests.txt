@@ -1,0 +1,38 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:55:15: Error: The type 'String?' of the getter 'OpenAIResponsesEventMapper.containerId' is not a subtype of the type 'String' of the setter 'OpenAIResponsesEventMapper.containerId'.
+  String? get containerId => _state.containerId;
+              ^^^^^^^^^^^
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:56:7: Context: This is the declaration of the setter 'OpenAIResponsesEventMapper.containerId'.
+  set containerId(String containerId) {
+      ^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart [E]
+  Failed to load "C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart": Compilation failed for testPath=C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart
+  Error: the Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 10:3  throwToolExit
+  package:flutter_tools/src/compile.dart 893:9     DefaultResidentCompiler._compile.<fn>
+  dart:async/zone.dart 1422:47                     _rootRunUnary
+  dart:async/zone.dart 1324:19                     _CustomZone.runUnary
+  dart:async/future_impl.dart 902:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 931:13               Future._propagateToListeners
+  dart:async/future_impl.dart 827:9                Future._propagateToListeners
+  dart:async/future_impl.dart 707:5                Future._completeWithValue
+  dart:async/future_impl.dart 777:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone.dart 1414:13                     _rootRun
+  dart:async/zone.dart 1317:19                     _CustomZone.run
+  dart:async/zone.dart 1225:7                      _CustomZone.runGuarded
+  dart:async/zone.dart 1265:23                     _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:21         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 118:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 185:5      _RawReceivePort._handleMessage
+  
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:55:15: Error: The type 'String?' of the getter 'OpenAIResponsesEventMapper.containerId' is not a subtype of the type 'String' of the setter 'OpenAIResponsesEventMapper.containerId'.
+  String? get containerId => _state.containerId;
+              ^^^^^^^^^^^
+../../../dartantic_ai/packages/dartantic_ai/lib/src/chat_models/openai_responses/openai_responses_event_mapper.dart:56:7: Context: This is the declaration of the setter 'OpenAIResponsesEventMapper.containerId'.
+  set containerId(String containerId) {
+      ^^^^^^^^^^^
+00:00 +0 -2: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/smoke_test.dart [E]
+  Failed to load "C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/smoke_test.dart": Compilation failed for testPath=C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/smoke_test.dart
+00:00 +0 -2: Some tests failed.

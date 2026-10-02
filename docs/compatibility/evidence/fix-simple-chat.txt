@@ -1,0 +1,19 @@
+Computing fixes in simple_chat...
+Applying fixes...
+
+integration_test\app_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+integration_test\media_plugin_test.dart
+  specify_nonobvious_local_variable_types - 1 fix
+
+lib\agent\ai_client.dart
+  omit_obvious_local_variable_types - 1 fix
+
+lib\chat_session.dart
+  specify_nonobvious_local_variable_types - 2 fixes
+
+test\fake_ai_client.dart
+  specify_nonobvious_local_variable_types - 2 fixes
+
+7 fixes made in 5 files.

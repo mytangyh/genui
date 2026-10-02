@@ -147,7 +147,7 @@ class A2AClient {
       'params': params,
       'id': _requestId++,
     };
-    final Map<String, String> headers = {};
+    final headers = <String, String>{};
     if (message.extensions != null) {
       headers['X-A2A-Extensions'] = message.extensions!.join(',');
     }
@@ -189,7 +189,7 @@ class A2AClient {
       'params': params,
       'id': _requestId++,
     };
-    final Map<String, String> headers = {};
+    final headers = <String, String>{};
     if (message.extensions != null) {
       headers['X-A2A-Extensions'] = message.extensions!.join(',');
     }

@@ -9,7 +9,7 @@
 /// useful for preventing large binary data from cluttering log output.
 Object? sanitizeLogData(Object? data) {
   if (data is Map) {
-    final Map<String, Object?> sanitized = {};
+    final sanitized = <String, Object?>{};
     for (final MapEntry<dynamic, dynamic> entry in data.entries) {
       final key = entry.key.toString();
       if (key == 'bytes') {

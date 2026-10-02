@@ -1,0 +1,3 @@
+Formatted lib\src\sse_channel.dart
+Formatted test\io_sse_channel_test.dart
+Formatted 8 files (2 changed) in 0.29 seconds.

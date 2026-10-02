@@ -1,0 +1,6 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart
+00:00 +0: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart: a request started while one is in flight is ignored
+00:00 +1: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/chat_session_test.dart: requests run one after another when awaited
+00:00 +2: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/test/smoke_test.dart: Smoke test: App starts without issues
+00:00 +3: All tests passed!

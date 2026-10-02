@@ -1,0 +1,6 @@
+Analyzing simple_chat, compatibility...
+
+   info - examples\simple_chat\integration_test\app_test.dart:50:7 - Specify the type of a local variable when the type is non-obvious. Try adding a type annotation. - specify_nonobvious_local_variable_types
+   info - examples\simple_chat\integration_test\app_test.dart:60:7 - Specify the type of a local variable when the type is non-obvious. Try adding a type annotation. - specify_nonobvious_local_variable_types
+
+2 issues found.

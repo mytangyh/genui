@@ -1,0 +1,38 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/live_model_test.dart
+Running Gradle task 'assembleDebug'...                          
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/D:/20_Development/29_Caches/Gradle/wrapper/dists/gradle-8.14-all/c2qonpi39x1mddn7hk5gh9iqj/gradle-8.14/lib/native-platform-0.22-milestone-28.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Running Gradle task 'assembleDebug'...                             23.6s
+√ Built build\app\outputs\flutter-apk\app-debug.apk
+Installing build\app\outputs\flutter-apk\app-debug.apk...           4.3s
+00:00 +0: real model: Text only streams and remembers previous turns
+LIVE_TEXT_ONLY passed: requests=2, chunks=[5, 5], lastHistory=4, rendered=true
+00:20 +1: real model: Basic catalog renders a button and handles its action
+00:27 +1: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/examples/simple_chat/integration_test/live_model_test.dart
+Some possible finders for the widgets at Offset(99.4, 260.3):
+  find.byType(StretchingOverscrollIndicator)
+  find.byType(ListView)
+  find.byType(Column)
+  find.byType(ScrollNotificationObserver)
+  find.byType(Scaffold)
+  find.byElementType(InheritedModelElement<_ModalRouteAspect>)
+  find.byElementType(InheritedModelElement<Object>)
+Some possible finders for the widgets at Offset(70.4, 31.5):
+  find.byType(AnnotatedRegion<SystemUiOverlayStyle>)
+  find.byType(AppBar)
+  find.byType(FlexibleSpaceBarSettings)
+  find.byType(ScrollNotificationObserver)
+  find.byType(Scaffold)
+  find.byElementType(InheritedModelElement<_ModalRouteAspect>)
+  find.byElementType(InheritedModelElement<Object>)
+00:33 +1: real model: Basic catalog renders a button and handles its action
+LIVE_BASIC passed: requests=2, action=compatContinue, chunks=[199, 4], rendered=true
+00:33 +2: real model: Custom catalog calls climbing tool and handles Learn more
+LIVE_CUSTOM passed: requests=2, toolCalls=1, action=learnMoreAboutLocation, chunks=[164, 56], rendered=true
+00:57 +3: (tearDownAll)
+00:58 +3: All tests passed!

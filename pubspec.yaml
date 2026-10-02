@@ -7,23 +7,81 @@ publish_to: none
 license: BSD-3-Clause
 
 environment:
-  sdk: ">=3.10.0 <4.0.0"
-  flutter: ">=3.35.7 <4.0.0"
+  sdk: ">=3.6.2 <4.0.0"
+  flutter: ">=3.27.4 <4.0.0"
 
 workspace:
-  - dev_tools/catalog_gallery
-  - dev_tools/composer
-
   - examples/simple_chat
-  - examples/verdure/client
-
-  - packages/genui
-  - packages/genui_a2a
+  - packages/archive/a2ui_core
+  - packages/genai_primitives
   - packages/json_schema_builder
+  - packages/genui
 
-  - tool/e2e
-  - tool/fix_copyright
-  - tool/test_and_fix
+dev_dependencies:
+  lints: ^5.1.1
+  yaml: ^3.1.4
 
 flutter:
   uses-material-design: true
+
+dependency_overrides:
+  dartantic_interface:
+    git:
+      url: https://github.com/mytangyh/dartantic_ai.git
+      ref: d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+      path: packages/dartantic_interface
+  dartantic_ai:
+    git:
+      url: https://github.com/mytangyh/dartantic_ai.git
+      ref: d876bd640ba0afa05b2cd264e776d98b0aeaa21a
+      path: packages/dartantic_ai
+  anthropic_sdk_dart:
+    git:
+      url: https://github.com/mytangyh/ai_clients_dart.git
+      ref: 076584840dfcf6978d79119a2a663d2ddfd1f043
+      path: packages/anthropic_sdk_dart
+  mistralai_dart:
+    git:
+      url: https://github.com/mytangyh/ai_clients_dart.git
+      ref: 076584840dfcf6978d79119a2a663d2ddfd1f043
+      path: packages/mistralai_dart
+  ollama_dart:
+    git:
+      url: https://github.com/mytangyh/ai_clients_dart.git
+      ref: 076584840dfcf6978d79119a2a663d2ddfd1f043
+      path: packages/ollama_dart
+  openai_dart:
+    git:
+      url: https://github.com/mytangyh/ai_clients_dart.git
+      ref: 076584840dfcf6978d79119a2a663d2ddfd1f043
+      path: packages/openai_dart
+  google_cloud_protobuf:
+    git:
+      url: https://github.com/mytangyh/google-cloud-dart.git
+      ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+      path: generated/google_cloud_protobuf
+  google_cloud_rpc:
+    git:
+      url: https://github.com/mytangyh/google-cloud-dart.git
+      ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+      path: generated/google_cloud_rpc
+  google_cloud_type:
+    git:
+      url: https://github.com/mytangyh/google-cloud-dart.git
+      ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+      path: generated/google_cloud_type
+  google_cloud_longrunning:
+    git:
+      url: https://github.com/mytangyh/google-cloud-dart.git
+      ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+      path: generated/google_cloud_longrunning
+  google_cloud_ai_generativelanguage_v1beta:
+    git:
+      url: https://github.com/mytangyh/google-cloud-dart.git
+      ref: 45fa588f37c6f2356444ba43adf7c06b28315025
+      path: generated/google_cloud_ai_generativelanguage_v1beta
+  sse_channel:
+    git:
+      url: https://github.com/mytangyh/sse_channel.git
+      ref: 1776f9dfa82e9d3a1430f236c02a70a3ded38aee
+      path: .

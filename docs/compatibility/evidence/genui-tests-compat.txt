@@ -1,0 +1,733 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+package:genui_monorepo has `uses-material-design: true` set but the primary pubspec contains `uses-material-design: false`. If the application needs material icons, then `uses-material-design`  must be set to true.
+package:simple_chat has `uses-material-design: true` set but the primary pubspec contains `uses-material-design: false`. If the application needs material icons, then `uses-material-design`  must be set to true.
+00:00 +0: loading C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart
+00:00 +0: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions required
+00:00 +1: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions regex
+00:00 +2: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions length
+00:00 +3: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions email
+00:00 +4: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions and
+00:00 +5: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions or
+00:00 +6: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions not
+00:00 +7: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/basic_functions_test.dart: BasicFunctions pluralize
+00:00 +8: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/audio_player_test.dart: AudioPlayer widget renders and has description in semantics
+00:01 +9: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/button_test.dart: Button widget renders and handles taps
+00:01 +9: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/button_test.dart: (setUpAll)
+[INFO] GenUI: SurfaceController.handleMessage received: UpdateComponentsMessage
+[INFO] GenUI: SurfaceController.handleMessage received: CreateSurfaceMessage
+[INFO] GenUI: Created new surface testSurface
+[FINE] GenUI: Building surface testSurface
+[FINEST] GenUI: Building widget root
+[INFO] GenUI: Building widget Button with id root
+[FINEST] GenUI: Building widget button_text
+[INFO] GenUI: Building widget Text with id button_text
+[INFO] GenUI: Building Button with child: button_text
+00:01 +10: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/card_test.dart: Card widget renders child
+00:01 +10: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/button_test.dart: (setUpAll)
+[INFO] GenUI: SurfaceController.handleMessage received: UpdateComponentsMessage
+[INFO] GenUI: SurfaceController.handleMessage received: CreateSurfaceMessage
+[INFO] GenUI: Created new surface testSurface
+[WARNING] GenUI: Schema validation failed for surface testSurface: A2uiValidationException: Validation failed for component root (Button): A2uiValidationException: {error: oneOfNotMet, path: [action], details: Expected to match exactly one schema, but matched 0} (surface: testSurface) (path: /components/root) (surface: testSurface) (path: /components/root)
+[FINE] GenUI: Building surface testSurface
+[FINEST] GenUI: Building widget root
+[INFO] GenUI: Building widget Button with id root
+[FINEST] GenUI: Building widget button_text
+[INFO] GenUI: Building widget Text with id button_text
+[INFO] GenUI: Building Button with child: button_text
+[SEVERE] GenUI: Error executing function call "throwError" on button press
+Error: Exception: Stream error
+StackTrace:
+dart:async/future_impl.dart 21:26                                   _interceptError
+dart:async/future_impl.dart 35:23                                   _interceptUserError
+dart:async/stream.dart 215:39                                       new Stream.error
+test\catalog\core_widgets\button_test.dart 98:11                    main.<fn>.<fn>
+test\catalog\core_widgets\button_test.dart 295:21                   MockFunction.execute
+package:genui/src/model/data_model.dart 214:19                      DataContext._evaluateFunctionCall.<fn>
+package:genui/src/utils/stream_extensions.dart 42:50                SwitchMapExtension.switchMap.<fn>.<fn>
+package:stack_trace/src/stack_zone_specification.dart 127:36        StackZoneSpecification._registerUnaryCallback.<fn>.<fn>
+package:stack_trace/src/stack_zone_specification.dart 207:15        StackZoneSpecification._run
+package:stack_trace/src/stack_zone_specification.dart 127:24        StackZoneSpecification._registerUnaryCallback.<fn>
+dart:async/zone.dart 1422:47                                        _rootRunUnary
+dart:async/zone.dart 1324:19                                        _CustomZone.runUnary
+dart:async/zone.dart 1233:7                                         _CustomZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 542:14                                  _DelayedData.perform
+dart:async/stream_impl.dart 647:11                                  _PendingEvents.handleNext
+dart:async/stream_impl.dart 618:7                                   _PendingEvents.schedule.<fn>
+package:stack_trace/src/stack_zone_specification.dart 207:15        StackZoneSpecification._run
+package:stack_trace/src/stack_zone_specification.dart 114:48        StackZoneSpecification._registerCallback.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1225:7                                         _CustomZone.runGuarded
+dart:async/zone.dart 1265:23                                        _CustomZone.bindCallbackGuarded.<fn>
+dart:async/schedule_microtask.dart 40:21                            _microtaskLoop
+dart:async/schedule_microtask.dart 49:5                             _startMicrotaskLoop
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+dart:async/stream_impl.dart 154:17                                  _BufferingStreamSubscription._registerDataHandler
+dart:async/stream_impl.dart 128:19                                  new _BufferingStreamSubscription.zoned
+dart:async/stream_impl.dart 122:14                                  new _BufferingStreamSubscription
+dart:async/stream_controller.dart 850:9                             new _ControllerSubscription
+dart:async/stream_controller.dart 681:47                            _StreamController._subscribe
+dart:async/stream_controller.dart 830:19                            _ControllerStream._createSubscription
+dart:async/stream_impl.dart 498:9                                   _StreamImpl.listen
+package:genui/src/utils/stream_extensions.dart 39:29                SwitchMapExtension.switchMap.<fn>
+dart:async/stream_controller.dart 817:24                            _runGuarded
+dart:async/stream_controller.dart 695:7                             _StreamController._subscribe.<fn>
+dart:async/stream_impl.dart 442:13                                  _BufferingStreamSubscription._guardCallback
+dart:async/stream_controller.dart 694:18                            _StreamController._subscribe
+dart:async/stream_controller.dart 830:19                            _ControllerStream._createSubscription
+dart:async/stream_impl.dart 498:9                                   _StreamImpl.listen
+dart:async/stream_impl.dart 1026:33                                 _StreamIterator._initializeOrDone
+dart:async/stream_impl.dart 1002:12                                 _StreamIterator.moveNext
+package:genui/src/catalog/basic_catalog_widgets/button.dart 237:22  _handlePress
+package:genui/src/catalog/basic_catalog_widgets/button.dart 128:29  button.<fn>.<fn>.<fn>
+package:flutter/src/material/ink_well.dart 1176:21                  _InkResponseState.handleTap
+package:flutter/src/gestures/recognizer.dart 351:24                 GestureRecognizer.invokeCallback
+package:flutter/src/gestures/tap.dart 656:11                        TapGestureRecognizer.handleTapUp
+package:flutter/src/gestures/tap.dart 313:5                         BaseTapGestureRecognizer._checkUp
+package:flutter/src/gestures/tap.dart 246:7                         BaseTapGestureRecognizer.handlePrimaryPointer
+package:flutter/src/gestures/recognizer.dart 703:9                  PrimaryPointerGestureRecognizer.handleEvent
+package:flutter/src/gestures/pointer_router.dart 98:12              PointerRouter._dispatch
+package:flutter/src/gestures/pointer_router.dart 143:9              PointerRouter._dispatchEventToRoutes.<fn>
+dart:_compact_hash 726:13                                           _LinkedHashMapMixin.forEach
+package:flutter/src/gestures/pointer_router.dart 141:18             PointerRouter._dispatchEventToRoutes
+package:flutter/src/gestures/pointer_router.dart 127:7              PointerRouter.route
+package:flutter/src/gestures/binding.dart 502:19                    GestureBinding.handleEvent
+package:flutter/src/gestures/binding.dart 482:22                    GestureBinding.dispatchEvent
+package:flutter/src/rendering/binding.dart 457:11                   RendererBinding.dispatchEvent
+package:flutter/src/gestures/binding.dart 427:7                     GestureBinding._handlePointerEventImmediately
+package:flutter/src/gestures/binding.dart 390:5                     GestureBinding.handlePointerEvent
+package:flutter_test/src/binding.dart 677:42                        TestWidgetsFlutterBinding.handlePointerEventForSource.<fn>
+package:flutter_test/src/binding.dart 687:11                        TestWidgetsFlutterBinding.withPointerEventSource
+package:flutter_test/src/binding.dart 677:5                         TestWidgetsFlutterBinding.handlePointerEventForSource
+package:flutter_test/src/widget_tester.dart 878:15                  WidgetTester.sendEventToBinding.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+package:flutter_test/src/test_async_utils.dart 74:41                TestAsyncUtils.guard
+package:flutter_test/src/widget_tester.dart 877:27                  WidgetTester.sendEventToBinding
+package:flutter_test/src/test_pointer.dart 558:26                   TestGesture.up.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+package:flutter_test/src/test_async_utils.dart 74:41                TestAsyncUtils.guard
+package:flutter_test/src/test_pointer.dart 551:27                   TestGesture.up
+package:flutter_test/src/controller.dart 1096:21                    WidgetController.tapAt.<fn>
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+package:flutter_test/src/controller.dart 1095:35                    WidgetController.tapAt.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+package:flutter_test/src/test_async_utils.dart 74:41                TestAsyncUtils.guard
+package:flutter_test/src/controller.dart 1094:27                    WidgetController.tapAt
+package:flutter_test/src/controller.dart 1043:12                    WidgetController.tap
+test\catalog\core_widgets\button_test.dart 154:20                   main.<fn>.<fn>
+package:flutter_test/src/binding.dart 1322:17                       AutomatedTestWidgetsFlutterBinding.runAsync.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+package:flutter_test/src/binding.dart 1318:26                       AutomatedTestWidgetsFlutterBinding.runAsync
+package:flutter_test/src/widget_tester.dart 849:17                  WidgetTester.runAsync
+test\catalog\core_widgets\button_test.dart 151:18                   main.<fn>
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+test\catalog\core_widgets\button_test.dart 138:5                    main.<fn>
+package:flutter_test/src/widget_tester.dart 189:29                  testWidgets.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+package:flutter_test/src/widget_tester.dart 186:25                  testWidgets.<fn>.<fn>
+package:flutter_test/src/binding.dart 1027:19                       TestWidgetsFlutterBinding._runTestBody
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+package:flutter_test/src/binding.dart 1016:5                        TestWidgetsFlutterBinding._runTestBody
+dart:async/zone.dart 1446:13                                        _rootRunBinary
+dart:async/zone.dart 1331:19                                        _CustomZone.runBinary
+package:flutter_test/src/binding.dart 1005:14                       TestWidgetsFlutterBinding._runTest
+package:flutter_test/src/binding.dart 1485:24                       AutomatedTestWidgetsFlutterBinding.runTest.<fn>
+package:fake_async/fake_async.dart 182:54                           FakeAsync.run.<fn>.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:clock/src/default.dart 52:10                                withClock
+package:fake_async/fake_async.dart 182:22                           FakeAsync.run.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:fake_async/fake_async.dart 182:7                            FakeAsync.run
+package:flutter_test/src/binding.dart 1482:15                       AutomatedTestWidgetsFlutterBinding.runTest
+package:flutter_test/src/widget_tester.dart 181:24                  testWidgets.<fn>
+package:test_api/src/backend/declarer.dart 215:19                   Declarer.test.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+package:test_api/src/backend/declarer.dart 214:9                    Declarer.test.<fn>.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:test_api/src/backend/declarer.dart 213:13                   Declarer.test.<fn>
+package:test_api/src/backend/invoker.dart 258:17                    Invoker._waitForOutstandingCallbacks.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:test_api/src/backend/invoker.dart 254:5                     Invoker._waitForOutstandingCallbacks
+package:test_api/src/backend/invoker.dart 394:17                    Invoker._onRun.<fn>.<fn>.<fn>
+===== asynchronous gap ===========================
+dart:async/zone.dart 1345:19                                        _CustomZone.registerUnaryCallback
+package:test_api/src/backend/invoker.dart 392:11                    Invoker._onRun.<fn>.<fn>.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:test_api/src/backend/invoker.dart 383:9                     Invoker._onRun.<fn>.<fn>
+package:test_api/src/backend/invoker.dart 426:15                    Invoker._guardIfGuarded
+package:test_api/src/backend/invoker.dart 382:7                     Invoker._onRun.<fn>
+package:stack_trace/src/chain.dart 97:24                            Chain.capture.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:stack_trace/src/chain.dart 95:12                            Chain.capture
+package:test_api/src/backend/invoker.dart 381:11                    Invoker._onRun
+package:test_api/src/backend/live_test_controller.dart 153:11       LiveTestController.run
+package:test_api/src/backend/remote_listener.dart 273:16            RemoteListener._runLiveTest.<fn>
+dart:async/zone.dart 1414:13                                        _rootRun
+dart:async/zone.dart 1317:19                                        _CustomZone.run
+dart:async/zone.dart 1838:10                                        _runZoned
+dart:async/zone.dart 1777:10                                        runZoned
+package:test_api/src/backend/remote_listener.dart 272:5             RemoteListener._runLiveTest
+package:test_api/src/backend/remote_listener.dart 220:7             RemoteListener._serializeTest.<fn>
+dart:async/zone.dart 1422:47                                        _rootRunUnary
+dart:async/zone.dart 1324:19                                        _CustomZone.runUnary
+dart:async/zone.dart 1233:7                                         _CustomZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:async/zone.dart 1430:13                                        _rootRunUnary
+dart:async/zone.dart 1324:19                                        _CustomZone.runUnary
+dart:async/zone.dart 1233:7                                         _CustomZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:async/stream_controller.dart 870:13                            _StreamSinkWrapper.add
+package:stream_channel/src/guarantee_channel.dart 125:12            _GuaranteeSink.add
+package:stream_channel/src/multi_channel.dart 159:31                new _MultiChannel.<fn>
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:_internal/async_cast.dart 85:11                                CastStreamSubscription._onData
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:async/stream_controller.dart 870:13                            _StreamSinkWrapper.add
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_pipe.dart 121:11                                  _ForwardingStreamSubscription._add
+dart:async/stream_pipe.dart 216:10                                  _MapStream._handleData
+dart:async/stream_pipe.dart 151:13                                  _ForwardingStreamSubscription._handleData
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:_http/websocket_impl.dart 1145:21                              new _WebSocketImpl._fromSocket.<fn>
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_transformers.dart 63:11                           _SinkTransformerStreamSubscription._add
+dart:async/stream_transformers.dart 13:11                           _EventSinkWrapper.add
+dart:_http/websocket_impl.dart 332:23                               _WebSocketProtocolTransformer._messageFrameEnd
+dart:_http/websocket_impl.dart 226:46                               _WebSocketProtocolTransformer.add
+dart:async/stream_transformers.dart 111:24                          _SinkTransformerStreamSubscription._handleData
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:io-patch/socket_patch.dart 2455:41                             _Socket._onData
+dart:async/zone.dart 1609:10                                        _RootZone.runUnaryGuarded
+dart:async/stream_impl.dart 366:11                                  _BufferingStreamSubscription._sendData
+dart:async/stream_impl.dart 297:7                                   _BufferingStreamSubscription._add
+dart:async/stream_controller.dart 777:19                            _SyncStreamControllerDispatch._sendData
+dart:async/stream_controller.dart 651:7                             _StreamController._add
+dart:async/stream_controller.dart 606:5                             _StreamController.add
+dart:io-patch/socket_patch.dart 1942:33                             new _RawSocket.<fn>
+dart:io-patch/socket_patch.dart 1385:14                             _NativeSocket.issueReadEvent.issue
+dart:async/schedule_microtask.dart 40:21                            _microtaskLoop
+dart:async/schedule_microtask.dart 49:5                             _startMicrotaskLoop
+
+00:01 +11: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/card_test.dart: Card widget renders child
+00:02 +11: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/button_test.dart: (setUpAll)
+[INFO] GenUI: SurfaceController.handleMessage received: UpdateDataModelMessage
+[INFO] GenUI: SurfaceController.handleMessage received: UpdateComponentsMessage
+[INFO] GenUI: SurfaceController.handleMessage received: CreateSurfaceMessage
+[INFO] GenUI: Created new surface validationTest
+[FINE] GenUI: Building surface validationTest
+[FINEST] GenUI: Building widget root
+[INFO] GenUI: Building widget Button with id root
+[FINEST] GenUI: Building widget button_text
+[INFO] GenUI: Building widget Text with id button_text
+[INFO] GenUI: Building Button with child: button_text
+[INFO] GenUI: SurfaceController.handleMessage received: UpdateDataModelMessage
+00:02 +12: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/card_test.dart: Card widget renders child
+00:02 +13: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/check_box_test.dart: CheckBox widget renders and handles changes
+00:02 +14: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker mutuallyExclusive handles single String value in DataModel
+00:02 +15: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker mutuallyExclusive handles single String value in DataModel
+00:02 +16: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker mutuallyExclusive handles single String value in DataModel
+00:02 +17: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker mutuallyExclusive handles single String value in DataModel
+00:03 +18: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/column_test.dart: Column widget renders children
+00:03 +19: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/column_test.dart: Column widget renders children
+00:03 +20: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker renders chips and supports filtering
+00:03 +21: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/choice_picker_test.dart: ChoicePicker renders chips and supports filtering
+00:03 +22: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: renders and handles explicit updates
+00:03 +23: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: renders and handles explicit updates
+00:03 +24: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: renders and handles explicit updates
+00:03 +25: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: renders and handles explicit updates
+00:03 +26: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/divider_test.dart: Divider widget renders
+00:04 +27: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/divider_test.dart: Divider widget renders
+00:04 +28: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: combined mode aborts update when time picker is cancelled
+00:04 +29: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/date_time_input_test.dart: combined mode aborts update when time picker is cancelled
+00:04 +30: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/image_test.dart: Image widget handles network error gracefully
+00:04 +31: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/image_test.dart: Image widget handles network error gracefully
+00:04 +32: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/image_test.dart: Image widget handles network error gracefully
+00:05 +33: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/image_test.dart: Image widget handles network error gracefully
+00:05 +34: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/list_test.dart: List widget renders children
+00:05 +35: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/list_test.dart: List widget renders children
+00:05 +36: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/list_test.dart: List widget renders children
+00:05 +37: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/list_test.dart: List widget renders children
+00:05 +38: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/modal_test.dart: Modal widget renders and handles taps
+00:05 +39: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/modal_test.dart: Modal widget renders and handles taps
+00:05 +40: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/modal_test.dart: Modal widget renders and handles taps
+00:05 +41: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/modal_test.dart: Modal widget renders and handles taps
+00:06 +42: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/row_test.dart: Row widget renders children
+00:06 +43: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/slider_test.dart: Slider widget renders and handles changes
+00:06 +44: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/slider_test.dart: Slider widget renders and handles changes
+00:06 +45: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/slider_test.dart: Slider widget renders and handles changes
+00:06 +46: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +47: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +48: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +49: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +50: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +51: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:06 +52: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:07 +53: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:07 +54: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/tabs_test.dart: Tabs widget renders and handles taps
+00:07 +55: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/text_field_test.dart: TextField with no weight in Row defaults to weight: 1 and expands
+00:07 +56: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/text_field_test.dart: TextField with no weight in Row defaults to weight: 1 and expands
+00:07 +57: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/text_test.dart: Text widget renders literal string
+00:07 +58: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets/text_test.dart: Text widget renders literal string
+00:07 +59: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +60: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +61: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +62: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +63: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +64: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +65: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +66: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +67: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +68: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:07 +69: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/core_widgets_test.dart: Basic Widgets Button renders and handles taps
+00:08 +70: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +71: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +72: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +73: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +74: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +75: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog/functions_rendering_test.dart: Surface renders function output correctly
+00:08 +76: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog_test.dart: Catalog buildWidget finds and builds the correct widget
+00:08 +77: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/catalog_test.dart: Catalog buildWidget finds and builds the correct widget
+00:08 +78: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +79: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +80: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +81: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +82: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +83: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +84: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +85: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +86: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +87: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +88: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +89: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +90: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +91: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +92: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +93: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +94: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +95: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +96: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +97: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +98: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +99: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +100: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +101: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:08 +102: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +103: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +104: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +105: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +106: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +107: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +108: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +109: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +110: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +111: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +112: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +113: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +114: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +115: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +116: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +117: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +118: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +119: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +120: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +121: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +122: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +123: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +124: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +125: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +126: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +127: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +128: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +129: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +130: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +131: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +132: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +133: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +134: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +135: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +136: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +137: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +138: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +139: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +140: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +141: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:09 +142: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +143: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +144: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +145: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +146: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +147: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +148: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +149: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +150: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +151: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] SurfaceController.handleMessage received: UpdateComponentsMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] SurfaceController.handleMessage received: UpdateComponentsMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] SurfaceController.handleMessage received: UpdateComponentsMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] SurfaceController.handleMessage received: UpdateComponentsMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] SurfaceController.handleMessage received: CreateSurfaceMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] SurfaceController.handleMessage received: CreateSurfaceMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] SurfaceController.handleMessage received: CreateSurfaceMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] SurfaceController.handleMessage received: CreateSurfaceMessage
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] Created new surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] Created new surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] Created new surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] Created new surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[FINE] Building surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[FINE] Building surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[FINE] Building surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[FINE] Building surface testSurface
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[FINEST] Building widget root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[FINEST] Building widget root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[FINEST] Building widget root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[FINEST] Building widget root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] Building widget Button with id root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] Building widget Button with id root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] Building widget Button with id root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] Building widget Button with id root
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[FINEST] Building widget button_text
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[FINEST] Building widget button_text
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[FINEST] Building widget button_text
+00:10 +152: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[FINEST] Building widget button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] Building widget Text with id button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] Building widget Text with id button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] Building widget Text with id button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] Building widget Text with id button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[INFO] Building Button with child: button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[INFO] Building Button with child: button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[INFO] Building Button with child: button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[INFO] Building Button with child: button_text
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiValidationException is reported cleanly as VALIDATION_FAILED
+[SEVERE] Error executing function call "crashFunc" on button press
+  Error: Instance of 'TypeError'
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests A2uiFunctionException is reported as FUNCTION_EXECUTION_FAILED
+[SEVERE] Error executing function call "crashFunc" on button press
+  Error: Instance of 'TypeError'
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Raw VM exceptions are completely masked as INTERNAL_ERROR
+[SEVERE] Error executing function call "crashFunc" on button press
+  Error: Instance of 'TypeError'
+00:10 +153: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+[SEVERE] Error executing function call "crashFunc" on button press
+  Error: Instance of 'TypeError'
+00:10 +154: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +155: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +156: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core/a2ui_message_processor_validation_test.dart: SurfaceController Validation CreateSurface fails schema validation for invalid component
+00:10 +157: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +158: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +159: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +160: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +161: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +162: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +163: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +164: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +165: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +166: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +167: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +168: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +169: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/error_boundary_test.dart: Secure Error Boundary Tests Button widget handles action VM throws by wrapping in A2uiFunctionException
+00:10 +170: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +171: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +172: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +173: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +174: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +175: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +176: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +177: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:10 +178: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +179: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +180: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +181: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +182: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +183: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +184: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +185: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +186: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +187: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +188: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +189: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +190: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +191: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +192: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +193: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +194: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +195: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +196: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:11 +197: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +198: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +199: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +200: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +201: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +202: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +203: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +204: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +205: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +206: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +207: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +208: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +209: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +210: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +211: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +212: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +213: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +214: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +215: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +216: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +217: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +218: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +219: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +220: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +221: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +222: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:12 +223: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +224: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +225: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +226: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +227: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +228: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Button examples are valid
+00:13 +229: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/model/client_function_test.dart: Catalog and DataContext integration with Synchronous and Asynchronous functions resolves sync function call via DataContext
+00:13 +230: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +231: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +232: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +233: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +234: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +235: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +236: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +237: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +238: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +239: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +240: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +241: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +242: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +243: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +244: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +245: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +246: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +247: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +248: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +249: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +250: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +251: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +252: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +253: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +254: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +255: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +256: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +257: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +258: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +259: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +260: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +261: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +262: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +263: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +264: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +265: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +266: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +267: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +268: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +269: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +270: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +271: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +272: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +273: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +274: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +275: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +276: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +277: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +278: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +279: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +280: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +281: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +282: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +283: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +284: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +285: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +286: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +287: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +288: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +289: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +290: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +291: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +292: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +293: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +294: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +295: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +296: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +297: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +298: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +299: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +300: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +301: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +302: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +303: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +304: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +305: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +306: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +307: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +308: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +309: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:13 +310: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +311: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +312: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +313: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +314: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +315: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +316: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +317: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Card examples are valid
+00:14 +318: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +319: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +320: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +321: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +322: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +323: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +324: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +325: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:14 +326: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +327: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +328: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +329: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +330: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +331: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +332: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +333: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +334: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +335: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +336: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +337: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +338: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +339: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +340: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +341: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +342: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +343: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +344: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +345: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +346: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +347: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +348: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +349: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +350: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +351: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +352: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem CheckBox examples are valid
+00:15 +353: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Column examples are valid
+00:16 +354: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Column examples are valid
+00:16 +355: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Column examples are valid
+00:16 +356: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Column examples are valid
+00:17 +357: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Column examples are valid
+00:17 +358: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem DateTimeInput examples are valid
+00:21 +359: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Divider examples are valid
+00:23 +360: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Icon examples are valid
+00:24 +361: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Image examples are valid
+00:25 +362: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem List examples are valid
+00:27 +363: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Modal examples are valid
+00:28 +364: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem ChoicePicker examples are valid
+00:30 +365: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Row examples are valid
+00:31 +366: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Slider examples are valid
+00:33 +367: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Tabs examples are valid
+00:34 +368: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Text examples are valid
+00:36 +369: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem TextField examples are valid
+00:44 +370: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Basic Catalog Validation CatalogItem Video examples are valid
+00:45 +371: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Catalog Validation Error Paths ExampleValidationError toString
+00:45 +372: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Catalog Validation Error Paths validateCatalogItemExamples invalid JSON
+00:45 +373: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Catalog Validation Error Paths validateCatalogItemExamples missing root component
+00:45 +374: C:/Users/tangyh/orca/workspaces/Workspace/work-genui-research/work/genui/packages/genui/test/core_catalog_validation_test.dart: Catalog Validation Error Paths validateCatalogItemExamples schema validation failure
+00:47 +375: All tests passed!

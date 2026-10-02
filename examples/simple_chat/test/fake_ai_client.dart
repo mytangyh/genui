@@ -22,6 +22,10 @@ class FakeAiClient implements AiClient {
   final List<String> _receivedPrompts = [];
   List<String> get receivedPrompts => List.unmodifiable(_receivedPrompts);
 
+  final List<List<dartantic.ChatMessage>> _receivedHistories = [];
+  List<List<dartantic.ChatMessage>> get receivedHistories =>
+      List.unmodifiable(_receivedHistories);
+
   Stream<core.A2uiMessage> get a2uiMessageStream =>
       _a2uiMessageController.stream;
 
@@ -38,6 +42,7 @@ class FakeAiClient implements AiClient {
     required List<dartantic.ChatMessage> history,
   }) async* {
     _receivedPrompts.add(prompt);
+    _receivedHistories.add(List.unmodifiable(history));
     if (_responses.isEmpty) {
       yield 'I have no response for that.';
       return;
@@ -48,11 +53,10 @@ class FakeAiClient implements AiClient {
     // Simulate streaming by yielding characters or chunks
     // For simplicity, we can just yield the whole thing or split it.
     // Let's split it into small chunks to simulate network.
-    const chunkSize = 10;
-    for (var i = 0; i < response.length; i += chunkSize) {
-      final int end = (i + chunkSize < response.length)
-          ? i + chunkSize
-          : response.length;
+    const int chunkSize = 10;
+    for (int i = 0; i < response.length; i += chunkSize) {
+      final int end =
+          (i + chunkSize < response.length) ? i + chunkSize : response.length;
       yield response.substring(i, end);
       // tiny delay
       await Future<void>.delayed(const Duration(milliseconds: 10));

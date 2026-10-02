@@ -1,0 +1,88 @@
+{
+  "validatedAt": "2026-10-02 04:54:11 UTC",
+  "flutter": "3.27.4",
+  "dart": "3.6.2",
+  "platform": "Android",
+  "device": {
+    "model": "Redmi 7A",
+    "serial": "62f1ca2e0906",
+    "android": "11",
+    "api": 30
+  },
+  "provider": "OpenAI-compatible Chat Completions via Dartantic",
+  "baseUrl": "https://gemini.bukexue.de/v1",
+  "model": "gpt-5.6-luna",
+  "secretLocation": "ignored .compat-local/model.json; no credential content recorded",
+  "offline": {
+    "passed": 7,
+    "entrypoint": "integration_test/app_test.dart",
+    "evidence": "simple-chat-offline-android.txt"
+  },
+  "live": {
+    "passed": 3,
+    "entrypoint": "integration_test/live_model_test.dart",
+    "evidence": "simple-chat-live-android.txt",
+    "usesFakeAiClient": false,
+    "modes": [
+      {
+        "mode": "Text only",
+        "requests": 2,
+        "chunks": [
+          5,
+          5
+        ],
+        "lastHistoryMessages": 4,
+        "checks": [
+          "streaming",
+          "rendered reply",
+          "previous-turn recall"
+        ]
+      },
+      {
+        "mode": "Basic catalog",
+        "requests": 2,
+        "chunks": [
+          199,
+          4
+        ],
+        "action": "compatContinue",
+        "checks": [
+          "generated button",
+          "actual UI action returned",
+          "model follow-up rendered",
+          "history"
+        ]
+      },
+      {
+        "mode": "Custom catalog",
+        "requests": 2,
+        "chunks": [
+          164,
+          56
+        ],
+        "tool": "listClimbingLocations",
+        "toolCalls": 1,
+        "action": "learnMoreAboutLocation",
+        "checks": [
+          "actual tool callback",
+          "Kraft Boulders card rendered",
+          "action context returned",
+          "model details follow-up rendered",
+          "history"
+        ]
+      }
+    ]
+  },
+  "media": {
+    "passed": 2,
+    "entrypoint": "integration_test/media_plugin_test.dart",
+    "evidence": "media-android-integration.txt",
+    "note": "Earlier real-device audio/video evidence; no plugin code change this turn"
+  },
+  "unit": {
+    "passed": 3,
+    "evidence": "simple-chat-unit-provider-compat.txt"
+  },
+  "otherPlatforms": "Not required by latest user scope; unverified",
+  "mainEntrypoint": "Separate main.dart build/start validation is recorded separately"
+}

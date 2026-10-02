@@ -1,0 +1,37 @@
+[INFO] Generating build script...
+[INFO] Generating build script completed, took 321ms
+
+[INFO] Initializing inputs
+[INFO] Reading cached asset graph...
+[INFO] Reading cached asset graph completed, took 93ms
+
+[INFO] Checking for updates since last build...
+[INFO] Checking for updates since last build completed, took 766ms
+
+[WARNING] Invalidating asset graph due to build script update!
+[INFO] Cleaning up outputs from previous builds....
+[INFO] Cleaning up outputs from previous builds. completed, took 2ms
+
+[INFO] Generating build script...
+[INFO] Generating build script completed, took 96ms
+
+[WARNING] Invalidated precompiled build script due to missing asset graph.
+[INFO] Precompiling build script......
+[INFO] Precompiling build script... completed, took 3.9s
+
+[INFO] Initializing inputs
+[INFO] Building new asset graph...
+[INFO] Building new asset graph completed, took 877ms
+
+[INFO] Checking for unexpected pre-existing outputs....
+[INFO] Deleting 1 declared outputs which already existed on disk.
+[INFO] Checking for unexpected pre-existing outputs. completed, took 1ms
+
+[INFO] Running build...
+[INFO] Running build completed, took 21ms
+
+[INFO] Caching finalized dependency graph...
+[INFO] Caching finalized dependency graph completed, took 64ms
+
+[INFO] Succeeded after 94ms with 1 outputs (1 actions)
+

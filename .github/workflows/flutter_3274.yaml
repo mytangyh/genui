@@ -1,0 +1,101 @@
+# Copyright 2026 The Flutter Authors.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+name: Flutter 3.27.4 compatibility
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['compat/flutter-3.27.4']
+  pull_request:
+    branches: ['compat/flutter-3.27.4']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: compat-3274-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dependency_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.refs.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          persist-credentials: false
+      - name: Read fixed dependency fork commits
+        id: refs
+        shell: pwsh
+        run: |
+          $refs = Get-Content -LiteralPath 'docs/compatibility/fork-references.json' -Raw | ConvertFrom-Json
+          if ($refs.status -ne 'delivery') { throw 'Dependency references are not ready for delivery.' }
+          foreach ($repo in $refs.repositories) {
+            if ($repo.commit -notmatch '^[0-9a-f]{40}$') { throw "Missing fixed commit for $($repo.name)." }
+          }
+          $matrix = @{ include = @($refs.repositories | Select-Object name, repository, commit) } | ConvertTo-Json -Depth 5 -Compress
+          Add-Content -LiteralPath $env:GITHUB_OUTPUT -Value "matrix=$matrix"
+
+  dependencies:
+    needs: dependency_matrix
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.dependency_matrix.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          path: genui
+          persist-credentials: false
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          repository: ${{ matrix.repository }}
+          ref: ${{ matrix.commit }}
+          path: dependency
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with:
+          flutter-version: '3.27.4'
+          channel: stable
+      - name: Check dependency source, format, analysis and offline upstream tests
+        shell: pwsh
+        env:
+          COMPAT_REPOSITORY: ${{ matrix.name }}
+        run: ./genui/tool/compatibility/verify_dependency.ps1 -Repository $env:COMPAT_REPOSITORY -Checkout ./dependency -SystemSdk
+
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with:
+          flutter-version: '3.27.4'
+          channel: stable
+      - name: Verify fixed sources, schema generation and supported packages
+        shell: pwsh
+        run: ./tool/compatibility/verify.ps1 -Scope Core -SystemSdk
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          submodules: recursive
+          persist-credentials: false
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with:
+          flutter-version: '3.27.4'
+          channel: stable
+      - name: Build the official example main entrypoint
+        shell: pwsh
+        run: ./tool/compatibility/verify.ps1 -Scope Android -SystemSdk
